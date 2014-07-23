@@ -2,11 +2,14 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>{{ title }} | majodev.com</title>
+    <title>{{ title }} | {{ _url}}</title>
   </head>
   <body>
     {{> header}}
     <div class="contents">{{{ contents }}}</div>
     {{> footer}}
+    {{#if _url}}
+      <script src="//localhost:35729/livereload.js"></script>
+    {{/if}}
   </body>
 </html>

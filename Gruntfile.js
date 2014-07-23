@@ -12,7 +12,8 @@ module.exports = function(grunt) {
         files: ['content/**/*.*', "templates/**/*.*", "index.js"],
         tasks: ['execute'],
         options: {
-          interrupt: false
+          interrupt: false,
+          livereload: true
         }
       }
     }
@@ -21,6 +22,5 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-execute');
   grunt.loadNpmTasks('grunt-contrib-watch');
 
-  grunt.registerTask('default', ["execute"]);
-
+  grunt.registerTask('default', ["execute", "watch"]);
 };

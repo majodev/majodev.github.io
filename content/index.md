@@ -6,4 +6,4 @@ collection: page
 
 Welcome to my page, *asshole!*
 
-###Some info!
+###Some info! RALZ!

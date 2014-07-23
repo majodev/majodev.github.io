@@ -6,6 +6,10 @@ var collections = require("metalsmith-collections");
 Metalsmith(__dirname)
   .source("./content")
   .destination("./build")
+  .metadata({
+    _dev: true,
+    _url: "majodev.com"
+  })
   .use(markdown())
   .use(collections({
     notes: {
@@ -25,7 +29,5 @@ Metalsmith(__dirname)
   .build(function(error) {
     if (error) {
       throw error;
-    } else {
-      console.log(new Date() + ": generated.");
     }
   });
