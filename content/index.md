@@ -1,9 +1,9 @@
 ---
 title: home
 template: default.hbs
-collection: page
+sequence: 1
 ---
 
-Welcome to my page, *asshole!*
+Welcome to my page, **asshole!**
 
-###Some info! RALZ!
+*Fuck off.*
