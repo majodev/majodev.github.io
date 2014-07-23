@@ -1,11 +1,14 @@
 {{> pre}}
-{{{ contents }}}
-<div class="note-nav">
-  {{#if next}}
+{{#if next}}
+  <div class="note-previous">
     <a href="/{{ next.path }}">previous: {{ next.title }}</a>
-  {{/if}}
-  {{#if previous}}
+  </div>
+{{/if}}
+<h1>{{title}}</h1>
+{{{ contents }}}
+{{#if previous}}
+  <div class="note-next">
     <a href="/{{ previous.path }}">next: {{ previous.title }}</a>
-  {{/if}}
-</div>
+  </div>
+{{/if}}
 {{> post}}

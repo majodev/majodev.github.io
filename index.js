@@ -4,26 +4,32 @@ var templates = require("metalsmith-templates");
 var collections = require("metalsmith-collections");
 var permalinks = require('metalsmith-permalinks');
 
+var deletehiddenfiles = require("./utils/metalsmith-deletehiddenfiles");
+var printfilesmeta = require("./utils/metalsmith-printfilesmeta");
+
 Metalsmith(__dirname)
   .metadata({
     _dev: true,
-    _url: "majodev.com"
+    _sitename: "majodev.com"
   })
   .source("./content")
   .destination("./build")
+  .use(deletehiddenfiles())
   .use(collections({
     pages: {
       pattern: "*.*",
       sortBy: "sequence"
     },
     notes: {
-      pattern: "notes/*.*",
+      pattern: "notes/**/*.md",
       sortBy: "date",
       reverse: true
     }
   }))
   .use(markdown())
-  .use(permalinks())
+  .use(permalinks({
+    relative: false
+  }))
   .use(templates({
     engine: "handlebars",
     directory: "templates",
@@ -31,19 +37,11 @@ Metalsmith(__dirname)
       pre: "partials/pre",
       post: "partials/post",
       header: "partials/header",
-      footer: "partials/footer"
+      footer: "partials/footer",
+      scripts: "partials/scripts"
     }
   }))
-  .use(function(files, metalsmith, done) {
-    for (var file in files) {
-      if(file[0] === "." || file.indexOf("/.") !== -1) { // delete any hidden files (osx)
-        delete files[file];
-      } else {
-        console.log("file: " + file + " - meta keys: " + Object.keys(files[file]));
-      }
-    }
-    done();
-  })
+  .use(printfilesmeta())
   .build(function(error) {
     if (error) {
       throw error;

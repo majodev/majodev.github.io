@@ -6,4 +6,4 @@ sequence: 1
 
 Welcome to my page, **asshole!**
 
-*Fuck off.*
+*Fuck off.* NOW!
