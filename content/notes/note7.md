@@ -1,5 +1,5 @@
 ---
-title: Note 7
+title: Code highlighting
 template: note.hbs
 date: 2014-06-11
 ---

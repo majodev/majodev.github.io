@@ -1,5 +1,5 @@
 ---
-title: Note 5
+title: JS test
 template: note.hbs
 date: 2014-06-08
 ---

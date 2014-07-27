@@ -1,5 +1,5 @@
 ---
-title: Note 2
+title: Hating them
 template: note.hbs
 date: 2014-06-02
 ---

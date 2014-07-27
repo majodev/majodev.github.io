@@ -1,5 +1,5 @@
 ---
-title: Note 6
+title: Permalinks suck
 template: note.hbs
 date: 2014-06-09
 ---

@@ -1,5 +1,5 @@
 ---
-title: Note 4
+title: Fuck Computers (Gif test)
 template: note.hbs
 date: 2014-06-07
 ---

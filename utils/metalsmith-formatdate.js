@@ -21,7 +21,7 @@ function plugin() {
         return;
       }
 
-      files[file].formattedDate = moment(files[file].date).format("MMMM Do YYYY");
+      files[file].formattedDate = moment(files[file].date).format("DD MMM YYYY");
 
     });
   };

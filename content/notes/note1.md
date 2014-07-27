@@ -1,5 +1,5 @@
 ---
-title: Note 1
+title: Starting up
 template: note.hbs
 date: 2014-06-01
 ---
