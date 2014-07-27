@@ -1,0 +1,13 @@
+---
+title: notes
+template: default.hbs
+sequence: 2
+---
+
+Markdown **TEST!** *test yay!*
+
+<div class="notes">
+  {{#each collections.notes}}
+    <a href="/{{ path }}">{{ title }}</a><br />
+  {{/each}}
+</div>
