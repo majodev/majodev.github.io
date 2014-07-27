@@ -1,6 +1,7 @@
 ---
 title: Computers
-template: note.hbs
 date: 2014-06-03
+tags:
+- starting
 ---
 especially writing with computers...

@@ -1,7 +1,9 @@
 ---
 title: JS test
-template: note.hbs
 date: 2014-06-08
+tags:
+- testing
+- javascript
 ---
 trying out if JavaScript works within notes...
 

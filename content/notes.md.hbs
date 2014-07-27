@@ -8,6 +8,6 @@ Markdown **TEST!** *test yay!*
 
 <div class="notes">
   {{#each collections.notes}}
-    <p><a href="/{{ path }}">{{ title }} </a> -- {{ formattedDate }}</p>
+    <p><a href="/{{ path }}">{{ title }} </a> -- {{ formattedDate }}{{#if tags}} -- {{tags}}{{/if}}</p>
   {{/each}}
 </div>

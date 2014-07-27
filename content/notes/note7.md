@@ -1,7 +1,8 @@
 ---
 title: Code highlighting
-template: note.hbs
-date: 2014-06-11
+date: 2014-07-27
+tags:
+- testing
 ---
 
 Let's test some code highlighting here...

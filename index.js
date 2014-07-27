@@ -3,6 +3,7 @@ var Metalsmith = require("metalsmith");
 var markdown = require("metalsmith-markdown");
 var templates = require("metalsmith-templates");
 var collections = require("metalsmith-collections");
+var fileMetadata = require('metalsmith-filemetadata');
 
 // custom metalsmith plugins
 var deletehiddenfiles = require("./utils/metalsmith-deletehiddenfiles");
@@ -34,6 +35,12 @@ Metalsmith(__dirname)
       reverse: true
     }
   }))
+  .use(fileMetadata([{
+    pattern: "notes/**/*.md",
+    metadata: {
+      "template": "note.hbs"
+    }
+  }]))
   .use(contenthandlebars())
   .use(markdown())
   .use(templates({
