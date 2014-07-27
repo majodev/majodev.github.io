@@ -14,7 +14,7 @@ module.exports = plugin;
 function plugin(){
   return function(files, metalsmith, done){
     for (var file in files) {
-      console.log("file: " + file + " - meta keys: " + Object.keys(files[file]));
+      console.log("- " + file + " (" + Object.keys(files[file]) + ")");
     }
     done();
   };

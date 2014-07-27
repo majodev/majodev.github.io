@@ -3,9 +3,9 @@ title: Note 5
 template: note.hbs
 date: 2014-06-08
 ---
-trying out if JavaScript works anyway...
+trying out if JavaScript works within notes...
 
-<div id="jsplayground">JAVASCRIPT IN HERE!</div>
+<div id="jsplayground">JaBaScrupt</div>
 
 *awesome*...
 
