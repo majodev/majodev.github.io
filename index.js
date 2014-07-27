@@ -10,6 +10,7 @@ var printfilesmeta = require("./utils/metalsmith-printfilesmeta");
 var contenthandlebars = require("./utils/metalsmith-contenthandlebars");
 var metasetpermalinks = require("./utils/metalsmith-metasetpermalinks");
 var metaapplypermalinks = require("./utils/metalsmith-metaapplypermalinks");
+var formatdate = require("./utils/metalsmith-formatdate");
 
 // config/build
 Metalsmith(__dirname)
@@ -21,6 +22,7 @@ Metalsmith(__dirname)
   .destination("./build")
   .use(deletehiddenfiles())
   .use(metasetpermalinks())
+  .use(formatdate())
   .use(collections({
     pages: {
       pattern: "*.*",
