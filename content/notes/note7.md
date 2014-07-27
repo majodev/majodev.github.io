@@ -1,5 +1,5 @@
 ---
-title: Code highlighting
+title: Code highlighting test
 date: 2014-07-27
 tags:
 - testing

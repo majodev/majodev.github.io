@@ -1,3 +1,6 @@
+// node libs
+var moment = require("moment");
+
 // metalsmith plugins
 var Metalsmith = require("metalsmith");
 var markdown = require("metalsmith-markdown");
@@ -17,7 +20,8 @@ var formatdate = require("./utils/metalsmith-formatdate");
 Metalsmith(__dirname)
   .metadata({
     _dev: true,
-    _sitename: "majodev.com"
+    _sitename: "majodev.com",
+    _builddate: moment().format("DD MMM YYYY, hh:mm:ss a"),
   })
   .source("./content")
   .destination("./build")

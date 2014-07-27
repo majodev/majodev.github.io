@@ -1,11 +1,11 @@
 ---
-title: JS test
+title: JavaScript test
 date: 2014-06-08
 tags:
 - testing
 - javascript
 ---
-trying out if JavaScript works within notes...
+trying out if JavaScript works within my notes...
 
 <div id="jsplayground">JaBaScrupt</div>
 
