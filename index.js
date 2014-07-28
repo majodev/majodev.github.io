@@ -9,12 +9,18 @@ var collections = require("metalsmith-collections");
 var fileMetadata = require('metalsmith-filemetadata');
 
 // custom metalsmith plugins
-var deletehiddenfiles = require("./plugins/metalsmith-deletehiddenfiles");
-var printfilesmeta = require("./plugins/metalsmith-printfilesmeta");
-var contenthandlebars = require("./plugins/metalsmith-contenthandlebars");
-var metasetpermalinks = require("./plugins/metalsmith-metasetpermalinks");
-var metaapplypermalinks = require("./plugins/metalsmith-metaapplypermalinks");
-var formatdate = require("./plugins/metalsmith-formatdate");
+var deletehiddenfiles = require("./scripts/metalsmith-deletehiddenfiles");
+var printfilesmeta = require("./scripts/metalsmith-printfilesmeta");
+var contenthandlebars = require("./scripts/metalsmith-contenthandlebars");
+var metasetpermalinks = require("./scripts/metalsmith-metasetpermalinks");
+var metaapplypermalinks = require("./scripts/metalsmith-metaapplypermalinks");
+var formatdate = require("./scripts/metalsmith-formatdate");
+
+// custom node scripts
+var registerPartials = require("./scripts/registerPartials");
+
+// register all Handlebars partials within directory
+registerPartials("templates/partials");
 
 // config/build
 Metalsmith(__dirname)
@@ -49,14 +55,7 @@ Metalsmith(__dirname)
   .use(markdown())
   .use(templates({
     engine: "handlebars",
-    directory: "templates",
-    partials: {
-      pre: "partials/pre",
-      post: "partials/post",
-      header: "partials/header",
-      footer: "partials/footer",
-      scripts: "partials/scripts"
-    }
+    directory: "templates"
   }))
   .use(metaapplypermalinks())
   .use(printfilesmeta())

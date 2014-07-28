@@ -12,7 +12,7 @@ var Handlebars = require("handlebars");
 module.exports = plugin;
 
 /**
- * Metalsmith plugin to complile handlebars files within content with current meta
+ * Metalsmith plugin to complile handlebars files within src with current meta
  *
  * @return {Function}
  */

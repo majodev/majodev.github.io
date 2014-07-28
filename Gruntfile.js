@@ -9,7 +9,7 @@ module.exports = function(grunt) {
     },
     watch: {
       scripts: {
-        files: ["src/**/*.*", "templates/**/*.*", "plugins/**/*.*", "index.js"],
+        files: ["src/**/*.*", "templates/**/*.*", "scripts/**/*.*", "index.js"],
         tasks: ["execute"],
         options: {
           interrupt: false,
