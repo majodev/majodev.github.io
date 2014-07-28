@@ -17,7 +17,7 @@ function registerPartials(directory) {
       return;
     }
     var name = matches[1];
-    console.log(name);
+    //console.log(name);
     var template = fs.readFileSync(partialsDir + '/' + filename, 'utf8');
     Handlebars.registerPartial(name, template);
   });
