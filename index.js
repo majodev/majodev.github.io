@@ -9,12 +9,12 @@ var collections = require("metalsmith-collections");
 var fileMetadata = require('metalsmith-filemetadata');
 
 // custom metalsmith plugins
-var deletehiddenfiles = require("./utils/metalsmith-deletehiddenfiles");
-var printfilesmeta = require("./utils/metalsmith-printfilesmeta");
-var contenthandlebars = require("./utils/metalsmith-contenthandlebars");
-var metasetpermalinks = require("./utils/metalsmith-metasetpermalinks");
-var metaapplypermalinks = require("./utils/metalsmith-metaapplypermalinks");
-var formatdate = require("./utils/metalsmith-formatdate");
+var deletehiddenfiles = require("./plugins/metalsmith-deletehiddenfiles");
+var printfilesmeta = require("./plugins/metalsmith-printfilesmeta");
+var contenthandlebars = require("./plugins/metalsmith-contenthandlebars");
+var metasetpermalinks = require("./plugins/metalsmith-metasetpermalinks");
+var metaapplypermalinks = require("./plugins/metalsmith-metaapplypermalinks");
+var formatdate = require("./plugins/metalsmith-formatdate");
 
 // config/build
 Metalsmith(__dirname)
@@ -23,7 +23,7 @@ Metalsmith(__dirname)
     _sitename: "majodev.com",
     _builddate: moment().format("DD MMM YYYY, hh:mm:ss a"),
   })
-  .source("./content")
+  .source("./src")
   .destination("./build")
   .use(deletehiddenfiles())
   .use(metasetpermalinks())
