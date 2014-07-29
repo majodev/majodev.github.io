@@ -34,6 +34,7 @@ module.exports = function(grunt) {
         files: [{
           expand: true,
           flatten: true,
+          nonull: true,
           src: ["bower_components/normalize.css/normalize.css",
           "bower_components/jquery/dist/jquery.js", 
           "bower_components/history.js/scripts/bundled-uncompressed/html4+html5/jquery.history.js"],
