@@ -8,7 +8,7 @@ var templates = require("metalsmith-templates");
 var collections = require("metalsmith-collections");
 var fileMetadata = require('metalsmith-filemetadata');
 
-// custom metalsmith plugins
+// custom metalsmith scripts (aka plugins)
 var deletehiddenfiles = require("./scripts/metalsmith-deletehiddenfiles");
 var printfilesmeta = require("./scripts/metalsmith-printfilesmeta");
 var contenthandlebars = require("./scripts/metalsmith-contenthandlebars");

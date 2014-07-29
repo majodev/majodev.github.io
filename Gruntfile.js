@@ -28,12 +28,29 @@ module.exports = function(grunt) {
         defaultExt: "html",
         runInBackground: true
       }
+    },
+    copy: {
+      bower_components: {
+        files: [{
+          expand: true,
+          flatten: true,
+          src: ["bower_components/normalize.css/normalize.css",
+          "bower_components/jquery/dist/jquery.js", 
+          "bower_components/history.js/scripts/bundled-uncompressed/html4+html5/jquery.history.js"],
+          dest: "src/assets/vendor/"
+        }]
+      }
+    },
+    clean: {
+      prebuild: ["build", "src/assets/vendor"]
     }
   });
 
   grunt.loadNpmTasks("grunt-execute");
   grunt.loadNpmTasks("grunt-contrib-watch");
   grunt.loadNpmTasks("grunt-http-server");
+  grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-contrib-clean');
 
-  grunt.registerTask("default", ["execute", "http-server:dev", "watch"]);
+  grunt.registerTask("default", ["clean", "copy", "execute", "http-server:dev", "watch"]);
 };
