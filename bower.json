@@ -1,0 +1,26 @@
+{
+  "name": "majodev-metalsmith",
+  "main": "index.js",
+  "version": "0.0.0",
+  "authors": [
+    "majodev <contact@majodev.com>"
+  ],
+  "description": "Mario Ranftls website",
+  "keywords": [
+    "majodev",
+    "webpage"
+  ],
+  "license": "MIT",
+  "homepage": "majodev.com",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "normalize.css": "~3.0.1"
+  }
+}
