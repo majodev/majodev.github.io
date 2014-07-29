@@ -15,9 +15,6 @@ function plugin() {
 
   return function(files, metalsmith, done) {
     setImmediate(done);
-    
-    //console.log(metalsmith.data);
-    //metalsmith.data._formattedBuilddate = moment(metalsmith.data._builddate).format("DD MMM YYYY");
 
     Object.keys(files).forEach(function(file) {
       

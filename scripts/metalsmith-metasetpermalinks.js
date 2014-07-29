@@ -34,14 +34,16 @@ function plugin() {
 
       // add index
       if (postfix !== "index") {
-        if(targetname === "") {
+        if (targetname === "") {
           targetname += postfix;
         } else {
           targetname += "/" + postfix;
         }
       }
 
-      // console.log(targetname);
+      targetname += "/";
+
+      //console.log(targetname);
 
       // set path meta property!
       files[file].path = targetname;

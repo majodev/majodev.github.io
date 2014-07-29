@@ -27,12 +27,11 @@ function plugin() {
       var data = files[file];
       delete files[file];
 
-      if (data.path === "") {
-        files[data.path + "index.html"] = data;
+      if (data.path === "/") {
+        files["index.html"] = data;
       } else {
-        files[data.path + "/index.html"] = data;
+        files[data.path + "index.html"] = data;
       }
-
 
     });
   };
