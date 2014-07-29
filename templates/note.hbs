@@ -4,14 +4,16 @@
     <a href="/{{ next.path }}">previous: {{ next.title }}</a>
   </div>
 {{/if}}
-<h1>{{title}}</h1>
-<h2>{{formattedDate}}</h2>
-{{#if tags}}
-  <div class="note-tags">
-    <h3>tags: {{#each tags}} #{{this}} {{/each}}</h3>
-  </div>
-{{/if}}
-{{{ contents }}}
+<article>
+  <h1>{{title}}</h1>
+  <h2>{{formattedDate}}</h2>
+  {{#if tags}}
+    <div class="note-tags">
+      <h3>tags: {{#each tags}} #{{this}} {{/each}}</h3>
+    </div>
+  {{/if}}
+  {{{ contents }}}
+</article>
 {{#if previous}}
   <div class="note-next">
     <a href="/{{ previous.path }}">next: {{ previous.title }}</a>
