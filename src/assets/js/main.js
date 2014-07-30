@@ -30,6 +30,13 @@ jQuery(function($) {
           "scrollTop": 0
         });
 
+        // stop old running javascript...
+        if (typeof window.dealloc !== "undefined") {
+          window.dealloc();
+          window.dealloc = undefined;
+          //console.log("dealloc js");
+        }
+
         targetContainer.fadeOut(FADE_TIME_MS, function() {
           //console.log(html.filter("#main-content")[0]);
           targetContainer.html($(html.filter("#main-content")[0]).children());

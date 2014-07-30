@@ -45,7 +45,7 @@ function plugin() {
         targetname += "/";
       }
 
-      console.log(targetname);
+      // console.log(targetname);
 
       // set path meta property!
       files[file].path = targetname;
