@@ -41,12 +41,12 @@ jQuery(function($) {
           //console.log(html.filter("#main-content")[0]);
           targetContainer.html($(html.filter("#main-content")[0]).children());
           targetContainer.fadeIn(FADE_TIME_MS);
-
           loading = false;
         });
       },
-      error: function(data) {
-        console.log("error: " + data);
+      error: function(error) {
+        console.error(error);
+        loading = false;
       }
     });
   });
@@ -68,10 +68,6 @@ jQuery(function($) {
         }
       }
     }
-  });
-
-  $(document).ajaxError(function() {
-    console.log("ajax error!");
   });
 
   // via http://stackoverflow.com/questions/9404793/check-if-same-origin-policy-applies
