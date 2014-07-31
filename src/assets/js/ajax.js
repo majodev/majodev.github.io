@@ -48,7 +48,7 @@ jQuery(function($) {
         });
       },
       error: function(error) {
-        console.error(error);
+        console.error("AJAX error" + error);
         loading = false;
       }
     });
