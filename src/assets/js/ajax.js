@@ -2,7 +2,7 @@ jQuery(function($) {
 
   // adapted from https://github.com/roryg/ghostwriter/blob/master/assets/js/scripts.js
 
-  var FADE_TIME_MS = 150;
+  var FADE_TIME_MS = 200;
 
   var History = window.History;
   var targetContainer = $("#main-content");
@@ -32,9 +32,12 @@ jQuery(function($) {
 
         // stop old running javascript...
         if (typeof window.dealloc !== "undefined") {
-          window.dealloc();
-          window.dealloc = undefined;
-          //console.log("dealloc js");
+          try {
+            window.dealloc();
+            window.dealloc = undefined;
+          } catch (e) {
+            console.error("ajax: could not dealloc previous running script! error:" + e);
+          }
         }
 
         targetContainer.fadeOut(FADE_TIME_MS, function() {

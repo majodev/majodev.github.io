@@ -1,3 +1,5 @@
+var _ = require("lodash");
+
 var basename = require('path').basename;
 var dirname = require('path').dirname;
 var extname = require('path').extname;
@@ -20,7 +22,7 @@ function plugin() {
     setImmediate(done);
     Object.keys(files).forEach(function(file) {
 
-      if (typeof files[file].path === "undefined") {
+      if (_.isUndefined(files[file].path)) {
         return;
       }
 

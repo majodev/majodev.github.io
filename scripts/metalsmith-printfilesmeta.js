@@ -1,4 +1,4 @@
-
+var _ = require("lodash");
 /**
  * Expose `plugin`.
  */
@@ -11,11 +11,15 @@ module.exports = plugin;
  * @return {Function}
  */
 
-function plugin(){
-  return function(files, metalsmith, done){
-    for (var file in files) {
-      console.log("- " + file + " (" + Object.keys(files[file]) + ")");
-    }
-    done();
+function plugin(options) {
+  return function(files, metalsmith, done) {
+    setImmediate(done);
+    Object.keys(files).forEach(function(file) {
+      if (_.isUndefined(options) === false && _.isUndefined(options.printMetaKeys) === false && options.printMetaKeys === true) {
+        console.log("- " + file + " (" + Object.keys(files[file]) + ")");
+      } else {
+        console.log("- " + file);
+      }
+    });
   };
 }

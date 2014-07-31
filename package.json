@@ -12,6 +12,7 @@
   "license": "MIT",
   "dependencies": {
     "handlebars": "^2.0.0-alpha.4",
+    "lodash": "^2.4.1",
     "metalsmith": "^0.9.0",
     "metalsmith-collections": "^0.4.1",
     "metalsmith-filemetadata": "0.0.1",

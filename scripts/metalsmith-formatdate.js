@@ -1,3 +1,4 @@
+var _ = require("lodash");
 var moment = require("moment");
 /**
  * Expose `plugin`.
@@ -18,7 +19,7 @@ function plugin() {
 
     Object.keys(files).forEach(function(file) {
       
-      if (typeof files[file].date !== "undefined") {
+      if (_.isUndefined(files[file].date) === false) {
         files[file].formattedDate = moment(files[file].date).format("DD MMM YYYY");
       }
 

@@ -58,7 +58,9 @@ Metalsmith(__dirname)
     directory: "templates"
   }))
   .use(metaapplypermalinks())
-  .use(printfilesmeta())
+  .use(printfilesmeta({
+    printMetaKeys: false
+  }))
   .build(function(error) {
     if (error) {
       throw error;

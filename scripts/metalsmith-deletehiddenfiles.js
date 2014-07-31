@@ -1,4 +1,3 @@
-
 /**
  * Expose `plugin`.
  */
@@ -11,13 +10,13 @@ module.exports = plugin;
  * @return {Function}
  */
 
-function plugin(){
-  return function(files, metalsmith, done){
-    for (var file in files) {
-      if(file[0] === "." || file.indexOf("/.") !== -1) { // delete any hidden files (osx)
+function plugin() {
+  return function(files, metalsmith, done) {
+    setImmediate(done);
+    Object.keys(files).forEach(function(file) {
+      if (file[0] === "." || file.indexOf("/.") !== -1) { // delete any hidden files (osx)
         delete files[file];
       }
-    }
-    done();
+    });
   };
 }
