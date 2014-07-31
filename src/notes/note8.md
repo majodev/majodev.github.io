@@ -22,19 +22,20 @@ Dedi corpora, ne maximus, meo somnus, **genetrix** vivit partes herbae, huc. Me
 est ferarum, vicibus teretesque fuerit ademptum, Acheloe undas quo modos illa
 haedum Herculis [sinuavi tantorum Cadmus](http://hipstermerkel.tumblr.com/) ora.
 
-    if (drag - hypertext) {
-        xmp.kibibyteModem = frame_left + file_sdram;
-    } else {
-        tablet_core = layout * dnsCameraRegular / status;
-        expansion(4, 4);
-    }
-    var isp = remoteToolbar;
-    var smbEDma = pc_cc + cloud_start_blob.voip_bar(
-            interpreterTroubleshootingOdbc, printerSessionKindle, configuration
-            * remoteBar);
-    var console_engine_pinterest = dbms_design(2 / targetPpi);
-    mainframeRestore(rfidPage(kilohertz_malware + bridge_responsive, printer));
-
+```actionscript
+if (drag - hypertext) {
+    xmp.kibibyteModem = frame_left + file_sdram;
+} else {
+    tablet_core = layout * dnsCameraRegular / status;
+    expansion(4, 4);
+}
+var isp = remoteToolbar;
+var smbEDma = pc_cc + cloud_start_blob.voip_bar(
+        interpreterTroubleshootingOdbc, printerSessionKindle, configuration
+        * remoteBar);
+var console_engine_pinterest = dbms_design(2 / targetPpi);
+mainframeRestore(rfidPage(kilohertz_malware + bridge_responsive, printer));
+``` 
 ## Nec nec semihomines figat ramos molli manes
 
 Conrepta causam. Mihi ramos; sibi potui suberant capillos studiosus indicat

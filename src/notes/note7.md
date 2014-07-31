@@ -7,6 +7,8 @@ tags:
 
 Let's test some code highlighting here...
 
+##javascript
+
 ```javascript
 
 module.exports = registerPartials;
@@ -32,3 +34,42 @@ function registerPartials(directory) {
 }
 
 ```
+
+##bash
+
+```bash
+#!/bin/bash
+####################################################################
+# lets check if we're actually connected
+# if we're not, lets try to connect to a wifi access point
+####################################################################
+
+check_net_status
+if [ $connected == 0 ]; then
+
+  if [ "$auto_connect" == "y" ]; then
+    log "$STRING_TRY_TO_CONNECT"
+    try_to_connect
+  fi
+
+  # ok, lets check again, after waiting a bit
+  sleep 5
+  check_net_status
+
+  if [ $connected == 0 ]; then
+
+    log "$STRING_NO_CONNECT_TO_WIFI"
+    if [ -f "$last_response" ]; then # offline actions were enabled
+
+      log ' -- Offline actions enabled!'
+      offline_mode=1
+      get_last_response
+      process_module_config
+
+    else
+      exit 1
+    fi
+
+  fi
+fi
+``` 
