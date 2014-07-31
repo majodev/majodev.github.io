@@ -7,6 +7,7 @@ var markdown = require("metalsmith-markdown");
 var templates = require("metalsmith-templates");
 var collections = require("metalsmith-collections");
 var fileMetadata = require('metalsmith-filemetadata');
+var branch = require('metalsmith-branch');
 
 // custom metalsmith scripts (aka plugins)
 var deletehiddenfiles = require("./scripts/metalsmith-deletehiddenfiles");
@@ -35,17 +36,19 @@ Metalsmith(__dirname)
   .use(deletehiddenfiles())
   .use(metasetpermalinks())
   .use(formatdate())
-  .use(collections({
-    pages: {
-      pattern: "*.*",
-      sortBy: "sequence"
-    },
-    notes: {
-      pattern: "notes/**/*.md",
-      sortBy: "date",
-      reverse: true
-    }
-  }))
+  .use(branch()
+    .pattern("!404.*")
+    .use(collections({
+      pages: {
+        pattern: "*.*",
+        sortBy: "sequence"
+      },
+      notes: {
+        pattern: "notes/**/*.md",
+        sortBy: "date",
+        reverse: true
+      }
+    })))
   .use(fileMetadata([{
     pattern: "notes/**/*.md",
     metadata: {
@@ -62,11 +65,11 @@ Metalsmith(__dirname)
     directory: "templates"
   }))
   .use(metaapplypermalinks())
-  // .use(printfilesmeta({
-  //   printMetaKeys: false
-  // }))
-  .build(function(error) {
-    if (error) {
-      throw error;
-    }
-  });
+// .use(printfilesmeta({
+//   printMetaKeys: false
+// }))
+.build(function(error) {
+  if (error) {
+    throw error;
+  }
+});

@@ -1,3 +1,5 @@
+var _ = require("lodash");
+
 var basename = require('path').basename;
 var dirname = require('path').dirname;
 var extname = require('path').extname;
@@ -24,6 +26,10 @@ function plugin() {
         return;
       }
 
+      if (hasRestrictedMeta(files[file])) {
+        return;
+      }
+
       var postfix = reduceAllExtensions(file);
       var targetname = "";
 
@@ -41,7 +47,7 @@ function plugin() {
         }
       }
 
-      if(targetname !== "") {
+      if (targetname !== "") {
         targetname += "/";
       }
 
@@ -51,6 +57,14 @@ function plugin() {
       files[file].path = targetname;
     });
   };
+}
+
+function hasRestrictedMeta(fileObject) {
+  if(_.isUndefined(fileObject.permalink) === false && fileObject.permalink === false) {
+    //console.log("permalink flag!");
+    return true;
+  }
+  return false;
 }
 
 function isPermalinkedExtension(file) {

@@ -50,6 +50,8 @@ jQuery(function($) {
       error: function(error) {
         console.error("AJAX error" + error);
         loading = false;
+
+        document.location.href = "/404.html";
       }
     });
   });
