@@ -23,6 +23,7 @@
   "dependencies": {
     "normalize.css": "~3.0.1",
     "jquery": "~2.1.1",
-    "history.js": "~1.8.0"
+    "history.js": "~1.8.0",
+    "highlightjs": "https://github.com/isagalaev/highlight.js.git#e737f96eb6b31aee1d60578d841d9e5b148d8b27"
   }
 }

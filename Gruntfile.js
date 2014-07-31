@@ -1,5 +1,17 @@
-module.exports = function(grunt) {
+var _ = require("lodash");
 
+var config = {
+  vendor: {
+    dist: "src/assets/vendor/",
+    css: ["bower_components/normalize.css/normalize.css",
+      "bower_components/highlightjs/src/styles/github.css"],
+    js: ["bower_components/jquery/dist/jquery.js",
+      "bower_components/history.js/scripts/bundled-uncompressed/html4+html5/jquery.history.js"
+    ]
+  }
+};
+
+module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON("package.json"),
     execute: {
@@ -35,10 +47,8 @@ module.exports = function(grunt) {
           expand: true,
           flatten: true,
           nonull: true,
-          src: ["bower_components/normalize.css/normalize.css",
-          "bower_components/jquery/dist/jquery.js", 
-          "bower_components/history.js/scripts/bundled-uncompressed/html4+html5/jquery.history.js"],
-          dest: "src/assets/vendor/"
+          src: _.union(config.vendor.css, config.vendor.js),
+          dest: config.vendor.dist
         }]
       }
     },

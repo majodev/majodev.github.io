@@ -1,5 +1,9 @@
 // node libs
 var moment = require("moment");
+var hljs = require("highlight.js");
+var cheerio = require("cheerio");
+var extname = require('path').extname;
+var _ = require("lodash");
 
 // metalsmith plugins
 var Metalsmith = require("metalsmith");
@@ -53,6 +57,59 @@ Metalsmith(__dirname)
   }]))
   .use(contenthandlebars())
   .use(markdown())
+  .use(function(files, metalsmith, done) {
+    setImmediate(done);
+
+    Object.keys(files).forEach(function(file) {
+
+      var data = files[file];
+      var filename = file;
+      var $;
+
+      if (/\.html/.test(extname(file)) === false) {
+        return;
+      }
+
+      $ = cheerio.load(data.contents.toString());
+
+      $('pre code').each(function(i, block) {
+        var code = $(this).text();
+        var language = $(this).attr('class');
+        var hljsLanguage;
+        var hljsObject;
+
+        if (_.isUndefined(language) === false && _.isString(language) === true) {
+          // cut "lang-" string from language class...
+          language = language.replace("lang-", "");
+
+          hljsLanguage = hljs.getLanguage(language);
+
+          if (_.isUndefined(hljsLanguage) === false) {
+            // highlight code with defined language!
+            hljsObject = hljs.highlight(language, code);
+          } else {
+            // fallback highlight by guessing language - provided lang not found
+           hljsObject = hljs.highlightAuto(code);
+          }
+
+        } else {
+          // fallback highlight by guessing
+          hljsObject = hljs.highlightAuto(code);
+        }
+
+        $(this).html(hljsObject.value);
+
+        console.log("- [hljs] " + file + " block highlight with " + hljsObject.language + " (class lang was: " + language + ")");
+      });
+
+
+      data.contents = new Buffer($.html());
+
+      delete files[file];
+      files[filename] = data;
+
+    });
+  })
   .use(templates({
     engine: "handlebars",
     directory: "templates"
