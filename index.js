@@ -1,4 +1,4 @@
-// node libs
+// node generic libs
 var moment = require("moment");
 
 // metalsmith plugins
@@ -20,7 +20,7 @@ var formatdate = require("./scripts/metalsmith-formatdate");
 // custom node scripts
 var registerPartials = require("./scripts/registerPartials");
 
-// register all Handlebars partials within directory
+// registering all Handlebars partials within directory
 registerPartials("templates/partials");
 
 // config/build
@@ -54,17 +54,17 @@ Metalsmith(__dirname)
   }]))
   .use(contenthandlebars())
   .use(markdown())
+  .use(highlightjs({
+    tabReplace: '  '
+  }))
   .use(templates({
     engine: "handlebars",
     directory: "templates"
   }))
   .use(metaapplypermalinks())
-  .use(highlightjs({
-    tabReplace: '  '
-  }))
-  .use(printfilesmeta({
-    printMetaKeys: false
-  }))
+  // .use(printfilesmeta({
+  //   printMetaKeys: false
+  // }))
   .build(function(error) {
     if (error) {
       throw error;

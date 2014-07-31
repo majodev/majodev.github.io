@@ -54,18 +54,20 @@ function plugin(options) {
           } else {
             // fallback highlight by guessing language - provided lang not found
             hljsObject = hljs.highlightAuto(code);
+            console.warn("- [hljs] " + file + " block highlight with " + hljsObject.language + " (class lang " + language + " not found!)");
           }
 
         } else {
           // fallback highlight by guessing
           hljsObject = hljs.highlightAuto(code);
+          console.warn("- [hljs] " + file + " block highlight with " + hljsObject.language + " (no class lang provided)");
         }
 
         postProcessed = hljs.fixMarkup(hljsObject.value);
 
         $(this).html(postProcessed);
 
-        console.log("- [hljs] " + file + " block highlight with " + hljsObject.language + " (class lang was: " + language + ")");
+        //
       });
 
 

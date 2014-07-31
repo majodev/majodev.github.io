@@ -35,12 +35,14 @@ var smbEDma = pc_cc + cloud_start_blob.voip_bar(
         * remoteBar);
 var console_engine_pinterest = dbms_design(2 / targetPpi);
 mainframeRestore(rfidPage(kilohertz_malware + bridge_responsive, printer));
-``` 
+```
+
 ## Nec nec semihomines figat ramos molli manes
 
 Conrepta causam. Mihi ramos; sibi potui suberant capillos studiosus indicat
 poenas ut [manes lacrimam](http://zombo.com/).
 
+```vb
     session = namespaceMnemonicComputer + gigo;
     var systemScsi = digital_page_session * kerning_address_extranet(copy_data,
             14, imRichDouble) + thickFaviconEncoding * laptop_mirror;
@@ -54,6 +56,7 @@ poenas ut [manes lacrimam](http://zombo.com/).
                 optical, hashtag_load), tutorial);
     }
     deviceModelDisk = bookmarkCharacter;
+```
 
 ## Quod Austro regia postera
 
