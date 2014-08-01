@@ -30,7 +30,7 @@ Metalsmith(__dirname)
   .metadata({
     _dev: true,
     _sitename: "majodev.com",
-    _builddate: moment().format("DD MMM YYYY, hh:mm:ss a"),
+    _builddate: moment().format("DD MMM YYYY, hh:mm:ss a")
   })
   .source("./src")
   .destination("./build")

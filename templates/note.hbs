@@ -9,7 +9,7 @@
   <h2>{{formattedDate}}</h2>
   {{#if tags}}
     <div class="note-tags">
-      <h3>tags: {{#each tags}} #{{this}} {{/each}}</h3>
+      <h3>tags: {{#each tags}}<a href="/tags">{{this}}</a> {{/each}}</h3>
     </div>
   {{/if}}
   {{{ contents }}}
