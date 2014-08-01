@@ -11,8 +11,8 @@ var extname = require('path').extname;
 module.exports = plugin;
 
 /**
- * Metalsmith plugin set meta property "path" to future real link (without affecting current filename)
- *
+ * Metalsmith plugin to set and additional file meta property "path"
+ * this will provide a future real link (without affecting current filename)
  * @return {Function}
  */
 
@@ -22,11 +22,7 @@ function plugin() {
     setImmediate(done);
     Object.keys(files).forEach(function(file) {
 
-      if (!isPermalinkedExtension(file)) {
-        return;
-      }
-
-      if (hasRestrictedMeta(files[file])) {
+      if (!isPermalinkedExtension(file) || hasRestrictedMeta(files[file])) {
         return;
       }
 
@@ -60,8 +56,7 @@ function plugin() {
 }
 
 function hasRestrictedMeta(fileObject) {
-  if(_.isUndefined(fileObject.permalink) === false && fileObject.permalink === false) {
-    //console.log("permalink flag!");
+  if (_.isUndefined(fileObject.permalink) === false && fileObject.permalink === false) {
     return true;
   }
   return false;

@@ -11,8 +11,8 @@ var extname = require('path').extname;
 module.exports = plugin;
 
 /**
- * Metalsmith plugin apply meta property "path" to the real link (affects current filename!!!)
- *
+ * Metalsmith plugin apply file meta property "path" (set via permapathpre)
+ * to the current file path
  * @return {Function}
  */
 

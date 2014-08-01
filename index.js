@@ -17,7 +17,7 @@ var permapathpre = require("./scripts/metalsmith-permapathpre");
 var permapathpost = require("./scripts/metalsmith-permapathpost");
 var highlightjs = require("./scripts/metalsmith-highlightjs");
 var metaformat = require("./scripts/metalsmith-metaformat");
-var permatags = require("./scripts/metalsmith-permatags");
+var tagtree = require("./scripts/metalsmith-tagtree");
 
 // custom node scripts
 var registerPartials = require("./scripts/registerPartials");
@@ -36,7 +36,10 @@ Metalsmith(__dirname)
   .destination("./build")
   .use(deletehiddenfiles())
   .use(permapathpre())
-  .use(permatags())
+  .use(tagtree({
+    globalMetaKey: "_tags",
+    fileMetaKey: "tags"
+  }))
   .use(metaformat())
   .use(branch()
     .pattern("!+(404|tags|legal).*") // exclude minor pages from collections

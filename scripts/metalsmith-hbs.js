@@ -23,7 +23,11 @@ function plugin() {
   return function(files, metalsmith, done) {
     setImmediate(done);
     Object.keys(files).forEach(function(file) {
-      if (!isHandlebars(file)) return;
+
+      if (!isHandlebars(file)) {
+        return;
+      }
+
       var data = files[file];
       var dir = dirname(file);
 
@@ -33,7 +37,9 @@ function plugin() {
         html += ".html";
       }
 
-      if ('.' != dir) html = dir + '/' + html;
+      if ('.' != dir) {
+        html = dir + '/' + html;
+      }
 
       var template = Handlebars.compile(data.contents.toString());
       var str = template(mergeMeta(metalsmith.data, data, file));
@@ -47,11 +53,11 @@ function plugin() {
 
 function mergeMeta(global, local, filename) {
   var merged = {};
-  _.each(_.keys(global), (function (key) {
+  _.each(_.keys(global), (function(key) {
     merged[key] = global[key];
   }));
-  _.each(_.keys(local), (function (key) {
-    if(_.isUndefined(merged[key]) === false) {
+  _.each(_.keys(local), (function(key) {
+    if (_.isUndefined(merged[key]) === false) {
       console.warn("- [hbs] local key " + key + " in file " + filename + " overrides global!");
     }
     merged[key] = local[key];
