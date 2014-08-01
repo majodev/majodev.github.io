@@ -39,7 +39,7 @@ Metalsmith(__dirname)
   .use(permatags())
   .use(metaformat())
   .use(branch()
-    .pattern("!404.*")
+    .pattern("!+(404|tags|legal).*") // exclude minor pages from collections
     .use(collections({
       pages: {
         pattern: "*.*",
