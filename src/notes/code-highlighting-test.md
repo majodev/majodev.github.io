@@ -7,7 +7,9 @@ tags:
 
 Let's test some code highlighting here...
 
-##javascript
+[to bash anchor](#bash)
+
+<h2 id="js">javascript</h2>
 
 ```javascript
 
@@ -35,7 +37,7 @@ function registerPartials(directory) {
 
 ```
 
-##bash
+<h2 id="bash">bash</h2>
 
 ```bash
 #!/bin/bash
@@ -72,4 +74,6 @@ if [ $connected == 0 ]; then
 
   fi
 fi
-``` 
+```
+
+[to js anchor](#js)

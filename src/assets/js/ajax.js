@@ -1,6 +1,6 @@
 jQuery(function($) {
 
-  // adapted from https://github.com/roryg/ghostwriter/blob/master/assets/js/scripts.js
+  // base from https://github.com/roryg/ghostwriter/blob/master/assets/js/scripts.js
 
   var FADE_TIME_MS = 200;
 
@@ -18,8 +18,8 @@ jQuery(function($) {
     var displayedPage = window.location.href;
     var statePage = History.getState().url;
 
-    console.log("anchorchange! url: " + window.location.href +
-      " currentState: " + History.getState().url);
+    // console.log("anchorchange! url: " + window.location.href +
+    //   " currentState: " + History.getState().url);
 
     if (removeAnchorFromUrl(displayedPage) !== removeAnchorFromUrl(statePage)) {
       // anchoring a wrong page - remove anchor and change state immediately
@@ -30,7 +30,7 @@ jQuery(function($) {
   History.Adapter.bind(window, "statechange", function() {
     var State = History.getState();
     var url = removeAnchorFromUrl(State.url);
-    console.log("statechange - url: " + url);
+    //console.log("statechange - url: " + url);
 
     $.ajax({
       url: url,

@@ -22,8 +22,9 @@ var collectiondefaults = require("./scripts/metalsmith-collectiondefaults");
 // custom node scripts
 var registerPartials = require("./scripts/registerPartials");
 
-// registering all Handlebars partials within directory
-registerPartials("templates/partials");
+// registering all Handlebars partials within all directories
+registerPartials("templates/base");
+registerPartials("templates/blocks");
 
 // config/build
 Metalsmith(__dirname)
