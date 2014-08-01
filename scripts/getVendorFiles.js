@@ -20,7 +20,5 @@ function getVendorFiles() {
     vendorFiles.js.push(config.vendor.productive + basename(item));
   });
 
-  console.log(vendorFiles);
-
   return vendorFiles;
 }
