@@ -2,7 +2,7 @@ jQuery(function($) {
 
   // adapted from https://github.com/roryg/ghostwriter/blob/master/assets/js/scripts.js
 
-  var FADE_TIME_MS = 200;
+  var FADE_TIME_MS = 180;
 
   var History = window.History;
   var targetContainer = $("#main-content");
