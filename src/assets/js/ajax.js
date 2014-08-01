@@ -2,11 +2,12 @@ jQuery(function($) {
 
   // adapted from https://github.com/roryg/ghostwriter/blob/master/assets/js/scripts.js
 
-  var FADE_TIME_MS = 180;
+  var FADE_TIME_MS = 200;
 
   var History = window.History;
   var targetContainer = $("#main-content");
   var loading = false;
+  var loadAnchor = "";
 
   // Check if history is enabled for the browser
   if (!History.enabled) {
@@ -17,7 +18,8 @@ jQuery(function($) {
     var displayedPage = window.location.href;
     var statePage = History.getState().url;
 
-    console.log("anchorchange! url: " + window.location.href + " currentState: " + History.getState().url);
+    console.log("anchorchange! url: " + window.location.href +
+      " currentState: " + History.getState().url);
 
     if (removeAnchorFromUrl(displayedPage) !== removeAnchorFromUrl(statePage)) {
       // anchoring a wrong page - remove anchor and change state immediately
@@ -57,9 +59,10 @@ jQuery(function($) {
         targetContainer.fadeOut(FADE_TIME_MS, function() {
           //console.log(html.filter("#main-content")[0]);
           targetContainer.html($(html.filter("#main-content")[0]).children());
-          targetContainer.fadeIn(FADE_TIME_MS);
-
-          loading = false;
+          targetContainer.fadeIn(FADE_TIME_MS, function () {
+            attachAnchor(url, null);
+            loading = false;
+          });
         });
       },
       error: function(error) {
@@ -79,11 +82,10 @@ jQuery(function($) {
         var currentState = History.getState();
         var url = $(this).attr("href");
         var title = $(this).attr("title") || null;
-        var anchor = "";
 
         // If it's a url with anchor, clear it immediately!
         if (hasAnchor(url)) {
-          anchor = getAnchor(url);
+          loadAnchor = getAnchor(url);
           url = removeAnchorFromUrl(url);
         }
 
@@ -93,16 +95,21 @@ jQuery(function($) {
           loading = true;
           History.pushState({}, title, url);
         } else {
-          if (anchor.length > 0) {
-            History.replaceState({}, title, url + "#" + anchor);
-            $("html, body").animate({
-              "scrollTop": ($("#" + anchor).offset().top)
-            });
-          }
+          attachAnchor(url, title);
         }
       }
     }
   });
+
+  function attachAnchor(url, title) {
+    if (loadAnchor.length > 0) {
+      History.replaceState({}, title, url + "#" + loadAnchor);
+      $("html, body").animate({
+        "scrollTop": ($("#" + loadAnchor).offset().top)
+      });
+      loadAnchor = "";
+    }
+  }
 
   function hasAnchor(url) {
     if (url.indexOf("#") !== -1) {
