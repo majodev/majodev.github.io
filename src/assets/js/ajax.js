@@ -13,8 +13,13 @@ jQuery(function($) {
     return false;
   }
 
+  History.Adapter.bind(window, "anchorchange", function() {
+    console.log("anchorchange!");
+  });
+
   History.Adapter.bind(window, "statechange", function() {
     var State = History.getState();
+    console.log("statechange!");
 
     $.ajax({
       url: State.url,
@@ -44,6 +49,7 @@ jQuery(function($) {
           //console.log(html.filter("#main-content")[0]);
           targetContainer.html($(html.filter("#main-content")[0]).children());
           targetContainer.fadeIn(FADE_TIME_MS);
+
           loading = false;
         });
       },
@@ -65,17 +71,15 @@ jQuery(function($) {
         var url = $(this).attr("href");
         var title = $(this).attr("title") || null;
 
-        // If it's a url with anchor, don't let ajax handle it!
+        // If it's a url with anchor, handle it directly!
         if (hasAnchor(url)) {
           if (removeAnchorFromUrl(url).length === 0) {
             // same page anchor
             document.location.href = removeAnchorFromUrl(currentState.hash) + "#" + getAnchor(url);
-            return; // finish handling here!
           } else {
-            // other page anchor (might be ajaxed in the future!)
             document.location.href = url;
           }
-          return;
+          return true; // finished anchor handling
         }
 
         // If the requested url is not the current states url push
