@@ -6,7 +6,6 @@ var Metalsmith = require("metalsmith");
 var markdown = require("metalsmith-markdown");
 var templates = require("metalsmith-templates");
 var collections = require("metalsmith-collections");
-var fileMetadata = require('metalsmith-filemetadata');
 var branch = require('metalsmith-branch');
 
 // custom metalsmith scripts (aka plugins)
@@ -18,6 +17,7 @@ var permapathpost = require("./scripts/metalsmith-permapathpost");
 var highlightjs = require("./scripts/metalsmith-highlightjs");
 var metaformat = require("./scripts/metalsmith-metaformat");
 var tagtree = require("./scripts/metalsmith-tagtree");
+var collectiondefaults = require("./scripts/metalsmith-collectiondefaults");
 
 // custom node scripts
 var registerPartials = require("./scripts/registerPartials");
@@ -53,13 +53,12 @@ Metalsmith(__dirname)
         sortBy: "date",
         reverse: true
       }
+    }))
+    .use(collectiondefaults({
+      notes: {
+        template: "note.hbs"
+      }
     })))
-  .use(fileMetadata([{
-    pattern: "notes/**/*.md",
-    metadata: {
-      "template": "note.hbs"
-    }
-  }]))
   .use(hbs())
   .use(markdown())
   .use(highlightjs({
@@ -70,11 +69,11 @@ Metalsmith(__dirname)
     directory: "templates"
   }))
   .use(permapathpost())
-// .use(debugsmith({
-//   printMetaKeys: false
-// }))
-.build(function(error) {
-  if (error) {
-    throw error;
-  }
-});
+  .use(debugsmith({
+    printMetaKeys: true
+  }))
+  .build(function(error) {
+    if (error) {
+      throw error;
+    }
+  });

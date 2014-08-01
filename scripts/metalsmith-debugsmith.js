@@ -16,9 +16,9 @@ function plugin(options) {
     setImmediate(done);
     Object.keys(files).forEach(function(file) {
       if (_.isUndefined(options) === false && _.isUndefined(options.printMetaKeys) === false && options.printMetaKeys === true) {
-        console.log("- [meta] " + file + " (" + Object.keys(files[file]) + ")");
+        console.log("- [DS] " + file + " (" + Object.keys(files[file]) + ")");
       } else {
-        console.log("- [meta] " + file);
+        console.log("- [DS] " + file);
       }
     });
   };
