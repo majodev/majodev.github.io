@@ -1,8 +1,9 @@
 {{#if _dev}}
   
   {{!-- vendor scripts --}}
-  <script src="/assets/vendor/jquery.js"></script>
-  <script src="/assets/vendor/jquery.history.js"></script>
+  {{#each _vendor.js}}
+    <script src="{{this}}"></script>
+  {{/each}}
 
   {{!-- own scripts --}}
   <script src="/assets/js/ajax.js"></script>

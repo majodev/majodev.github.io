@@ -1,16 +1,5 @@
 var _ = require("lodash");
-
-var config = {
-  vendor: {
-    dist: "src/assets/vendor/",
-    css: ["bower_components/normalize.css/normalize.css",
-      "bower_components/colors/css/colors.css",
-      "bower_components/highlightjs/src/styles/github.css"],
-    js: ["bower_components/jquery/dist/jquery.js",
-      "bower_components/history.js/scripts/bundled-uncompressed/html4+html5/jquery.history.js"
-    ]
-  }
-};
+var config = require("./config.json");
 
 module.exports = function(grunt) {
   grunt.initConfig({

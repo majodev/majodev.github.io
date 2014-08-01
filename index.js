@@ -21,6 +21,7 @@ var collectiondefaults = require("./scripts/metalsmith-collectiondefaults");
 
 // custom node scripts
 var registerPartials = require("./scripts/registerPartials");
+var getVendorFiles = require("./scripts/getVendorFiles");
 
 // registering all Handlebars partials within all directories
 registerPartials("templates/base");
@@ -31,7 +32,8 @@ Metalsmith(__dirname)
   .metadata({
     _dev: true,
     _sitename: "majodev.com",
-    _builddate: moment().format("DD MMM YYYY, hh:mm:ss a")
+    _builddate: moment().format("DD MMM YYYY, hh:mm:ss a"),
+    _vendor: getVendorFiles() // holds all external libs
   })
   .source("./src")
   .destination("./build")
