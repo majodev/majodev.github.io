@@ -14,15 +14,24 @@ jQuery(function($) {
   }
 
   History.Adapter.bind(window, "anchorchange", function() {
-    console.log("anchorchange!");
+    var displayedPage = window.location.href;
+    var statePage = History.getState().url;
+
+    console.log("anchorchange! url: " + window.location.href + " currentState: " + History.getState().url);
+
+    if (removeAnchorFromUrl(displayedPage) !== removeAnchorFromUrl(statePage)) {
+      // anchoring a wrong page - remove anchor and change state immediately
+      History.replaceState({}, null, removeAnchorFromUrl(window.location.href));
+    }
   });
 
   History.Adapter.bind(window, "statechange", function() {
     var State = History.getState();
-    console.log("statechange!");
+    var url = removeAnchorFromUrl(State.url);
+    console.log("statechange - url: " + url);
 
     $.ajax({
-      url: State.url,
+      url: url,
       type: "GET",
       success: function(result) {
         var html = $(result);
@@ -70,23 +79,26 @@ jQuery(function($) {
         var currentState = History.getState();
         var url = $(this).attr("href");
         var title = $(this).attr("title") || null;
+        var anchor = "";
 
-        // If it's a url with anchor, handle it directly!
+        // If it's a url with anchor, clear it immediately!
         if (hasAnchor(url)) {
-          if (removeAnchorFromUrl(url).length === 0) {
-            // same page anchor
-            document.location.href = removeAnchorFromUrl(currentState.hash) + "#" + getAnchor(url);
-          } else {
-            document.location.href = url;
-          }
-          return true; // finished anchor handling
+          anchor = getAnchor(url);
+          url = removeAnchorFromUrl(url);
         }
 
         // If the requested url is not the current states url push
         // the new state and make the ajax call.
-        if (url !== currentState.hash) {
+        if (url !== currentState.hash && url.length !== 0) {
           loading = true;
           History.pushState({}, title, url);
+        } else {
+          if (anchor.length > 0) {
+            History.replaceState({}, title, url + "#" + anchor);
+            $("html, body").animate({
+              "scrollTop": ($("#" + anchor).offset().top)
+            });
+          }
         }
       }
     }
