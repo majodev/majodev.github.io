@@ -69,9 +69,9 @@ Metalsmith(__dirname)
     directory: "templates"
   }))
   .use(permapathpost())
-  .use(debugsmith({
-    printMetaKeys: true
-  }))
+  // .use(debugsmith({
+  //   printMetaKeys: true
+  // }))
   .build(function(error) {
     if (error) {
       throw error;

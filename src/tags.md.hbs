@@ -8,7 +8,7 @@ sequence: 7
 
 <div class="notes">
   {{#each _tags}}
-    <h2>{{@key}}</h2>
+    <h2 id="{{@key}}">{{@key}}</h2>
     {{#each this}}
       <a href=/{{path}}>{{title}}</a><br />
     {{/each}}

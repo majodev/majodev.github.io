@@ -7,7 +7,7 @@ var _ = require("lodash");
 module.exports = plugin;
 
 /**
- * Metalsmith plugin to set default metadata to existing collections
+ * Metalsmith plugin to set default metadata to files with preset collection meta
  *
  * @return {Function}
  */
