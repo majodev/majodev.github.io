@@ -65,6 +65,19 @@ jQuery(function($) {
         var url = $(this).attr("href");
         var title = $(this).attr("title") || null;
 
+        // If it's a url with anchor, don't let ajax handle it!
+        if (hasAnchor(url)) {
+          if (removeAnchorFromUrl(url).length === 0) {
+            // same page anchor
+            document.location.href = removeAnchorFromUrl(currentState.hash) + "#" + getAnchor(url);
+            return; // finish handling here!
+          } else {
+            // other page anchor (might be ajaxed in the future!)
+            document.location.href = url;
+          }
+          return;
+        }
+
         // If the requested url is not the current states url push
         // the new state and make the ajax call.
         if (url !== currentState.hash) {
@@ -74,6 +87,21 @@ jQuery(function($) {
       }
     }
   });
+
+  function hasAnchor(url) {
+    if (url.indexOf("#") !== -1) {
+      return true;
+    }
+    return false;
+  }
+
+  function removeAnchorFromUrl(url) {
+    return url.split("#")[0];
+  }
+
+  function getAnchor(url) {
+    return url.split("#")[1];
+  }
 
   // via http://stackoverflow.com/questions/9404793/check-if-same-origin-policy-applies
   function testSameOrigin(url) {
