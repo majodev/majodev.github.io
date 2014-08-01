@@ -4,6 +4,8 @@ template: default.hbs
 sequence: 2
 ---
 
+# {{title}}
+
 <div class="notes">
   {{#each collections.notes}}
     <p><a href="/{{ path }}">{{ title }} </a> -- {{ formattedDate }}{{#if tags}} -- {{tags}}{{/if}}</p>

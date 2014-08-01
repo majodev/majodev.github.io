@@ -17,6 +17,7 @@ var metasetpermalinks = require("./scripts/metalsmith-metasetpermalinks");
 var metaapplypermalinks = require("./scripts/metalsmith-metaapplypermalinks");
 var highlightjs = require("./scripts/metalsmith-highlightjs");
 var formatdate = require("./scripts/metalsmith-formatdate");
+var permatags = require("./scripts/metalsmith-permatags");
 
 // custom node scripts
 var registerPartials = require("./scripts/registerPartials");
@@ -35,6 +36,7 @@ Metalsmith(__dirname)
   .destination("./build")
   .use(deletehiddenfiles())
   .use(metasetpermalinks())
+  .use(permatags())
   .use(formatdate())
   .use(branch()
     .pattern("!404.*")

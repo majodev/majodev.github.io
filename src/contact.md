@@ -2,6 +2,8 @@
 title: contact
 template: default.hbs
 sequence: 6
+tags:
+- copied
 ---
 
 If you think you got something interesting to share, feel free to get in touch with me via Twitter or Email.

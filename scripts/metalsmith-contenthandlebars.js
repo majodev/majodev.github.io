@@ -4,6 +4,7 @@ var basename = require('path').basename;
 var dirname = require('path').dirname;
 var extname = require('path').extname;
 var Handlebars = require("handlebars");
+var _ = require("lodash");
 
 /**
  * Expose `plugin`.
@@ -35,13 +36,24 @@ function plugin() {
       if ('.' != dir) html = dir + '/' + html;
 
       var template = Handlebars.compile(data.contents.toString());
-      var str = template(metalsmith.data);
+      var str = template(mergeMeta(metalsmith.data, data));
       data.contents = new Buffer(str);
 
       delete files[file];
       files[html] = data;
     });
   };
+}
+
+function mergeMeta(global, local) {
+  var merged = {};
+  _.each(_.keys(global), (function (key) {
+    merged[key] = global[key];
+  }));
+  _.each(_.keys(local), (function (key) {
+    merged[key] = local[key];
+  }));
+  return merged;
 }
 
 function isHandlebars(file) {
