@@ -16,7 +16,7 @@ function plugin() {
   return function(files, metalsmith, done) {
     setImmediate(done);
 
-    var tags = {};
+    var _tags = {};
 
     Object.keys(files).forEach(function(file) {
       var fileTags = files[file].tags;
@@ -28,11 +28,11 @@ function plugin() {
       }
 
       for (var i = 0; i < fileTags.length; i++) {
-        if (_.isUndefined(tags[fileTags[i]]) === true) {
-          tags[fileTags[i]] = [];
+        if (_.isUndefined(_tags[fileTags[i]]) === true) {
+          _tags[fileTags[i]] = [];
         }
 
-        tags[fileTags[i]].push({
+        _tags[fileTags[i]].push({
           title: fileTitle,
           path: filePath
         });
@@ -41,7 +41,7 @@ function plugin() {
     });
 
     // link tags to metalsmith meta...
-    metalsmith.data.tags = tags;
+    metalsmith.data._tags = _tags;
 
   };
 }

@@ -36,7 +36,7 @@ function plugin() {
       if ('.' != dir) html = dir + '/' + html;
 
       var template = Handlebars.compile(data.contents.toString());
-      var str = template(mergeMeta(metalsmith.data, data));
+      var str = template(mergeMeta(metalsmith.data, data, file));
       data.contents = new Buffer(str);
 
       delete files[file];
@@ -45,12 +45,15 @@ function plugin() {
   };
 }
 
-function mergeMeta(global, local) {
+function mergeMeta(global, local, filename) {
   var merged = {};
   _.each(_.keys(global), (function (key) {
     merged[key] = global[key];
   }));
   _.each(_.keys(local), (function (key) {
+    if(_.isUndefined(merged[key]) === false) {
+      console.warn("- [hbs] local key " + key + " in file " + filename + " overrides global!");
+    }
     merged[key] = local[key];
   }));
   return merged;
