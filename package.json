@@ -21,6 +21,7 @@
     "metalsmith-markdown": "^0.2.1",
     "metalsmith-templates": "^0.5.2",
     "moment": "^2.7.0",
+    "speakingurl": "^0.10.0",
     "swag": "^0.7.0"
   },
   "devDependencies": {

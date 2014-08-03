@@ -44,7 +44,11 @@ Metalsmith(__dirname)
   .destination("./build")
   .use(deletehiddenfiles())
   .use(permapath({
-    mode: "pre"
+    mode: "pre",
+    relative: true,
+    custom: [{
+      dir: "notes"
+    }]
   }))
   .use(tagtree({
     globalMetaKey: "_tags",
@@ -86,11 +90,11 @@ Metalsmith(__dirname)
   .use(permapath({
     mode: "post"
   }))
-  // .use(debugsmith({
-  //   printMetaKeys: true
-  // }))
-  .build(function(error) {
-    if (error) {
-      throw error;
-    }
-  });
+// .use(debugsmith({
+//   printMetaKeys: true
+// }))
+.build(function(error) {
+  if (error) {
+    throw error;
+  }
+});

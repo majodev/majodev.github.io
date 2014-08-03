@@ -1,4 +1,6 @@
 var _ = require("lodash");
+var moment = require("moment");
+var getSlug = require("speakingurl");
 
 var basename = require('path').basename;
 var dirname = require('path').dirname;
@@ -25,7 +27,7 @@ function plugin(options) {
       done(new Error("mode must be supplied! ('pre' to prepare paths in the beginning - 'post' just before the build step to apply them!)"));
     } else {
       if (options.mode === "pre") {
-        pre(files);
+        pre(files, options);
       } else if (options.mode === "post") {
         post(files);
       } else {
@@ -35,21 +37,30 @@ function plugin(options) {
   };
 }
 
-function pre(files) {
+function pre(files, options) {
+
+  var relative = options.relative || false;
+
   Object.keys(files).forEach(function(file) {
 
     var targetname;
     var postfix;
+    var custom;
 
     if (!isPermalinkedExtension(file) || hasRestrictedMeta(files[file])) {
       return;
     }
 
+    //console.log(dirname(file));
+
     postfix = reduceAllExtensions(file).toLowerCase();
+    custom = getCustomObject(file, options);
 
     // file to foldername, or with date?
-    if (true) {
+    if (custom === false) {
       targetname = fileToFolderName(file, postfix);
+    } else {
+      targetname = fileToPattern(file, custom, files[file]);
     }
 
     // path meta key of file ready at this point!
@@ -58,7 +69,7 @@ function pre(files) {
     // check relative files within dir
     // check if there are other files within it and change dir of them accordingly!
     // exclude outer most index file from these operation!
-    if (postfix === "index" && dirname(file) !== ".") {
+    if (relative === true && postfix === "index" && dirname(file) !== ".") {
       Object.keys(files).forEach(function(relatedFile) {
         if (relatedFile !== file && isPermalinkedExtension(relatedFile) === false && relatedFile.indexOf(dirname(file)) !== -1) {
           // Path of related file must be changed as well!
@@ -98,6 +109,10 @@ function post(files) {
   });
 }
 
+function fileToPattern(file, custom, data) {
+  return sanitize(custom.dir + "/" + moment(data.date).format("YYYY/MM/DD") + "/" + getSlug(data.title) + "/");
+}
+
 function fileToFolderName(file, postfix) {
   var targetname = "";
   var directory = dirname(file);
@@ -121,7 +136,25 @@ function fileToFolderName(file, postfix) {
     targetname += "/";
   }
 
-  return targetname.replace(/\s+/g, '-').toLowerCase(); // all lower + replace whitespace
+  return sanitize(targetname); 
+}
+
+function getCustomObject(file, options) {
+  var matched;
+  if (_.isUndefined(options.custom)) {
+    return false;
+  }
+
+  matched = _.find(options.custom, function(customItem) {
+    return (dirname(file).indexOf(customItem.dir) !== -1);
+  });
+
+  if (_.isUndefined(matched)) {
+    return false;
+  }
+
+  // console.log(matched);
+  return matched;
 }
 
 function hasRestrictedMeta(fileObject) {
@@ -133,6 +166,10 @@ function hasRestrictedMeta(fileObject) {
 
 function isPermalinkedExtension(file) {
   return /\.hbs|\.md|\.html/.test(extname(file));
+}
+
+function sanitize(url) {
+  return url.replace(/\s+/g, '-').toLowerCase();
 }
 
 function reduceAllExtensions(file) {
