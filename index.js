@@ -41,6 +41,7 @@ Metalsmith(__dirname)
   .use(permapathpre())
   .use(tagtree({
     globalMetaKey: "_tags",
+    sortedMetaKey: "_sortedTags",
     fileMetaKey: "tags"
   }))
   .use(metaformat())

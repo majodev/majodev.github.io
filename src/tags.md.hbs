@@ -8,10 +8,10 @@ you are currently viewing the `{{title}}` page, based on the template `{{templat
 
 # {{title}}
 
-<div class="notes">
-  {{#each _tags}}
-    <h2 id="{{@key}}">#{{@key}}</h2>
-    {{#each this}}
+<div class="tags">
+  {{#each _sortedTags}}
+    <h2 id="{{tag}}">#{{tag}}</h2>
+    {{#each children}}
       <a href=/{{path}}>{{title}}</a><br />
     {{/each}}
   {{/each}}
