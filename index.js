@@ -20,17 +20,18 @@ var highlightjs = require("./scripts/metalsmith-highlightjs");
 var metaformat = require("./scripts/metalsmith-metaformat");
 var tagtree = require("./scripts/metalsmith-tagtree");
 var collectiondefaults = require("./scripts/metalsmith-collectiondefaults");
+var wordcount = require("./scripts/metalsmith-wordcount");
 
 // custom node scripts
 var registerPartials = require("./scripts/registerPartials");
 var getVendorFiles = require("./scripts/getVendorFiles");
 
+// register Swag Handlebars helpers
+Swag.registerHelpers(Handlebars);
+
 // registering all Handlebars partials within all directories
 registerPartials("templates/base");
 registerPartials("templates/blocks");
-
-// register Swag Handlebars helpers
-Swag.registerHelpers(Handlebars);
 
 // config/build
 Metalsmith(__dirname)
@@ -70,6 +71,12 @@ Metalsmith(__dirname)
     })))
   .use(hbs())
   .use(markdown())
+  .use(wordcount({
+    speed: 300,
+    seconds: false,
+    metaKeyCount: "wordCount",
+    metaKeyReadingTime: "readingTime"
+  }))
   .use(highlightjs({
     tabReplace: '  '
   }))

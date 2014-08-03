@@ -5,7 +5,7 @@ sequence: 2
 ---
 
 <div class="notes">
-  {{#each collections.notes}}
-    <p><a href="/{{ path }}">{{ title }} </a> -- {{ formattedDate }}{{#if tags}} -- {{> tags}}{{/if}}</p>
+  {{#each notes}}
+    {{> noteItem}}
   {{/each}}
 </div>

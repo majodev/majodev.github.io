@@ -12,7 +12,7 @@ you are currently viewing the `{{title}}` page, based on the template `{{templat
   {{#each _sortedTags}}
     <h2 id="{{tag}}">#{{tag}}</h2>
     {{#each children}}
-      <a href=/{{path}}>{{title}}</a><br />
+      {{> noteItem}}
     {{/each}}
   {{/each}}
 </div>
