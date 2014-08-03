@@ -34,7 +34,6 @@ function plugin(options) {
         return;
       }
 
-      //console.log("wordcount " + file);
       processedCounts = processHTML(files[file].contents, opts);
 
       // console.log("wordcount " + file + " count: " + processedCounts.count + " time: " + processedCounts.est);
