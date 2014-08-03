@@ -1,6 +1,6 @@
 // node generic libs
 var moment = require("moment");
-var Handlebars = require('handlebars');
+var Handlebars = require("handlebars");
 var Swag = require("swag");
 
 // metalsmith plugins
@@ -8,7 +8,7 @@ var Metalsmith = require("metalsmith");
 var markdown = require("metalsmith-markdown");
 var templates = require("metalsmith-templates");
 var collections = require("metalsmith-collections");
-var branch = require('metalsmith-branch');
+var branch = require("metalsmith-branch");
 
 // custom metalsmith scripts (aka plugins)
 var deletehiddenfiles = require("./scripts/metalsmith-deletehiddenfiles");
@@ -52,7 +52,7 @@ Metalsmith(__dirname)
   }))
   .use(metaformat())
   .use(branch()
-    .pattern("!+(404|tags|legal).*") // exclude minor pages from collections
+    .pattern("!+(404|legal).*") // exclude minor pages from collections
     .use(collections({
       pages: {
         pattern: "*.*",
@@ -72,13 +72,11 @@ Metalsmith(__dirname)
   .use(hbs())
   .use(markdown())
   .use(wordcount({
-    speed: 300,
-    seconds: false,
     metaKeyCount: "wordCount",
     metaKeyReadingTime: "readingTime"
   }))
   .use(highlightjs({
-    tabReplace: '  '
+    tabReplace: "  "
   }))
   .use(templates({
     engine: "handlebars",
