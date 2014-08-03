@@ -14,8 +14,7 @@ var branch = require("metalsmith-branch");
 var deletehiddenfiles = require("./scripts/metalsmith-deletehiddenfiles");
 var debugsmith = require("./scripts/metalsmith-debugsmith");
 var hbs = require("./scripts/metalsmith-hbs");
-var permapathpre = require("./scripts/metalsmith-permapathpre");
-var permapathpost = require("./scripts/metalsmith-permapathpost");
+var permapath = require("./scripts/metalsmith-permapath");
 var highlightjs = require("./scripts/metalsmith-highlightjs");
 var metaformat = require("./scripts/metalsmith-metaformat");
 var tagtree = require("./scripts/metalsmith-tagtree");
@@ -44,7 +43,9 @@ Metalsmith(__dirname)
   .source("./src")
   .destination("./build")
   .use(deletehiddenfiles())
-  .use(permapathpre())
+  .use(permapath({
+    mode: "pre"
+  }))
   .use(tagtree({
     globalMetaKey: "_tags",
     sortedMetaKey: "_sortedTags",
@@ -82,7 +83,9 @@ Metalsmith(__dirname)
     engine: "handlebars",
     directory: "templates"
   }))
-  .use(permapathpost())
+  .use(permapath({
+    mode: "post"
+  }))
   // .use(debugsmith({
   //   printMetaKeys: true
   // }))
