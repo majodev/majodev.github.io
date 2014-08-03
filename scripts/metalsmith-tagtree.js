@@ -21,6 +21,7 @@ function plugin(options) {
     var fileMetaKey = "tags";
     var _tags = {};
 
+    // override defaults from options
     if (_.isUndefined(options) === false) {
       if (_.isUndefined(options.globalMetaKey) === false) {
         globalMetaKey = options.globalMetaKey;
@@ -40,11 +41,14 @@ function plugin(options) {
         return;
       }
 
+      // tags file meta encountered...
       for (var i = 0; i < fileTags.length; i++) {
         if (_.isUndefined(_tags[fileTags[i].toLowerCase()]) === true) {
+          // new _tags.tagname = []
           _tags[fileTags[i].toLowerCase()] = [];
         }
 
+        // add file to _tags.tagname array
         _tags[fileTags[i].toLowerCase()].push(files[file]);
       }
 
@@ -57,18 +61,23 @@ function plugin(options) {
 }
 
 function sortedTagsArray(_tags) {
-  var sortedTagNames = [];
   var sortedTags = [];
   var tags = _.keys(_tags);
   var index = 0;
 
   _.each(tags, function(tag) {
-    index = _.sortedIndex(sortedTagNames, tag);
-    sortedTagNames.splice(index, 0, tag);
+    
+    // get index to insert alphabetically
+    index = _.sortedIndex(sortedTags, {
+      tag: tag
+    }, "tag");
+    
+    // insert there...
     sortedTags.splice(index, 0, {
       tag: tag,
       children: _tags[tag]
     });
+
   });
 
   return sortedTags;
