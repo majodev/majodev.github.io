@@ -22,8 +22,16 @@ jQuery(function($) {
     //   " currentState: " + History.getState().url);
 
     if (removeAnchorFromUrl(displayedPage) !== removeAnchorFromUrl(statePage)) {
-      // anchoring a wrong page - remove anchor and change state immediately
-      History.replaceState({}, null, removeAnchorFromUrl(window.location.href));
+      if (testSameOrigin(displayedPage) === true) {
+        // anchoring a wrong page - remember anchor and change state immediately
+        loading = true;
+        loadAnchor = getAnchor(displayedPage);
+        History.replaceState({}, null, removeAnchorFromUrl(displayedPage));
+      } else {
+        // non ajaxable page + anchor!
+        // console.warn("non ajaxable page with anchor enchountered!");
+        document.location.href = displayedPage;
+      }
     }
   });
 
@@ -59,7 +67,7 @@ jQuery(function($) {
         targetContainer.fadeOut(FADE_TIME_MS, function() {
           //console.log(html.filter("#main-content")[0]);
           targetContainer.html($(html.filter("#main-content")[0]).children());
-          targetContainer.fadeIn(FADE_TIME_MS, function () {
+          targetContainer.fadeIn(FADE_TIME_MS, function() {
             attachAnchor(url, null);
             loading = false;
           });

@@ -6,3 +6,5 @@ tags:
 ---
 
 [non existant page](/fail.html)
+
+[external anchor page](https://github.com/majodev/sjgrabber#about)
