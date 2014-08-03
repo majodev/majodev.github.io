@@ -38,45 +38,35 @@ function plugin(options) {
 function pre(files) {
   Object.keys(files).forEach(function(file) {
 
+    var targetname;
+    var postfix;
+
     if (!isPermalinkedExtension(file) || hasRestrictedMeta(files[file])) {
       return;
     }
 
-    var postfix = reduceAllExtensions(file);
-    var currentDir = dirname(file);
-    var targetname = "";
+    postfix = reduceAllExtensions(file).toLowerCase();
 
-    // add pre path
-    if (dirname(file) !== ".") {
-      targetname = currentDir;
+    // file to foldername, or with date?
+    if (true) {
+      targetname = fileToFolderName(file, postfix);
     }
 
-    // add index
-    if (postfix !== "index") {
-      if (targetname === "") {
-        targetname += postfix;
-      } else {
-        targetname += "/" + postfix;
-      }
-    } else {
-      // index file within directory
-      // check if there are other files within it and change dir of them accordingly!
-      // exclude outer most index file from these operations
-      if (currentDir !== ".") {
-        Object.keys(files).forEach(function(relatedFile) {
-          if (relatedFile !== file && isPermalinkedExtension(relatedFile) === false && relatedFile.indexOf(currentDir) !== -1) {
-            // Path of related file must be changed as well!
-            files[relatedFile].path = targetname + "/" + basename(relatedFile);
-          }
-        });
-      }
-    }
+    // path meta key of file ready at this point!
+    console.log(targetname);
 
-    if (targetname !== "") {
-      targetname += "/";
+    // check relative files within dir
+    // check if there are other files within it and change dir of them accordingly!
+    // exclude outer most index file from these operation!
+    if (postfix === "index" && dirname(file) !== ".") {
+      Object.keys(files).forEach(function(relatedFile) {
+        if (relatedFile !== file && isPermalinkedExtension(relatedFile) === false && relatedFile.indexOf(dirname(file)) !== -1) {
+          // Path of related file must be changed as well!
+          files[relatedFile].path = targetname + basename(relatedFile);
+          console.log(files[relatedFile].path);
+        }
+      });
     }
-
-    //console.log(targetname);
 
     // targetname is in "filename/" format now
     // (with index.html being appended in the post task!)
@@ -106,6 +96,32 @@ function post(files) {
       files[data.path] = data;
     }
   });
+}
+
+function fileToFolderName(file, postfix) {
+  var targetname = "";
+  var directory = dirname(file);
+
+  // add pre path
+  if (directory !== ".") {
+    targetname = directory;
+  }
+
+  // filename to foldername if not index!
+  if (postfix !== "index") {
+    if (targetname === "") {
+      targetname += postfix;
+    } else {
+      targetname += "/" + postfix;
+    }
+  }
+
+  // append ending slash, except root index file
+  if (targetname !== "") {
+    targetname += "/";
+  }
+
+  return targetname.replace(/\s+/g, '-').toLowerCase(); // all lower + replace whitespace
 }
 
 function hasRestrictedMeta(fileObject) {
