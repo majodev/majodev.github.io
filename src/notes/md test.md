@@ -1,5 +1,5 @@
 ---
-title: Markdown Sample file
+title: Markdown sample file
 date: 2014-08-01
 tags:
 - testing

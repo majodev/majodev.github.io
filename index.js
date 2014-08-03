@@ -47,7 +47,8 @@ Metalsmith(__dirname)
     mode: "pre",
     relative: true,
     custom: [{
-      dir: "notes"
+      dir: "notes",
+      excludeDir: true
     }]
   }))
   .use(tagtree({
@@ -90,9 +91,9 @@ Metalsmith(__dirname)
   .use(permapath({
     mode: "post"
   }))
-// .use(debugsmith({
-//   printMetaKeys: true
-// }))
+.use(debugsmith({
+  printMetaKeys: false
+}))
 .build(function(error) {
   if (error) {
     throw error;

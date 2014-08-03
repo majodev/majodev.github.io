@@ -1,5 +1,5 @@
 ---
-title: JavaScript test
+title: Embedded JavaScript test
 date: 2014-06-08
 tags:
 - testing

@@ -1,5 +1,5 @@
 ---
-title: Lorem ipsum test
+title: Lorem ipsum text
 date: 2014-07-30
 tags:
 - testing

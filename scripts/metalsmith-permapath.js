@@ -40,6 +40,7 @@ function plugin(options) {
 function pre(files, options) {
 
   var relative = options.relative || false;
+  var customs = setCustomDefaults(options);
 
   Object.keys(files).forEach(function(file) {
 
@@ -54,7 +55,7 @@ function pre(files, options) {
     //console.log(dirname(file));
 
     postfix = reduceAllExtensions(file).toLowerCase();
-    custom = getCustomObject(file, options);
+    custom = getCustomObject(file, customs);
 
     // file to foldername, or with date?
     if (custom === false) {
@@ -64,7 +65,7 @@ function pre(files, options) {
     }
 
     // path meta key of file ready at this point!
-    console.log(targetname);
+    // console.log(targetname);
 
     // check relative files within dir
     // check if there are other files within it and change dir of them accordingly!
@@ -74,7 +75,7 @@ function pre(files, options) {
         if (relatedFile !== file && isPermalinkedExtension(relatedFile) === false && relatedFile.indexOf(dirname(file)) !== -1) {
           // Path of related file must be changed as well!
           files[relatedFile].path = targetname + basename(relatedFile);
-          console.log(files[relatedFile].path);
+          // console.log(files[relatedFile].path);
         }
       });
     }
@@ -110,7 +111,21 @@ function post(files) {
 }
 
 function fileToPattern(file, custom, data) {
-  return sanitize(custom.dir + "/" + moment(data.date).format("YYYY/MM/DD") + "/" + getSlug(data.title) + "/");
+  var returnString = "";
+
+  if(custom.excludeDir === false) {
+    returnString += custom.dir + "/";
+  }
+
+  returnString += moment(data.date).format(custom.dateFormat) + "/";
+
+  if(custom.slugify === true) {
+    returnString += getSlug(data.title) + "/";
+  } else {
+    returnString += data.title + "/";
+  }
+
+  return sanitize(returnString);
 }
 
 function fileToFolderName(file, postfix) {
@@ -136,16 +151,12 @@ function fileToFolderName(file, postfix) {
     targetname += "/";
   }
 
-  return sanitize(targetname); 
+  return sanitize(targetname);
 }
 
-function getCustomObject(file, options) {
-  var matched;
-  if (_.isUndefined(options.custom)) {
-    return false;
-  }
+function getCustomObject(file, customs) {
 
-  matched = _.find(options.custom, function(customItem) {
+  var matched = _.find(customs, function(customItem) {
     return (dirname(file).indexOf(customItem.dir) !== -1);
   });
 
@@ -180,4 +191,27 @@ function reduceAllExtensions(file) {
   } else {
     return trimmedFilename;
   }
+}
+
+function setCustomDefaults(options) {
+
+  var customs = [];
+  var defaultCustom = {
+    dateFormat: "YYYY/MM/DD",
+    excludeDir: false,
+    slugify: true
+  };
+
+  if(_.isUndefined(options.custom)) {
+    return customs;
+  }
+
+  _.each(options.custom, function (customObj) {
+    customObj.dateFormat = customObj.dateFormat || defaultCustom.dateFormat;
+    customObj.excludeDir = customObj.excludeDir || defaultCustom.excludeDir;
+    customObj.slugify = customObj.slugify || defaultCustom.slugify;
+    customs.push(customObj);
+  });
+
+  return customs;
 }

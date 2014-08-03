@@ -1,5 +1,5 @@
 ---
-title: Fuck Computers (Gif test)
+title: Gif test (FUCK COMPUTERS!!!!11)
 date: 2014-06-07
 tags:
 - hating

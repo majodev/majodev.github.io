@@ -1,5 +1,5 @@
 ---
-title: metalsmith-permalinks sucks
+title: metalsmith-permalinks sucks!
 date: 2014-06-09
 tags:
 - javascript

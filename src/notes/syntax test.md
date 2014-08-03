@@ -1,5 +1,5 @@
 ---
-title: Code highlighting test
+title: Syntax highlighting test
 date: 2014-07-27
 tags:
 - testing
