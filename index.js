@@ -1,5 +1,7 @@
 // node generic libs
 var moment = require("moment");
+var Handlebars = require('handlebars');
+var Swag = require("swag");
 
 // metalsmith plugins
 var Metalsmith = require("metalsmith");
@@ -26,6 +28,9 @@ var getVendorFiles = require("./scripts/getVendorFiles");
 // registering all Handlebars partials within all directories
 registerPartials("templates/base");
 registerPartials("templates/blocks");
+
+// register Swag Handlebars helpers
+Swag.registerHelpers(Handlebars);
 
 // config/build
 Metalsmith(__dirname)
