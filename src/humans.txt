@@ -1,0 +1,16 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+    Mario Ranftl -- dev -- @majodev
+
+# THANKS
+
+    Nicole Eibel -- design guru
+
+# TECHNOLOGY COLOPHON
+
+    CSS3, HTML5
+    node, metalsmith, grunt, handlebars, lodash, moment, highlight.js, swag, speakingurl, cheerio
+    jQuery, Modernizr, Normalize.css

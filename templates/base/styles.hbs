@@ -1,13 +1,10 @@
 {{#if _dev}}
-  
   {{!-- vendor styles --}}
   {{#each _vendor.css}}
-    <link rel="stylesheet" href="{{this}}" />
+    <link rel="stylesheet" href="{{this}}">
   {{/each}}
-
   {{!-- own styles --}}
-  <link rel="stylesheet" href="/assets/css/main.css" />
-
+  <link rel="stylesheet" href="/assets/css/main.css">
 {{else}}
 
 {{/if}}

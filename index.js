@@ -28,13 +28,13 @@ registerHelpers();
 registerPartials("templates/base");
 registerPartials("templates/blocks");
 
-// config/build
+// metalsmith pipeline
 Metalsmith(__dirname)
   .metadata({
     _dev: true,
     _sitename: "majodev.com",
     _builddate: moment().format("DD MMM YYYY, hh:mm:ss a"),
-    _vendor: getVendorFiles() // holds all external libs
+    _vendor: getVendorFiles() // holds all external client libs
   })
   .source("./src")
   .destination("./build")

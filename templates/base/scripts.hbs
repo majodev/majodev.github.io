@@ -1,16 +1,13 @@
 {{#if _dev}}
-  
   {{!-- vendor scripts --}}
   {{#each _vendor.js}}
     <script src="{{this}}"></script>
   {{/each}}
-
   {{!-- own scripts --}}
   <script src="/assets/js/ajax.js"></script>
-  
+
   {{!-- add livereload capabilities --}}
   <script src="//localhost:35729/livereload.js"></script>
-  
 {{else}}
 
 {{/if}}

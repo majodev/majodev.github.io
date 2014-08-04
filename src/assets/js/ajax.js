@@ -2,12 +2,13 @@ jQuery(function($) {
 
   // base from https://github.com/roryg/ghostwriter/blob/master/assets/js/scripts.js
 
-  var FADE_TIME_MS = 200;
+  var FADE_TIME_MS = 100;
 
   var History = window.History;
   var targetContainer = $("#main-content");
   var loading = false;
   var loadAnchor = "";
+  var $body = $(document.body);
 
   // Check if history is enabled for the browser
   if (!History.enabled) {
@@ -24,7 +25,7 @@ jQuery(function($) {
     if (removeAnchorFromUrl(displayedPage) !== removeAnchorFromUrl(statePage)) {
       if (testSameOrigin(displayedPage) === true) {
         // anchoring a wrong page - remember anchor and change state immediately
-        loading = true;
+        setLoading(true);
         loadAnchor = getAnchor(displayedPage);
         History.replaceState({}, null, removeAnchorFromUrl(displayedPage));
       } else {
@@ -69,13 +70,13 @@ jQuery(function($) {
           targetContainer.html($(html.filter("#main-content")[0]).children());
           targetContainer.fadeIn(FADE_TIME_MS, function() {
             attachAnchor(url, null);
-            loading = false;
+            setLoading(false);
           });
         });
       },
       error: function(error) {
         console.error("AJAX error" + error);
-        loading = false;
+        setLoading(false);
 
         document.location.href = "/404.html";
       }
@@ -83,7 +84,9 @@ jQuery(function($) {
   });
 
   $("body").on("click", "a", function(e) {
-    if (testSameOrigin(e.target.href) === true) { // only ajax on same origin
+    if (checkEventShouldBeCaptured(e) === true &&
+      testSameOrigin(e.target.href) === true) {
+
       e.preventDefault();
 
       if (loading === false) {
@@ -100,7 +103,7 @@ jQuery(function($) {
         // If the requested url is not the current states url push
         // the new state and make the ajax call.
         if (url !== currentState.hash && url.length !== 0) {
-          loading = true;
+          setLoading(true);
           History.pushState({}, title, url);
         } else {
           attachAnchor(url, title);
@@ -108,6 +111,15 @@ jQuery(function($) {
       }
     }
   });
+
+  function setLoading(value) {
+    if (value === true) {
+      $body.addClass('loading');
+    } else {
+      $body.removeClass('loading');
+    }
+    loading = value;
+  }
 
   function attachAnchor(url, title) {
     if (loadAnchor.length > 0) {
@@ -136,7 +148,6 @@ jQuery(function($) {
 
   // via http://stackoverflow.com/questions/9404793/check-if-same-origin-policy-applies
   function testSameOrigin(url) {
-
     var loc = window.location,
       a = document.createElement('a');
 
@@ -145,6 +156,13 @@ jQuery(function($) {
     return a.hostname == loc.hostname &&
       a.port == loc.port &&
       a.protocol == loc.protocol;
+  }
+
+  function checkEventShouldBeCaptured(event) {
+    if (event.which == 2 || event.metaKey) {
+      return false;
+    }
+    return true;
   }
 
 });
