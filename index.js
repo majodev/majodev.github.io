@@ -17,6 +17,7 @@ var metaformat = require("./scripts/metalsmith-metaformat");
 var tagtree = require("./scripts/metalsmith-tagtree");
 var collectiondefaults = require("./scripts/metalsmith-collectiondefaults");
 var wordcount = require("./scripts/metalsmith-wordcount");
+var filetimestamp = require("./scripts/metalsmith-filetimestamp");
 
 // custom node scripts
 var registerHelpers = require("./scripts/registerHelpers");
@@ -33,12 +34,13 @@ Metalsmith(__dirname)
   .metadata({
     _dev: true,
     _sitename: "majodev.com",
-    _builddate: moment().format("DD MMM YYYY, hh:mm:ss a"),
+    _builddate: moment().format("DD MMM YYYY, HH:mm:ss"),
     _vendor: getVendorFiles() // holds all external client libs
   })
   .source("./src")
   .destination("./build")
   .use(deletehiddenfiles())
+  .use(filetimestamp())
   .use(permapath({
     mode: "pre",
     relative: true,
@@ -94,9 +96,9 @@ Metalsmith(__dirname)
   .use(permapath({
     mode: "post"
   }))
-  .use(debugsmith({
-    printMetaKeys: false
-  }))
+  // .use(debugsmith({
+  //   printMetaKeys: true
+  // }))
   .build(function(error) {
     if (error) {
       throw error;

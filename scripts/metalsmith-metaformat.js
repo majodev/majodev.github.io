@@ -23,6 +23,10 @@ function plugin() {
         files[file].formattedDate = moment(files[file].date).format("DD MMM YYYY");
       }
 
+      if (_.isUndefined(files[file].lastModified) === false) {
+        files[file].formattedLastModified = moment(files[file].lastModified).format("DD MMM YYYY HH:mm:ss");
+      }
+
     });
   };
 }

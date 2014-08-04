@@ -11,7 +11,9 @@
   "author": "majodev",
   "license": "MIT",
   "dependencies": {
+    "async": "^0.9.0",
     "cheerio": "^0.17.0",
+    "debug": "^1.0.4",
     "handlebars": "^2.0.0-alpha.4",
     "highlight.js": "^8.1.0",
     "lodash": "^2.4.1",
