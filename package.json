@@ -16,7 +16,6 @@
     "highlight.js": "^8.1.0",
     "lodash": "^2.4.1",
     "metalsmith": "^0.9.0",
-    "metalsmith-branch": "0.0.4",
     "metalsmith-collections": "^0.4.1",
     "metalsmith-markdown": "^0.2.1",
     "metalsmith-templates": "^0.5.2",

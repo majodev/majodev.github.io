@@ -17,8 +17,8 @@ you are currently viewing the `{{title}}` page, based on the template `{{templat
 <div class="tags">
   {{#each _sortedTags}}
     <h3 id="{{tag}}">#{{tag}}</h3>
-    {{#each children}}
+    {{#withSortReverse children "date"}}
       {{> noteItem}}
-    {{/each}}
+    {{/withSortReverse}}
   {{/each}}
 </div>

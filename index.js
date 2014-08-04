@@ -1,14 +1,11 @@
 // node generic libs
 var moment = require("moment");
-var Handlebars = require("handlebars");
-var Swag = require("swag");
 
 // metalsmith plugins
 var Metalsmith = require("metalsmith");
 var markdown = require("metalsmith-markdown");
 var templates = require("metalsmith-templates");
 var collections = require("metalsmith-collections");
-var branch = require("metalsmith-branch");
 
 // custom metalsmith scripts (aka plugins)
 var deletehiddenfiles = require("./scripts/metalsmith-deletehiddenfiles");
@@ -22,13 +19,12 @@ var collectiondefaults = require("./scripts/metalsmith-collectiondefaults");
 var wordcount = require("./scripts/metalsmith-wordcount");
 
 // custom node scripts
+var registerHelpers = require("./scripts/registerHelpers");
 var registerPartials = require("./scripts/registerPartials");
 var getVendorFiles = require("./scripts/getVendorFiles");
 
-// register Swag Handlebars helpers
-Swag.registerHelpers(Handlebars);
-
-// registering all Handlebars partials within all directories
+// registering all Handlebars swag helpers and template partials within all directories
+registerHelpers();
 registerPartials("templates/base");
 registerPartials("templates/blocks");
 
@@ -62,28 +58,26 @@ Metalsmith(__dirname)
     fileMetaKey: "tags"
   }))
   .use(metaformat())
-  .use(branch()
-    .pattern("!+(404).*") // exclude 404
-    .use(collections({
-      pages: {
-        pattern: "pages/**/*.*",
-        sortBy: "sequence"
-      },
-      notes: {
-        pattern: "notes/**/*.md",
-        sortBy: "date",
-        reverse: true
-      },
-      subpages: {
-        pattern: "subpages/**/*.*",
-        sortBy: "sequence"
-      }
-    }))
-    .use(collectiondefaults({
-      notes: {
-        template: "note.hbs"
-      }
-    })))
+  .use(collections({
+    pages: {
+      pattern: "pages/**/*.*",
+      sortBy: "sequence"
+    },
+    notes: {
+      pattern: "notes/**/*.md",
+      sortBy: "date",
+      reverse: true
+    },
+    subpages: {
+      pattern: "subpages/**/*.*",
+      sortBy: "sequence"
+    }
+  }))
+  .use(collectiondefaults({
+    notes: {
+      template: "note.hbs"
+    }
+  }))
   .use(hbs())
   .use(markdown())
   .use(wordcount({
@@ -100,11 +94,11 @@ Metalsmith(__dirname)
   .use(permapath({
     mode: "post"
   }))
-.use(debugsmith({
-  printMetaKeys: false
-}))
-.build(function(error) {
-  if (error) {
-    throw error;
-  }
-});
+  .use(debugsmith({
+    printMetaKeys: false
+  }))
+  .build(function(error) {
+    if (error) {
+      throw error;
+    }
+  });
