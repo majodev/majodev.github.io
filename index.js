@@ -47,8 +47,13 @@ Metalsmith(__dirname)
     mode: "pre",
     relative: true,
     custom: [{
-      dir: "notes",
-      excludeDir: true
+      dir: "pages",
+      formatWithDateTitle: false
+    }, {
+      dir: "notes"
+    }, {
+      dir: "subpages",
+      formatWithDateTitle: false
     }]
   }))
   .use(tagtree({
@@ -58,16 +63,20 @@ Metalsmith(__dirname)
   }))
   .use(metaformat())
   .use(branch()
-    .pattern("!+(404|legal).*") // exclude minor pages from collections
+    .pattern("!+(404).*") // exclude 404
     .use(collections({
       pages: {
-        pattern: "*.*",
+        pattern: "pages/**/*.*",
         sortBy: "sequence"
       },
       notes: {
         pattern: "notes/**/*.md",
         sortBy: "date",
         reverse: true
+      },
+      subpages: {
+        pattern: "subpages/**/*.*",
+        sortBy: "sequence"
       }
     }))
     .use(collectiondefaults({
