@@ -37,7 +37,7 @@ module.exports = function(grunt) {
           expand: true,
           flatten: true,
           nonull: true,
-          src: _.union(config.vendor.css, config.vendor.js),
+          src: _.union(config.vendor.css, config.vendor.js, config.vendor.js_head),
           dest: config.vendor.dist
         }]
       }

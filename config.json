@@ -3,12 +3,16 @@
     "dist": "src/assets/vendor/",
     "productive": "/assets/vendor/",
     "css": [
-      "bower_components/normalize.css/normalize.css",
+      "bower_components/cardinal/css/main.css",
       "bower_components/colors/css/colors.css",
-      "bower_components/highlightjs/src/styles/github.css"
+      "bower_components/highlightjs/src/styles/monokai_sublime.css"
+    ],
+    "js_head": [
+      "bower_components/cardinal/js/vendor/modernizr-2.8.1.min.js"
     ],
     "js": [
       "bower_components/jquery/dist/jquery.js",
+      "bower_components/cardinal/js/plugins.js",
       "bower_components/history.js/scripts/bundled-uncompressed/html4+html5/jquery.history.js"
     ]
   }

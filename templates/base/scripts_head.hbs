@@ -1,0 +1,8 @@
+{{#if _dev}}
+  {{!-- vendor scripts (HEAD) --}}
+  {{#each _vendor.js_head}}
+    <script src="{{this}}"></script>
+  {{/each}}
+{{else}}
+
+{{/if}}
