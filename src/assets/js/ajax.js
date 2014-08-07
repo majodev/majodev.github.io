@@ -2,10 +2,11 @@ jQuery(function($) {
 
   // base from https://github.com/roryg/ghostwriter/blob/master/assets/js/scripts.js
 
+  var AJAX_SELECTOR = "#main-content";
   var FADE_TIME_MS = 100;
 
   var History = window.History;
-  var targetContainer = $("#main-content");
+  var targetContainer = $(AJAX_SELECTOR);
   var loading = false;
   var loadAnchor = "";
   var $body = $(document.body);
@@ -46,7 +47,9 @@ jQuery(function($) {
       type: "GET",
       success: function(result) {
         var html = $(result);
-        var newContent = $("#main-content", html).contents();
+        var newContent = $(AJAX_SELECTOR, html).contents();
+
+        //console.log(newContent);
 
         // Set the title to the requested urls document title
         document.title = html.filter("title").text();
@@ -67,7 +70,8 @@ jQuery(function($) {
 
         targetContainer.fadeOut(FADE_TIME_MS, function() {
           //console.log(html.filter("#main-content")[0]);
-          targetContainer.html($(html.filter("#main-content")[0]).children());
+          //targetContainer.html($(html.filter("#main-content")[0]).children());
+          targetContainer.html(newContent);
           targetContainer.fadeIn(FADE_TIME_MS, function() {
             attachAnchor(url, null);
             setLoading(false);
