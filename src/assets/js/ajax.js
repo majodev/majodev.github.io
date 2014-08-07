@@ -49,7 +49,7 @@ jQuery(function($) {
         var html = $(result);
         var newContent = $(AJAX_SELECTOR, html).contents();
 
-        //console.log(newContent);
+        console.log(newContent);
 
         // Set the title to the requested urls document title
         document.title = html.filter("title").text();

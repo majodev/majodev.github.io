@@ -1,4 +1,9 @@
-<footer id="footer" class="bg-yellow">{{_sitename}} - generated at {{_builddate}}{{#each subpages}}
-    <a href="/{{ path }}">{{ title }}</a>
-  {{/each}}
+<footer class="footer">
+  <div class="container-fluid">
+    <p class="text-muted text-center">{{_sitename}} - generated at {{_builddate}}
+      {{#each subpages}}
+        <a href="/{{ path }}">{{ title }}</a>
+      {{/each}}
+    </p>
+  </div>
 </footer>
