@@ -11,3 +11,5 @@ sequence: 4
 Looking into the old,
 learning something new. -- Old Chinese saying [via Akira Kobayashi](http://fontfeed.com/archives/akira-kobayashi-on-ff-clifford/)
 
+Be a violent psychopath who knows where you live -- Martin Goldberg
+
