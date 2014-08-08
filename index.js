@@ -8,7 +8,7 @@ var templates = require("metalsmith-templates");
 var collections = require("metalsmith-collections");
 
 // custom metalsmith scripts (aka plugins)
-var deletehiddenfiles = require("./scripts/metalsmith-deletehiddenfiles");
+var deletefiles = require("./scripts/metalsmith-deletefiles");
 var debugsmith = require("./scripts/metalsmith-debugsmith");
 var hbs = require("./scripts/metalsmith-hbs");
 var permapath = require("./scripts/metalsmith-permapath");
@@ -39,7 +39,7 @@ Metalsmith(__dirname)
   })
   .source("./src")
   .destination("./build")
-  .use(deletehiddenfiles())
+  .use(deletefiles())
   .use(filetimestamp())
   .use(permapath({
     mode: "pre",

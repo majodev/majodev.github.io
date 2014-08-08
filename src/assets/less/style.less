@@ -1,0 +1,27 @@
+@import "bootstrap.less"; // import customized bootstrap
+
+/* style.less */
+
+// CUSTOM VARIABLES
+@footer-height: 30px;
+
+html {
+  position: relative; /* needed for footer! */
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: @footer-height; /* Margin bottom by footer height */
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: @footer-height; /* Set the fixed height of the footer here */
+  background-color: @gray-lighter;
+}
+
+body > .container {
+  padding: @footer-height 15px 0; /* for navbar? EVENTUALLY NOT NEEDED! */
+}

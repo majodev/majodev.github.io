@@ -12,7 +12,7 @@ module.exports = function(grunt) {
     watch: {
       scripts: {
         files: ["src/**/*.*", "templates/**/*.*", "scripts/**/*.*", "index.js", "config.json"],
-        tasks: ["execute"],
+        tasks: ["less", "execute"],
         options: {
           interrupt: false,
           livereload: true
@@ -44,6 +44,16 @@ module.exports = function(grunt) {
     },
     clean: {
       prebuild: ["build", "src/assets/vendor"]
+    },
+    less: {
+      development: {
+        options: {
+          paths: config.less.dirs
+        },
+        files: {
+          "src/assets/css/style.css": config.less.src
+        }
+      }
     }
   });
 
@@ -52,6 +62,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks("grunt-http-server");
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-contrib-less');
 
-  grunt.registerTask("default", ["clean", "copy", "execute", "http-server:dev", "watch"]);
+  grunt.registerTask("default", ["clean", "copy", "less", "execute", "http-server:dev", "watch"]);
 };

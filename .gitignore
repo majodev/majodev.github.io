@@ -3,3 +3,4 @@ node_modules
 build
 bower_components
 src/assets/vendor
+src/assets/css/style.css

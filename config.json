@@ -3,7 +3,6 @@
     "dist": "src/assets/vendor/",
     "productive": "/assets/vendor/",
     "css": [
-      "bower_components/bootstrap/dist/css/bootstrap.css",
       "bower_components/colors/css/colors.css",
       "bower_components/highlightjs/src/styles/github.css"
     ],
@@ -15,5 +14,9 @@
       "bower_components/bootstrap/dist/js/bootstrap.js",
       "bower_components/history.js/scripts/bundled-uncompressed/html4+html5/jquery.history.js"
     ]
+  },
+  "less": {
+    "dirs": ["src/assets/less/bootstrap", "bower_components/bootstrap/less"],
+    "src": "src/assets/less/style.less"
   }
 }
