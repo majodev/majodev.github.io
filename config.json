@@ -4,7 +4,7 @@
     "productive": "/assets/vendor/",
     "css": [
       "bower_components/colors/css/colors.css",
-      "bower_components/highlightjs/src/styles/github.css"
+      "bower_components/highlightjs/src/styles/monokai_sublime.css"
     ],
     "js_head": [
       "bower_components/modernizr/modernizr.js"

@@ -12,7 +12,6 @@ Let's test some code highlighting here...
 <h2 id="js">javascript</h2>
 
 ```javascript
-
 module.exports = registerPartials;
 
 function registerPartials(directory) {
@@ -34,7 +33,6 @@ function registerPartials(directory) {
     Handlebars.registerPartial(name, template);
   });
 }
-
 ```
 
 <h2 id="bash">bash</h2>

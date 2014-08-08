@@ -3,8 +3,12 @@
 /* style.less */
 
 // CUSTOM VARIABLES
-@footer-height: 55px;
-@header-height: 20px;
+@footer-height: (@font-size-small * 2) + 25;
+@header-height: 20px; // exclude with navbar-height!
+
+.container {
+  max-width: 768px;
+}
 
 html {
   position: relative; /* needed for footer! */
@@ -13,6 +17,7 @@ html {
 
 body {
   margin-bottom: @footer-height; /* Margin bottom by footer height */
+  background: url(/assets/img/bg_main_tile.png) repeat;
 }
 
 .footer {
@@ -21,8 +26,13 @@ body {
   width: 100%;
   height: @footer-height; /* Set the fixed height of the footer here */
   background-color: @gray-lighter;
+  font-size: @font-size-small;
 }
 
 body > .container {
   padding: @header-height 15px 0; /* for navbar? EVENTUALLY NOT NEEDED! */
+}
+
+code, pre, kbd {
+  font-size: 80%;
 }

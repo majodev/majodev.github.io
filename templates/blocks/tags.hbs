@@ -1,1 +1,5 @@
-{{#each tags}}<a href="/tags/#{{this}}">#{{this}}</a> {{/each}}
+<ul class="list-inline tag-list">
+  {{#each tags}}
+    <li><a href="/tags/#{{this}}">#{{this}}</a></li>
+  {{/each}}
+</ul>
