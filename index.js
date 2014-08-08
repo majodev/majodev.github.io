@@ -6,9 +6,9 @@ var Metalsmith = require("metalsmith");
 var markdown = require("metalsmith-markdown");
 var templates = require("metalsmith-templates");
 var collections = require("metalsmith-collections");
+var ignore = require("metalsmith-ignore");
 
 // custom metalsmith scripts (aka plugins)
-var deletefiles = require("./scripts/metalsmith-deletefiles");
 var debugsmith = require("./scripts/metalsmith-debugsmith");
 var hbs = require("./scripts/metalsmith-hbs");
 var permapath = require("./scripts/metalsmith-permapath");
@@ -39,7 +39,10 @@ Metalsmith(__dirname)
   })
   .source("./src")
   .destination("./build")
-  .use(deletefiles())
+  .use(ignore([
+    "assets/less/**/*",
+    "**/.DS_Store"
+  ]))
   .use(filetimestamp())
   .use(permapath({
     mode: "pre",

@@ -10,8 +10,16 @@ module.exports = function(grunt) {
       }
     },
     watch: {
-      scripts: {
-        files: ["src/**/*.*", "templates/**/*.*", "scripts/**/*.*", "index.js", "config.json"],
+      metalsmith: {
+        files: ["src/**/*.*", "templates/**/*.*", "scripts/**/*.*", "index.js", "config.json", "!src/**/*.less", "!src/assets/css/style.css"],
+        tasks: ["execute"],
+        options: {
+          interrupt: false,
+          livereload: true
+        }
+      },
+      less: {
+        files: ["src/**/*.less"],
         tasks: ["less", "execute"],
         options: {
           interrupt: false,
@@ -52,7 +60,7 @@ module.exports = function(grunt) {
         },
         files: {
           "src/assets/css/style.css": config.less.src
-        }
+        } // TODO: add grunt task from bootstrap source and run autoprefixer in the end!!!
       }
     }
   });
