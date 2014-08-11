@@ -1688,7 +1688,7 @@ pre code {
   }
 }
 /* style.less */
-.container {
+.container-fluid {
   max-width: 768px;
 }
 html {
@@ -1697,22 +1697,30 @@ html {
   min-height: 100%;
 }
 body {
-  margin-bottom: 57px;
+  margin-bottom: 80px;
   /* Margin bottom by footer height */
+}
+body > .container-fluid {
+  padding: 20px 15px 0;
+  /* for navbar? EVENTUALLY NOT NEEDED! */
+}
+body {
   background: url(/assets/img/bg_main_tile.png) repeat;
+}
+.footer {
+  background: url(/assets/img/tex2res5.png) repeat;
+}
+body {
+  margin-bottom: 80px;
+  /* Margin bottom by footer height */
 }
 .footer {
   position: absolute;
   bottom: 0;
   width: 100%;
-  height: 57px;
+  height: 80px;
   /* Set the fixed height of the footer here */
-  background-color: #eeeeee;
   font-size: 16px;
-}
-body > .container {
-  padding: 20px 15px 0;
-  /* for navbar? EVENTUALLY NOT NEEDED! */
 }
 code,
 pre,

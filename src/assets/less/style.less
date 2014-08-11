@@ -2,11 +2,17 @@
 
 /* style.less */
 
-// CUSTOM VARIABLES
-@footer-height: (@font-size-small * 2) + 25;
+// -----------------------------------------------------------------------------
+// variables
+
+@footer-height: 80px; //(@font-size-small * 2) + 25;
 @header-height: 20px; // exclude with navbar-height!
 
-.container {
+
+// -----------------------------------------------------------------------------
+// global positioning
+
+.container-fluid {
   max-width: 768px;
 }
 
@@ -17,7 +23,29 @@ html {
 
 body {
   margin-bottom: @footer-height; /* Margin bottom by footer height */
+}
+
+body > .container-fluid {
+  padding: @header-height 15px 0; /* for navbar? EVENTUALLY NOT NEEDED! */
+}
+
+// -----------------------------------------------------------------------------
+// colors and background styling
+
+body {
   background: url(/assets/img/bg_main_tile.png) repeat;
+}
+
+.footer {
+  background: url(/assets/img/tex2res5.png) repeat;
+  // background-color: @gray-lighter;
+}
+
+// -----------------------------------------------------------------------------
+// footer positioning
+
+body {
+  margin-bottom: @footer-height; /* Margin bottom by footer height */
 }
 
 .footer {
@@ -25,13 +53,11 @@ body {
   bottom: 0;
   width: 100%;
   height: @footer-height; /* Set the fixed height of the footer here */
-  background-color: @gray-lighter;
   font-size: @font-size-small;
 }
 
-body > .container {
-  padding: @header-height 15px 0; /* for navbar? EVENTUALLY NOT NEEDED! */
-}
+// -----------------------------------------------------------------------------
+// code styling
 
 code, pre, kbd {
   font-size: 80%;
