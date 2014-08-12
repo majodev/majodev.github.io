@@ -12,13 +12,13 @@
   <nav>
     <div class="container-fluid">
       <ol class="breadcrumb blocks-headerslistnav">
-        <li><a href="/">{{ _sitename }}</a></li>
+        <li><a href="/">{{ uppercase _sitename }}</a></li>
         {{#each pages}}
           {{#is "notes/" path}}
-            <li class="nobreadcrumbslash"><a href="/{{ path }}">{{ title }}</a></li>
+            <li class="nobreadcrumbslash"><a href="/{{ path }}">{{uppercase title }}</a></li>
             <li class="active">{{../../title}}</li>
           {{else}}
-            <li class="nobreadcrumbslash"><a href="/{{ path }}">{{ title }}</a></li>
+            <li class="nobreadcrumbslash"><a href="/{{ path }}">{{uppercase title }}</a></li>
           {{/is}}
         {{/each}}
       </ol>

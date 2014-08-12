@@ -5,10 +5,9 @@
     {{> noteNavigator}}
     <article>
       <h1>{{title}}</h1>
-      <h5><time datetime={{date}}>{{formattedDate}}</time> | {{> tagList}} | {{wordCount}} words | {{readingTime}}</h5>
+      <h5><time datetime={{date}}>{{formattedDate}}</time> | {{> tagList}} <small>{{wordCount}} words, {{readingTime}}</small></h5>
       {{{ contents }}}
     </article>
-    <small>last modified on {{formattedLastModified}}</small>
   </main> {{!-- end main-content --}}
 </div> {{!-- end container --}}
 {{> footer}}

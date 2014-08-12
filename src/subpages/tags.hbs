@@ -1,16 +1,14 @@
 ---
 title: tags
 template: default.hbs
-sequence: 2
+sequence: 1
 ---
 
-you are currently viewing the `{{title}}` page, based on the template `{{template}}`!
-
-<div class="tagCloud">
+{{!-- <div class="tagCloud">
   {{#each _sortedTags}}
     <a href="#{{tag}}" style="font-size: {{multiply 7 children.length }}px">#{{tag}}</a>
   {{/each}}
-</div>
+</div> --}}
 
 <div class="tags">
   {{#each _sortedTags}}

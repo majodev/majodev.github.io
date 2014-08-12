@@ -8,7 +8,7 @@
 // variables
 
 @footer-height: 80px; //(@font-size-small * 2) + 25;
-@header-height: 20px; // @navbar-height + 20px; //20px; // exclude with navbar-height!
+@header-height: 40px; // @navbar-height + 20px; //20px; // exclude with navbar-height!
 
 
 // -----------------------------------------------------------------------------
@@ -34,12 +34,14 @@ html {
   min-height: 100%;
 }
 
-body {
-  margin-bottom: @footer-height; /* Margin bottom by footer height */
-}
-
 .template-default, .template-note {
   padding: @header-height 15px 0; /* for navbar? EVENTUALLY NOT NEEDED! */
+}
+
+@media (max-width: @screen-xs-max) {
+  .template-default, .template-note {
+    padding: 0 15px 0; /* for navbar? EVENTUALLY NOT NEEDED! */
+  }
 }
 
 // -----------------------------------------------------------------------------
@@ -58,7 +60,17 @@ body {
 }
 
 .breadcrumb > li + li.nobreadcrumbslash:before {
-    content: ""
+  content: ""
+}
+
+@media (max-width: @screen-xs-max) {
+  .blocks-headerslistnav > li {
+    display: list-item;
+    // text-align: center;
+  }
+  .breadcrumb > li + li.nobreadcrumbslash:before {
+    padding: 0 0px;
+  }
 }
 
 
@@ -67,14 +79,14 @@ body {
 // footer positioning
 
 body {
-  margin-bottom: @footer-height; /* Margin bottom by footer height */
+  margin-bottom: @footer-height; // press footer down, away from content
 }
 
 .block-footer {
   position: absolute;
   bottom: 0;
   width: 100%;
-  height: @footer-height; /* Set the fixed height of the footer here */
+  height: @footer-height; // set to 0 if we should always scroll to footer!
   font-size: @font-size-small;
 }
 
@@ -87,9 +99,33 @@ body {
   background: url(/assets/img/tiny_grid.png) repeat;
 }
 
+// body {
+//     background: url(/assets/img/colour__.png);
+// }
+ 
+// body:after {
+//     content: "";
+//     background: url(/assets/img/tiny_grid_transparent.png) repeat;
+//     top: 0;
+//     left: 0;
+//     bottom: 0;
+//     right: 0;
+//     position: absolute;
+//     z-index: -1;   
+// }
+
+
+
 .block-footer {
-  // background: url(/assets/img/tex2res5.png) repeat;
-  background-color: @gray-lighter;
+  // background: #39454b;
+  //background-color: #dce3e2;
+  //background-color: rgba(45,53,58,0.15);
+  // background: url(/assets/img/bg_main_tile.png) repeat;
+  // background-color: @gray-lighter;
+  // background: #008080;
+  // background: rgba(128, 128, 128, .6);
+  // opacity: 1; // Leave this as 1
+  // background-color: rgba(0,0,0,0.15); // This is in the form rgba(R,G,B,a) where a is your opacity
 }
 
 
@@ -103,8 +139,13 @@ code, pre, kbd {
 
 // -----------------------------------------------------------------------------
 // -----------------------------------------------------------------------------
-// note styling
+// block styling
 
 .block-noteNavigator {
   font-size: 15px;
+}
+
+.block-tagItem {
+  color: #44BB66;
+  font-size: 14px;
 }

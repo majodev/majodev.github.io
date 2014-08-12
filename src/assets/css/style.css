@@ -1793,14 +1793,17 @@ html {
   /* needed for footer! */
   min-height: 100%;
 }
-body {
-  margin-bottom: 80px;
-  /* Margin bottom by footer height */
-}
 .template-default,
 .template-note {
-  padding: 20px 15px 0;
+  padding: 40px 15px 0;
   /* for navbar? EVENTUALLY NOT NEEDED! */
+}
+@media (max-width: 767px) {
+  .template-default,
+  .template-note {
+    padding: 0 15px 0;
+    /* for navbar? EVENTUALLY NOT NEEDED! */
+  }
 }
 .blocks-headerslistnav {
   padding: 8px 0px;
@@ -1814,23 +1817,26 @@ body {
 .breadcrumb > li + li.nobreadcrumbslash:before {
   content: "";
 }
+@media (max-width: 767px) {
+  .blocks-headerslistnav > li {
+    display: list-item;
+  }
+  .breadcrumb > li + li.nobreadcrumbslash:before {
+    padding: 0 0px;
+  }
+}
 body {
   margin-bottom: 80px;
-  /* Margin bottom by footer height */
 }
 .block-footer {
   position: absolute;
   bottom: 0;
   width: 100%;
   height: 80px;
-  /* Set the fixed height of the footer here */
   font-size: 14px;
 }
 body {
   background: url(/assets/img/tiny_grid.png) repeat;
-}
-.block-footer {
-  background-color: #eeeeee;
 }
 code,
 pre,
@@ -1839,4 +1845,8 @@ kbd {
 }
 .block-noteNavigator {
   font-size: 15px;
+}
+.block-tagItem {
+  color: #44BB66;
+  font-size: 14px;
 }

@@ -11,16 +11,20 @@
   <nav>
     <div class="container-fluid">
       <ul class="list-inline blocks-headerslistnav">
-        {{#if path}}
-          <li><a href="/">{{ _sitename }}</a></li>
+        {{#unless skipPermalink}}
+          {{#if path}}
+            <li><a href="/">{{ uppercase _sitename }}</a></li>
+          {{else}}
+            <li class="active">{{ uppercase _sitename }}</li>
+          {{/if}}
         {{else}}
-          <li class="active">{{ _sitename }}</li>
-        {{/if}}
+          <li><a href="/">{{ uppercase _sitename }}</a></li> {{!-- capture non permalink enabled pages --}}
+        {{/unless}}
         {{#each pages}}
           {{#is ../path path}}
-            <li class="active">{{ title }}</li>
+            <li class="active">{{uppercase title }}</li>
           {{else}}
-            <li><a href="/{{ path }}">{{ title }}</a></li>
+            <li><a href="/{{ path }}">{{uppercase title }}</a></li>
           {{/is}}
         {{/each}}
       </ul>

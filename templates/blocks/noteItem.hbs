@@ -1,1 +1,12 @@
-<p class="block-noteItem"><small class="text-muted">{{ formattedDate }}</small> <a href="/{{ path }}">{{ title }}</a>{{!-- {{#if tags}} -- {{> tags}}{{/if}} --}}</p>
+{{!-- <p class="block-noteItem"><small class="text-muted">{{ formattedDate }}</small> <a href="/{{ path }}">{{ title }}</a></p> --}}
+{{!-- <div class="block-noteItem row">
+  <div class="col-sm-6 col-sm-push-6 text-right-sm"><small class="text-muted">{{ formattedDate }}</small></div>
+  <div class="col-sm-6 col-sm-pull-6"><a href="/{{ path }}">{{ title }}</a></div>
+</div> --}}
+<div class="block-noteItem row">
+  <div class="col-sm-4 col-sm-push-8 text-right-sm"><small class="text-muted">{{ formattedDate }}</small></div>
+  <div class="col-sm-8 col-sm-pull-4"><a href="/{{ path }}">{{ title }}</a> <small>{{>tagList}}</small></div>
+  {{!-- <div class="col-sm-2 col-sm-pull-10 text-right-sm"><small class="text-muted">{{ formattedDate }}</small></div>
+  <div class="col-sm-6 col-sm-push-2"><a href="/{{ path }}">{{ title }}</a></div>
+  <div class="col-sm-4 col-sm-push-2 text-right-sm"><small>{{>tagList}}</small></div> --}}
+</div>

@@ -1,7 +1,6 @@
 ---
-title: home
+title: Welcome
 template: default.hbs
-sequence: 1
 ---
 
 Welcome to my page, **asshole!**

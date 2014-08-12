@@ -175,7 +175,7 @@ function getCustomObject(file, customs) {
 }
 
 function hasRestrictedMeta(fileObject) {
-  if (_.isUndefined(fileObject.permalink) === false && fileObject.permalink === false) {
+  if (_.isUndefined(fileObject.skipPermalink) === false && fileObject.skipPermalink === true) {
     return true;
   }
   return false;
