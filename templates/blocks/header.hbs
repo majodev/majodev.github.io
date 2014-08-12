@@ -1,10 +1,41 @@
-<header id="header" class="bg-yellow">
+{{!-- <header id="header" class="bg-yellow">
   <div class="container-fluid text-center">
     <a href="/">{{ _sitename }}</a>
     {{#each pages}}
       <a href="/{{ path }}">{{ title }}</a>
     {{/each}}
   </div>
+</header> --}}
+
+<header class="block-header">
+  <nav>
+    <div class="container-fluid">
+      <ul class="list-inline blocks-headerslistnav">
+        {{#if path}}
+          <li><a href="/">{{ _sitename }}</a></li>
+        {{else}}
+          <li class="active">{{ _sitename }}</li>
+        {{/if}}
+        {{#each pages}}
+          {{#is ../path path}}
+            <li class="active">{{ title }}</li>
+          {{else}}
+            <li><a href="/{{ path }}">{{ title }}</a></li>
+          {{/is}}
+        {{/each}}
+      </ul>
+    </div>
+    {{!-- <ul class="nav nav-pills">
+      <li><a href="/">{{ _sitename }}</a></li>
+      {{#each pages}}
+        {{#is ../path path}}
+          <li class="active"><a href="/{{ path }}">{{ title }}</a></li>
+        {{else}}
+          <li><a href="/{{ path }}">{{ title }}</a></li>
+        {{/is}}
+      {{/each}}
+    </ul> --}}
+  </nav>
 </header>
 
 {{!-- <header id="header">

@@ -1,6 +1,15 @@
-<header id="header" class="bg-yellow">
-  <div class="container-fluid text-center">
+<header class="block-noteHeader">
+  <nav>
+    <div class="container-fluid">
+      <ol class="breadcrumb blocks-headerslistnav">
+        <li><a href="/">{{ _sitename }}</a></li>
+        {{!-- <li><a href="/notes">notes</a></li> --}}
+        <li class="active">{{ title }}</li>
+      </ol>
+    </div>
+  </nav>
+  {{!-- <div class="container-fluid text-center">
     <a href="/">{{ _sitename }}</a>
     <a href="/{{ path }}">{{ title }}</a>
-  </div>
+  </div> --}}
 </header>

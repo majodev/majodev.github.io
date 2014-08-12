@@ -7,7 +7,7 @@
 // variables
 
 @footer-height: 80px; //(@font-size-small * 2) + 25;
-@header-height: @navbar-height + 20px; //20px; // exclude with navbar-height!
+@header-height: 20px; // @navbar-height + 20px; //20px; // exclude with navbar-height!
 
 
 // -----------------------------------------------------------------------------
@@ -37,12 +37,24 @@ body {
   margin-bottom: @footer-height; /* Margin bottom by footer height */
 }
 
-body > .container-fluid {
+.template-default, .template-note {
   padding: @header-height 15px 0; /* for navbar? EVENTUALLY NOT NEEDED! */
 }
 
-// @media (max-width:768px) {
-// }
+// -----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
+// nav positioning & style
+
+.blocks-headerslistnav {
+  padding: 8px 0px;
+  margin-bottom: 0px;
+  background-color: inherit;
+  font-size: 20px;
+}
+
+.blocks-headerslistnav > .active {
+  color: #777777;
+}
 
 
 // -----------------------------------------------------------------------------
@@ -53,7 +65,7 @@ body {
   margin-bottom: @footer-height; /* Margin bottom by footer height */
 }
 
-.footer {
+.block-footer {
   position: absolute;
   bottom: 0;
   width: 100%;
@@ -70,13 +82,9 @@ body {
   // background: url(/assets/img/bg_main_tile.png) repeat;
 }
 
-.footer {
+.block-footer {
   // background: url(/assets/img/tex2res5.png) repeat;
   background-color: @gray-lighter;
-}
-
-.topbar {
-  background-color: #222;
 }
 
 
@@ -86,4 +94,12 @@ body {
 
 code, pre, kbd {
   font-size: 80%;
+}
+
+// -----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
+// note styling
+
+.block-noteNavigator {
+  font-size: 15px;
 }

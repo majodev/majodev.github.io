@@ -2,7 +2,7 @@ jQuery(function($) {
 
   // base from https://github.com/roryg/ghostwriter/blob/master/assets/js/scripts.js
 
-  var AJAX_SELECTOR = "#main-content";
+  var AJAX_SELECTOR = "#ajax-container";
   var FADE_TIME_MS = 100;
   var ANCHOR_SCROLL_OFFSET_TOP = 60;
 
@@ -48,7 +48,8 @@ jQuery(function($) {
       type: "GET",
       success: function(result) {
         var html = $(result);
-        var newContent = $(AJAX_SELECTOR, html).contents();
+        //var newContent = $(AJAX_SELECTOR, html).contents();
+        var newContent = $(html.filter(AJAX_SELECTOR)[0]).children();
 
         // console.log(newContent);
 

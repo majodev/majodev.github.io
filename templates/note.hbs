@@ -1,34 +1,18 @@
 {{> pre}}
 {{> noteHeader}}
-<div class="container-fluid">
-  <main id="main-content">
-    <div class="row">
-      <div class="col-xs-6">
-        {{#if next}}
-          <div class="note-previous">
-            <a href="/{{ next.path }}">previous: {{ next.title }}</a>
-          </div>
-        {{/if}}
-      </div>
-      <div class="col-xs-6">
-        {{#if previous}}
-          <div class="note-next text-right">
-            <a href="/{{ previous.path }}">next: {{ previous.title }}</a>
-          </div>
-        {{/if}}
-      </div>
-    </div>
+<div class="template-note container-fluid">
+  <main>
+    {{> noteNavigator}}
     <article>
       <h1 class="bg-navy aqua">{{title}}</h1>
       <h2 class="gray">{{formattedDate}}</h2>
       {{#if tags}}
-        <div class="note-tags">
-          <h3>tags: {{> tags}}</h3>
-        </div>
+        <h3>tags: {{> tagList}}</h3>
       {{/if}}
       <h4 class="gray">{{wordCount}} words, estimated reading time: {{readingTime}}, last modified on {{formattedLastModified}}</h4>
       {{{ contents }}}
     </article>
+    {{> noteNavigator}}
   </main> {{!-- end main-content --}}
 </div> {{!-- end container --}}
 {{> footer}}
