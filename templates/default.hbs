@@ -1,5 +1,10 @@
 {{> pre}}
-{{!-- <h1>{{title}}</h1> --}}
-{{{ contents }}}
-<small>last modified on {{formattedLastModified}}</small>
+{{> header}}
+<div class="container-fluid">
+  <main id="main-content">
+    {{{ contents }}}
+    <small>last modified on {{formattedLastModified}}</small>
+  </main> {{!-- end main-content --}}
+</div> {{!-- end container --}}
+{{> footer}}
 {{> post}}
