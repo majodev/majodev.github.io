@@ -4,6 +4,7 @@ jQuery(function($) {
 
   var AJAX_SELECTOR = "#main-content";
   var FADE_TIME_MS = 100;
+  var ANCHOR_SCROLL_OFFSET_TOP = 60;
 
   var History = window.History;
   var targetContainer = $(AJAX_SELECTOR);
@@ -129,7 +130,7 @@ jQuery(function($) {
     if (loadAnchor.length > 0) {
       History.replaceState({}, title, url + "#" + loadAnchor);
       $("html, body").animate({
-        "scrollTop": ($("#" + loadAnchor).offset().top)
+        "scrollTop": ($("#" + loadAnchor).offset().top) - ANCHOR_SCROLL_OFFSET_TOP
       });
       loadAnchor = "";
     }

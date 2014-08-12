@@ -1,7 +1,43 @@
-<header id="header" class="bg-yellow">
+{{!-- <header id="header" class="bg-yellow">
   <div class="container-fluid text-center">
   {{#each pages}}
     <a href="/{{ path }}">{{ title }}</a>
   {{/each}}
   </div>
+</header> --}}
+
+<header id="header">
+
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+      
+
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-content">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">{{_sitename}}</a>
+      </div><!-- /.navbar-header -->
+
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="navbar-content">
+        <ul class="nav navbar-nav">
+        {{#each pages}}
+          {{#is ../path path}}
+            <li class="active"><a href="/{{ path }}">{{ title }}</a></li>
+          {{else}}
+            <li><a href="/{{ path }}">{{ title }}</a></li>
+          {{/is}}
+        {{/each}}
+        </ul>
+      </div><!-- /.navbar-collapse -->
+
+
+    </div><!-- /.container-fluid -->
+  </nav>
 </header>

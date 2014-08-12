@@ -1,7 +1,7 @@
 ---
 title: resume
 template: default.hbs
-sequence: 5
+sequence: 4
 ---
 
 resume...

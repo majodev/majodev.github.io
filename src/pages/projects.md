@@ -1,7 +1,7 @@
 ---
 title: projects
 template: default.hbs
-sequence: 3
+sequence: 2
 ---
 
 my projects...

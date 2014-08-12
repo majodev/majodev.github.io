@@ -6,7 +6,7 @@
 // variables
 
 @footer-height: 80px; //(@font-size-small * 2) + 25;
-@header-height: 20px; // exclude with navbar-height!
+@header-height: @navbar-height + 20px; //20px; // exclude with navbar-height!
 
 
 // -----------------------------------------------------------------------------
@@ -29,16 +29,19 @@ body > .container-fluid {
   padding: @header-height 15px 0; /* for navbar? EVENTUALLY NOT NEEDED! */
 }
 
+// @media (max-width:768px) {
+// }
+
 // -----------------------------------------------------------------------------
 // colors and background styling
 
 body {
-  background: url(/assets/img/bg_main_tile.png) repeat;
+  // background: url(/assets/img/bg_main_tile.png) repeat;
 }
 
 .footer {
-  background: url(/assets/img/tex2res5.png) repeat;
-  // background-color: @gray-lighter;
+  // background: url(/assets/img/tex2res5.png) repeat;
+  background-color: @gray-lighter;
 }
 
 // -----------------------------------------------------------------------------
