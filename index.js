@@ -81,6 +81,9 @@ Metalsmith(__dirname)
   .use(collectiondefaults({
     notes: {
       template: "note.hbs"
+    },
+    subpages: {
+      isSubpage: true
     }
   }))
   .use(hbs())
