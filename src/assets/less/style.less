@@ -1,4 +1,5 @@
 @import "bootstrap.less"; // import customized bootstrap
+@import "responsive-text-align.less";
 
 /* style.less */
 
@@ -56,6 +57,10 @@ body {
   color: #777777;
 }
 
+.breadcrumb > li + li.nobreadcrumbslash:before {
+    content: ""
+}
+
 
 // -----------------------------------------------------------------------------
 // -----------------------------------------------------------------------------
@@ -79,7 +84,7 @@ body {
 // colors and background styling
 
 body {
-  // background: url(/assets/img/bg_main_tile.png) repeat;
+  background: url(/assets/img/tiny_grid.png) repeat;
 }
 
 .block-footer {

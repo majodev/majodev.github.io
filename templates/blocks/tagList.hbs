@@ -1,5 +1,1 @@
-<ul class="list-inline block-tagList">
-  {{#each tags}}
-    <li><a href="/tags/#{{this}}">#{{this}}</a></li>
-  {{/each}}
-</ul>
+{{#if tags}}<span class="block-tagList">{{#each tags}} <a href="/tags/#{{this}}">#{{this}}</a> {{/each}}</span>{{/if}}

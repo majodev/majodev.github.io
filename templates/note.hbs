@@ -4,15 +4,11 @@
   <main>
     {{> noteNavigator}}
     <article>
-      <h1 class="bg-navy aqua">{{title}}</h1>
-      <h2 class="gray">{{formattedDate}}</h2>
-      {{#if tags}}
-        <h3>tags: {{> tagList}}</h3>
-      {{/if}}
-      <h4 class="gray">{{wordCount}} words, estimated reading time: {{readingTime}}, last modified on {{formattedLastModified}}</h4>
+      <h1>{{title}}</h1>
+      <h5><time datetime={{date}}>{{formattedDate}}</time> | {{> tagList}} | {{wordCount}} words | {{readingTime}}</h5>
       {{{ contents }}}
     </article>
-    {{> noteNavigator}}
+    <small>last modified on {{formattedLastModified}}</small>
   </main> {{!-- end main-content --}}
 </div> {{!-- end container --}}
 {{> footer}}

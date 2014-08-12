@@ -1,22 +1,15 @@
-<div class="row block-noteNavigator">
-  <div class="col-xs-5">
+<div class="block-noteNavigator row">
+  <div class="col-xs-12 col-sm-6">
     {{#if next}}
-      <div>
-        <a href="/{{ next.path }}">&larr; <small>{{ next.title }}</small></a>
+      <div class="text-center-xs text-left-sm">
+        <a href="/{{ next.path }}">&larr; {{ next.title }}</a>
       </div>
     {{/if}}
   </div>
-  <div class="col-xs-2">
-    {{!-- {{#if previous}} --}}
-      <div class="text-center">
-        <a href="/notes/">notes</a>
-      </div>
-    {{!-- {{/if}} --}}
-  </div>
-  <div class="col-xs-5">
+  <div class="col-xs-12 col-sm-6">
     {{#if previous}}
-      <div class="text-right">
-        <a href="/{{ previous.path }}"><small>{{ previous.title }}</small> &rarr;</a>
+      <div class="text-center-xs text-right-sm">
+        <a href="/{{ previous.path }}">{{ previous.title }} &rarr;</a>
       </div>
     {{/if}}
   </div>
