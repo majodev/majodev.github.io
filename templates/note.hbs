@@ -4,8 +4,10 @@
   <main>
     {{> noteNavigator}}
     <article>
-      <h1>{{title}}</h1>
-      <h5><time datetime={{date}}>{{formattedDate}}</time> | {{> tagList}} <small>{{wordCount}} words, {{readingTime}}</small></h5>
+      {{> noteTitle}}
+      {{!-- <h1></h1> --}}
+      <h5 class="text-center">by Mario Ranftl | <time datetime={{date}}>{{formattedDate}}</time> | {{> tagList}} <small>{{wordCount}} words, {{readingTime}}</small></h5>
+      <hr>
       {{{ contents }}}
     </article>
   </main> {{!-- end main-content --}}

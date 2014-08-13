@@ -59,7 +59,7 @@ html {
   color: #777777;
 }
 
-.breadcrumb > li + li.nobreadcrumbslash:before {
+.blocks-headerslistnav > li + li.nobreadcrumbslash:before {
   content: ""
 }
 
@@ -68,7 +68,7 @@ html {
     display: list-item;
     // text-align: center;
   }
-  .breadcrumb > li + li.nobreadcrumbslash:before {
+  .blocks-headerslistnav > li + li.nobreadcrumbslash:before {
     padding: 0 0px;
   }
 }
@@ -148,4 +148,69 @@ code, pre, kbd {
 .block-tagItem {
   color: #44BB66;
   font-size: 14px;
+}
+
+.block-noteTitle {
+  overflow:hidden;
+  margin-top: 22px;
+  margin-bottom: 11px;
+}
+
+// -----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
+// hr styling
+
+hr {
+  margin: 0 0 16px;
+  padding: 16px 0;
+  height: 16px;
+  border: 0;
+}
+
+hr:before {
+  display: block;
+  width: 100%;
+  border: 0;
+  color: #222;
+  content: "⁂";
+  text-align: center;
+  font-size: 20px;
+  line-height: 1;
+}
+
+// -----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
+// header crossbars
+
+.crossbars {
+  position: relative;
+  display: table;
+  margin: auto auto auto;
+  padding: 0 16px;
+  width: auto;
+  text-align: center;
+  //text-transform: uppercase;
+  letter-spacing: 2px;
+  //font-size: 18px;
+  //line-height: 1.125;
+}
+
+.crossbars:before {
+left: -9999%;
+}
+
+.crossbars:after {
+right: -9999%;
+}
+
+.crossbars:before, .crossbars:after {
+position: absolute;
+top: 50%;
+display: block;
+overflow: hidden;
+margin-top: -8px;
+width: 9999%;
+height: 14px;
+background: #dedede;
+content: " ";
 }

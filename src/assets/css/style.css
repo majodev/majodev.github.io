@@ -1814,14 +1814,14 @@ html {
 .blocks-headerslistnav > .active {
   color: #777777;
 }
-.breadcrumb > li + li.nobreadcrumbslash:before {
+.blocks-headerslistnav > li + li.nobreadcrumbslash:before {
   content: "";
 }
 @media (max-width: 767px) {
   .blocks-headerslistnav > li {
     display: list-item;
   }
-  .breadcrumb > li + li.nobreadcrumbslash:before {
+  .blocks-headerslistnav > li + li.nobreadcrumbslash:before {
     padding: 0 0px;
   }
 }
@@ -1849,4 +1849,52 @@ kbd {
 .block-tagItem {
   color: #44BB66;
   font-size: 14px;
+}
+.block-noteTitle {
+  overflow: hidden;
+  margin-top: 22px;
+  margin-bottom: 11px;
+}
+hr {
+  margin: 0 0 16px;
+  padding: 16px 0;
+  height: 16px;
+  border: 0;
+}
+hr:before {
+  display: block;
+  width: 100%;
+  border: 0;
+  color: #222;
+  content: "⁂";
+  text-align: center;
+  font-size: 20px;
+  line-height: 1;
+}
+.crossbars {
+  position: relative;
+  display: table;
+  margin: auto auto auto;
+  padding: 0 16px;
+  width: auto;
+  text-align: center;
+  letter-spacing: 2px;
+}
+.crossbars:before {
+  left: -9999%;
+}
+.crossbars:after {
+  right: -9999%;
+}
+.crossbars:before,
+.crossbars:after {
+  position: absolute;
+  top: 50%;
+  display: block;
+  overflow: hidden;
+  margin-top: -8px;
+  width: 9999%;
+  height: 14px;
+  background: #dedede;
+  content: " ";
 }

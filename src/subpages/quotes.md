@@ -23,4 +23,3 @@ sequence: 2
 >learning something new.
 ><footer>Old Chinese saying [via Akira Kobayashi](http://fontfeed.com/archives/akira-kobayashi-on-ff-clifford/)</footer>
 
----
