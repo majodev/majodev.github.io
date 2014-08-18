@@ -2,6 +2,7 @@
 @import "responsive-text-align.less"; // more options to align text in responsive manner
 @import "header-crossbars.less"; // headers with crossbars styles
 @import "hr-style.less"; // custom hr style
+@import "anchorAnimation.less";
 
 
 /* style.less */
@@ -10,7 +11,7 @@
 // -----------------------------------------------------------------------------
 // variables
 
-@footer-height: 120px; //(@font-size-small * 2) + 25;
+@footer-height: 80px; //(@font-size-small * 2) + 25;
 @header-height: 40px; // @navbar-height + 20px; //20px; // exclude with navbar-height!
 
 
@@ -99,6 +100,10 @@ body {
 
 body {
   background: url(/assets/img/tiny_grid.png) repeat;
+}
+
+.block-footer {
+  #gradient > .vertical(rgba(0, 0, 0, 0.05); rgba(0, 0, 0, 0.01));
 }
 
 

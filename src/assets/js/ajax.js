@@ -128,10 +128,16 @@ jQuery(function($) {
   }
 
   function attachAnchor(url, title) {
+    var $anchor = $("#" + loadAnchor);
+
     if (loadAnchor.length > 0) {
       History.replaceState({}, title, url + "#" + loadAnchor);
       $("html, body").animate({
         "scrollTop": ($("#" + loadAnchor).offset().top) - ANCHOR_SCROLL_OFFSET_TOP
+      });
+      $anchor.addClass("targetAnimation");
+      $anchor.one('webkitAnimationEnd oanimationend msAnimationEnd animationend', function(e) {
+        $anchor.removeClass("targetAnimation");
       });
       loadAnchor = "";
     }

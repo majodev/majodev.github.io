@@ -1,0 +1,38 @@
+/* Animations for :target headings */
+@-webkit-keyframes anchorAnimation {
+    0%   { background-color: transparent; }
+    10%  { background-color: #dbf2ff;     }
+    100% { background-color: transparent; }
+}
+
+@-moz-keyframes anchorAnimation {
+    0%   { background-color: transparent; }
+    10%  { background-color: #dbf2ff;     }
+    100% { background-color: transparent; }
+}
+
+@-ms-keyframes anchorAnimation {
+    0%   { background-color: transparent; }
+    10%  { background-color: #dbf2ff;     }
+    100% { background-color: transparent; }
+}
+
+@-o-keyframes anchorAnimation {
+    0%   { background-color: transparent; }
+    10%  { background-color: #dbf2ff;     }
+    100% { background-color: transparent; }
+}
+
+@keyframes anchorAnimation {
+    0%   { background-color: transparent; }
+    10%  { background-color: #dbf2ff;     }
+    100% { background-color: transparent; }
+}
+
+:target, .targetAnimation {
+  -webkit-animation: anchorAnimation 2s ease;
+  -moz-animation: anchorAnimation 2s ease;
+  -ms-animation: anchorAnimation 2s ease;
+  -o-animation: anchorAnimation 2s ease;
+  animation: anchorAnimation 2s ease;
+}

@@ -1858,12 +1858,80 @@ hr {
   background: #999;
   text-align: center;
 }
+hr.scissor {
+  margin-top: 0px;
+  margin-bottom: 6px;
+}
 hr.scissor:after {
   content: "\2702";
   display: inline-block;
   position: relative;
   top: -0.7em;
   font-size: 1.5em;
+}
+/* Animations for :target headings */
+@-webkit-keyframes anchorAnimation {
+  0% {
+    background-color: transparent;
+  }
+  10% {
+    background-color: #dbf2ff;
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+@-moz-keyframes anchorAnimation {
+  0% {
+    background-color: transparent;
+  }
+  10% {
+    background-color: #dbf2ff;
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+@-ms-keyframes anchorAnimation {
+  0% {
+    background-color: transparent;
+  }
+  10% {
+    background-color: #dbf2ff;
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+@-o-keyframes anchorAnimation {
+  0% {
+    background-color: transparent;
+  }
+  10% {
+    background-color: #dbf2ff;
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+@keyframes anchorAnimation {
+  0% {
+    background-color: transparent;
+  }
+  10% {
+    background-color: #dbf2ff;
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+:target,
+.targetAnimation {
+  -webkit-animation: anchorAnimation 2s ease;
+  -moz-animation: anchorAnimation 2s ease;
+  -ms-animation: anchorAnimation 2s ease;
+  -o-animation: anchorAnimation 2s ease;
+  animation: anchorAnimation 2s ease;
 }
 /* style.less */
 body {
@@ -1908,17 +1976,24 @@ html {
   }
 }
 body {
-  margin-bottom: 120px;
+  margin-bottom: 80px;
 }
 .block-footer {
   position: absolute;
   bottom: 0;
   width: 100%;
-  height: 120px;
+  height: 80px;
   font-size: 14px;
 }
 body {
   background: url(/assets/img/tiny_grid.png) repeat;
+}
+.block-footer {
+  background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.01) 100%);
+  background-image: -o-linear-gradient(top, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.01) 100%);
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.01) 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0d000000', endColorstr='#03000000', GradientType=0);
 }
 code,
 pre,
