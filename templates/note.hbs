@@ -1,7 +1,9 @@
 {{> pre}}
+<div id="top"></div>
 {{> noteHeader}}
 <div class="template-note container-fluid">
   <main>
+    {{!-- {{> noteNavigator}} --}}
     <article>
       {{> noteTitle}}
       {{> noteSubTitle}}
@@ -9,6 +11,7 @@
       {{{ contents }}}
     </article>
     {{> noteNavigator}}
+    <p class="text-center lead"><a href="#top">jump to top</a></p>
   </main> {{!-- end main-content --}}
 </div> {{!-- end container --}}
 {{> footer}}
