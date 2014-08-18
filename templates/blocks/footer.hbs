@@ -1,8 +1,8 @@
 <footer class="block-footer">
   <div class="container-fluid">
-    {{!-- <hr> --}}
+  <hr class="scissor">
     <p class="text-muted text-center">{{uppercase title}} src last modified {{formattedLastModified}}<br />
-    {{uppercase _sitename}} contents generated on {{_builddate}}<br />
+    {{uppercase _sitename}} generated on {{_builddate}}<br />
       {{#each subpages}}
         <a href="/{{ path }}">{{uppercase title }}</a>
       {{/each}}

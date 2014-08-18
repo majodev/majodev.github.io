@@ -1,5 +1,8 @@
 @import "bootstrap.less"; // import customized bootstrap
-@import "responsive-text-align.less";
+@import "responsive-text-align.less"; // more options to align text in responsive manner
+@import "header-crossbars.less"; // headers with crossbars styles
+@import "hr-style.less"; // custom hr style
+
 
 /* style.less */
 
@@ -7,7 +10,7 @@
 // -----------------------------------------------------------------------------
 // variables
 
-@footer-height: 80px; //(@font-size-small * 2) + 25;
+@footer-height: 120px; //(@font-size-small * 2) + 25;
 @header-height: 40px; // @navbar-height + 20px; //20px; // exclude with navbar-height!
 
 
@@ -52,7 +55,7 @@ html {
   padding: 8px 0px;
   margin-bottom: 0px;
   background-color: inherit;
-  font-size: 20px;
+  font-size: @font-size-large;
 }
 
 .blocks-headerslistnav > .active {
@@ -66,7 +69,6 @@ html {
 @media (max-width: @screen-xs-max) {
   .blocks-headerslistnav > li {
     display: list-item;
-    // text-align: center;
   }
   .blocks-headerslistnav > li + li.nobreadcrumbslash:before {
     padding: 0 0px;
@@ -99,42 +101,13 @@ body {
   background: url(/assets/img/tiny_grid.png) repeat;
 }
 
-// body {
-//     background: url(/assets/img/colour__.png);
-// }
- 
-// body:after {
-//     content: "";
-//     background: url(/assets/img/tiny_grid_transparent.png) repeat;
-//     top: 0;
-//     left: 0;
-//     bottom: 0;
-//     right: 0;
-//     position: absolute;
-//     z-index: -1;   
-// }
-
-
-
-.block-footer {
-  // background: #39454b;
-  //background-color: #dce3e2;
-  //background-color: rgba(45,53,58,0.15);
-  // background: url(/assets/img/bg_main_tile.png) repeat;
-  // background-color: @gray-lighter;
-  // background: #008080;
-  // background: rgba(128, 128, 128, .6);
-  // opacity: 1; // Leave this as 1
-  // background-color: rgba(0,0,0,0.15); // This is in the form rgba(R,G,B,a) where a is your opacity
-}
-
 
 // -----------------------------------------------------------------------------
 // -----------------------------------------------------------------------------
 // code styling
 
 code, pre, kbd {
-  font-size: 80%;
+  font-size: @font-size-small;
 }
 
 // -----------------------------------------------------------------------------
@@ -147,70 +120,11 @@ code, pre, kbd {
 
 .block-tagItem {
   color: #44BB66;
-  font-size: 14px;
+  font-size: @font-size-small;
 }
 
 .block-noteTitle {
   overflow:hidden;
   margin-top: 22px;
   margin-bottom: 11px;
-}
-
-// -----------------------------------------------------------------------------
-// -----------------------------------------------------------------------------
-// hr styling
-
-hr {
-  margin: 0 0 16px;
-  padding: 16px 0;
-  height: 16px;
-  border: 0;
-}
-
-hr:before {
-  display: block;
-  width: 100%;
-  border: 0;
-  color: #222;
-  content: "⁂";
-  text-align: center;
-  font-size: 20px;
-  line-height: 1;
-}
-
-// -----------------------------------------------------------------------------
-// -----------------------------------------------------------------------------
-// header crossbars
-
-.crossbars {
-  position: relative;
-  display: table;
-  margin: auto auto auto;
-  padding: 0 16px;
-  width: auto;
-  text-align: center;
-  //text-transform: uppercase;
-  letter-spacing: 2px;
-  //font-size: 18px;
-  //line-height: 1.125;
-}
-
-.crossbars:before {
-left: -9999%;
-}
-
-.crossbars:after {
-right: -9999%;
-}
-
-.crossbars:before, .crossbars:after {
-position: absolute;
-top: 50%;
-display: block;
-overflow: hidden;
-margin-top: -8px;
-width: 9999%;
-height: 14px;
-background: #dedede;
-content: " ";
 }

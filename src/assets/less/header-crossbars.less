@@ -1,0 +1,36 @@
+// -----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
+// header crossbars
+
+.crossbars {
+  position: relative;
+  display: table;
+  margin: auto auto auto;
+  padding: 0 16px;
+  width: auto;
+  text-align: center;
+  //text-transform: uppercase;
+  letter-spacing: 2px;
+  //font-size: 18px;
+  //line-height: 1.125;
+}
+
+.crossbars:before {
+left: -9999%;
+}
+
+.crossbars:after {
+right: -9999%;
+}
+
+.crossbars:before, .crossbars:after {
+position: absolute;
+top: 50%;
+display: block;
+overflow: hidden;
+margin-top: -8px;
+width: 9999%;
+height: 14px;
+background: #dedede;
+content: " ";
+}
