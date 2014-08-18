@@ -22,17 +22,17 @@
             <li class="active">{{ uppercase _sitename }}</li>
           {{/if}}
           {{#if isSubpage}}
-            <li class="active">{{uppercase title }}</li>
+            <li class="active">{{ uppercase title }}</li>
           {{/if}}
         {{else}} {{!-- capture non permalink enabled pages --}}
           <li><a href="/">{{ uppercase _sitename }}</a></li> 
-          <li class="active">{{uppercase title }}</li>
+          <li class="active">{{ uppercase title }}</li>
         {{/unless}}
         {{#each pages}}
           {{#is ../path path}}
-            <li class="nobreadcrumbslash active">{{uppercase title }}</li>
+            <li class="nobreadcrumbslash active">{{ uppercase title }}</li>
           {{else}}
-            <li class="nobreadcrumbslash"><a href="/{{ path }}">{{uppercase title }}</a></li>
+            <li class="nobreadcrumbslash"><a href="/{{ path }}">{{ uppercase title }}</a></li>
           {{/is}}
         {{/each}}
       </ol>

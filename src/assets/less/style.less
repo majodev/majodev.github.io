@@ -34,12 +34,12 @@ html {
   min-height: 100%;
 }
 
-.template-default, .template-note {
+.template-default {
   padding: @header-height 15px 0; /* for navbar? EVENTUALLY NOT NEEDED! */
 }
 
 @media (max-width: @screen-xs-max) {
-  .template-default, .template-note {
+  .template-default {
     padding: 0 15px 0; /* for navbar? EVENTUALLY NOT NEEDED! */
   }
 }
@@ -142,7 +142,7 @@ code, pre, kbd {
 // block styling
 
 .block-noteNavigator {
-  font-size: 15px;
+  margin: 10px 0;
 }
 
 .block-tagItem {

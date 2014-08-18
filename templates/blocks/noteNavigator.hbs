@@ -1,4 +1,4 @@
-<div class="block-noteNavigator row">
+{{!-- <div class="block-noteNavigator row">
   <div class="col-xs-12 col-sm-6">
     {{#if next}}
       <div class="text-center-xs text-left-sm">
@@ -13,4 +13,12 @@
       </div>
     {{/if}}
   </div>
-</div>
+</div> --}}
+<ul class="pager block-noteNavigator">
+  {{#if next}}
+    <li class="previous"><a href="/{{ next.path }}">&larr; previous<span class="hidden-xs">: {{ next.title }}</span></a></li>
+  {{/if}}
+  {{#if previous}}
+    <li class="next"><a href="/{{ previous.path }}">next<span class="hidden-xs">: {{ previous.title }}</span> &rarr;</a></li>
+  {{/if}}
+</ul>
