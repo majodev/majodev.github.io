@@ -38,12 +38,12 @@ html {
   min-height: 100%;
 }
 
-.template-default {
+.template-default, .template-note {
   padding: @header-height 15px 0; /* for navbar? EVENTUALLY NOT NEEDED! */
 }
 
 @media (max-width: @screen-xs-max) {
-  .template-default {
+  .template-default, .template-note {
     padding: 0 15px 0; /* for navbar? EVENTUALLY NOT NEEDED! */
   }
 }
@@ -60,7 +60,7 @@ html {
 }
 
 .blocks-headerslistnav > .active {
-  color: #777777;
+  color: @gray-light;
 }
 
 .blocks-headerslistnav > li + li.nobreadcrumbslash:before {
@@ -106,6 +106,10 @@ body {
   #gradient > .vertical(rgba(0, 0, 0, 0.05); rgba(0, 0, 0, 0.01));
 }
 
+.block-header, .block-noteHeader {
+  #gradient > .vertical(rgba(0, 0, 0, 0.01); rgba(0, 0, 0, 0.05));
+}
+
 
 // -----------------------------------------------------------------------------
 // -----------------------------------------------------------------------------
@@ -124,7 +128,7 @@ code, pre, kbd {
 }
 
 .block-tagItem {
-  color: #44BB66;
+  color: @brand-success;
   font-size: @font-size-small;
 }
 

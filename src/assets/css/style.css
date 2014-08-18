@@ -1875,7 +1875,7 @@ hr.scissor:after {
     background-color: transparent;
   }
   10% {
-    background-color: #dbf2ff;
+    background-color: #428bca;
   }
   100% {
     background-color: transparent;
@@ -1886,7 +1886,7 @@ hr.scissor:after {
     background-color: transparent;
   }
   10% {
-    background-color: #dbf2ff;
+    background-color: #428bca;
   }
   100% {
     background-color: transparent;
@@ -1897,7 +1897,7 @@ hr.scissor:after {
     background-color: transparent;
   }
   10% {
-    background-color: #dbf2ff;
+    background-color: #428bca;
   }
   100% {
     background-color: transparent;
@@ -1908,7 +1908,7 @@ hr.scissor:after {
     background-color: transparent;
   }
   10% {
-    background-color: #dbf2ff;
+    background-color: #428bca;
   }
   100% {
     background-color: transparent;
@@ -1919,7 +1919,7 @@ hr.scissor:after {
     background-color: transparent;
   }
   10% {
-    background-color: #dbf2ff;
+    background-color: #428bca;
   }
   100% {
     background-color: transparent;
@@ -1945,12 +1945,14 @@ html {
   /* needed for footer! */
   min-height: 100%;
 }
-.template-default {
+.template-default,
+.template-note {
   padding: 40px 15px 0;
   /* for navbar? EVENTUALLY NOT NEEDED! */
 }
 @media (max-width: 767px) {
-  .template-default {
+  .template-default,
+  .template-note {
     padding: 0 15px 0;
     /* for navbar? EVENTUALLY NOT NEEDED! */
   }
@@ -1995,6 +1997,14 @@ body {
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0d000000', endColorstr='#03000000', GradientType=0);
 }
+.block-header,
+.block-noteHeader {
+  background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.01) 0%, rgba(0, 0, 0, 0.05) 100%);
+  background-image: -o-linear-gradient(top, rgba(0, 0, 0, 0.01) 0%, rgba(0, 0, 0, 0.05) 100%);
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.01) 0%, rgba(0, 0, 0, 0.05) 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#03000000', endColorstr='#0d000000', GradientType=0);
+}
 code,
 pre,
 kbd {
@@ -2004,7 +2014,7 @@ kbd {
   margin: 10px 0;
 }
 .block-tagItem {
-  color: #44BB66;
+  color: #5cb85c;
   font-size: 14px;
 }
 .block-noteTitle {
