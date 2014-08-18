@@ -11,6 +11,7 @@
     ],
     "js": [
       "bower_components/jquery/dist/jquery.js",
+      "bower_components/velocity/jquery.velocity.js",
       "bower_components/bootstrap/dist/js/bootstrap.js",
       "bower_components/history.js/scripts/bundled-uncompressed/html4+html5/jquery.history.js"
     ]

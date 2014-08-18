@@ -3,11 +3,11 @@ jQuery(function($) {
   // base from https://github.com/roryg/ghostwriter/blob/master/assets/js/scripts.js
 
   var AJAX_SELECTOR = "#ajax-container";
-  var FADE_TIME_MS = 100;
-  var ANCHOR_SCROLL_OFFSET_TOP = 60;
+  var FADE_TIME_MS = 130;
+  //var ANCHOR_SCROLL_OFFSET_TOP = 0;
 
   var History = window.History;
-  var targetContainer = $(AJAX_SELECTOR);
+  var $targetContainer = $(AJAX_SELECTOR);
   var loading = false;
   var loadAnchor = "";
   var $body = $(document.body);
@@ -48,16 +48,13 @@ jQuery(function($) {
       type: "GET",
       success: function(result) {
         var html = $(result);
-        //var newContent = $(AJAX_SELECTOR, html).contents();
         var newContent = $(html.filter(AJAX_SELECTOR)[0]).children();
-
-        // console.log(newContent);
 
         // Set the title to the requested urls document title
         document.title = html.filter("title").text();
 
-        $("html, body").animate({
-          "scrollTop": 0
+        $("html").velocity("scroll", {
+          offset: "0px"
         });
 
         // stop old running javascript...
@@ -70,15 +67,23 @@ jQuery(function($) {
           }
         }
 
-        targetContainer.fadeOut(FADE_TIME_MS, function() {
-          //console.log(html.filter("#main-content")[0]);
-          //targetContainer.html($(html.filter("#main-content")[0]).children());
-          targetContainer.html(newContent);
-          targetContainer.fadeIn(FADE_TIME_MS, function() {
-            attachAnchor(url, null);
-            setLoading(false);
-          });
+        // via velocity
+        $targetContainer.velocity("fadeOut", {
+          duration: FADE_TIME_MS,
+          complete: function(elements) {
+            console.log("complete 1!");
+            $targetContainer.html(newContent);
+            $targetContainer.velocity("fadeIn", {
+              duration: FADE_TIME_MS,
+              complete: function(elements) {
+                console.log("complete 2!");
+                attachAnchor(url, null);
+                setLoading(false);
+              }
+            });
+          }
         });
+
       },
       error: function(error) {
         console.error("AJAX error" + error);
@@ -132,13 +137,16 @@ jQuery(function($) {
 
     if (loadAnchor.length > 0) {
       History.replaceState({}, title, url + "#" + loadAnchor);
-      $("html, body").animate({
-        "scrollTop": ($("#" + loadAnchor).offset().top) - ANCHOR_SCROLL_OFFSET_TOP
+
+      $anchor.velocity("scroll", {
+        complete: function(elements) {
+          $anchor.addClass("targetAnimation");
+          $anchor.one('webkitAnimationEnd oanimationend msAnimationEnd animationend', function(e) {
+            $anchor.removeClass("targetAnimation");
+          });
+        }
       });
-      $anchor.addClass("targetAnimation");
-      $anchor.one('webkitAnimationEnd oanimationend msAnimationEnd animationend', function(e) {
-        $anchor.removeClass("targetAnimation");
-      });
+
       loadAnchor = "";
     }
   }

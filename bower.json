@@ -26,6 +26,7 @@
     "highlightjs": "https://github.com/isagalaev/highlight.js.git#e737f96eb6b31aee1d60578d841d9e5b148d8b27",
     "colors": "~2.0.0",
     "bootstrap": "~3.2.0",
-    "modernizr": "~2.8.3"
+    "modernizr": "~2.8.3",
+    "velocity": "~0.11.6"
   }
 }
