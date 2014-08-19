@@ -1847,16 +1847,16 @@ object {
   height: 100%;
 }
 figcaption {
-  margin-top: 0.5rem;
+  margin-top: 8px;
   font-style: italic;
-  font-size: 0.75rem;
+  font-size: 12px;
 }
 /* Flexible videos embeds! */
 .flex-video {
   position: relative;
   overflow: hidden;
-  margin-bottom: 1rem;
-  padding-top: 1.5625rem;
+  margin-bottom: 16px;
+  padding-top: 24px;
   padding-bottom: 67.5%;
   height: 0;
 }
