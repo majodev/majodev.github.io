@@ -3,7 +3,7 @@ jQuery(function($) {
   // base from https://github.com/roryg/ghostwriter/blob/master/assets/js/scripts.js
 
   var AJAX_SELECTOR = "#ajax-container";
-  var FADE_TIME_MS = 100;
+  var FADE_TIME_MS = 180;
   //var ANCHOR_SCROLL_OFFSET_TOP = 0;
 
   var History = window.History;

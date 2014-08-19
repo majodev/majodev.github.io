@@ -3,14 +3,14 @@
 {{> noteHeader}}
 <div class="template-note container-fluid">
   <main>
-    {{!-- {{> noteNavigator}} --}}
+    {{> noteNavigator}}
     <article>
       {{> noteTitle}}
       {{> noteSubTitle}}
       <hr>
       {{{ contents }}}
     </article>
-    {{> noteNavigator}}
+    {{!-- {{> noteNavigator}} --}}
     <p class="text-center lead"><a href="#top">jump to top</a></p>
   </main> {{!-- end main-content --}}
 </div> {{!-- end container --}}
