@@ -87,7 +87,6 @@ Metalsmith(__dirname)
       isSubpage: true
     }
   }))
-  .use(hbs())
   .use(markdown())
   .use(wordcount({
     metaKeyCount: "wordCount",
@@ -96,6 +95,7 @@ Metalsmith(__dirname)
   .use(highlightjs({
     tabReplace: "  "
   }))
+  .use(hbs())
   .use(templates({
     engine: "handlebars",
     directory: "templates"
