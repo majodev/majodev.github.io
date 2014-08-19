@@ -34,6 +34,7 @@ Metalsmith(__dirname)
   .metadata({
     _dev: true,
     _sitename: "ranf.tl",
+    _siterepo: "https://github.com/majodev/majodev.github.io/",
     _builddate: moment().format("DD MMM YYYY, HH:mm"),
     _vendor: getVendorFiles() // holds all external client libs
   })

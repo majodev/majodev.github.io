@@ -1,7 +1,8 @@
 {
-  "name": "majodev.com",
-  "version": "0.0.0",
-  "description": "Mario Ranftl webpage",
+  "name": "majodev.github.io",
+  "homepage": "http://ranf.tl",
+  "version": "0.0.1",
+  "description": "ranf.tl | Mario Ranftl | majodev webpage",
   "main": "index.js",
   "keywords": [
     "metalsmith",
@@ -10,6 +11,10 @@
   ],
   "author": "majodev",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/majodev/majodev.github.io.git"
+  },
   "dependencies": {
     "async": "^0.9.0",
     "cheerio": "^0.17.0",
