@@ -4,6 +4,7 @@
 @import "header-crossbars.less"; // headers with crossbars styles
 @import "hr-style.less"; // custom hr style
 @import "anchorAnimation.less";
+@import "remove-collapse.less";
 
 
 /* style.less */
@@ -27,6 +28,16 @@ body {
   overflow-y: scroll;
 }
 
+// fallback for mobile devices without javascript to uncollapse navbar...
+html.no-js .collapse {
+  display: block;
+}
+
+// and hide the navbar toggle!
+html.no-js .navbar-toggle {
+  display: none;
+}
+
 
 // -----------------------------------------------------------------------------
 // -----------------------------------------------------------------------------
@@ -44,12 +55,12 @@ html, body {
   max-width: 768px;
 }
 
-.template-default, .template-note  {
+.template-default/*, .template-note*/  {
   padding: @header-height 15px 0; /* for navbar? EVENTUALLY NOT NEEDED! */
 }
 
 @media (max-width: @screen-xs-max) {
-  .template-default, .template-note  {
+  .template-default/*, .template-note*/  {
     padding: 0 15px 0; /* for navbar? EVENTUALLY NOT NEEDED! */
   }
 }
@@ -58,27 +69,9 @@ html, body {
 // -----------------------------------------------------------------------------
 // nav positioning & style
 
-.blocks-headerslistnav {
-  padding: 8px 0px;
-  margin-bottom: 0px;
-  background-color: inherit;
-  font-size: @font-size-large;
-}
-
-.blocks-headerslistnav > .active {
-  color: @gray-light;
-}
-
-.blocks-headerslistnav > li + li.nobreadcrumbslash:before {
-  content: ""
-}
-
 @media (max-width: @screen-xs-max) {
-  .blocks-headerslistnav > li {
-    display: list-item;
-  }
-  .blocks-headerslistnav > li + li.nobreadcrumbslash:before {
-    padding: 0 0px;
+  .navbar-nav > li {
+    text-align: center;
   }
 }
 
@@ -112,7 +105,7 @@ body {
   #gradient > .vertical(rgba(0, 0, 0, 0.05); rgba(0, 0, 0, 0.01));
 }
 
-.block-header, .block-noteHeader {
+.block-header {
   #gradient > .vertical(rgba(0, 0, 0, 0.01); rgba(0, 0, 0, 0.05));
 }
 
@@ -134,7 +127,8 @@ code, pre, kbd {
 // block styling
 
 .block-noteNavigator {
-  margin: 10px 0;
+  margin: 15px 0;
+  font-size: @font-size-small;
 }
 
 .block-tagItem {
@@ -146,4 +140,19 @@ code, pre, kbd {
   overflow:hidden;
   margin-top: 22px;
   margin-bottom: 11px;
+}
+
+.block-noteReadingInfo {
+  color: @gray-light;
+}
+
+.block-noteBreadcrumb {
+  #gradient > .vertical(rgba(0, 0, 0, 0.05); rgba(0, 0, 0, 0.06));
+  font-size: @font-size-smaller;
+}
+
+.block-noteBreadcrumb > .container-fluid > .breadcrumb {
+  margin-bottom: 0px;
+  padding: 5px 0px 5px 0px;
+  background: transparent;
 }

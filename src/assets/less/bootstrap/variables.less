@@ -305,7 +305,7 @@
 @grid-gutter-width:         30px;
 // Navbar collapse
 //** Point at which the navbar becomes uncollapsed.
-@grid-float-breakpoint:      600px; //@screen-sm-min;
+@grid-float-breakpoint:      @screen-sm-min;
 //** Point at which the navbar begins collapsing.
 @grid-float-breakpoint-max: (@grid-float-breakpoint - 1);
 
@@ -351,7 +351,7 @@
 @navbar-default-link-hover-color:          #333;
 @navbar-default-link-hover-bg:             transparent;
 @navbar-default-link-active-color:         #555;
-@navbar-default-link-active-bg:            darken(#f8f8f8, 6.5%);//darken(@navbar-default-bg, 6.5%);
+@navbar-default-link-active-bg:            rgba(0,0,0,0.1); //darken(#f8f8f8, 6.5%);//darken(@navbar-default-bg, 6.5%);
 @navbar-default-link-disabled-color:       #ccc;
 @navbar-default-link-disabled-bg:          transparent;
 

@@ -55,15 +55,27 @@
       <div class="collapse navbar-collapse" id="navbar-content">
         <ul class="nav navbar-nav">
           {{#each pages}}
-            {{#if path}} <!-- non-root page -->
+            {{#if path}} <!-- check non-root page -->
               
-              {{#is ../../path path}} <!-- page path matches current path! -->
-                <li class="active"><a href="/{{ path }}">{{uppercase title }}</a></li>
-              {{else}}
-                <li><a href="/{{ path }}">{{uppercase title }}</a></li>
-              {{/is}}
+              {{#if ../../isNote}} <!-- note page -->
 
-            {{else}} <!-- root page -->
+                {{#is path "notes/"}} <!-- page path matches notes/ path! -->
+                  <li class="active"><a href="/{{ path }}">{{uppercase title }}</a></li>
+                {{else}}
+                  <li><a href="/{{ path }}">{{uppercase title }}</a></li>
+                {{/is}}
+
+              {{else}} <!-- normal page -->
+
+                {{#is ../../../path path}} <!-- page path matches current path! -->
+                  <li class="active"><a href="/{{ path }}">{{uppercase title }}</a></li>
+                {{else}}
+                  <li><a href="/{{ path }}">{{uppercase title }}</a></li>
+                {{/is}}
+
+              {{/if}}
+
+            {{else}} <!-- root page (index.md) -->
               
               {{#unless ../../path}} <!-- has the current page a path? -->
                 <li class="active"><a href="/{{ path }}">{{uppercase title }}</a></li>
@@ -76,7 +88,7 @@
         </ul>
         <ul class="nav navbar-nav navbar-right">
           {{#each subpages}}
-            {{#is ../path path}}
+            {{#is ../path path}} <!-- subpages -->
               <li class="active"><a href="/{{ path }}">{{uppercase title }}</a></li>
             {{else}}
               <li><a href="/{{ path }}">{{uppercase title }}</a></li>
