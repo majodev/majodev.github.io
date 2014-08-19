@@ -80,7 +80,11 @@ Metalsmith(__dirname)
     }
   }))
   .use(collectiondefaults({
+    page: {
+      isPage: true
+    },
     notes: {
+      isNote: true,
       template: "note.hbs"
     },
     subpages: {
