@@ -1,10 +1,10 @@
 @import "bootstrap.less"; // import customized bootstrap
 @import "responsive-text-align.less"; // more options to align text in responsive manner
-@import "responsive-embed.less";
+@import "responsive-embed.less"; // make all images, videos and audio responsive at anytime
 @import "header-crossbars.less"; // headers with crossbars styles
 @import "hr-style.less"; // custom hr style
-@import "anchorAnimation.less";
-@import "remove-collapse.less";
+@import "anchorAnimation.less"; // flicker when clicking on anchors
+@import "remove-collapse.less"; // remove bootstrap collapse nav animation
 
 
 /* style.less */
@@ -121,10 +121,6 @@ code, pre, kbd {
   font-size: @font-size-smaller;
 }
 
-// .navbar-brand {
-//   font-size: ceil(@font-size-base * 1.12);
-// }
-
 // -----------------------------------------------------------------------------
 // -----------------------------------------------------------------------------
 // block styling
@@ -158,4 +154,8 @@ code, pre, kbd {
   margin-bottom: 0px;
   padding: 5px 0px 5px 0px;
   background: transparent;
+}
+
+.block-navSubPage, .block-navSubPageActive {
+  font-size: @font-size-smaller;
 }

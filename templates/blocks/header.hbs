@@ -60,17 +60,17 @@
               {{#if ../../isNote}} <!-- note page -->
 
                 {{#is path "notes/"}} <!-- page path matches notes/ path! -->
-                  <li class="active"><a href="/{{ path }}">{{uppercase title }}</a></li>
+                  {{> navPageActive}}
                 {{else}}
-                  <li><a href="/{{ path }}">{{uppercase title }}</a></li>
+                  {{> navPage}}
                 {{/is}}
 
               {{else}} <!-- normal page -->
 
                 {{#is ../../../path path}} <!-- page path matches current path! -->
-                  <li class="active"><a href="/{{ path }}">{{uppercase title }}</a></li>
+                  {{> navPageActive}}
                 {{else}}
-                  <li><a href="/{{ path }}">{{uppercase title }}</a></li>
+                  {{> navPage}}
                 {{/is}}
 
               {{/if}}
@@ -78,9 +78,9 @@
             {{else}} <!-- root page (index.md) -->
               
               {{#unless ../../path}} <!-- has the current page a path? -->
-                <li class="active"><a href="/{{ path }}">{{uppercase title }}</a></li>
+                {{> navPageActive}}
               {{else}} <!-- not root page selected! -->
-                <li><a href="/{{ path }}">{{uppercase title }}</a></li>
+                {{> navPage}}
               {{/unless}}
               
             {{/if}}
@@ -89,9 +89,9 @@
         <ul class="nav navbar-nav navbar-right">
           {{#each subpages}}
             {{#is ../path path}} <!-- subpages -->
-              <li class="active"><a href="/{{ path }}">{{uppercase title }}</a></li>
+              {{> navSubPageActive}}
             {{else}}
-              <li><a href="/{{ path }}">{{uppercase title }}</a></li>
+              {{> navSubPage}}
             {{/is}}
           {{/each}}
         </ul>

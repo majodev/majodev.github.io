@@ -3120,7 +3120,7 @@ hr.scissor:after {
   top: -0.73em;
   font-size: 2em;
 }
-/* Animations for :target headings */
+/* Animations for :target headings (via http://cardinalcss.com) */
 @-webkit-keyframes anchorAnimation {
   0% {
     background-color: transparent;
@@ -3287,4 +3287,8 @@ kbd {
   margin-bottom: 0px;
   padding: 5px 0px 5px 0px;
   background: transparent;
+}
+.block-navSubPage,
+.block-navSubPageActive {
+  font-size: 12px;
 }

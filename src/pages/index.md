@@ -1,5 +1,5 @@
 ---
-title: Home
+title: About
 template: default.hbs
 ---
 
