@@ -80,7 +80,7 @@ Metalsmith(__dirname)
     }
   }))
   .use(collectiondefaults({
-    page: {
+    pages: {
       isPage: true
     },
     notes: {

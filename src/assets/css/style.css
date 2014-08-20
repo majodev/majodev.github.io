@@ -3583,6 +3583,9 @@ body {
   .navbar-nav > li {
     text-align: center;
   }
+  .navbar-brand {
+    padding-right: 0px;
+  }
 }
 .navbar-toggle {
   padding: 9px 32px;
@@ -3654,4 +3657,14 @@ blockquote {
 .block-navSubPage,
 .block-navSubPageActive {
   font-size: 12px;
+}
+.block-navBrandMobile {
+  padding: 17px 10px 14px 10px;
+  color: #777777;
+  font-size: 12px;
+}
+.block-breadcrumbSeparator {
+  color: #cccccc;
+  padding-left: 10px;
+  padding-right: 5px;
 }
