@@ -28,6 +28,7 @@
     "bootstrap": "~3.2.0",
     "modernizr": "~2.8.3",
     "velocity": "~0.11.6",
-    "fastclick": "~1.0.3"
+    "fastclick": "~1.0.3",
+    "Lato2OFLWeb": "http://www.latofonts.com/download/Lato2OFLWeb.zip"
   }
 }

@@ -6,6 +6,9 @@
       "bower_components/colors/css/colors.css",
       "bower_components/highlightjs/src/styles/monokai_sublime.css"
     ],
+    "font": [
+      "bower_components/Lato2OFLWeb/LatoLatin/*"
+    ],
     "js_head": [
       "bower_components/modernizr/modernizr.js"
     ],

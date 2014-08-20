@@ -40,7 +40,7 @@ module.exports = function(grunt) {
       }
     },
     copy: {
-      bower_components: {
+      vendor: {
         files: [{
           expand: true,
           flatten: true,
@@ -48,10 +48,19 @@ module.exports = function(grunt) {
           src: _.union(config.vendor.css, config.vendor.js, config.vendor.js_head),
           dest: config.vendor.dist
         }]
+      },
+      font: {
+        files: [{
+          expand: true,
+          flatten: true,
+          nonull: true,
+          src: config.vendor.font,
+          dest: "src/assets/font/"
+        }]
       }
     },
     clean: {
-      prebuild: ["build", "src/assets/vendor"]
+      prebuild: ["build", "src/assets/vendor", "src/assets/font"]
     },
     less: {
       development: {
