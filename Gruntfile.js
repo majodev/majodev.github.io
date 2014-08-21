@@ -55,7 +55,7 @@ module.exports = function(grunt) {
           expand: true,
           flatten: true,
           nonull: true,
-          src: "licensed/iconic/svgz/smart/*",
+          src: "licensed/iconic/svg/smart/*",
           dest: "build/assets/svg/"
         }]
       }

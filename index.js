@@ -110,9 +110,9 @@ Metalsmith(__dirname)
   .use(permapath({
     mode: "post"
   }))
-  .use(debugsmith({
-    printMetaKeys: true
-  }))
+  // .use(debugsmith({
+  //   printMetaKeys: true
+  // }))
   .build(function(error) {
     if (error) {
       throw error;
