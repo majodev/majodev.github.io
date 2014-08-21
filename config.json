@@ -10,7 +10,6 @@
       "bower_components/modernizr/modernizr.js"
     ],
     "js": [
-      "licensed/iconic/js/iconic.min.js",
       "bower_components/jquery/dist/jquery.js",
       "bower_components/velocity/jquery.velocity.js",
       "bower_components/fastclick/lib/fastclick.js",

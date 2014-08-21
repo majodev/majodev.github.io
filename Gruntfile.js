@@ -50,15 +50,15 @@ module.exports = function(grunt) {
           dest: config.vendor.dist
         }]
       },
-      svg: {
-        files: [{
-          expand: true,
-          flatten: true,
-          nonull: true,
-          src: "licensed/iconic/svg/smart/*",
-          dest: "build/assets/svg/"
-        }]
-      }
+      // svg: {
+      //   files: [{
+      //     expand: true,
+      //     flatten: true,
+      //     nonull: true,
+      //     src: "licensed/iconic/svg/smart/*",
+      //     dest: "build/assets/svg/"
+      //   }]
+      // }
     },
     clean: {
       prebuild: ["build"]
