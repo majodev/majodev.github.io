@@ -66,7 +66,7 @@ html, body {
   padding: @header-height 15px 0; /* for navbar? EVENTUALLY NOT NEEDED! */
 }
 
-@media (max-width: @screen-xs-max) {
+@media (max-width: @grid-float-breakpoint-max) {
   .template-default/*, .template-note*/  {
     padding: 0 15px 0; /* for navbar? EVENTUALLY NOT NEEDED! */
   }
@@ -77,7 +77,11 @@ html, body {
 // -----------------------------------------------------------------------------
 // nav positioning & style
 
-@media (max-width: @screen-xs-max) {
+.navbar {
+  border: 0px;
+}
+
+@media (max-width: @grid-float-breakpoint-max) {
   .navbar-nav > li {
     text-align: center;
   }
@@ -86,19 +90,36 @@ html, body {
   }
 }
 
-.navbar-toggle {
+// mobile navbar button styling...
+
+.navbar-toggle { // make nav toggle bigger for easier nav on mobile!
   padding: 17px 20px;
   margin-top: 0px;
   margin-bottom: 0px;
   margin-right: 0px;
 }
 
+// icon-bar styling (might be better to exchange with iconic bar!)
+
 .navbar-toggle > .icon-bar {
   background-color: @brand-primary !important;
 }
 
+.navbar-toggle:hover > .icon-bar {
+  background-color: @brand-primary !important;
+}
+
 .collapsed > .icon-bar {
-  background-color: #888 !important;
+  background-color: @gray-light !important;
+}
+
+.navbar-toggle .icon-bar + .icon-bar {
+  margin-top: 3px;
+}
+
+.navbar-toggle .icon-bar {
+  height: 3px;
+  border-radius: 0px;
 }
 
 
@@ -189,9 +210,17 @@ blockquote {
 }
 
 .block-navBrandMobile {
-  padding: 17px 10px 14px 10px;
+  padding: 17px 10px 14px 0px;
   color: @gray-light;
   font-size: @font-size-smaller;
+  height: 50px;
+  float: left;
+}
+
+@media (min-width: @grid-float-breakpoint) {
+  .block-navBrandMobile {
+    display: none;
+  }
 }
 
 .block-breadcrumbSeparator {
