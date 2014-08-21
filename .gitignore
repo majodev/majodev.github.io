@@ -2,7 +2,4 @@ node_modules
 .DS_Store
 build
 bower_components
-src/assets/vendor
-src/assets/css
-src/assets/font
 licensed

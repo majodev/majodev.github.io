@@ -1,6 +1,6 @@
 {
   "vendor": {
-    "dist": "src/assets/vendor/",
+    "dist": "build/assets/vendor/",
     "productive": "/assets/vendor/",
     "css": [
       "bower_components/colors/css/colors.css",
@@ -10,6 +10,7 @@
       "bower_components/modernizr/modernizr.js"
     ],
     "js": [
+      "licensed/iconic/js/iconic.min.js",
       "bower_components/jquery/dist/jquery.js",
       "bower_components/velocity/jquery.velocity.js",
       "bower_components/fastclick/lib/fastclick.js",

@@ -41,7 +41,10 @@ Metalsmith(__dirname)
   .source("./src")
   .destination("./build")
   .use(ignore([
+    "assets/css/**/*",
+    "assets/svg/**/*",
     "assets/less/**/*",
+    "assets/vendor/**/*",
     "**/.DS_Store"
   ]))
   .use(filetimestamp())
@@ -107,9 +110,9 @@ Metalsmith(__dirname)
   .use(permapath({
     mode: "post"
   }))
-  // .use(debugsmith({
-  //   printMetaKeys: true
-  // }))
+  .use(debugsmith({
+    printMetaKeys: true
+  }))
   .build(function(error) {
     if (error) {
       throw error;

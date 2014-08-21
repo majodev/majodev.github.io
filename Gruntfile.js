@@ -11,16 +11,8 @@ module.exports = function(grunt) {
     },
     watch: {
       metalsmith: {
-        files: ["src/**/*.*", "templates/**/*.*", "scripts/**/*.*", "index.js", "config.json", "!src/**/*.less", "!src/assets/css/style.css"],
-        tasks: ["execute"],
-        options: {
-          interrupt: false,
-          livereload: true
-        }
-      },
-      less: {
-        files: ["src/**/*.less"],
-        tasks: ["less", "execute"],
+        files: ["src/**/*.*", "templates/**/*.*", "scripts/**/*.*", "index.js", "config.json"],
+        tasks: ["build-dev"],
         options: {
           interrupt: false,
           livereload: true
@@ -40,6 +32,15 @@ module.exports = function(grunt) {
       }
     },
     copy: {
+      support: {
+        files: [{
+          expand: true,
+          flatten: true,
+          nonull: true,
+          src: "support/*",
+          dest: "build/"
+        }]
+      },
       vendor: {
         files: [{
           expand: true,
@@ -49,18 +50,18 @@ module.exports = function(grunt) {
           dest: config.vendor.dist
         }]
       },
-      // font: {
-      //   files: [{
-      //     expand: true,
-      //     flatten: true,
-      //     nonull: true,
-      //     src: config.vendor.font,
-      //     dest: "src/assets/font/"
-      //   }]
-      // }
+      svg: {
+        files: [{
+          expand: true,
+          flatten: true,
+          nonull: true,
+          src: "licensed/iconic/svgz/smart/*",
+          dest: "build/assets/svg/"
+        }]
+      }
     },
     clean: {
-      prebuild: ["build", "src/assets/vendor", "src/assets/font"]
+      prebuild: ["build"]
     },
     less: {
       development: {
@@ -68,7 +69,7 @@ module.exports = function(grunt) {
           paths: config.less.dirs
         },
         files: {
-          "src/assets/css/style.css": config.less.src
+          "build/assets/css/style.css": config.less.src
         } // TODO: add grunt task from bootstrap source and run autoprefixer in the end!!!
       }
     }
@@ -81,5 +82,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-less');
 
-  grunt.registerTask("default", ["clean", "copy", "less", "execute", "http-server:dev", "watch"]);
+  grunt.registerTask("build-dev", ["execute", "copy", "less"]);
+  grunt.registerTask("default", ["clean", "build-dev", "http-server:dev", "watch"]);
+
 };
