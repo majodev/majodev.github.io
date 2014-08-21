@@ -1,17 +1,16 @@
 {{#if _dev}}
 
   {{!-- fonts --}}
-  <link rel="stylesheet" href="/assets/font/LatoLatin-Regular.css">
-  <link rel="stylesheet" href="/assets/font/LatoLatin-Bold.css">
-  <link rel="stylesheet" href="/assets/font/LatoLatin-Italic.css">
-  <link rel="stylesheet" href="/assets/font/LatoLatin-BoldItalic.css">
+  <link href='http://fonts.googleapis.com/css?family=Lato:300,400,500,700,300italic,400italic,500italic,700italic' rel='stylesheet' type='text/css'>
   
   {{!-- own styles (compiled custom bootstrap) --}}
   <link rel="stylesheet" href="/assets/css/style.css">
+  
   {{!-- vendor styles --}}
   {{#each _vendor.css}}
     <link rel="stylesheet" href="{{this}}">
   {{/each}}
+  
 {{else}}
 
 {{/if}}

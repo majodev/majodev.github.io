@@ -49,15 +49,15 @@ module.exports = function(grunt) {
           dest: config.vendor.dist
         }]
       },
-      font: {
-        files: [{
-          expand: true,
-          flatten: true,
-          nonull: true,
-          src: config.vendor.font,
-          dest: "src/assets/font/"
-        }]
-      }
+      // font: {
+      //   files: [{
+      //     expand: true,
+      //     flatten: true,
+      //     nonull: true,
+      //     src: config.vendor.font,
+      //     dest: "src/assets/font/"
+      //   }]
+      // }
     },
     clean: {
       prebuild: ["build", "src/assets/vendor", "src/assets/font"]

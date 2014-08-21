@@ -20,6 +20,7 @@
 @font-size-mini: ceil(@font-size-small * 0.75);
 
 
+
 // -----------------------------------------------------------------------------
 // -----------------------------------------------------------------------------
 // hacks
@@ -86,7 +87,18 @@ html, body {
 }
 
 .navbar-toggle {
-  padding: 9px 32px;
+  padding: 17px 20px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-right: 0px;
+}
+
+.navbar-toggle > .icon-bar {
+  background-color: @brand-primary !important;
+}
+
+.collapsed > .icon-bar {
+  background-color: #888 !important;
 }
 
 
