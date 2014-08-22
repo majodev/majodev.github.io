@@ -57,6 +57,15 @@ module.exports = function(grunt) {
           dest: "build/"
         }]
       },
+      "inject-fonts": {
+        files: [{
+          expand: true,
+          flatten: true,
+          nonull: true,
+          src: config.inject.fonts,
+          dest: config.inject.gruntTargetDir.fonts
+        }]
+      },
       "inject-css": {
         files: [{
           expand: true,
@@ -186,7 +195,7 @@ module.exports = function(grunt) {
   grunt.registerTask("server", ["http-server:productive"]);
 
   grunt.registerTask("build-dev", ["execute:metalsmith-dev", "less:development", "copy"]);
-  grunt.registerTask("build-productive", ["imagemin", "execute:metalsmith-productive", "css-productive", "uglify:js_src", "uglify:js", "uglify:js_head", "htmlmin", "copy:support-root"]);
+  grunt.registerTask("build-productive", ["imagemin", "execute:metalsmith-productive", "css-productive", "uglify:js_src", "uglify:js", "uglify:js_head", "htmlmin", "copy:support-root", "copy:inject-fonts"]);
 
   grunt.registerTask("css-productive", ["less:productive", "cssmin:combine"]);
 };

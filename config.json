@@ -1,7 +1,7 @@
 {
   "inject": {
     "css": [
-      "bower_components/colors/css/colors.css",
+      "bower_components/font-awesome/css/font-awesome.css",
       "bower_components/highlightjs/src/styles/monokai_sublime.css"
     ],
     "less": {
@@ -24,13 +24,17 @@
       "support/js/enableFastClick.js",
       "support/js/consoleDisclaimer.js"
     ],
+    "fonts": [
+      "bower_components/font-awesome/fonts/fontawesome-webfont.*"
+    ],
     "metalsmithBaseDir": {
       "css": "/assets/css/",
       "js": "/assets/js/"
     },
     "gruntTargetDir": {
       "css": "build/assets/css/",
-      "js": "build/assets/js/"
+      "js": "build/assets/js/",
+      "fonts": "build/assets/fonts/"
     },
     "productive": {
       "css": "styles.min.css",
