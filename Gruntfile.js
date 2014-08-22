@@ -5,7 +5,13 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON("package.json"),
     execute: {
-      build: {
+      "metalsmith-dev": {
+        src: ["index.js"]
+      },
+      "metalsmith-productive": {
+        options: {
+          args: ["productive"]
+        },
         src: ["index.js"]
       }
     },
@@ -83,7 +89,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-less');
 
-  grunt.registerTask("build-dev", ["execute", "less", "copy"]);
+  
   grunt.registerTask("default", ["clean", "build-dev", "http-server:dev", "watch"]);
+  grunt.registerTask("build-dev", ["execute:metalsmith-dev", "less", "copy"]);
+  grunt.registerTask("build-productive", ["execute:metalsmith-productive", "less", "copy"]);
 
 };

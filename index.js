@@ -29,14 +29,21 @@ registerHelpers();
 registerPartials("templates/base");
 registerPartials("templates/blocks");
 
+// check commandline args if development version should be generated!
+var dev = process.argv[2] !== "productive" ? true : false;
+
+if (dev === false) {
+  console.log("-- metalsmith generates productive build...");
+}
+
 // metalsmith pipeline
 Metalsmith(__dirname)
   .metadata({
-    _dev: true,
+    _dev: dev,
     _sitename: "ranf.tl",
     _siterepo: "https://github.com/majodev/majodev.github.io/",
     _builddate: moment().format("DD MMM YYYY, HH:mm"),
-    _inject: injectFiles() // holds all external client libs
+    _inject: injectFiles(dev) // holds all external client libs
   })
   .source("./src")
   .destination("./build")
@@ -106,11 +113,11 @@ Metalsmith(__dirname)
   .use(permapath({
     mode: "post"
   }))
-  .use(debugsmith({
-    printMetaKeys: true
-  }))
-  .build(function(error) {
-    if (error) {
-      throw error;
-    }
-  });
+// .use(debugsmith({
+//   printMetaKeys: true
+// }))
+.build(function(error) {
+  if (error) {
+    throw error;
+  }
+});

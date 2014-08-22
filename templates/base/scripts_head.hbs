@@ -1,8 +1,8 @@
+{{!-- inject js (HEAD) --}}
+{{#each _inject.js_head}}
+  <script src="{{this}}"></script>
+{{/each}}
+
 {{#if _dev}}
-  {{!-- vendor scripts (HEAD) --}}
-  {{#each _inject.js_head}}
-    <script src="{{this}}"></script>
-  {{/each}}
-{{else}}
 
 {{/if}}

@@ -30,6 +30,11 @@
     "gruntTargetDir": {
       "css": "build/assets/css/",
       "js": "build/assets/js/"
+    },
+    "productive": {
+      "css": "styles.css",
+      "js": "scripts.js",
+      "js_head": "scripts_head.js"
     }
   }
 }
