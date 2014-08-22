@@ -1,5 +1,5 @@
 {
-  "vendor": {
+  "inject": {
     "css": [
       "bower_components/colors/css/colors.css",
       "bower_components/highlightjs/src/styles/monokai_sublime.css"

@@ -22,7 +22,7 @@ var filetimestamp = require("./scripts/metalsmith-filetimestamp");
 // custom node scripts
 var registerHelpers = require("./scripts/registerHelpers");
 var registerPartials = require("./scripts/registerPartials");
-var getVendorFiles = require("./scripts/getVendorFiles");
+var injectFiles = require("./scripts/injectFiles");
 
 // registering all Handlebars swag helpers and template partials within all directories
 registerHelpers();
@@ -36,7 +36,7 @@ Metalsmith(__dirname)
     _sitename: "ranf.tl",
     _siterepo: "https://github.com/majodev/majodev.github.io/",
     _builddate: moment().format("DD MMM YYYY, HH:mm"),
-    _vendor: getVendorFiles() // holds all external client libs
+    _inject: injectFiles() // holds all external client libs
   })
   .source("./src")
   .destination("./build")

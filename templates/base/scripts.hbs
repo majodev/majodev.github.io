@@ -1,6 +1,6 @@
 {{#if _dev}}
   {{!-- vendor scripts (BODY) --}}
-  {{#each _vendor.js}}
+  {{#each _inject.js}}
     <script src="{{this}}"></script>
   {{/each}}
   {{!-- own scripts --}}
