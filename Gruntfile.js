@@ -35,6 +35,16 @@ module.exports = function(grunt) {
         autoIndex: true,
         defaultExt: "html",
         runInBackground: true
+      },
+      productive: {
+        root: "build",
+        port: 8080,
+        host: "127.0.0.1",
+        cache: -1,
+        showDir: true,
+        autoIndex: true,
+        defaultExt: "html",
+        runInBackground: false
       }
     },
     copy: {
@@ -103,7 +113,9 @@ module.exports = function(grunt) {
     },
     uglify: {
       options: {
-        report: "gzip"
+        compress: {
+          drop_console: true
+        }
       },
       js: {
         files: [{
@@ -147,8 +159,10 @@ module.exports = function(grunt) {
 
 
   grunt.registerTask("default", ["clean", "build-dev", "http-server:dev", "watch"]);
+  grunt.registerTask("productive", ["clean", "build-productive", "clean:tmp", "http-server:productive"]);
+
   grunt.registerTask("build-dev", ["execute:metalsmith-dev", "less:development", "copy"]);
-  grunt.registerTask("build-productive", ["clean", "execute:metalsmith-productive", "css-productive", "uglify", "htmlmin", "copy:support-root", "clean:tmp"]);
+  grunt.registerTask("build-productive", ["execute:metalsmith-productive", "css-productive", "uglify", "htmlmin", "copy:support-root"]);
 
   grunt.registerTask("css-productive", ["less:productive", "cssmin:combine"]);
 
