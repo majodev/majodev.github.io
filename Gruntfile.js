@@ -11,7 +11,7 @@ module.exports = function(grunt) {
     },
     watch: {
       metalsmith: {
-        files: ["src/**/*.*", "templates/**/*.*", "scripts/**/*.*", "index.js", "config.json"],
+        files: ["src/**/*.*", "templates/**/*.*", "scripts/**/*.*", "support/**/*.*", "index.js", "config.json"],
         tasks: ["build-dev"],
         options: {
           interrupt: false,

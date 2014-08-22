@@ -81,9 +81,6 @@ jQuery(function($) {
             $targetContainer.velocity("fadeIn", {
               duration: FADE_TIME_AJAX_MS,
               complete: function(elements) {
-
-
-
                 // console.log("complete 2!");
                 attachAnchor(url, null);
                 setLoading(false);
