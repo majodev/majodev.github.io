@@ -67,7 +67,8 @@ module.exports = function(grunt) {
       }
     },
     clean: {
-      prebuild: ["build"]
+      build: ["build"],
+      tmp: ["tmp"]
     },
     less: {
       development: {
@@ -78,8 +79,60 @@ module.exports = function(grunt) {
           src: [config.inject.less.src],
           dest: config.inject.less.dest
         }] // TODO: add grunt task from bootstrap source and run autoprefixer in the end!!!
+      },
+      productive: {
+        options: {
+          paths: config.inject.less.dirs
+        },
+        files: [{
+          src: [config.inject.less.src],
+          dest: "tmp/style.css"
+        }] // TODO: add grunt task from bootstrap source and run autoprefixer in the end!!!
       }
-    }
+    },
+    cssmin: {
+      options: {
+        report: "gzip"
+      },
+      combine: {
+        files: [{
+          src: _.union(config.inject.css, ["tmp/style.css"]),
+          dest: config.inject.gruntTargetDir.css + config.inject.productive.css
+        }]
+      }
+    },
+    uglify: {
+      options: {
+        report: "gzip"
+      },
+      js: {
+        files: [{
+          src: config.inject.js,
+          dest: config.inject.gruntTargetDir.js + config.inject.productive.js
+        }]
+      },
+      js_head: {
+        files: [{
+          src: config.inject.js_head,
+          dest: config.inject.gruntTargetDir.js + config.inject.productive.js_head
+        }]
+      }
+    },
+    htmlmin: { // Task
+      build: { // Target
+        options: { // Target options
+          removeComments: true,
+          collapseWhitespace: true
+        },
+        files: [{
+          expand: true, // Enable dynamic expansion.
+          cwd: 'build/', // Src matches are relative to this path.
+          src: ['**/*.html'], // Actual pattern(s) to match.
+          dest: 'build/', // Destination path prefix.
+          ext: '.html', // Dest filepaths will have this extension.
+        }]
+      }
+    },
   });
 
   grunt.loadNpmTasks("grunt-execute");
@@ -88,10 +141,15 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-less');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-htmlmin');
 
-  
+
   grunt.registerTask("default", ["clean", "build-dev", "http-server:dev", "watch"]);
-  grunt.registerTask("build-dev", ["execute:metalsmith-dev", "less", "copy"]);
-  grunt.registerTask("build-productive", ["execute:metalsmith-productive", "less", "copy"]);
+  grunt.registerTask("build-dev", ["execute:metalsmith-dev", "less:development", "copy"]);
+  grunt.registerTask("build-productive", ["clean", "execute:metalsmith-productive", "css-productive", "uglify", "htmlmin", "copy:support-root", "clean:tmp"]);
+
+  grunt.registerTask("css-productive", ["less:productive", "cssmin:combine"]);
 
 };

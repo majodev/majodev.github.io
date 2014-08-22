@@ -32,9 +32,9 @@
       "js": "build/assets/js/"
     },
     "productive": {
-      "css": "styles.css",
-      "js": "scripts.js",
-      "js_head": "scripts_head.js"
+      "css": "styles.min.css",
+      "js": "scripts.min.js",
+      "js_head": "scripts_head.min.js"
     }
   }
 }
