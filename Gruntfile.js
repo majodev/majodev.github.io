@@ -41,22 +41,31 @@ module.exports = function(grunt) {
           dest: "build/"
         }]
       },
-      "support-js": {
+      // "support-js": {
+      //   files: [{
+      //     expand: true,
+      //     flatten: true,
+      //     nonull: true,
+      //     src: config.support.js,
+      //     dest: "build/assets/js/"
+      //   }]
+      // },
+      "vendor-css": {
         files: [{
           expand: true,
           flatten: true,
           nonull: true,
-          src: "support/js/*",
-          dest: "build/assets/js/"
+          src: config.vendor.css,
+          dest: config.vendor.gruntTargetDir.css
         }]
       },
-      "vendor-libs": {
+      "vendor-js": {
         files: [{
           expand: true,
           flatten: true,
           nonull: true,
-          src: _.union(config.vendor.css, config.vendor.js, config.vendor.js_head),
-          dest: config.vendor.dist
+          src: _.union(config.vendor.js, config.vendor.js_head),
+          dest: config.vendor.gruntTargetDir.js
         }]
       }
     },

@@ -1,7 +1,5 @@
 {
   "vendor": {
-    "dist": "build/assets/vendor/",
-    "productive": "/assets/vendor/",
     "css": [
       "bower_components/colors/css/colors.css",
       "bower_components/highlightjs/src/styles/monokai_sublime.css"
@@ -14,8 +12,20 @@
       "bower_components/velocity/jquery.velocity.js",
       "bower_components/fastclick/lib/fastclick.js",
       "bower_components/bootstrap/dist/js/bootstrap.js",
-      "bower_components/history.js/scripts/bundled-uncompressed/html4+html5/jquery.history.js"
-    ]
+      "bower_components/history.js/scripts/bundled-uncompressed/html4+html5/jquery.history.js",
+      "support/js/consoleErrors.js",
+      "support/js/ajax.js",
+      "support/js/enableFastClick.js",
+      "support/js/consoleDisclaimer.js"
+    ],
+    "metalsmithBaseDir": {
+      "css": "/assets/css/",
+      "js": "/assets/js/"
+    },
+    "gruntTargetDir": {
+      "css": "build/assets/css/",
+      "js": "build/assets/js/"
+    }
   },
   "less": {
     "dirs": ["support/less/bootstrap", "bower_components/bootstrap/less"],
