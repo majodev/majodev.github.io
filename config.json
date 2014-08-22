@@ -18,7 +18,7 @@
     ]
   },
   "less": {
-    "dirs": ["src/assets/less/bootstrap", "bower_components/bootstrap/less"],
-    "src": "src/assets/less/style.less"
+    "dirs": ["support/less/bootstrap", "bower_components/bootstrap/less"],
+    "src": "support/less/style.less"
   }
 }

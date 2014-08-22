@@ -42,7 +42,7 @@ Metalsmith(__dirname)
   .destination("./build")
   .use(ignore([
     "assets/css/**/*",
-    "assets/less/**/*",
+    "assets/js/**/*",
     "assets/vendor/**/*",
     "**/.DS_Store"
   ]))

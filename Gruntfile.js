@@ -32,16 +32,25 @@ module.exports = function(grunt) {
       }
     },
     copy: {
-      support: {
+      "support-root": {
         files: [{
           expand: true,
           flatten: true,
           nonull: true,
-          src: "support/*",
+          src: "support/root/*",
           dest: "build/"
         }]
       },
-      vendor: {
+      "support-js": {
+        files: [{
+          expand: true,
+          flatten: true,
+          nonull: true,
+          src: "support/js/*",
+          dest: "build/assets/js/"
+        }]
+      },
+      "vendor-libs": {
         files: [{
           expand: true,
           flatten: true,
@@ -49,16 +58,7 @@ module.exports = function(grunt) {
           src: _.union(config.vendor.css, config.vendor.js, config.vendor.js_head),
           dest: config.vendor.dist
         }]
-      },
-      // svg: {
-      //   files: [{
-      //     expand: true,
-      //     flatten: true,
-      //     nonull: true,
-      //     src: "licensed/iconic/svg/smart/*",
-      //     dest: "build/assets/svg/"
-      //   }]
-      // }
+      }
     },
     clean: {
       prebuild: ["build"]
