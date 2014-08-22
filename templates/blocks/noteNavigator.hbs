@@ -16,9 +16,9 @@
 </div> --}}
 <ul class="pager block-noteNavigator">
   {{#if next}}
-    <li class="previous"><a href="/{{ next.path }}">&larr; older<span class="hidden-xs">: {{ next.title }}</span></a></li>
+    <li class="previous"><a href="/{{ next.path }}"><i class="fa fa-long-arrow-left"></i> older<span class="hidden-xs">: {{ next.title }}</span></a></li>
   {{/if}}
   {{#if previous}}
-    <li class="next"><a href="/{{ previous.path }}">newer<span class="hidden-xs">: {{ previous.title }}</span> &rarr;</a></li>
+    <li class="next"><a href="/{{ previous.path }}">newer<span class="hidden-xs">: {{ previous.title }}</span> <i class="fa fa-long-arrow-right"></i></a></li>
   {{/if}}
 </ul>

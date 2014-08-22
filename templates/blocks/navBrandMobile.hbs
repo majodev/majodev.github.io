@@ -1,2 +1,2 @@
-{{#or isPage isSubpage}}<span class="block-navBrandMobile">{{>breadcrumbSeparator}} {{uppercase title}}</span>{{/or}}
-{{#if isNote}}<span class="block-navBrandMobile">{{>breadcrumbSeparator}} NOTES</span>{{/if}}
+{{#or isPage isSubpage}}<span class="block-navBrandMobile">{{>breadcrumbSeparator}} {{>navIcon}}{{uppercase title}}</span>{{/or}}
+{{#if isNote}}<span class="block-navBrandMobile">{{>breadcrumbSeparator}} {{>navIcon}}NOTES</span>{{/if}}

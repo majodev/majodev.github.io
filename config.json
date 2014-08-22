@@ -22,7 +22,8 @@
       "support/js/consoleErrors.js",
       "support/js/ajax.js",
       "support/js/enableFastClick.js",
-      "support/js/consoleDisclaimer.js"
+      "support/js/consoleDisclaimer.js",
+      "support/js/konamicode.js"
     ],
     "fonts": [
       "bower_components/font-awesome/fonts/fontawesome-webfont.*"

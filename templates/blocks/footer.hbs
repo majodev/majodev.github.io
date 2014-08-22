@@ -1,12 +1,13 @@
 <footer class="block-footer">
   <div class="container-fluid text-muted text-center">
     <p>
+      &copy; {{_year}} {{_sitename}} | Mario Ranftl | @majodev<br />
       page last modified {{formattedLastModified}}<br />
-      {{uppercase _sitename}} generated on {{_builddate}}<br />
+      {{!-- {{uppercase _sitename}} generated on {{_builddate}}<br /> --}}
         {{!-- {{#each subpages}}
           <a href="/{{ path }}">{{uppercase title }}</a>
         {{/each}}<br /> --}}
-      Powered by <a href="http://www.metalsmith.io/">metalsmith</a>, published at <a href="{{_siterepo}}">GitHub Pages</a>
+      powered by <a href="http://www.metalsmith.io/">metalsmith</a>, published at <a href="{{_siterepo}}">GitHub Pages</a>
     </p>
   </div>
 </footer>

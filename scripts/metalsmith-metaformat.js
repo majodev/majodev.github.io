@@ -24,7 +24,7 @@ function plugin() {
       }
 
       if (_.isUndefined(files[file].lastModified) === false) {
-        files[file].formattedLastModified = moment(files[file].lastModified).format("DD MMM YYYY, HH:mm");
+        files[file].formattedLastModified = moment(files[file].lastModified).format("DD MMM YYYY, HH:mm Z");
       }
 
     });

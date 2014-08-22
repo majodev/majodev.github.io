@@ -1,6 +1,7 @@
 ---
 title: Welcome
 template: default.hbs
+fa-icon: fa-home
 ---
 
 Welcome to my page, **asshole!**

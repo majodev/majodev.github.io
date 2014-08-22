@@ -42,7 +42,8 @@ Metalsmith(__dirname)
     _dev: dev,
     _sitename: "ranf.tl",
     _siterepo: "https://github.com/majodev/majodev.github.io/",
-    _builddate: moment().format("DD MMM YYYY, HH:mm"),
+    _builddate: moment().format("DD MMM YYYY, HH:mm Z"),
+    _year: moment().format("YYYY"),
     _inject: injectFiles(dev) // holds all external client libs
   })
   .source("./src")
@@ -91,7 +92,8 @@ Metalsmith(__dirname)
     },
     notes: {
       isNote: true,
-      template: "note.hbs"
+      template: "note.hbs",
+      "fa-icon": "fa-book"
     },
     subpages: {
       isSubpage: true

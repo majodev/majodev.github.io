@@ -13,7 +13,7 @@
 // -----------------------------------------------------------------------------
 // variables
 
-@footer-height: 65px; //(@font-size-small * 2) + 25;
+@footer-height: 61px; //(@font-size-small * 2) + 25;
 @header-height: 40px; // @navbar-height + 20px; //20px; // exclude with navbar-height!
 
 @font-size-smaller: floor(@font-size-small * 0.86);
@@ -146,15 +146,23 @@ body { // using page container instead of BODY!
 // colors and background styling
 
 body {
-  background: url(/assets/img/tiny_grid.png) repeat; // adds a grid to bg
+  // background: url(/assets/img/tiny_grid.png) repeat; // adds a grid to bg
 }
 
+@gradientBGMinAlpha: 0.05; //0.01;
+@gradientBGMiddleAlpha: 0.1; //0.05;
+@gradientBGMaxAlpha: 0.13; //0.06;
+
 .block-footer {
-  #gradient > .vertical(rgba(0, 0, 0, 0.05); rgba(0, 0, 0, 0.01));
+  #gradient > .vertical(rgba(0, 0, 0, @gradientBGMiddleAlpha); rgba(0, 0, 0, @gradientBGMinAlpha));
 }
 
 .block-header {
-  #gradient > .vertical(rgba(0, 0, 0, 0.01); rgba(0, 0, 0, 0.05));
+  #gradient > .vertical(rgba(0, 0, 0, @gradientBGMinAlpha); rgba(0, 0, 0, @gradientBGMiddleAlpha));
+}
+
+.block-noteBreadcrumb {
+  #gradient > .vertical(rgba(0, 0, 0, @gradientBGMiddleAlpha); rgba(0, 0, 0, @gradientBGMaxAlpha));
 }
 
 
@@ -176,7 +184,10 @@ blockquote {
 // block styling
 
 .block-noteNavigator {
-  margin: 15px 0;
+  margin-top: 15px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
   font-size: @font-size-small;
 }
 
@@ -187,7 +198,7 @@ blockquote {
 
 .block-noteTitle {
   overflow:hidden;
-  margin-top: 22px;
+  margin-top: 12px;
   margin-bottom: 11px;
 }
 
@@ -196,7 +207,6 @@ blockquote {
 }
 
 .block-noteBreadcrumb {
-  #gradient > .vertical(rgba(0, 0, 0, 0.05); rgba(0, 0, 0, 0.06));
   font-size: @font-size-smaller;
 }
 
