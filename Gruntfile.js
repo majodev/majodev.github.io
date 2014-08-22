@@ -155,6 +155,19 @@ module.exports = function(grunt) {
         }]
       }
     },
+    imagemin: {
+      options: { // Target options
+        optimizationLevel: 7
+      },
+      dynamic: { // Another target
+        files: [{
+          expand: true, // Enable dynamic expansion
+          cwd: '', // Src matches are relative to this path
+          src: ['src/**/*.{png,jpg,gif}', 'support/**/*.{png,jpg,gif}'], // Actual patterns to match
+          dest: '' // Destination path prefix
+        }]
+      }
+    }
   });
 
   grunt.loadNpmTasks("grunt-execute");
@@ -166,14 +179,14 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-htmlmin');
-
+  grunt.loadNpmTasks('grunt-contrib-imagemin');
 
   grunt.registerTask("default", ["clean", "build-dev", "http-server:dev", "watch"]);
-  grunt.registerTask("productive", ["clean", "build-productive", "clean:tmp", "http-server:productive"]);
+  grunt.registerTask("productive", ["clean", "build-productive", "clean:tmp", "server"]);
+  grunt.registerTask("server", ["http-server:productive"]);
 
   grunt.registerTask("build-dev", ["execute:metalsmith-dev", "less:development", "copy"]);
-  grunt.registerTask("build-productive", ["execute:metalsmith-productive", "css-productive", "uglify:js_src", "uglify:js", "uglify:js_head", "htmlmin", "copy:support-root"]);
+  grunt.registerTask("build-productive", ["imagemin", "execute:metalsmith-productive", "css-productive", "uglify:js_src", "uglify:js", "uglify:js_head", "htmlmin", "copy:support-root"]);
 
   grunt.registerTask("css-productive", ["less:productive", "cssmin:combine"]);
-
 };
