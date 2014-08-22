@@ -4,6 +4,11 @@
       "bower_components/colors/css/colors.css",
       "bower_components/highlightjs/src/styles/monokai_sublime.css"
     ],
+    "less": {
+      "dirs": ["support/less/bootstrap", "bower_components/bootstrap/less"],
+      "src": "support/less/style.less",
+      "dest": "build/assets/css/style.css"
+    },
     "js_head": [
       "bower_components/modernizr/modernizr.js"
     ],
@@ -26,9 +31,5 @@
       "css": "build/assets/css/",
       "js": "build/assets/js/"
     }
-  },
-  "less": {
-    "dirs": ["support/less/bootstrap", "bower_components/bootstrap/less"],
-    "src": "support/less/style.less"
   }
 }

@@ -17,6 +17,8 @@ function injectFiles() {
     injectFiles.css.push(config.inject.metalsmithBaseDir.css + basename(item));
   });
 
+  injectFiles.css.push(config.inject.metalsmithBaseDir.css + basename(config.inject.less.dest)); // add less file on top of it!
+
   _.each(config.inject.js_head, function (item) {
     injectFiles.js_head.push(config.inject.metalsmithBaseDir.js + basename(item));
   });

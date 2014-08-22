@@ -66,11 +66,12 @@ module.exports = function(grunt) {
     less: {
       development: {
         options: {
-          paths: config.less.dirs
+          paths: config.inject.less.dirs
         },
-        files: {
-          "build/assets/css/style.css": config.less.src
-        } // TODO: add grunt task from bootstrap source and run autoprefixer in the end!!!
+        files: [{
+          src: [config.inject.less.src],
+          dest: config.inject.less.dest
+        }] // TODO: add grunt task from bootstrap source and run autoprefixer in the end!!!
       }
     }
   });
@@ -82,7 +83,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-less');
 
-  grunt.registerTask("build-dev", ["execute", "copy", "less"]);
+  grunt.registerTask("build-dev", ["execute", "less", "copy"]);
   grunt.registerTask("default", ["clean", "build-dev", "http-server:dev", "watch"]);
 
 };
