@@ -113,6 +113,7 @@ module.exports = function(grunt) {
     },
     uglify: {
       options: {
+        report: "gzip",
         compress: {
           drop_console: true
         }
@@ -127,6 +128,15 @@ module.exports = function(grunt) {
         files: [{
           src: config.inject.js_head,
           dest: config.inject.gruntTargetDir.js + config.inject.productive.js_head
+        }]
+      },
+      js_src: {
+        files: [{
+          expand: true, // Enable dynamic expansion.
+          cwd: 'build/', // Src matches are relative to this path.
+          src: ['**/*.js'], // Actual pattern(s) to match.
+          dest: 'build/', // Destination path prefix.
+          ext: '.js', // Dest filepaths will have this extension.
         }]
       }
     },
@@ -162,7 +172,7 @@ module.exports = function(grunt) {
   grunt.registerTask("productive", ["clean", "build-productive", "clean:tmp", "http-server:productive"]);
 
   grunt.registerTask("build-dev", ["execute:metalsmith-dev", "less:development", "copy"]);
-  grunt.registerTask("build-productive", ["execute:metalsmith-productive", "css-productive", "uglify", "htmlmin", "copy:support-root"]);
+  grunt.registerTask("build-productive", ["execute:metalsmith-productive", "css-productive", "uglify:js_src", "uglify:js", "uglify:js_head", "htmlmin", "copy:support-root"]);
 
   grunt.registerTask("css-productive", ["less:productive", "cssmin:combine"]);
 
