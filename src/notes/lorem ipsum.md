@@ -7,6 +7,12 @@ tags:
 
 Your favourite lorem ipsum test (plus jerking around with anchors).
 
+<pre>Pre input</pre>
+
+<code>Code input</code>
+
+<kbd>Keyboard input kbd</kbd>
+
 [jump to anchor](#anchorheading)
 
 ## Non per magnis pro puraque annis ibi

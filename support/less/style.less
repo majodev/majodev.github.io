@@ -1,6 +1,6 @@
 @import "fonts.less"; // holds text and symbol fonts
 @import "bootstrap.less"; // import customized bootstrap
-@import (inline) "monokai_sublime.css"; // from highlight.js
+@import (inline) "github.css"; // from highlight.js
 @import "responsive-text-align.less"; // more options to align text in responsive manner
 @import "responsive-embed.less"; // make all images, videos and audio responsive at anytime
 @import "header-crossbars.less"; // headers with crossbars styles
@@ -223,6 +223,7 @@ blockquote {
   margin-left: 0px;
   margin-right: 0px;
   font-size: @font-size-small;
+  font-weight: 300;
 }
 
 .block-noteNavigator > li > a {
@@ -236,12 +237,12 @@ blockquote {
 }
 
 .block-noteNavigator > li.previous > a {
-  min-width: 53px; // fix double dotted line
+  min-width: 47px; // fix double dotted line
   text-align: left;
 }
 
 .block-noteNavigator > li.next > a {
-  min-width: 59px; // fix double dotted line
+  min-width: 53px; // fix double dotted line
   text-align: right; 
 }
 
