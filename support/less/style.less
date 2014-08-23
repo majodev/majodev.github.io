@@ -177,6 +177,10 @@ body {
   #gradient > .vertical(rgba(0, 0, 0, @gradientBGMiddleAlpha); rgba(0, 0, 0, @gradientBGMaxAlpha));
 }
 
+.template-note-header {
+  // background: url(/assets/img/tiny_grid.png) repeat;
+}
+
 
 // -----------------------------------------------------------------------------
 // -----------------------------------------------------------------------------
@@ -211,6 +215,34 @@ blockquote {
   text-transform: uppercase;
   font-size: 200%;
 }
+
+
+// -----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
+// button styling
+
+.btn {
+  border: none;
+}
+
+.btn:hover {
+  background: rgba(0,0,0,0.15);
+}
+
+
+// -----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
+// template note styling
+
+.template-note-header {
+  margin-bottom: 2px;
+  padding-bottom: 4px;
+}
+
+.template-note-contents {
+  padding-bottom: 15px;
+}
+
 
 // -----------------------------------------------------------------------------
 // -----------------------------------------------------------------------------
@@ -297,4 +329,26 @@ blockquote {
   color: #cccccc; 
   padding-left: 10px; 
   padding-right: 5px;
+}
+
+.block-socialShare > a.btn {
+  min-width: 55px;
+}
+
+// -----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
+// helpers
+
+.no-margin {
+  margin-left: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-right: 0px;
+}
+
+.no-padding {
+  padding-top: 0px;
+  padding-bottom: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
 }
