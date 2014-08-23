@@ -1,11 +1,15 @@
 {
   "inject": {
-    "css": [
-      "bower_components/font-awesome/css/font-awesome.css",
-      "bower_components/highlightjs/src/styles/monokai_sublime.css"
-    ],
+    "css": [],
     "less": {
-      "dirs": ["support/less/includes", "support/less/bootstrap", "bower_components/bootstrap/less"],
+      "dirs": [
+        "support/less/includes",
+        "support/less/bootstrap",
+        "bower_components/bootstrap/less",
+        "bower_components/lato/less",
+        "bower_components/font-awesome/css",
+        "bower_components/highlightjs/src/styles"
+      ],
       "src": "support/less/style.less",
       "dest": "build/assets/css/style.css"
     },
@@ -26,7 +30,8 @@
       "support/js/konamicode.js"
     ],
     "fonts": [
-      "bower_components/font-awesome/fonts/fontawesome-webfont.*"
+      "bower_components/font-awesome/fonts/fontawesome-webfont.*",
+      "bower_components/lato/font/lato-*.*"
     ],
     "metalsmithBaseDir": {
       "css": "/assets/css/",
