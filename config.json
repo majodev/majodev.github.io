@@ -5,7 +5,7 @@
       "bower_components/highlightjs/src/styles/monokai_sublime.css"
     ],
     "less": {
-      "dirs": ["support/less/bootstrap", "bower_components/bootstrap/less"],
+      "dirs": ["support/less/includes", "support/less/bootstrap", "bower_components/bootstrap/less"],
       "src": "support/less/style.less",
       "dest": "build/assets/css/style.css"
     },
