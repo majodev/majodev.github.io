@@ -95,7 +95,11 @@ html, body {
 // mobile navbar button styling...
 
 .navbar-toggle { // make nav toggle bigger for easier nav on mobile!
-  padding: 16px 20px;
+  
+  padding-top: 17px;
+  padding-right: 18px;
+  padding-bottom: 15px;
+  padding-left: 18px;
   margin-top: 0px;
   margin-bottom: 0px;
   margin-right: 0px;
@@ -209,22 +213,35 @@ blockquote {
 
 .block-noteNavigator {
   padding-top: 15px;
-  //padding-bottom: 15px;
   margin-top: 0px;
   margin-bottom: 0px;
   margin-left: 0px;
   margin-right: 0px;
-  font-size: @font-size-smaller;
+  font-size: @font-size-small;
 }
 
 .block-noteNavigator > li > a {
-  padding: 5px 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
   border: 0px;
   color: @gray-light;
+  border-bottom: 1px @gray-light dotted;
+}
+
+.block-noteNavigator > li.previous > a {
+  min-width: 53px; // fix double dotted line
+  text-align: left;
+}
+
+.block-noteNavigator > li.next > a {
+  min-width: 59px; // fix double dotted line
+  text-align: right; 
 }
 
 .block-noteNavigator > li > a:hover {
-  color: #000;
+  color: darken(@navbar-default-brand-color, 10%);
 }
 
 .block-tagItem {
