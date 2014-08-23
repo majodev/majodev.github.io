@@ -22,6 +22,7 @@
       "bower_components/fastclick/lib/fastclick.js",
       "bower_components/bootstrap/js/transition.js",
       "bower_components/bootstrap/js/collapse.js",
+      "bower_components/bootstrap/js/affix.js",
       "bower_components/history.js/scripts/bundled-uncompressed/html4+html5/jquery.history.js",
       "support/js/consoleErrors.js",
       "support/js/ajax.js",

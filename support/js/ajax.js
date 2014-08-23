@@ -84,6 +84,9 @@ jQuery(function($) {
                 // console.log("complete 2!");
                 attachAnchor(url, null);
                 setLoading(false);
+
+                addNavbarAffixFunctionality();
+
                 $(FOOTER_CLASS).velocity("fadeIn", {
                   duration: FADE_TIME_CHILDS_MS
                 });
@@ -195,5 +198,23 @@ jQuery(function($) {
     }
     return true;
   }
+
+  function addNavbarAffixFunctionality() {
+    // add affix functionalities
+    $(".navbar-toggle-affix").affix();
+    $(".navbar-toggle-affix").on("click", function() {
+
+      var currentY = $(window).scrollTop();
+
+      if (currentY > 10) {
+        $("html").velocity("scroll", {
+          offset: "0px"
+        });
+      }
+
+    });
+  }
+
+  addNavbarAffixFunctionality();
 
 });
