@@ -18,6 +18,7 @@ var tagtree = require("./scripts/metalsmith-tagtree");
 var collectiondefaults = require("./scripts/metalsmith-collectiondefaults");
 var wordcount = require("./scripts/metalsmith-wordcount");
 var filetimestamp = require("./scripts/metalsmith-filetimestamp");
+var firstparagraph = require("./scripts/metalsmith-firstparagraph");
 
 // custom node scripts
 var registerHelpers = require("./scripts/registerHelpers");
@@ -100,6 +101,7 @@ Metalsmith(__dirname)
     }
   }))
   .use(markdown())
+  .use(firstparagraph())
   .use(wordcount({
     metaKeyCount: "wordCount",
     metaKeyReadingTime: "readingTime"
