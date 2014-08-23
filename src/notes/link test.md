@@ -5,6 +5,8 @@ tags:
 - testing
 ---
 
+Let's test if our ajax logic can handle non existant pages and external anchor pages!
+
 [non existant page](/fail.html)
 
 [external anchor page](https://github.com/majodev/sjgrabber#about)

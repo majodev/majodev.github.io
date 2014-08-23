@@ -181,17 +181,50 @@ blockquote {
   font-style: italic;
 }
 
+.template-note .contents > p:first-child { 
+  margin-bottom: 22px;
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 1.4;
+}
+
+.template-note .contents > p:first-child:first-line { 
+  line-height: 1.2;
+}
+
+@media (min-width: @screen-sm-min) {
+  .template-note .contents > p:first-child {
+    font-size: 20px;
+  }
+}
+
+.template-note .contents > p:first-child:first-letter { 
+  text-transform: uppercase;
+  font-size: 200%;
+}
 
 // -----------------------------------------------------------------------------
 // -----------------------------------------------------------------------------
 // block styling
 
 .block-noteNavigator {
-  margin-top: 15px;
+  padding-top: 15px;
+  //padding-bottom: 15px;
+  margin-top: 0px;
   margin-bottom: 0px;
   margin-left: 0px;
   margin-right: 0px;
-  font-size: @font-size-small;
+  font-size: @font-size-smaller;
+}
+
+.block-noteNavigator > li > a {
+  padding: 5px 0px;
+  border: 0px;
+  color: @gray-light;
+}
+
+.block-noteNavigator > li > a:hover {
+  color: #000;
 }
 
 .block-tagItem {

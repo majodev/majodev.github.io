@@ -5,7 +5,8 @@ tags:
 - testing
 ---
 
-Your favourite lorem ipsum test (plus jerking around with anchors!)
+Your favourite lorem ipsum test (plus jerking around with anchors).
+
 [jump to anchor](#anchorheading)
 
 ## Non per magnis pro puraque annis ibi

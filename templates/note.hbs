@@ -2,18 +2,24 @@
 <div id="top"></div>
 {{> header}}
 {{> noteBreadcrumb}}
-<div class="template-note container-fluid">
+<div class="template-note">
   <main>
-    {{> noteNavigator}}
     <article>
-      {{> noteTitle}}
-      {{> noteSubTitle}}
-      <hr>
-      {{{ contents }}}
+      <div class="template-note-header">
+        <div class="container-fluid"> 
+          {{> noteNavigator}}
+          {{> noteTitle}}
+          {{> noteSubTitle}}
+        </div>
+      </div>
+      <div class="template-note-contents">
+        <div class="container-fluid">
+          {{> contents}}
+        </div>
+      </div>
     </article>
-    {{!-- {{> noteNavigator}} --}}
-    <p class="text-center lead"><a href="#top">jump to top</a></p>
   </main> {{!-- end main-content --}}
+  <p class="text-center lead"><a href="#top">jump to top</a></p>
 </div> {{!-- end container --}}
 {{> footer}}
 {{> post}}

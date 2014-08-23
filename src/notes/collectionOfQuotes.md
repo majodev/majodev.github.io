@@ -4,7 +4,8 @@ tags:
 - personal
 ---
 
-**Hello world!** As my first published note, I wanted share a few quotes with you which I've hoarded over the last *decades* (*Nah*, let's say ***months***).   
+Hello World! As my first published note, I wanted share a few quotes with you which I've hoarded over the last *decades* (*nah*, let's say *months*).
+
 So here we go...   
 
 > There is no correlation between the success of a software startup and the quality of the piece of code that is shown to the early investors. <footer>Lean Startup</footer>
