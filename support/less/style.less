@@ -15,7 +15,7 @@
 // -----------------------------------------------------------------------------
 // variables
 
-@footer-height: 150px; //(@font-size-small * 2) + 25;
+@footer-height: 200px; //(@font-size-small * 2) + 25;
 @header-height: 40px; // @navbar-height + 20px; //20px; // exclude with navbar-height!
 
 @font-size-smaller: floor(@font-size-small * 0.86);
@@ -168,6 +168,10 @@ body, #ajax-container { // ajax-container should act same as body!
 // -----------------------------------------------------------------------------
 // colors and background styling
 
+body {
+  background: url(/assets/img/tiny_grid.png) repeat;
+}
+
 #wrapper {
   background: white;
   // background: url(/assets/img/tiny_grid.png) repeat; // adds a grid to bg
@@ -178,8 +182,10 @@ body, #ajax-container { // ajax-container should act same as body!
 @gradientBGMaxAlpha: 0.13; //0.06;
 
 .block-footer {
-  //#gradient > .vertical(rgba(0, 0, 0, @gradientBGMiddleAlpha); rgba(0, 0, 0, @gradientBGMinAlpha));
-  background: #333;
+  // #gradient > .vertical(rgba(0, 0, 0, @gradientBGMaxAlpha); rgba(0, 0, 0, @gradientBGMinAlpha));
+  #gradient > .vertical(rgba(0, 0, 0, 0.7); rgba(0, 0, 0, 0.85));
+  //background: #333;
+  // background: url(/assets/img/tiny_grid.png) repeat;
 }
 
 .block-header {
