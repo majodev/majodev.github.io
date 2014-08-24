@@ -187,7 +187,25 @@ body {
 // font styling
 
 code, pre, kbd {
-  font-size: 80%;
+  font-size: 70%;
+}
+
+@media (min-width: @screen-sm-min) {
+  code, pre, kbd {
+    font-size: 80%;
+  }
+}
+
+code {
+  overflow-x: auto;
+}
+
+pre code {
+  white-space: pre;
+}
+
+pre {
+  word-wrap: normal;
 }
 
 blockquote {

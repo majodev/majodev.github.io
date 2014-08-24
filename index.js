@@ -43,6 +43,7 @@ Metalsmith(__dirname)
     _dev: dev,
     _sitename: "ranf.tl",
     _siterepo: "https://github.com/majodev/majodev.github.io/",
+    _mail: "mario@ranf.tl",
     _builddate: moment().format("DD MMM YYYY, HH:mm Z"),
     _year: moment().format("YYYY"),
     _inject: injectFiles(dev) // holds all external client libs
