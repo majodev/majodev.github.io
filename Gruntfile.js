@@ -13,6 +13,9 @@ module.exports = function(grunt) {
           args: ["productive"]
         },
         src: ["index.js"]
+      },
+      "testserver-gzip": {
+        src: ["scripts/testserver-gzip.js"]
       }
     },
     watch: {
@@ -35,16 +38,6 @@ module.exports = function(grunt) {
         autoIndex: true,
         defaultExt: "html",
         runInBackground: true
-      },
-      productive: {
-        root: "build",
-        port: 8080,
-        host: "127.0.0.1",
-        cache: -1,
-        showDir: true,
-        autoIndex: true,
-        defaultExt: "html",
-        runInBackground: false
       }
     },
     copy: {
@@ -252,7 +245,7 @@ module.exports = function(grunt) {
 
   grunt.registerTask("default", ["clean", "modernizr", "build-dev", "http-server:dev", "watch"]);
   grunt.registerTask("productive", ["clean", "modernizr", "build-productive", "clean:temporary", "server"]);
-  grunt.registerTask("server", ["http-server:productive"]);
+  grunt.registerTask("server", ["execute:testserver-gzip"]);
 
   grunt.registerTask("build-dev", ["execute:metalsmith-dev", "less:development", "copy"]);
   grunt.registerTask("build-productive", ["imagemin", "execute:metalsmith-productive", "css-productive", "uglify:js_src", "uglify:js", "uglify:js_head", "htmlmin", "copy:support-root", "copy:inject-fonts"]);
