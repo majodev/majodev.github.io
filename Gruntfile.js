@@ -87,7 +87,7 @@ module.exports = function(grunt) {
     },
     clean: {
       build: ["build"],
-      tmp: ["tmp"]
+      temporary: ["_tmp"]
     },
     less: {
       development: {
@@ -105,7 +105,7 @@ module.exports = function(grunt) {
         },
         files: [{
           src: [config.inject.less.src],
-          dest: "tmp/style.css"
+          dest: "_tmp/style.css"
         }] // TODO: add grunt task from bootstrap source and run autoprefixer in the end!!!
       }
     },
@@ -115,7 +115,7 @@ module.exports = function(grunt) {
       },
       combine: {
         files: [{
-          src: _.union(config.inject.css, ["tmp/style.css"]),
+          src: _.union(config.inject.css, ["_tmp/style.css"]),
           dest: config.inject.gruntTargetDir.css + config.inject.productive.css
         }]
       }
@@ -184,7 +184,7 @@ module.exports = function(grunt) {
         "devFile": "bower_components/modernizr/modernizr.js",
 
         // [REQUIRED] Path to save out the built file.
-        "outputFile": "tmp/modernizr-custom.js",
+        "outputFile": "_tmp/modernizr-custom.js",
 
         // Based on default settings on http://modernizr.com/download/
         "extra": {
@@ -220,7 +220,8 @@ module.exports = function(grunt) {
         // When parseFiles = true, this task will crawl all *.js, *.css, *.scss files, except files that are in node_modules/.
         // You can override this by defining a "files" array below.
         "files": {
-          "src": ["src/**/*.js", "src/**/*.css", "src/**/*.less", "src/**/*.hbs", "src/**/*.md", "src/**/*.html",
+          "src": [
+            "src/**/*.js", "src/**/*.css", "src/**/*.less", "src/**/*.hbs", "src/**/*.md", "src/**/*.html",
             "support/**/*.js", "support/**/*.css", "support/**/*.less", "support/**/*.hbs", "support/**/*.md", "support/**/*.html",
             "templates/**/*.js", "templates/**/*.css", "templates/**/*.less", "templates/**/*.hbs", "templates/**/*.md", "templates/**/*.html"
           ]
@@ -250,7 +251,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks("grunt-modernizr");
 
   grunt.registerTask("default", ["clean", "modernizr", "build-dev", "http-server:dev", "watch"]);
-  grunt.registerTask("productive", ["clean", "modernizr", "build-productive", "clean:tmp", "server"]);
+  grunt.registerTask("productive", ["clean", "modernizr", "build-productive", "clean:temporary", "server"]);
   grunt.registerTask("server", ["http-server:productive"]);
 
   grunt.registerTask("build-dev", ["execute:metalsmith-dev", "less:development", "copy"]);

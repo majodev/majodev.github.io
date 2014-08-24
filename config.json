@@ -14,7 +14,7 @@
       "dest": "build/assets/css/style.css"
     },
     "js_head": [
-      "tmp/modernizr-custom.js"
+      "_tmp/modernizr-custom.js"
     ],
     "js": [
       "bower_components/jquery/dist/jquery.js",
