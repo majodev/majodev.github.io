@@ -3,7 +3,7 @@ jQuery(function($) {
   // base from https://github.com/roryg/ghostwriter/blob/master/assets/js/scripts.js
 
   var AJAX_SELECTOR = "#ajax-container";
-  var FOOTER_CLASS = ".block-footer";
+  // var FOOTER_CLASS = ".block-footer"; // no longer needed!
   var FADE_TIME_AJAX_MS = 180;
   var FADE_TIME_CHILDS_MS = 250;
   //var ANCHOR_SCROLL_OFFSET_TOP = 0;
@@ -72,13 +72,13 @@ jQuery(function($) {
         }
 
         // via velocity
-        $(FOOTER_CLASS).hide();
+        //$(FOOTER_CLASS).hide();
         $targetContainer.velocity("fadeOut", {
           duration: FADE_TIME_AJAX_MS,
           complete: function(elements) {
             // console.log("complete 1!");
             $targetContainer.html(newContent);
-            $(FOOTER_CLASS).hide();
+            //$(FOOTER_CLASS).hide();
             //$(".block-header").css({ opacity: 0 });
             $targetContainer.velocity("fadeIn", {
               duration: FADE_TIME_AJAX_MS,
@@ -89,9 +89,9 @@ jQuery(function($) {
 
                 addNavbarAffixFunctionality();
 
-                $(FOOTER_CLASS).velocity("fadeIn", {
-                  duration: FADE_TIME_CHILDS_MS
-                });
+                // $(FOOTER_CLASS).velocity("fadeIn", {
+                //   duration: FADE_TIME_CHILDS_MS
+                // });
                 // $(".block-header").velocity("fadeIn", {
                 //   duration: FADE_TIME_CHILDS_MS
                 // });

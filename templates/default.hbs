@@ -1,10 +1,12 @@
 {{> pre}}
-{{> header}}
-<div class="template-default container-fluid">
-  <main>
-    <h1>{{uppercase title}}</h1>
-    {{> contents}}
-  </main> {{!-- end main-content --}}
-</div> {{!-- end container --}}
+<div id="wrapper">
+  {{> header}}
+  <div class="template-default container-fluid">
+    <main>
+      <h1>{{uppercase title}}</h1>
+      {{> contents}}
+    </main>
+  </div> {{!-- end template-default --}}
+</div> {{!-- end wrapper --}}
 {{> footer}}
 {{> post}}

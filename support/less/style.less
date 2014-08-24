@@ -15,7 +15,7 @@
 // -----------------------------------------------------------------------------
 // variables
 
-@footer-height: 61px; //(@font-size-small * 2) + 25;
+@footer-height: 150px; //(@font-size-small * 2) + 25;
 @header-height: 40px; // @navbar-height + 20px; //20px; // exclude with navbar-height!
 
 @font-size-smaller: floor(@font-size-small * 0.86);
@@ -53,11 +53,13 @@ html.no-js .navbar-toggle {
 // global positioning
 
 html {
-  position: relative; /* needed for footer! */
+  // position: relative; /* needed for footer! */
+  height: 100%;
 }
 
-html, body {
+body, #ajax-container { // ajax-container should act same as body!
   min-height: 100%;
+  height: 100%;
 }
 
 .container-fluid {
@@ -72,6 +74,33 @@ html, body {
   .template-default/*, .template-note*/  {
     padding: 0 15px 0; /* for navbar? EVENTUALLY NOT NEEDED! */
   }
+}
+
+// -----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
+// footer positioning
+
+.block-footer {
+  height: @footer-height; // set to 0 if we should always scroll to footer!
+  width: 100%;
+  min-height: @footer-height;
+  position: fixed;
+  bottom: 0px;
+  z-index: -1; // always keep behind wrapper!
+  font-size: @font-size-small;
+  padding-top: floor(@footer-height/3);
+}
+
+#wrapper {
+  z-index: 0;
+  min-height: 100%;
+}
+
+#footer_push {
+  position: absolute;
+  height: @footer-height;
+  width: 100%;
+  z-index: -999;
 }
 
 
@@ -137,27 +166,10 @@ html, body {
 
 // -----------------------------------------------------------------------------
 // -----------------------------------------------------------------------------
-// footer positioning
-
-body { // using page container instead of BODY!
-  margin-bottom: @footer-height; // press footer down, away from content
-}
-
-.block-footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: @footer-height; // set to 0 if we should always scroll to footer!
-  font-size: @font-size-mini;
-  padding-top: 5px;
-}
-
-
-// -----------------------------------------------------------------------------
-// -----------------------------------------------------------------------------
 // colors and background styling
 
-body {
+#wrapper {
+  background: white;
   // background: url(/assets/img/tiny_grid.png) repeat; // adds a grid to bg
 }
 
@@ -166,7 +178,8 @@ body {
 @gradientBGMaxAlpha: 0.13; //0.06;
 
 .block-footer {
-  #gradient > .vertical(rgba(0, 0, 0, @gradientBGMiddleAlpha); rgba(0, 0, 0, @gradientBGMinAlpha));
+  //#gradient > .vertical(rgba(0, 0, 0, @gradientBGMiddleAlpha); rgba(0, 0, 0, @gradientBGMinAlpha));
+  background: #333;
 }
 
 .block-header {
@@ -175,10 +188,6 @@ body {
 
 .block-noteBreadcrumb {
   #gradient > .vertical(rgba(0, 0, 0, @gradientBGMiddleAlpha); rgba(0, 0, 0, @gradientBGMaxAlpha));
-}
-
-.template-note-header {
-  // background: url(/assets/img/tiny_grid.png) repeat;
 }
 
 
@@ -373,4 +382,16 @@ blockquote {
   padding-bottom: 0px;
   padding-left: 0px;
   padding-right: 0px;
+}
+
+.fontsize-small {
+  font-size: @font-size-small;
+}
+
+.fontsize-smaller {
+  font-size: @font-size-smaller;
+}
+
+.fontsize-mini {
+  font-size: @font-size-mini;
 }

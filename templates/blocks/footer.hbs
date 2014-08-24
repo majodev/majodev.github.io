@@ -1,13 +1,8 @@
+<div id="footer_push"></div>
 <footer class="block-footer">
   <div class="container-fluid text-muted text-center">
-    <p>
-      &copy; {{_year}} {{_sitename}} | {{_author}} | {{_authorTwitter}}<br />
-      page last modified {{formattedLastModified}}<br />
-      {{!-- {{uppercase _sitename}} generated on {{_builddate}}<br /> --}}
-        {{!-- {{#each subpages}}
-          <a href="/{{ path }}">{{uppercase title }}</a>
-        {{/each}}<br /> --}}
-      handcrafted, <a href="http://www.metalsmith.io/">metalsmithed</a> and published at <a href="{{_siterepo}}">GitHub</a>
-    </p>
+    <p>&copy; {{_year}} {{_author}} | {{uppercase _sitename}} | {{_authorTwitter}}</p>
+    <p class="no-margin fontsize-smaller">page last modified {{formattedLastModified}}</p>
+    <p class="no-margin fontsize-mini">handcrafted, <a href="http://www.metalsmith.io/">metalsmithed</a> and published at <a href="{{_siterepo}}">GitHub</a></p>
   </div>
 </footer>
