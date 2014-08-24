@@ -49,11 +49,13 @@ jQuery(function($) {
       url: url,
       type: "GET",
       success: function(result) {
-        var html = $(result);
-        var newContent = $(html.filter(AJAX_SELECTOR)[0]).children();
+        var $html = $(result);
+        var newContent = $($html.filter(AJAX_SELECTOR)[0]).children();
 
         // Set the title to the requested urls document title
-        document.title = html.filter("title").text();
+        document.title = $html.filter("title").text();
+
+        exchangeMetaData($html);
 
         $("html").velocity("scroll", {
           offset: "0px"
@@ -93,6 +95,9 @@ jQuery(function($) {
                 // $(".block-header").velocity("fadeIn", {
                 //   duration: FADE_TIME_CHILDS_MS
                 // });
+
+
+
               }
             });
           }
@@ -197,6 +202,38 @@ jQuery(function($) {
       return false;
     }
     return true;
+  }
+
+  function exchangeMetaData($newhtml) {
+    // exchange all metadata
+    $("meta").each(function(child) {
+      var $currentMeta = $($("meta")[child]);
+      var newMetaContent = false;
+      var attribute = $currentMeta.attr("name");
+
+      try {
+        if (typeof attribute !== typeof undefined && attribute !== false) {
+          //console.log("got meta name");
+          newMetaContent = $newhtml.filter("meta[name=" + attribute + "]")[0].content;
+        } else {
+          attribute = $currentMeta.attr("http-equiv");
+          if (typeof attribute !== typeof undefined && attribute !== false) {
+            newMetaContent = $newhtml.filter("meta[http-equiv=" + attribute + "]")[0].content;
+            //console.log("got meta http-equiv");
+          } else {
+            //console.log("failed meta parsing!"); // normal @charset!
+          }
+        }
+
+        if (newMetaContent) { //exchange!
+          //console.log(newMetaContent);
+          $currentMeta.attr("content", newMetaContent);
+        }
+      } catch (e) {
+        console.error("exchangeMetaData error: " + e);
+      }
+
+    });
   }
 
   function addNavbarAffixFunctionality() {

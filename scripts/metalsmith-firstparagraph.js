@@ -33,7 +33,9 @@ function plugin(options){
       var p = $('p').first();
 
       // trim and save
-      data.firstparagraph = $.html(p).trim();
+      data.firstparagraphHTML = $.html(p).trim();
+      data.firstparagraphText = $($.html(p)).text().trim();
+
       files[file] = data; // original creator eventually forgot to save it...
 
     });

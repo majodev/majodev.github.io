@@ -3,9 +3,30 @@
 <meta http-equiv="ClearType" content="true">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<!-- DNS prefetch -->
+{{!-- DNS prefetch --}}
 {{!-- <link rel="dns-prefetch" href="//ajax.googleapis.com">
 <link rel="dns-prefetch" href="//www.google-analytics.com"> --}}
 
 <title>{{ title }} | {{ _sitename }}</title>
-<meta name="description" content="">
+<meta name="description" content="{{#if firstparagraphText}}{{ firstparagraphText }}{{else}}{{ title }} page by {{ _author }}{{/if}}">
+<meta name="author" content="{{ _author }}">
+
+{{#if isNote}}
+  {{#if tags}}
+    <meta name="keywords" content="{{_keywords}}, note, {{#each tags}}{{ this }}, {{/each}}">
+  {{else}}
+    <meta name="keywords" content="{{_keywords}}, note">
+  {{/if}}
+{{else}}
+  <meta name="keywords" content="{{_keywords}}">
+{{/if}}
+
+{{#if noRobotIndex}}
+  <meta name="robots" content="noindex">
+  <meta name="googlebot" content="nosnippet,nofollow">
+{{else}}
+  <meta name="robots" content="all">
+{{/if}}
+
+<meta name="copyright" content="Copyright {{_year}} {{ _author }} ({{ _sitename }} | {{_authorTwitter}})">
+<meta http-equiv="last-modified" content="{{lastModifiedMeta}}">
