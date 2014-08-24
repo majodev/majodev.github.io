@@ -183,7 +183,7 @@ module.exports = function(grunt) {
         "extra": {
           "shiv": true,
           "printshiv": false,
-          "load": true,
+          "load": false, // exclude yepnope for now, we will enable it if shims are really needed!
           "mq": false,
           "cssclasses": true
         },
