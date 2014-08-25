@@ -135,7 +135,7 @@ jQuery(function($) {
       },
       progress: function(evt) {
         if (evt.lengthComputable) {
-          NProgress.inc((evt.loaded / evt.total) / 1.5);
+          NProgress.set(NProgress.status + ((evt.loaded / evt.total) / 2));
           //console.log("Loaded " + parseInt((evt.loaded / evt.total * 100), 10) + "%");
         } else {
           NProgress.inc();
