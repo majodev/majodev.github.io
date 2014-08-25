@@ -15,8 +15,9 @@
 // -----------------------------------------------------------------------------
 // variables
 
-@footer-height: 200px; //(@font-size-small * 2) + 25;
+@footer-height: 200px; 
 @header-height: 40px; // @navbar-height + 20px; //20px; // exclude with navbar-height!
+@footer-note-height: 80px;
 
 @font-size-smaller: floor(@font-size-small * 0.86);
 @font-size-mini: ceil(@font-size-small * 0.75);
@@ -169,7 +170,7 @@ body, #ajax-container { // ajax-container should act same as body!
 // colors and background styling
 
 body {
-  background: url(/assets/img/tiny_grid.png) repeat;
+  // background: url(/assets/img/tiny_grid_transparent.png) repeat;
 }
 
 #wrapper {
@@ -183,8 +184,8 @@ body {
 
 .block-footer {
   // #gradient > .vertical(rgba(0, 0, 0, @gradientBGMaxAlpha); rgba(0, 0, 0, @gradientBGMinAlpha));
-  #gradient > .vertical(rgba(0, 0, 0, 0.7); rgba(0, 0, 0, 0.85));
-  //background: #333;
+  // #gradient > .vertical(rgba(0, 0, 0, 0.85); rgba(0, 0, 0, 0.65));
+  background: #333;
   // background: url(/assets/img/tiny_grid.png) repeat;
 }
 
@@ -273,6 +274,10 @@ blockquote {
 }
 
 .template-note-contents {
+  padding-bottom: 50px;
+}
+
+.template-note-footer {
   padding-bottom: 15px;
 }
 

@@ -19,9 +19,33 @@ module.exports = function(grunt) {
       }
     },
     watch: {
-      metalsmith: {
-        files: ["src/**/*.*", "templates/**/*.*", "scripts/**/*.*", "support/**/*.*", "index.js", "config.json"],
+      "metalsmith": {
+        files: ["src/**/*.*", "templates/**/*.*", "scripts/**/*.*", "index.js", "config.json"],
         tasks: ["build-dev"],
+        options: {
+          interrupt: false,
+          livereload: true
+        }
+      },
+      "support-less": {
+        files: ["support/less/**/*.*"],
+        tasks: ["less:development"],
+        options: {
+          interrupt: false,
+          livereload: true
+        }
+      },
+      "support-root": {
+        files: ["support/root/**/*.*"],
+        tasks: ["copy:support-root"],
+        options: {
+          interrupt: false,
+          livereload: true
+        }
+      },
+      "support-js": {
+        files: ["support/js/**/*.*"],
+        tasks: ["copy:inject-js"],
         options: {
           interrupt: false,
           livereload: true
@@ -79,6 +103,9 @@ module.exports = function(grunt) {
       }
     },
     clean: {
+      options: {
+        force: true
+      },
       build: ["build"],
       temporary: ["_tmp"]
     },
@@ -90,7 +117,7 @@ module.exports = function(grunt) {
         files: [{
           src: [config.inject.less.src],
           dest: config.inject.less.dest
-        }] // TODO: add grunt task from bootstrap source and run autoprefixer in the end!!!
+        }] // TODO: run autoprefixer in the end!!!
       },
       productive: {
         options: {
@@ -99,7 +126,7 @@ module.exports = function(grunt) {
         files: [{
           src: [config.inject.less.src],
           dest: "_tmp/style.css"
-        }] // TODO: add grunt task from bootstrap source and run autoprefixer in the end!!!
+        }] // TODO: run autoprefixer in the end!!!
       }
     },
     cssmin: {
@@ -171,25 +198,17 @@ module.exports = function(grunt) {
       }
     },
     modernizr: {
-
       dist: {
-        // [REQUIRED] Path to the build you're using for development.
-        "devFile": "bower_components/modernizr/modernizr.js",
-
-        // [REQUIRED] Path to save out the built file.
-        "outputFile": "_tmp/modernizr-custom.js",
-
-        // Based on default settings on http://modernizr.com/download/
-        "extra": {
+        "devFile": "bower_components/modernizr/modernizr.js", // [REQUIRED] Path to the build you're using for development.
+        "outputFile": "_tmp/modernizr-custom.js", // [REQUIRED] Path to save out the built file.
+        "extra": { // Based on default settings on http://modernizr.com/download/
           "shiv": true,
           "printshiv": false,
           "load": false, // exclude yepnope for now, we will enable it if shims are really needed!
           "mq": false,
           "cssclasses": true
         },
-
-        // Based on default settings on http://modernizr.com/download/
-        "extensibility": {
+        "extensibility": { // Based on default settings on http://modernizr.com/download/
           "addtest": false,
           "prefixed": false,
           "teststyles": false,
@@ -199,19 +218,9 @@ module.exports = function(grunt) {
           "prefixes": false,
           "domprefixes": false
         },
-
-        // By default, source is uglified before saving
         "uglify": false,
-
-        // Define any tests you want to implicitly include.
-        "tests": [],
-
-        // By default, this task will crawl your project for references to Modernizr tests.
-        // Set to false to disable.
-        "parseFiles": true,
-
-        // When parseFiles = true, this task will crawl all *.js, *.css, *.scss files, except files that are in node_modules/.
-        // You can override this by defining a "files" array below.
+        "tests": [], // Define any tests you want to implicitly include.
+        "parseFiles": true, // By default, this task will crawl your project for references to Modernizr tests.
         "files": {
           "src": [
             "src/**/*.js", "src/**/*.css", "src/**/*.less", "src/**/*.hbs", "src/**/*.md", "src/**/*.html",
@@ -219,15 +228,9 @@ module.exports = function(grunt) {
             "templates/**/*.js", "templates/**/*.css", "templates/**/*.less", "templates/**/*.hbs", "templates/**/*.md", "templates/**/*.html"
           ]
         },
-
-        // When parseFiles = true, matchCommunityTests = true will attempt to
-        // match user-contributed tests.
         "matchCommunityTests": false,
-
-        // Have custom Modernizr tests? Add paths to their location here.
-        "customTests": []
+        "customTests": [] // Have custom Modernizr tests? Add paths to their location here.
       }
-
     }
   });
 
@@ -243,11 +246,11 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-imagemin');
   grunt.loadNpmTasks("grunt-modernizr");
 
-  grunt.registerTask("default", ["clean", "modernizr", "build-dev", "http-server:dev", "watch"]);
+  grunt.registerTask("default", ["clean:temporary", "modernizr", "build-dev", "http-server:dev", "watch"]);
   grunt.registerTask("productive", ["clean", "modernizr", "build-productive", "clean:temporary", "server"]);
   grunt.registerTask("server", ["execute:testserver-gzip"]);
 
-  grunt.registerTask("build-dev", ["execute:metalsmith-dev", "less:development", "copy"]);
+  grunt.registerTask("build-dev", ["clean:build", "execute:metalsmith-dev", "less:development", "copy"]);
   grunt.registerTask("build-productive", ["imagemin", "execute:metalsmith-productive", "css-productive", "uglify:js_src", "uglify:js", "uglify:js_head", "htmlmin", "copy:support-root", "copy:inject-fonts"]);
 
   grunt.registerTask("css-productive", ["less:productive", "cssmin:combine"]);
