@@ -42,7 +42,7 @@ Metalsmith(__dirname)
   .metadata({
     _dev: dev,
     _author: "Mario Ranftl",
-    _authorTwitter: "@majodev",
+    _authorTwitter: "majodev",
     _sitename: "ranf.tl",
     _siterepo: "https://github.com/majodev/majodev.github.io/",
     _mail: "mario@ranf.tl",
