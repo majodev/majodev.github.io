@@ -2,9 +2,24 @@
 // -----------------------------------------------------------------------------
 // global variables
 
-@footer-height: 200px; 
-@header-height: 50px; // @navbar-height + 20px; //20px; // exclude with navbar-height!
+@footer-height: 200px;
 
+@color-text: #333;
+@color-bg: #fff;
+
+@color-head: #252122;
+@color-links: #D74641;
+
+@color-nav: #252122;
+@color-nav-bg: #F3EDDF;
+@color-nav-bg-active: #8DBDC1;
+
+@color-nav-active: @color-nav;
+@color-nav-hover: @color-nav-bg-active;
+@color-nav-note-breadcrumb: @color-nav-bg-active;
+
+@color-footer: #252122;
+@color-footer-bg: #F3EDDF;
 
 // -----------------------------------------------------------------------------
 // -----------------------------------------------------------------------------
@@ -73,13 +88,17 @@ body, #ajax-container { // ajax-container should act same as body!
   max-width: 768px;
 }
 
+.template-default, .template-note {
+  height: 100%;
+}
+
 .template-default/*, .template-note*/  {
-  padding: @header-height 15px 0; /* for navbar? EVENTUALLY NOT NEEDED! */
+  padding: 20px 15px 0; /* for navbar? EVENTUALLY NOT NEEDED! */
 }
 
 @media (max-width: @grid-float-breakpoint-max) {
   .template-default/*, .template-note*/  {
-    padding: 0 15px 0; /* for navbar? EVENTUALLY NOT NEEDED! */
+    padding: 0px 15px 0; /* for navbar? EVENTUALLY NOT NEEDED! */
   }
 }
 
@@ -144,16 +163,16 @@ body, #ajax-container { // ajax-container should act same as body!
 // icon-bar styling (might be better to exchange with iconic bar!)
 
 .navbar-toggle > .icon-bar {
-  background-color: @brand-primary !important;
+  background-color: @color-nav-hover !important;
   width: 18px;
 }
 
 .navbar-toggle:hover > .icon-bar {
-  background-color: @brand-primary !important;
+  background-color: @color-nav-hover !important;
 }
 
 .collapsed > .icon-bar {
-  background-color: @gray-light !important;
+  background-color: @color-nav !important;
 }
 
 .navbar-toggle .icon-bar + .icon-bar {
@@ -170,37 +189,46 @@ body, #ajax-container { // ajax-container should act same as body!
   z-index: 1001;
 }
 
+// remove border from navbar collapse
+.navbar-collapse {
+  border-top: 0;
+  box-shadow: none;
+}
+
 
 // -----------------------------------------------------------------------------
 // -----------------------------------------------------------------------------
 // colors and background styling
 
 body {
+  background: @color-bg;
   // background: url(/assets/img/tiny_grid_transparent.png) repeat;
 }
 
 #wrapper {
-  background: white;
+  background: @color-bg;
   // background: url(/assets/img/tiny_grid.png) repeat; // adds a grid to bg
 }
 
-@gradientBGMinAlpha: 0.05; //0.01;
-@gradientBGMiddleAlpha: 0.1; //0.05;
-@gradientBGMaxAlpha: 0.13; //0.06;
+//@gradientBGMinAlpha: 0.05; //0.01;
+//@gradientBGMiddleAlpha: 0.1; //0.05;
+//@gradientBGMaxAlpha: 0.13; //0.06;
 
 .block-footer {
   // #gradient > .vertical(rgba(0, 0, 0, @gradientBGMaxAlpha); rgba(0, 0, 0, @gradientBGMinAlpha));
   // #gradient > .vertical(rgba(0, 0, 0, 0.85); rgba(0, 0, 0, 0.65));
-  background: #333;
+  color: @color-footer;
+  background: @color-footer-bg; //#333;
   // background: url(/assets/img/tiny_grid.png) repeat;
 }
 
 .block-header {
-  #gradient > .vertical(rgba(0, 0, 0, @gradientBGMinAlpha); rgba(0, 0, 0, @gradientBGMiddleAlpha));
+  // #gradient > .vertical(rgba(0, 0, 0, @gradientBGMinAlpha); rgba(0, 0, 0, @gradientBGMiddleAlpha));
 }
 
 .block-noteBreadcrumb {
-  #gradient > .vertical(rgba(0, 0, 0, @gradientBGMiddleAlpha); rgba(0, 0, 0, @gradientBGMaxAlpha));
+  background: @color-nav-note-breadcrumb;
+  //#gradient > .vertical(rgba(0, 0, 0, @gradientBGMiddleAlpha); rgba(0, 0, 0, @gradientBGMaxAlpha));
 }
 
 
@@ -327,7 +355,6 @@ blockquote {
 }
 
 .block-tagItem {
-  color: @brand-success;
   font-size: @font-size-small;
 }
 
@@ -351,13 +378,17 @@ blockquote {
   background: transparent;
 }
 
+.block-noteBreadcrumb .breadcrumb a {
+  color: @color-nav;
+}
+
 .block-navSubPage, .block-navSubPageActive {
   font-size: @font-size-smaller;
 }
 
 .block-navBrandMobile {
   padding: 17px 10px 14px 0px;
-  color: @gray-light;
+  color: @color-nav-active;
   font-size: @font-size-smaller;
   height: 50px;
   float: left;

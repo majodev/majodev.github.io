@@ -13,7 +13,7 @@
 @gray-light:             lighten(#000, 46.7%); // #777
 @gray-lighter:           lighten(#000, 93.5%); // #eee
 
-@brand-primary:         #428bca;
+@brand-primary:         @color-links; //#428bca;
 @brand-success:         #5cb85c;
 @brand-info:            #5bc0de;
 @brand-warning:         #f0ad4e;
@@ -25,9 +25,9 @@
 //## Settings for some of the most global styles.
 
 //** Background color for `<body>`.
-@body-bg:               #fff;
+@body-bg:               @color-bg; //#fff;
 //** Global text color on `<body>`.
-@text-color:            @gray-dark;
+@text-color:            @color-text; //@gray-dark;
 
 //** Global textual link color.
 @link-color:            @brand-primary;
@@ -65,7 +65,7 @@
 @headings-font-family:    @font-family-sans-serif;
 @headings-font-weight:    500;
 @headings-line-height:    1.1;
-@headings-color:          inherit;
+@headings-color:          @color-head; //inherit;
 
 
 //== Iconography
@@ -141,7 +141,7 @@
 
 @btn-font-weight:                normal;
 
-@btn-default-color:              #333; //#333;
+@btn-default-color:              @color-links; //#333; //#333;
 @btn-default-bg:                 rgba(0,0,0,0.07); //#fff;
 @btn-default-border:             transparent; //#ccc;
 
@@ -342,16 +342,16 @@
 @navbar-padding-vertical:          ((@navbar-height - @line-height-computed) / 2);
 @navbar-collapse-max-height:       340px;
 
-@navbar-default-color:             #777;
-@navbar-default-bg:                transparent; //#f8f8f8;
+@navbar-default-color:             @color-nav; //#777;
+@navbar-default-bg:                @color-nav-bg; //transparent; //#f8f8f8;
 @navbar-default-border:            transparent;//darken(@navbar-default-bg, 6.5%);
 
 // Navbar links
-@navbar-default-link-color:                #777;
-@navbar-default-link-hover-color:          #333;
+@navbar-default-link-color:                @color-nav; //#777;
+@navbar-default-link-hover-color:          @color-nav-hover; //#333;
 @navbar-default-link-hover-bg:             transparent;
-@navbar-default-link-active-color:         #555;
-@navbar-default-link-active-bg:            rgba(0,0,0,0.1); //darken(#f8f8f8, 6.5%);//darken(@navbar-default-bg, 6.5%);
+@navbar-default-link-active-color:         @color-nav-active; //#555;
+@navbar-default-link-active-bg:            @color-nav-bg-active; //rgba(0,0,0,0.1); //darken(#f8f8f8, 6.5%);//darken(@navbar-default-bg, 6.5%);
 @navbar-default-link-disabled-color:       #ccc;
 @navbar-default-link-disabled-bg:          transparent;
 
@@ -771,7 +771,7 @@
 //** Breadcrumb text color
 @breadcrumb-color:              #ccc;
 //** Text color of current page in the breadcrumb
-@breadcrumb-active-color:       @gray-light;
+@breadcrumb-active-color:       @color-nav-active; //@gray-light;
 //** Textual separator for between breadcrumb elements
 @breadcrumb-separator:          ">"; //"/";
 
