@@ -77,34 +77,3 @@
   </nav>
 </header>
 
-{{!-- Header with breadcrumps for unincluded pages... --}}
-
-{{!-- <header class="block-header">
-  <nav>
-    <div class="container-fluid">
-      <ol class="breadcrumb blocks-headerslistnav">
-        {{#unless skipPermalink}}
-          {{#if path}}
-            <li><a href="/">{{ uppercase _sitename }}</a></li>
-          {{else}}
-            <li class="active">{{ uppercase _sitename }}</li>
-          {{/if}}
-          {{#if isSubpage}}
-            <li class="active">{{ uppercase title }}</li>
-          {{/if}}
-        {{else}} 
-          <li><a href="/">{{ uppercase _sitename }}</a></li> 
-          <li class="active">{{ uppercase title }}</li>
-        {{/unless}}
-        {{#each pages}}
-          {{#is ../path path}}
-            <li class="nobreadcrumbslash active">{{ uppercase title }}</li>
-          {{else}}
-            <li class="nobreadcrumbslash"><a href="/{{ path }}">{{ uppercase title }}</a></li>
-          {{/is}}
-        {{/each}}
-      </ol>
-    </div>
-  </nav>
-</header> --}}
-

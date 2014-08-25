@@ -4,8 +4,8 @@ jQuery(function($) {
 
   var AJAX_SELECTOR = "#ajax-container";
   // var FOOTER_CLASS = ".block-footer"; // no longer needed!
-  var FADE_TIME_AJAX_MS = 180;
-  var FADE_TIME_CHILDS_MS = 250;
+  var FADE_TIME_AJAX_MS = 100;
+  //var FADE_TIME_CHILDS_MS = 250;
   //var ANCHOR_SCROLL_OFFSET_TOP = 0;
 
   var History = window.History;
@@ -71,37 +71,30 @@ jQuery(function($) {
           }
         }
 
-        // via velocity
-        //$(FOOTER_CLASS).hide();
-        $targetContainer.velocity("fadeOut", {
-          duration: FADE_TIME_AJAX_MS,
-          complete: function(elements) {
-            // console.log("complete 1!");
-            $targetContainer.html(newContent);
-            //$(FOOTER_CLASS).hide();
-            //$(".block-header").css({ opacity: 0 });
-            $targetContainer.velocity("fadeIn", {
-              duration: FADE_TIME_AJAX_MS,
-              complete: function(elements) {
-                // console.log("complete 2!");
-                attachAnchor(url, null);
-                setLoading(false);
+        // direct
+        $targetContainer.html(newContent);
+        attachAnchor(url, null);
+        setLoading(false);
+        addNavbarAffixFunctionality();
 
-                addNavbarAffixFunctionality();
+        // via velocity (fade)
+        // $targetContainer.velocity("fadeOut", {
+        //   duration: FADE_TIME_AJAX_MS,
+        //   complete: function(elements) {
+        //     // old content fade complete
+        //     $targetContainer.html(newContent);
+        //     $targetContainer.velocity("fadeIn", {
+        //       duration: FADE_TIME_AJAX_MS,
+        //       complete: function(elements) {
+        //         // new content fade complete
+        //         attachAnchor(url, null);
+        //         setLoading(false);
 
-                // $(FOOTER_CLASS).velocity("fadeIn", {
-                //   duration: FADE_TIME_CHILDS_MS
-                // });
-                // $(".block-header").velocity("fadeIn", {
-                //   duration: FADE_TIME_CHILDS_MS
-                // });
-
-
-
-              }
-            });
-          }
-        });
+        //         addNavbarAffixFunctionality();
+        //       }
+        //     });
+        //   }
+        // });
 
       },
       error: function(error) {
