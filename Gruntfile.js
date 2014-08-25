@@ -16,6 +16,12 @@ module.exports = function(grunt) {
       },
       "testserver-gzip": {
         src: ["scripts/testserver-gzip.js"]
+      },
+      "testserver-gzip-delay": {
+        options: {
+          args: ["--maxdelay", "1337", "--mindelay", "250"]
+        },
+        src: ["scripts/testserver-gzip.js"]
       }
     },
     watch: {
@@ -143,9 +149,9 @@ module.exports = function(grunt) {
     uglify: {
       options: {
         report: "gzip",
-        compress: {
-          drop_console: true
-        }
+        // compress: {
+        //   drop_console: true
+        // }
       },
       js: {
         files: [{
@@ -249,6 +255,7 @@ module.exports = function(grunt) {
   grunt.registerTask("default", ["clean:temporary", "modernizr", "build-dev", "http-server:dev", "watch"]);
   grunt.registerTask("productive", ["clean", "modernizr", "build-productive", "clean:temporary", "server"]);
   grunt.registerTask("server", ["execute:testserver-gzip"]);
+  grunt.registerTask("serverdelay", ["execute:testserver-gzip-delay"]);
 
   grunt.registerTask("build-dev", ["clean:build", "execute:metalsmith-dev", "less:development", "copy"]);
   grunt.registerTask("build-productive", ["imagemin", "execute:metalsmith-productive", "css-productive", "uglify:js_src", "uglify:js", "uglify:js_head", "htmlmin", "copy:support-root", "copy:inject-fonts"]);

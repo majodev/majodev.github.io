@@ -1,6 +1,19 @@
+// -----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
+// global variables
+
+@footer-height: 200px; 
+@header-height: 50px; // @navbar-height + 20px; //20px; // exclude with navbar-height!
+
+
+// -----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
+// imports
+
 @import "fonts.less"; // holds text and symbol fonts
 @import "bootstrap.less"; // import customized bootstrap
 @import (inline) "github.css"; // from highlight.js
+@import "nprogress-custom.less"; // small progress bar
 @import "responsive-text-align.less"; // more options to align text in responsive manner
 @import "responsive-embed.less"; // make all images, videos and audio responsive at anytime
 @import "header-crossbars.less"; // headers with crossbars styles
@@ -8,20 +21,13 @@
 @import "anchorAnimation.less"; // flicker when clicking on anchors
 @import "remove-collapse.less"; // remove bootstrap collapse nav animation
 
-/* style.less */
-
 
 // -----------------------------------------------------------------------------
 // -----------------------------------------------------------------------------
-// variables
-
-@footer-height: 200px; 
-@header-height: 40px; // @navbar-height + 20px; //20px; // exclude with navbar-height!
-@footer-note-height: 80px;
+// local variables
 
 @font-size-smaller: floor(@font-size-small * 0.86);
 @font-size-mini: ceil(@font-size-small * 0.75);
-
 
 
 // -----------------------------------------------------------------------------
@@ -384,7 +390,7 @@ blockquote {
 
 
 body.loading {
-  display: none;
+
 }
 
 

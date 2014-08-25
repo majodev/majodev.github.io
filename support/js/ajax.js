@@ -19,6 +19,31 @@ jQuery(function($) {
     return false;
   }
 
+
+  // https://gist.github.com/db/966388
+  // jquery.ajax.progress.js
+  // add XHR2 progress events to jQuery.ajax
+  (function addXhrProgressEvent($) {
+    var originalXhr = $.ajaxSettings.xhr;
+    $.ajaxSetup({
+      progress: function() {
+        console.log("standard progress callback");
+      },
+      xhr: function() {
+        var req = originalXhr(),
+          that = this;
+        if (req) {
+          if (typeof req.addEventListener == "function") {
+            req.addEventListener("progress", function(evt) {
+              that.progress(evt);
+            }, false);
+          }
+        }
+        return req;
+      }
+    });
+  })(jQuery);
+
   History.Adapter.bind(window, "anchorchange", function() {
     var displayedPage = window.location.href;
     var statePage = History.getState().url;
@@ -52,6 +77,8 @@ jQuery(function($) {
         var $html = $(result);
         var newContent = $($html.filter(AJAX_SELECTOR)[0]).children();
 
+        NProgress.inc();
+
         // Set the title to the requested urls document title
         document.title = $html.filter("title").text();
 
@@ -78,14 +105,17 @@ jQuery(function($) {
         addNavbarAffixFunctionality();
 
         // via velocity (fade)
+
         // $targetContainer.velocity("fadeOut", {
         //   duration: FADE_TIME_AJAX_MS,
         //   complete: function(elements) {
+        //     NProgress.inc();
         //     // old content fade complete
         //     $targetContainer.html(newContent);
         //     $targetContainer.velocity("fadeIn", {
         //       duration: FADE_TIME_AJAX_MS,
         //       complete: function(elements) {
+        //         NProgress.inc();
         //         // new content fade complete
         //         attachAnchor(url, null);
         //         setLoading(false);
@@ -102,6 +132,15 @@ jQuery(function($) {
         setLoading(false);
 
         document.location.href = "/404.html";
+      },
+      progress: function(evt) {
+        if (evt.lengthComputable) {
+          NProgress.inc((evt.loaded / evt.total) / 1.5);
+          //console.log("Loaded " + parseInt((evt.loaded / evt.total * 100), 10) + "%");
+        } else {
+          NProgress.inc();
+          //console.log("Length not computable.");
+        }
       }
     });
   });
@@ -137,8 +176,10 @@ jQuery(function($) {
 
   function setLoading(value) {
     if (value === true) {
+      NProgress.start();
       $body.addClass('loading');
     } else {
+      NProgress.done();
       $body.removeClass('loading');
     }
     loading = value;
@@ -244,6 +285,8 @@ jQuery(function($) {
 
     });
   }
+
+  // config startup
 
   addNavbarAffixFunctionality();
 

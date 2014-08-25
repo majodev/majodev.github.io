@@ -5,6 +5,7 @@
       "dirs": [
         "support/less/includes",
         "support/less/bootstrap",
+        "support/less/nprogress",
         "bower_components/bootstrap/less",
         "bower_components/lato/less",
         "bower_components/font-awesome/css",
@@ -24,10 +25,11 @@
       "bower_components/bootstrap/js/collapse.js",
       "bower_components/bootstrap/js/affix.js",
       "bower_components/history.js/scripts/bundled-uncompressed/html4+html5/jquery.history.js",
+      "bower_components/nprogress/nprogress.js",
       "support/js/consoleErrors.js",
+      "support/js/configure.js",
       "support/js/ajax.js",
-      "support/js/enableFastClick.js",
-      "support/js/consoleDisclaimer.js",
+      "support/js/disclaimer.js",
       "support/js/konamicode.js"
     ],
     "fonts": [
