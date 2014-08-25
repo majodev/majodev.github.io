@@ -16,10 +16,12 @@
 
 @color-nav-active: @color-nav;
 @color-nav-hover: @color-nav-bg-active;
-@color-nav-note-breadcrumb: @color-nav-bg-active;
+@color-nav-note-breadcrumb-bg: @color-nav-bg;
+@color-nav-note-breadcrumb-active: @color-nav-bg-active;
+@color-nav-mobile-breadcrumb-active: @color-nav-bg-active;
 
-@color-footer: #252122;
-@color-footer-bg: #F3EDDF;
+@color-footer: @color-nav-hover;
+@color-footer-bg: #333;
 
 // -----------------------------------------------------------------------------
 // -----------------------------------------------------------------------------
@@ -189,8 +191,7 @@ body, #ajax-container { // ajax-container should act same as body!
   z-index: 1001;
 }
 
-// remove border from navbar collapse
-.navbar-collapse {
+.navbar-collapse { // remove border from navbar collapse
   border-top: 0;
   box-shadow: none;
 }
@@ -227,7 +228,7 @@ body {
 }
 
 .block-noteBreadcrumb {
-  background: @color-nav-note-breadcrumb;
+  background: @color-nav-note-breadcrumb-bg;
   //#gradient > .vertical(rgba(0, 0, 0, @gradientBGMiddleAlpha); rgba(0, 0, 0, @gradientBGMaxAlpha));
 }
 
@@ -382,13 +383,18 @@ blockquote {
   color: @color-nav;
 }
 
+.block-noteBreadcrumb .breadcrumb a:hover {
+  color: @color-nav-hover;
+  text-decoration: initial;
+}
+
 .block-navSubPage, .block-navSubPageActive {
   font-size: @font-size-smaller;
 }
 
 .block-navBrandMobile {
   padding: 17px 10px 14px 0px;
-  color: @color-nav-active;
+  color: @color-nav-mobile-breadcrumb-active;
   font-size: @font-size-smaller;
   height: 50px;
   float: left;
