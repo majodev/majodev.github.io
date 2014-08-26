@@ -127,6 +127,7 @@ module.exports = function(grunt) {
       },
       productive: {
         options: {
+          optimization: 2,
           paths: config.inject.less.dirs
         },
         files: [{
@@ -137,7 +138,9 @@ module.exports = function(grunt) {
     },
     cssmin: {
       options: {
-        report: "gzip"
+        report: "gzip",
+        keepSpecialComments: 0,
+        banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - ' + 'build <%= grunt.template.today("yyyy-mm-dd HH:MM:ss") %> */'
       },
       combine: {
         files: [{
@@ -149,6 +152,8 @@ module.exports = function(grunt) {
     uglify: {
       options: {
         report: "gzip",
+        preserveComments: false,
+        banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - ' + 'build <%= grunt.template.today("yyyy-mm-dd HH:MM:ss") %> */\n'
         // compress: {
         //   drop_console: true
         // }
@@ -237,6 +242,26 @@ module.exports = function(grunt) {
         "matchCommunityTests": false,
         "customTests": [] // Have custom Modernizr tests? Add paths to their location here.
       }
+    },
+    autoprefixer: {
+      options: {
+        browsers: [
+          'Android 2.3',
+          'Android >= 4',
+          'Chrome >= 20',
+          'Firefox >= 24', // Firefox 24 is the latest ESR
+          'Explorer >= 8',
+          'iOS >= 6',
+          'Opera >= 12',
+          'Safari >= 6'
+        ]
+      },
+      tempo: {
+        expand: true,
+        cwd: '_tmp/',
+        src: ['**/*.css'],
+        dest: '_tmp/'
+      }
     }
   });
 
@@ -251,6 +276,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-htmlmin');
   grunt.loadNpmTasks('grunt-contrib-imagemin');
   grunt.loadNpmTasks("grunt-modernizr");
+  grunt.loadNpmTasks('grunt-autoprefixer');
 
   grunt.registerTask("default", ["clean:temporary", "modernizr", "build-dev", "http-server:dev", "watch"]);
   grunt.registerTask("productive", ["clean", "modernizr", "build-productive", "clean:temporary", "server"]);
@@ -260,5 +286,5 @@ module.exports = function(grunt) {
   grunt.registerTask("build-dev", ["clean:build", "execute:metalsmith-dev", "less:development", "copy"]);
   grunt.registerTask("build-productive", ["imagemin", "execute:metalsmith-productive", "css-productive", "uglify:js_src", "uglify:js", "uglify:js_head", "htmlmin", "copy:support-root", "copy:inject-fonts"]);
 
-  grunt.registerTask("css-productive", ["less:productive", "cssmin:combine"]);
+  grunt.registerTask("css-productive", ["less:productive", "autoprefixer", "cssmin:combine"]);
 };
