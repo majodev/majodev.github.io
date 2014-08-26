@@ -103,6 +103,7 @@ jQuery(function($) {
         attachAnchor(url, null);
         setLoading(false);
         addNavbarAffixFunctionality();
+        addCollapseOnClick();
 
         // via velocity (fade)
 
@@ -272,7 +273,11 @@ jQuery(function($) {
 
   function addNavbarAffixFunctionality() {
     // add affix functionalities
-    $(".navbar-toggle-affix").affix();
+    $(".navbar-toggle-affix").affix({
+      offset: {
+        top: 1
+      }
+    });
     $(".navbar-toggle-affix").on("click", function() {
 
       var currentY = $(window).scrollTop();
@@ -286,8 +291,18 @@ jQuery(function($) {
     });
   }
 
+  function addCollapseOnClick() {
+    // http://stackoverflow.com/questions/16680543/hide-twitter-bootstrap-nav-collapse-on-click
+    $('.nav a').on('click', function(){ 
+        if($('.navbar-toggle').css('display') !='none'){
+            $(".navbar-toggle").trigger( "click" );
+        }
+    });
+  }
+
   // config startup
 
   addNavbarAffixFunctionality();
+  addCollapseOnClick();
 
 });

@@ -29,8 +29,8 @@
       "support/js/consoleErrors.js",
       "support/js/configure.js",
       "support/js/ajax.js",
-      "support/js/disclaimer.js",
-      "support/js/konamicode.js"
+      "support/js/konamicode.js",
+      "support/js/disclaimer.js"
     ],
     "fonts": [
       "bower_components/font-awesome/fonts/fontawesome-webfont.*",

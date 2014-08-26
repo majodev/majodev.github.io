@@ -1,9 +1,11 @@
-@nprogress-height: 1px;
+@nprogress-height: 4px;
 @nprogress-spinner-tickness: 3px;
-@nprogress-spinner-dimensions: 8px;
-@nprogress-spinner-offset: 5px;
+@nprogress-spinner-dimensions: 15px;
+@nprogress-spinner-offset: 22px;
 @nprogress-opacity: 1;
 @nprogress-color: @color-nav;
+
+@header-offset-height: 77px;
 
 /* Make clicks pass-through */
 #nprogress {
@@ -12,9 +14,9 @@
 
 #nprogress .bar {
   background: @nprogress-color;
-  position: fixed;
+  position: absolute;
   z-index: 1031;
-  top: 0px;
+  top: (@header-offset-height - @nprogress-height);
   left: 0px;
   width: 100%;
   height: @nprogress-height;
@@ -57,9 +59,9 @@
 //   display: block;
 //   position: fixed;
 //   //bottom: @nprogress-spinner-offset + @nprogress-height;
-//   //right: @nprogress-spinner-offset;
-//   left: @nprogress-spinner-offset;
-//   top: @nprogress-spinner-offset + @nprogress-height;
+//   right: 5px;
+//   //left: @nprogress-spinner-offset;
+//   top: (@header-offset-height - @nprogress-spinner-offset);
 //   z-index: 1031;
   
 //   // centering...
@@ -82,18 +84,18 @@
 //   border-top-color: @nprogress-color;
 //   border-left-color: @nprogress-color;
 //   border-radius: 50%;
-//   opacity: 0.2;
+//   opacity: 1;
 
 //   -webkit-animation: nprogress-spinner 400ms linear infinite;
 //           animation: nprogress-spinner 400ms linear infinite;
 // }
 
-.nprogress-custom-parent {
-  overflow: hidden;
-  position: relative;
-}
+// .nprogress-custom-parent {
+//   overflow: hidden;
+//   position: relative;
+// }
 
-//.nprogress-custom-parent #nprogress .spinner,
+// .nprogress-custom-parent #nprogress .spinner,
 .nprogress-custom-parent #nprogress .bar {
   position: absolute;
 }
