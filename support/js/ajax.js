@@ -85,7 +85,10 @@ jQuery(function($) {
         exchangeMetaData($html);
 
         $("html").velocity("scroll", {
-          offset: "0px"
+          offset: "0px",
+          complete: function(elements) {
+            attachAnchor(url, null);
+          }
         });
 
         // stop old running javascript...
@@ -100,7 +103,6 @@ jQuery(function($) {
 
         // direct
         $targetContainer.html(newContent);
-        attachAnchor(url, null);
         setLoading(false);
         addNavbarAffixFunctionality();
         addCollapseOnClick();
