@@ -169,7 +169,14 @@ jQuery(function($) {
           setLoading(true);
           History.pushState({}, title, url);
         } else {
-          attachAnchor(url, title);
+          if(loadAnchor.length > 0) {
+            attachAnchor(url, title);
+          } else {
+            // same url just scroll to top!
+            $("html").velocity("scroll", {
+              offset: "0px"
+            });
+          }
         }
       }
     }
