@@ -2,70 +2,12 @@
 // -----------------------------------------------------------------------------
 // global variables
 
-// positioning
-@header-nav-height: 50px;
-@header-bar-height: 27px;
-@footer-height: 300px;
-
-// colors
-@color-text: #333;
-@color-head: #333;
-
-// kuler: http://adobe.ly/1pQDrKG
-// @color-bg: #fff;
-// @color-nav-bg: #EFF0EC;
-// @color-links: #51BBB2;
-// @color-nav: #188A8E;
-// @color-nav-bg-hover: transparent;
-// @color-nav-hover: @color-links;
-// @color-nav-bg-active: @color-links; 
-// @color-nav-active: @color-nav;
-
-
-// kuler: http://adobe.ly/1Aug6UL
-@color-bg: #fff;
-@color-nav-bg: #D2F3F1;
-@color-links: #05ACC2;
-@color-nav: #02658C;
-@color-nav-bg-hover: transparent; //#68C088;
-@color-nav-hover: @color-links;
-@color-nav-bg-active: @color-links; 
-@color-nav-active: @color-nav;
-
-// kuler: http://adobe.ly/1Aug6UL
-// @color-bg: #fff;
-// @color-nav-bg: #D2F3F1;
-// @color-links: #05ACC2;
-// @color-nav: #02658C;
-// @color-nav-bg-hover: @color-links; //#68C088;
-// @color-nav-hover: @color-nav-bg; //@color-nav;
-// @color-nav-bg-active: @color-links; 
-// @color-nav-active: @color-nav-bg;
-
-// general dependent colors
-@color-footer: @color-nav-bg;
-@color-footer-bg: @color-nav;
-
-@color-nav-mobile-breadcrumb-active: @color-nav-bg-active;
-
-@color-nav-note-breadcrumb-bg: @color-nav-bg-active;
-@color-nav-note-breadcrumb-active: @color-footer;
-@color-nav-note-breadcrumb-a: @color-nav;
-@color-nav-note-breadcrumb-hover: @color-footer;
-
-@color-note-pager-bg-hover: @color-nav-bg-hover;
-
-@color-gray-lighter: @color-nav-bg;
-
-@color-nprogress: @color-nav-bg; //@color-nav;
-
-@color-text-selection: lighten(@color-links, 20%);
-@color-text-selection-unfocused: lighten(@color-text-selection, 30%);
+@import "define.less";
 
 
 // -----------------------------------------------------------------------------
 // -----------------------------------------------------------------------------
-// imports
+// all other imports in proper sequence
 
 @import "fonts.less"; // holds text and symbol fonts
 @import "bootstrap.less"; // import customized bootstrap
@@ -78,13 +20,7 @@
 @import "anchorAnimation.less"; // flicker when clicking on anchors
 @import "remove-collapse.less"; // remove bootstrap collapse nav animation
 @import "text-selection.less"; // custom text selection colors
-
-// -----------------------------------------------------------------------------
-// -----------------------------------------------------------------------------
-// local variables
-
-@font-size-smaller: floor(@font-size-small * 0.86);
-@font-size-mini: ceil(@font-size-small * 0.75);
+@import "helpers.less"; // some font-size and positioning helpers
 
 
 // -----------------------------------------------------------------------------
@@ -99,7 +35,7 @@ body {
 
 // -----------------------------------------------------------------------------
 // -----------------------------------------------------------------------------
-// fallbacks
+// modernizr detection fallbacks
 
 // no-js fallback: for mobile devices without javascript to uncollapse navbar...
 html.no-js .collapse {
@@ -143,6 +79,7 @@ body, #ajax-container { // ajax-container should act same as body!
     padding: 0px 15px 0; /* for navbar? EVENTUALLY NOT NEEDED! */
   }
 }
+
 
 // -----------------------------------------------------------------------------
 // -----------------------------------------------------------------------------
@@ -217,7 +154,7 @@ body, #ajax-container { // ajax-container should act same as body!
   width: 18px;
 }
 
-.navbar-toggle:hover > .icon-bar {
+.navbar-toggle:hover > .icon-bar, .navbar-toggle:focus > .icon-bar {
   background-color: @color-nav-hover !important;
 }
 
@@ -251,33 +188,23 @@ body, #ajax-container { // ajax-container should act same as body!
 
 body {
   background: @color-bg;
-  // background: url(/assets/img/tiny_grid_transparent.png) repeat;
 }
 
 #wrapper {
   background: @color-bg;
-  // background: url(/assets/img/tiny_grid.png) repeat; // adds a grid to bg
 }
 
-//@gradientBGMinAlpha: 0.05; //0.01;
-//@gradientBGMiddleAlpha: 0.1; //0.05;
-//@gradientBGMaxAlpha: 0.13; //0.06;
-
 .block-footer {
-  // #gradient > .vertical(rgba(0, 0, 0, @gradientBGMaxAlpha); rgba(0, 0, 0, @gradientBGMinAlpha));
-  // #gradient > .vertical(rgba(0, 0, 0, 0.85); rgba(0, 0, 0, 0.65));
   color: @color-footer;
-  background: @color-footer-bg; //#333;
-  // background: url(/assets/img/tiny_grid.png) repeat;
+  background: @color-footer-bg;
 }
 
 .block-header {
-  // #gradient > .vertical(rgba(0, 0, 0, @gradientBGMinAlpha); rgba(0, 0, 0, @gradientBGMiddleAlpha));
+  
 }
 
 .block-noteBreadcrumb {
   background: @color-nav-note-breadcrumb-bg;
-  //#gradient > .vertical(rgba(0, 0, 0, @gradientBGMiddleAlpha); rgba(0, 0, 0, @gradientBGMaxAlpha));
 }
 
 
@@ -340,14 +267,24 @@ blockquote {
 
 // -----------------------------------------------------------------------------
 // -----------------------------------------------------------------------------
+// link styling
+
+a:hover, a:focus {
+  background: @color-links-bg-hover;
+  text-decoration: none;
+}
+
+// -----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
 // button styling
 
 .btn {
   border: none;
 }
 
-.btn:hover {
-  background: rgba(0,0,0,0.15);
+.btn:hover, .btn:focus {
+  background: @color-button-bg-hover;
+  color: @color-button-hover;
 }
 
 
@@ -395,25 +332,13 @@ blockquote {
 .block-noteNavigator > li > a {
   padding-left: 0px;
   padding-right: 0px;
-  padding-top: 0px;
-  padding-bottom: 0px;
+  padding-top: 5px;
+  padding-bottom: 5px;
   border: 0px;
-  //color: @gray-light;
-  //border-bottom: 1px @gray-light dotted;
 }
 
-.block-noteNavigator > li.previous > a {
-  //min-width: 47px; // fix double dotted line
-  //text-align: left;
-}
-
-.block-noteNavigator > li.next > a {
-  //min-width: 53px; // fix double dotted line
-  //text-align: right; 
-}
-
-.block-noteNavigator > li > a:hover {
-  //color: darken(@navbar-default-brand-color, 10%);
+.block-noteNavigator > li > a:hover, .block-noteNavigator > li > a:focus {
+  color: @color-note-pager-hover;
 }
 
 .block-tagItem {
@@ -444,17 +369,13 @@ blockquote {
   color: @color-nav-note-breadcrumb-a;
 }
 
-.block-noteBreadcrumb .breadcrumb a:hover {
+.block-noteBreadcrumb .breadcrumb a:hover, .block-noteBreadcrumb .breadcrumb a:focus {
   color: @color-nav-note-breadcrumb-hover;
   text-decoration: initial;
 }
 
 .block-navSubPage, .block-navSubPageActive {
   font-size: @font-size-smaller;
-}
-
-.block-navPage, .block-navPageActive {
-  //font-size: @font-size-large;
 }
 
 .block-navBrandMobile {
@@ -486,47 +407,5 @@ blockquote {
 }
 
 .block-navBrand {
-  //font-size: @font-size-small;
   font-weight: 300;
-}
-
-
-// -----------------------------------------------------------------------------
-// -----------------------------------------------------------------------------
-// ajax loading
-
-
-body.loading {
-
-}
-
-
-// -----------------------------------------------------------------------------
-// -----------------------------------------------------------------------------
-// helpers
-
-.no-margin {
-  margin-left: 0px;
-  margin-top: 0px;
-  margin-bottom: 0px;
-  margin-right: 0px;
-}
-
-.no-padding {
-  padding-top: 0px;
-  padding-bottom: 0px;
-  padding-left: 0px;
-  padding-right: 0px;
-}
-
-.fontsize-small {
-  font-size: @font-size-small;
-}
-
-.fontsize-smaller {
-  font-size: @font-size-smaller;
-}
-
-.fontsize-mini {
-  font-size: @font-size-mini;
 }

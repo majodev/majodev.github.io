@@ -3,6 +3,7 @@
     "css": [],
     "less": {
       "dirs": [
+        "support/less/",
         "support/less/includes",
         "support/less/bootstrap",
         "support/less/nprogress",
