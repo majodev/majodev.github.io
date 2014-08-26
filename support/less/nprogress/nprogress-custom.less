@@ -3,9 +3,8 @@
 @nprogress-spinner-dimensions: 15px;
 @nprogress-spinner-offset: 22px;
 @nprogress-opacity: 1;
-@nprogress-color: @color-nav;
 
-@header-offset-height: 77px;
+@header-offset-height: @header-nav-height + @header-bar-height;
 
 /* Make clicks pass-through */
 #nprogress {
@@ -13,7 +12,7 @@
 }
 
 #nprogress .bar {
-  background: @nprogress-color;
+  background: @color-nprogress;
   position: absolute;
   z-index: 1031;
   top: (@header-offset-height - @nprogress-height);
@@ -30,7 +29,7 @@
 //   right: 0px;
 //   width: 100px;
 //   height: 100%;
-//   box-shadow: 0 0 10px @nprogress-color, 0 0 5px @nprogress-color;
+//   box-shadow: 0 0 10px @color-nprogress, 0 0 5px @color-nprogress;
 //   opacity: 1.0;
 
 //   -webkit-transform: rotate(-3deg) translate(0px, 4px);
@@ -45,7 +44,7 @@
 //   right: 0px;
 //   width: 100px;
 //   height: 100%;
-//   box-shadow: 0 0 10px @nprogress-color, 0 0 5px @nprogress-color;
+//   box-shadow: 0 0 10px @color-nprogress, 0 0 5px @color-nprogress;
 //   opacity: 1.0;
 
 //   -webkit-transform: rotate(3deg) translate(0px, -4px);
@@ -81,8 +80,8 @@
 //   box-sizing: border-box;
 
 //   border: solid @nprogress-spinner-tickness transparent;
-//   border-top-color: @nprogress-color;
-//   border-left-color: @nprogress-color;
+//   border-top-color: @color-nprogress;
+//   border-left-color: @color-nprogress;
 //   border-radius: 50%;
 //   opacity: 1;
 

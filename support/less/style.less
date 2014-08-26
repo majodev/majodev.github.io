@@ -2,69 +2,65 @@
 // -----------------------------------------------------------------------------
 // global variables
 
-@footer-height: 200px;
+// positioning
+@header-nav-height: 50px;
+@header-bar-height: 27px;
+@footer-height: 300px;
 
 // colors
 @color-text: #333;
+@color-head: #333;
+
+// kuler: http://adobe.ly/1pQDrKG
+// @color-bg: #fff;
+// @color-nav-bg: #EFF0EC;
+// @color-links: #51BBB2;
+// @color-nav: #188A8E;
+// @color-nav-bg-hover: transparent;
+// @color-nav-hover: @color-links;
+// @color-nav-bg-active: @color-links; 
+// @color-nav-active: @color-nav;
+
+
+// kuler: http://adobe.ly/1Aug6UL
 @color-bg: #fff;
-
-@color-head: #192F3F;
-@color-links: #51BBB2;
-
-// //kuler: http://adobe.ly/1mI0x1u
-// @color-nav-bg: #F3EDDF;
-// @color-nav-bg-active: #8DBDC1;
-// @color-nav: #252122;
-
-// //kuler: http://adobe.ly/1lGnJRi
-// @color-nav-bg: #79C7D9; 
-// @color-nav-bg-active: #50A0BF; 
-// @color-nav: #072540; 
-
-// //kuler: http://adobe.ly/1o1NhWi
-// @color-nav-bg: #E6625D; 
-// @color-nav-bg-active: #615376; 
-// @color-nav: #8EB1C5; 
-
-// //kuler: http://adobe.ly/1AuhQxe
-// @color-nav-bg: #F1F0DC; 
-// @color-nav-bg-active: #14A2A6; 
-// @color-nav: #007272;
-
-//kuler: http://adobe.ly/1pQDrKG (fav)
-@color-nav-bg: #EFF0EC; //#EFF0EC; 
-@color-nav-bg-active: #51BBB2; 
-@color-nav: #188A8E;
-
-// //kuler: http://adobe.ly/1lzz55j
-// @color-nav-bg: #fff; 
-// @color-nav-bg-active: #D95B45; 
-// @color-nav: #552437;
-
-// //kuler: http://adobe.ly/1pkH3Fb
-// @color-nav-bg: #fff; 
-// @color-nav-bg-active: #455E72; 
-// @color-nav: #879BA3;
-
-
-
-// @color-nav-bg: #fff; 
-// @color-nav-bg-active: #454A67; 
-// @color-nav: #C9284F;
-
-@color-footer: #EFF0EC;
-@color-footer-bg: #188A8E;
-
-// dependent colors
+@color-nav-bg: #D2F3F1;
+@color-links: #05ACC2;
+@color-nav: #02658C;
+@color-nav-bg-hover: transparent; //#68C088;
+@color-nav-hover: @color-links;
+@color-nav-bg-active: @color-links; 
 @color-nav-active: @color-nav;
-@color-nav-hover: @color-nav-bg-active;
+
+// kuler: http://adobe.ly/1Aug6UL
+// @color-bg: #fff;
+// @color-nav-bg: #D2F3F1;
+// @color-links: #05ACC2;
+// @color-nav: #02658C;
+// @color-nav-bg-hover: @color-links; //#68C088;
+// @color-nav-hover: @color-nav-bg; //@color-nav;
+// @color-nav-bg-active: @color-links; 
+// @color-nav-active: @color-nav-bg;
+
+// general dependent colors
+@color-footer: @color-nav-bg;
+@color-footer-bg: @color-nav;
+
+@color-nav-mobile-breadcrumb-active: @color-nav-bg-active;
+
 @color-nav-note-breadcrumb-bg: @color-nav-bg-active;
 @color-nav-note-breadcrumb-active: @color-footer;
 @color-nav-note-breadcrumb-a: @color-nav;
 @color-nav-note-breadcrumb-hover: @color-footer;
-@color-nav-mobile-breadcrumb-active: @color-nav-bg-active;
 
-@color-gray-light: @color-nav-bg;
+@color-note-pager-bg-hover: @color-nav-bg-hover;
+
+@color-gray-lighter: @color-nav-bg;
+
+@color-nprogress: @color-nav;
+
+@color-text-selection: lighten(@color-links, 20%);
+@color-text-selection-unfocused: lighten(@color-text-selection, 30%);
 
 
 // -----------------------------------------------------------------------------
@@ -81,7 +77,7 @@
 @import "hr-style.less"; // custom hr style
 @import "anchorAnimation.less"; // flicker when clicking on anchors
 @import "remove-collapse.less"; // remove bootstrap collapse nav animation
-
+@import "text-selection.less"; // custom text selection colors
 
 // -----------------------------------------------------------------------------
 // -----------------------------------------------------------------------------
@@ -180,6 +176,14 @@ body, #ajax-container { // ajax-container should act same as body!
 // -----------------------------------------------------------------------------
 // nav positioning & style
 
+.block-header {
+  min-height: @header-nav-height;
+}
+
+.block-noteBreadcrumb, .template-default-header-border {
+  height: @header-bar-height;
+}
+
 .navbar {
   border: 0px;
 }
@@ -188,7 +192,7 @@ body, #ajax-container { // ajax-container should act same as body!
   .navbar-nav > li {
     text-align: center;
   }
-  .navbar-brand {
+  .block-navBrand {
     padding-right: 0px;
   }
 }
@@ -449,6 +453,10 @@ blockquote {
   font-size: @font-size-smaller;
 }
 
+.block-navPage, .block-navPageActive {
+  //font-size: @font-size-large;
+}
+
 .block-navBrandMobile {
   padding: 17px 10px 14px 0px;
   color: @color-nav-mobile-breadcrumb-active;
@@ -475,6 +483,11 @@ blockquote {
 
 .block-firstparagraph {
   font-size: @font-size-small;
+}
+
+.block-navBrand {
+  //font-size: @font-size-small;
+  font-weight: 300;
 }
 
 

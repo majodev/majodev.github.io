@@ -3,7 +3,8 @@ $(function() {
 });
 
 NProgress.configure({
-  showSpinner: true,
+  showSpinner: false,
   minimum: 0.15,
-  trickleRate: 0.08
+  trickleRate: 0.015,
+  trickleSpeed: 50
 });

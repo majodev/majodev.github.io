@@ -1,0 +1,30 @@
+/**
+ * 1. Customize `background` for text selections
+ * 2. Remove `text-shadow` selection highlight - http://cbrac.co/Q6swON
+ */
+
+// adapted from https://raw.githubusercontent.com/cbracco/cardinal/master/css/main.css
+
+::-moz-selection {
+    background: @color-text-selection; /* 1 */
+    text-shadow: none;   /* 2 */
+}
+
+::selection {
+    background: @color-text-selection; /* 1 */
+    text-shadow: none;   /* 2 */
+}
+
+/* Change `background` for text selections when browser is unfocused */
+::selection:window-inactive {
+    background: @color-text-selection-unfocused;
+}
+
+/* Remove `background` on images when selected */
+img::selection {
+    background: transparent;
+}
+
+img::-moz-selection {
+    background: transparent;
+}
