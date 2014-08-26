@@ -102,10 +102,24 @@ jQuery(function($) {
         }
 
         // direct
-        $targetContainer.html(newContent);
-        setLoading(false);
-        addNavbarAffixFunctionality();
-        addCollapseOnClick();
+        if (typeof window.ontouchstart !== 'undefined') { // handle touch device issue
+          $targetContainer.html("");
+          setTimeout(function() {
+            // http://stackoverflow.com/questions/3120497/safari-iphone-ipad-mouse-hover-on-new-link-after-prior-one-is-replaced-with-ja
+            // fix ios hover issue by re-adding everything asynchronous
+            exchangeContent();
+          }, 0);
+        } else {
+          exchangeContent();
+        }
+
+        function exchangeContent() {
+          $targetContainer.html(newContent);
+          setLoading(false);
+          addNavbarAffixFunctionality();
+          addCollapseOnClick();
+        }
+
 
         // via velocity (fade)
 
@@ -171,7 +185,7 @@ jQuery(function($) {
           setLoading(true);
           History.pushState({}, title, url);
         } else {
-          if(loadAnchor.length > 0) {
+          if (loadAnchor.length > 0) {
             attachAnchor(url, title);
           } else {
             // same url just scroll to top!
@@ -302,10 +316,10 @@ jQuery(function($) {
 
   function addCollapseOnClick() {
     // http://stackoverflow.com/questions/16680543/hide-twitter-bootstrap-nav-collapse-on-click
-    $('.nav a').on('click', function(){ 
-        if($('.navbar-toggle').css('display') !='none'){
-            $(".navbar-toggle").trigger( "click" );
-        }
+    $('.nav a').on('click', function() {
+      if ($('.navbar-toggle').css('display') != 'none') {
+        $(".navbar-toggle").trigger("click");
+      }
     });
   }
 

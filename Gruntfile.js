@@ -19,7 +19,7 @@ module.exports = function(grunt) {
       },
       "testserver-gzip-delay": {
         options: {
-          args: ["--maxdelay", "1337", "--mindelay", "250"]
+          args: ["--maxdelay", "2500", "--mindelay", "250"]
         },
         src: ["scripts/testserver-gzip.js"]
       }

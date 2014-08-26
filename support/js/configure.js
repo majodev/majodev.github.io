@@ -5,6 +5,6 @@ $(function() {
 NProgress.configure({
   showSpinner: false,
   minimum: 0.15,
-  trickleRate: 0.015,
-  trickleSpeed: 50
+  trickleRate: 0.07,
+  trickleSpeed: 200
 });
