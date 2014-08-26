@@ -151,8 +151,15 @@ jQuery(function($) {
         document.location.href = "/404.html";
       },
       progress: function(evt) {
+        var currentProgress = 0;
         if (evt.lengthComputable) {
-          NProgress.set(NProgress.status + ((evt.loaded / evt.total) / 2));
+          currentProgress = (evt.loaded / evt.total);
+          if (NProgress.status > currentProgress) { // dont progress back!
+            NProgress.inc();
+          } else {
+            NProgress.set(currentProgress);
+          }
+          //NProgress.set(NProgress.status + ((evt.loaded / evt.total) / 2));
           //console.log("Loaded " + parseInt((evt.loaded / evt.total * 100), 10) + "%");
         } else {
           NProgress.inc();
