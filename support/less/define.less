@@ -11,10 +11,21 @@
 // @color-text-selection: lighten(@color-links, 20%);
 
 // kuler: http://adobe.ly/1Aug6UL
+// @color-bg: #fff;
+// @color-nav-bg: #D2F3F1;
+// @color-links: #05ACC2;
+// @color-nav: #02658C;
+// @color-text-selection: lighten(#68C088, 10%);
+
+// kuler: http://adobe.ly/1Aug6UL
 @color-bg: #fff;
-@color-nav-bg: #D2F3F1;
-@color-links: #05ACC2;
-@color-nav: #02658C;
+@color-main-1: #02658C;
+@color-main-2: #05ACC2;
+@color-main-3: #D2F3F1;
+
+@color-nav-bg: fade(mix(@color-main-2, #00f, 99%), 10%); // 1
+@color-links: fade(mix(@color-main-2, #00f, 99%), 80%);
+@color-nav: @color-main-1;
 @color-text-selection: lighten(#68C088, 10%);
 
 // colors
@@ -23,16 +34,18 @@
 
 // general dependent colors
 
-@color-nav-bg-hover: @color-links;
-@color-nav-hover: @color-nav-bg;
-@color-nav-bg-active: @color-links; 
-@color-nav-active: @color-nav;
+@color-nav-bg-hover: fade(mix(@color-main-2, #00f, 99%), 20%);
+@color-nav-hover: @color-main-1;
+@color-nav-bg-active: fade(mix(@color-main-2, #00f, 99%), 43.33%);  // 2
+@color-nav-active: @color-main-1;
 
-@color-footer: @color-nav-bg;
-@color-footer-bg: @color-nav;
+@color-footer: @color-main-3;
+@color-footer-bg: @color-main-1;
+@color-footer-links: mix(@color-main-2, #00f, 95%);
+@color-footer-links-hover: lighten(@color-footer-links, 10%);
 
-@color-links-hover: @color-nav-bg;
-@color-links-bg-hover: @color-nav-bg-hover;
+@color-links-hover: @color-main-1;
+@color-links-bg-hover: transparent; //fade(mix(@color-main-2, #00f, 99%), 10%);
 
 @color-navbar-mobile-toggle-bars: @color-nav;
 @color-navbar-mobile-toggle-bars-active: @color-links;
@@ -40,8 +53,8 @@
 
 @color-nav-mobile-breadcrumb-active: @color-nav-bg-active;
 
-@color-nav-note-breadcrumb-bg: @color-nav-bg-active;
-@color-nav-note-breadcrumb-active: @color-footer;
+@color-nav-note-breadcrumb-bg: fade(mix(@color-main-2, #00f, 99%), 50%); // 3
+@color-nav-note-breadcrumb-active: #fff;
 @color-nav-note-breadcrumb-a: @color-nav;
 @color-nav-note-breadcrumb-hover: @color-footer;
 
@@ -50,9 +63,10 @@
 
 @color-gray-lighter: @color-nav-bg;
 
-@color-nprogress: @color-nav-bg; //@color-nav;
+@color-nprogress: @color-main-1; //@color-nav;
 
 @color-text-selection-unfocused: lighten(@color-text-selection, 30%);
 
 @color-button-bg-hover: @color-links-bg-hover;
-@color-button-hover: @color-links-hover;
+@color-button-hover: @color-links;
+@color-button: @color-main-1;
