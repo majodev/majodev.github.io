@@ -5,9 +5,14 @@ sequence: 1
 fa-icon: fa-book
 ---
 
+<p>This is a list of all of the posts I have written which are available for public viewing.</p>
+
 <div class="notes">
   {{#each notes}}
-    {{> noteItem}}
-    {{> firstparagraph}}
+    <article>
+      {{> noteItem}}
+      {{> firstparagraph}}
+      <a class="fontsize-small" href="/{{path}}">{{!-- <i class="fa fa-book"></i>&nbsp; --}}read this note</a>
+    </article>
   {{/each}}
 </div>

@@ -20,4 +20,8 @@ So here we go...
 
 <!-- -->
 
->Looking into the old, learning something new. <footer>Old Chinese saying [via Akira Kobayashi](http://fontfeed.com/archives/akira-kobayashi-on-ff-clifford/)</footer>
+> Looking into the old, learning something new. <footer>Old Chinese saying [via Akira Kobayashi](http://fontfeed.com/archives/akira-kobayashi-on-ff-clifford/)</footer>
+
+<!-- -->
+
+> Programmers classicly underestimate how much effort things are. <footer>Jonathan Blow [via State of Play](https://www.youtube.com/watch?v=HTumujaqEe8&list=UU1kYEPLh7TtoPdM0YSi0VlA)</footer>
