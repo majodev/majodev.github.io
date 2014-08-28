@@ -43,7 +43,7 @@ function plugin(options){
 }
 
 /**
- * Check if a `file` is markdown.
+ * Check if a `file` is html.
  *
  * @param {String} file
  * @return {Boolean}

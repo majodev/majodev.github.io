@@ -19,6 +19,7 @@ var collectiondefaults = require("./scripts/metalsmith-collectiondefaults");
 var wordcount = require("./scripts/metalsmith-wordcount");
 var filetimestamp = require("./scripts/metalsmith-filetimestamp");
 var firstparagraph = require("./scripts/metalsmith-firstparagraph");
+var headingsidentifier = require("./scripts/metalsmith-headingsidentifier");
 
 // custom node scripts
 var registerHelpers = require("./scripts/registerHelpers");
@@ -113,6 +114,7 @@ Metalsmith(__dirname)
   .use(highlightjs({
     tabReplace: "  "
   }))
+  .use(headingsidentifier())
   .use(hbs())
   .use(templates({
     engine: "handlebars",

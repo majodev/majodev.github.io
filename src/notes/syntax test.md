@@ -9,7 +9,7 @@ Let's test some code highlighting here...
 
 [to bash anchor](#bash)
 
-<h2 id="js">javascript</h2>
+##javascript
 
 ```javascript
 module.exports = registerPartials;
@@ -35,7 +35,7 @@ function registerPartials(directory) {
 }
 ```
 
-<h2 id="bash">bash</h2>
+##bash
 
 ```bash
 #!/bin/bash
@@ -74,4 +74,4 @@ if [ $connected == 0 ]; then
 fi
 ```
 
-[to js anchor](#js)
+[to js anchor](#javascript)
