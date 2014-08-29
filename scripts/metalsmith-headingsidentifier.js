@@ -37,6 +37,7 @@ function plugin(options) {
           }
           $(element).id = id;
           idcache[id] = 1;
+          $(element).prepend('<a class="heading-anchor" href="#' + id + '"><span></span></a>');
         }
       });
 
