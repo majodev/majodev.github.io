@@ -32,12 +32,12 @@ body {
   overflow-y: scroll;
 }
 
-// turn on font smoothing (NON STANDARD COMPLIANT!!!)
-// body {
-//   -webkit-font-smoothing: antialiased;
-//   -moz-osx-font-smoothing: grayscale;
-//   font-smoothing: antialiased;
-// }
+// -----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
+// defaults
+body {
+  font-weight: @default-font-weight;
+}
 
 
 // -----------------------------------------------------------------------------
@@ -260,20 +260,20 @@ blockquote {
 
 .template-note .contents > p:first-child { 
   margin-bottom: 22px;
-  font-size: 17px;
+  //font-size: @font-size-medium; //17px;
   //font-weight: 400;
-  line-height: 1.4;
+  //line-height: 1.4;
 }
 
-.template-note .contents > p:first-child:first-line { 
-  line-height: 1.2;
-}
+// .template-note .contents > p:first-child:first-line { 
+//   line-height: 1.2;
+// }
 
-@media (min-width: @screen-sm-min) {
-  .template-note .contents > p:first-child {
-    font-size: 18px;
-  }
-}
+// @media (min-width: @screen-sm-min) {
+//   .template-note .contents > p:first-child {
+    //font-size: @font-size-mediumer; //18px;
+//   }
+// }
 
 .template-note .contents > p:first-child:first-letter { 
   text-transform: uppercase;
@@ -429,7 +429,7 @@ a:hover, a:focus {
 }
 
 .block-firstparagraph {
-  font-size: @font-size-small;
+  //font-size: @font-size-small;
 }
 
 .block-firstparagraph p {

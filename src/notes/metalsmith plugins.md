@@ -1,12 +1,12 @@
 ---
-title: Contributing some metalsmith plugins
+title: My metalsmith plugins
 tags:
 - javascript
 ---
 
-Early the process of developing this website with [metalsmith](http://metalsmith.io) I came to the conclusion, that there is not a solution (*a plugin*) for every requirement I wanted to fulfill with metalsmith. Luckily, it's dead fucking easy to customize the metalsmith pipeline, so easy that I finally ended up with XXX (*yes, xxxx*) plugins. 
+Early the process of developing this website with [metalsmith](http://metalsmith.io) I came to the conclusion, that there is not a solution (*a plugin*) for every requirement I wanted to fulfill with metalsmith. Luckily, it's dead fucking easy to customize the metalsmith pipeline. Actually, it's so freaking easy, that I finally ended up with XXX (*yes, xxxx*) custom written plugins, which I want to share here with you! 
 
-Consequently I'm publishing them right now on GitHub and this post should give a kind of overview and some background information on how I was using them.
+This post should give a kind of overview and some background information on how I was using them. I have published every one of them on GitHub, feel free to check them out there.
 
 ## metalsmith-collectiondefaults
 Love metalsmith-collections? Fine, me too! But does every collection child need the same metadata key (e.g. `template: note.hbs`) in its `YAML`? How about adding default metadata to your collection children? Sold? Enjoy.

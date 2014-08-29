@@ -81,6 +81,7 @@ function addAllMtimes(files, metalsmith, done) {
 
       debug('mtime of file %s is %s', file, stats.mtime);
       files[file].lastModified = stats.mtime;
+      files[file].created = stats.ctime;
       
       if(_.isUndefined(files[file].date) === true) {
         files[file].date = stats.ctime;
