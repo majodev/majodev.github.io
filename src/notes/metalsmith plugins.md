@@ -4,9 +4,9 @@ tags:
 - javascript
 ---
 
-Early the process of developing this website with [metalsmith](http://metalsmith.io) I came to the conclusion, that some functionalities (*plugins*), that I really needed cannot be fulfilled by any available plugin (and there are many). Luckily, it's dead fucking easy to customize the metalsmith pipeline. Actually, it's so freaking easy, that I finally ended up with XXX (*yes, xxxx*) custom written plugins, which I want to share with you here! 
+Early in the process of developing this website with [metalsmith](http://metalsmith.io) I came to the conclusion, that some functionalities, that I really needed cannot be fulfilled by any publically available plugin for metalsmith (and there are many). Luckily, it's dead fucking easy to customize the metalsmith pipeline. Actually, it's so freaking easy, that I finally ended up with XXX (*yes, xxxx*) custom written plugins, which I want to share with you here! 
 
-This post will give a kind of overview and some background information on how I was using my custom written plugins. I have also published every one of them on GitHub, feel free to check them out there.
+This post will give you an overview and some background information on how I was using my custom written plugins to build this site. Furthermore, I have also published every one of them on GitHub, so feel free to check them out there now if you want the code right away!
 
 ## metalsmith-collectiondefaults
 Love [metalsmith-collections](https://github.com/segmentio/metalsmith-collections)? Fine, me too! However, does every collection child really need the same metadata key (e.g. `template: note.hbs`) in its `YAML`? That's crazy (and ugly)! How about adding default metadata to your collection children? Sold? Enjoy.
@@ -29,7 +29,7 @@ Metalsmith(__dirname)
 ```
 
 ## metalsmith-filetimestamp
-I only want to add a `date` field to my `YAML`, if I need to trick the reader (*yes, you!*) into thinking that page was published later than I originally created it. Hence, why not read the `createdAt` date from the filesystem, additionally, outputting the `lastModified` date of a page would also be a nice thing to have.
+I only want to add a `date` field to my `YAML`, if I need to trick the reader (*yes, you!*) into thinking that page was published later than I originally created it. Hence, why not read the `createdAt` date from the file system, additionally, outputting the `lastModified` date of a page would also be a nice thing to have.
 
 This plugin appends both of these keys to your metalsmith files' metadata.
 
