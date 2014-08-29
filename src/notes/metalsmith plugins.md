@@ -4,23 +4,24 @@ tags:
 - javascript
 ---
 
-Early the process of developing this website with [metalsmith](http://metalsmith.io) I came to the conclusion, that there is not a solution (*a plugin*) for every requirement I wanted to fulfill with metalsmith. Luckily, it's dead fucking easy to customize the metalsmith pipeline. Actually, it's so freaking easy, that I finally ended up with XXX (*yes, xxxx*) custom written plugins, which I want to share here with you! 
+Early the process of developing this website with [metalsmith](http://metalsmith.io) I came to the conclusion, that some functionalities (*plugins*), that I really needed cannot be fulfilled by any available plugin (and there are many). Luckily, it's dead fucking easy to customize the metalsmith pipeline. Actually, it's so freaking easy, that I finally ended up with XXX (*yes, xxxx*) custom written plugins, which I want to share with you here! 
 
-This post should give a kind of overview and some background information on how I was using them. I have published every one of them on GitHub, feel free to check them out there.
+This post will give a kind of overview and some background information on how I was using my custom written plugins. I have also published every one of them on GitHub, feel free to check them out there.
 
 ## metalsmith-collectiondefaults
-Love metalsmith-collections? Fine, me too! But does every collection child need the same metadata key (e.g. `template: note.hbs`) in its `YAML`? How about adding default metadata to your collection children? Sold? Enjoy.
+Love [metalsmith-collections](https://github.com/segmentio/metalsmith-collections)? Fine, me too! However, does every collection child really need the same metadata key (e.g. `template: note.hbs`) in its `YAML`? That's crazy (and ugly)! How about adding default metadata to your collection children? Sold? Enjoy.
 
 ```javascript
+// Example usage of metalsmith-collectiondefaults
 Metalsmith(__dirname)
 [...]
-  .use(collections({ 
+  .use(collections({ // metalsmith-collections must be executed first
     notes: { // let's define our notes collection
       pattern: "notes/**/*.md"
     }
   }))
-  .use(collectiondefaults({
-    notes: { // let's give every note the same template
+  .use(collectiondefaults({ // then, execute metalsmith-collectiondefaults 
+    notes: { // let's give every note the same template in its metadata
       template: "note.hbs"
     }
   }))
