@@ -11,7 +11,7 @@ Early in the process of developing this website with **[metalsmith][metalsmith]*
 This post will give you an overview and some background information on how I was using my custom written plugins to build this site. Furthermore, I have also published every one of them on GitHub, so feel free to [check them out there][pluginrepo] if you want to code right away!
 
 ## metalsmith-collectiondefaults
-Love [metalsmith-collections](https://github.com/segmentio/metalsmith-collections)? Fine, me too! However, does every collection child really need the same metadata key (e.g. `template: note.hbs`) in its [YAML][YAML]? That's crazy (and ugly)! How about adding default metadata to your collection children? Sold? Enjoy.
+Love [metalsmith-collections](https://github.com/segmentio/metalsmith-collections)? Fine, me too! However, does every collection child really need the same metadata key (e.g. `template: note.hbs`) in its [YAML][YAML] frontmatter? That's crazy (and ugly)! How about adding default metadata to your collection children? Sold? Enjoy.
 
 ```javascript
 // Example usage of metalsmith-collectiondefaults

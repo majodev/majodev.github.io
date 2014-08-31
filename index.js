@@ -20,6 +20,7 @@ var wordcount = require("./scripts/metalsmith-wordcount");
 var filetimestamp = require("./scripts/metalsmith-filetimestamp");
 var firstparagraph = require("./scripts/metalsmith-firstparagraph");
 var headingsidentifier = require("./scripts/metalsmith-headingsidentifier");
+var sitemapper = require("./scripts/metalsmith-sitemapper");
 
 // custom node scripts
 var registerHelpers = require("./scripts/registerHelpers");
@@ -94,15 +95,26 @@ Metalsmith(__dirname)
   }))
   .use(collectiondefaults({
     pages: {
-      isPage: true
+      isPage: true,
+      sitemap: {
+        changefreq: "monthly",
+        priority: "1.0"
+      }
     },
     notes: {
       isNote: true,
       template: "note.hbs",
-      "fa-icon": "fa-book"
+      sitemap: {
+        changefreq: "daily",
+        priority: "0.8"
+      }
     },
     subpages: {
-      isSubpage: true
+      isSubpage: true,
+      sitemap: {
+        changefreq: "monthly",
+        priority: "0.5"
+      }
     }
   }))
   .use(markdown())
@@ -122,6 +134,10 @@ Metalsmith(__dirname)
   }))
   .use(permapath({
     mode: "post"
+  }))
+  .use(sitemapper({
+    modifiedProperty: "lastModified",
+    absoluteUrl: "http://ranf.tl/"
   }))
 // .use(debugsmith({
 //   printMetaKeys: true

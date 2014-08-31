@@ -2,7 +2,6 @@
 title: contact
 template: default.hbs
 sequence: 1
-fa-icon: fa-coffee
 ---
 
 The best ways to get in touch with me are via twitter or email (in that order).

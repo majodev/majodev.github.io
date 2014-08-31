@@ -3,3 +3,4 @@ node_modules
 build
 bower_components
 _tmp
+npm-debug.log
