@@ -10,6 +10,7 @@ sequence: 1
   {{#each notes}}
     <article>
       {{> noteItem}}
+      <p class="no-margin no-padding"><small>{{>tagList}} {{> noteReadingInfo}}</small></p>
       {{> firstparagraph}}
       <a class="fontsize-small" href="/{{path}}">{{!-- <i class="fa fa-book"></i>&nbsp; --}}read this note</a>
     </article>

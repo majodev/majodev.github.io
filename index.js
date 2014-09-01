@@ -126,8 +126,8 @@ Metalsmith(__dirname)
   .use(highlightjs({
     tabReplace: "  "
   }))
-  .use(headingsidentifier())
   .use(hbs())
+  .use(headingsidentifier())
   .use(templates({
     engine: "handlebars",
     directory: "templates"

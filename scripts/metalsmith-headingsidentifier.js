@@ -30,19 +30,22 @@ function plugin(options) {
       var $ = cheerio.load(data.contents.toString());
 
       $("h1,h2,h3,h4,h5,h6").each(function(index, element) {
-        if (!element.id) {
-          var id = ($(element).text()).replace(/&.*?;/g, '').replace(/\s+/g, '-').replace(/[^\w\-]/g, '').toLowerCase();
+        var id = element.id;
+        if (!id) {
+          id = ($(element).text()).replace(/&.*?;/g, '').replace(/\s+/g, '-').replace(/[^\w\-]/g, '').toLowerCase();
           if (idcache[id]) {
             id = id + '-' + index;
           }
           $(element).id = id;
           idcache[id] = 1;
-          $(element).prepend('<a class="heading-anchor" href="#' + id + '"><span></span></a>');
+        } else {
+          console.log("got id:" + id);
         }
+        $(element).prepend('<a class="heading-anchor" href="#' + id + '"><span></span></a>');
       });
 
       data.contents = $.html();
-      files[file] = data; 
+      files[file] = data;
     });
   };
 }
