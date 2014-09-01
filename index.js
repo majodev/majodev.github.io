@@ -107,7 +107,8 @@ Metalsmith(__dirname)
       sitemap: {
         changefreq: "daily",
         priority: "0.8"
-      }
+      },
+      setHeadingsIDs: true
     },
     subpages: {
       isSubpage: true,
@@ -127,7 +128,9 @@ Metalsmith(__dirname)
     tabReplace: "  "
   }))
   .use(hbs())
-  .use(headingsidentifier())
+  .use(headingsidentifier({
+    allow: "setHeadingsIDs"
+  }))
   .use(templates({
     engine: "handlebars",
     directory: "templates"

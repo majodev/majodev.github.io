@@ -5,22 +5,22 @@
   <div class="template-note">
     <main>
       <article>
-        <div class="template-note-header">
-          <div class="container-fluid"> 
-            {{> noteNavigator}}
+        <div class="template-note-header container-fluid">
+          {{!-- <div class="container-fluid">  --}}
             {{> noteTitle}}
             {{> noteSubTitle}}
-          </div>
+          {{!-- </div> --}}
         </div>
-        <div class="template-note-contents">
-          <div class="container-fluid">
+        <div class="template-note-contents container-fluid">
+          {{!-- <div class="container-fluid"> --}}
             {{> contents}}
-          </div>
+          {{!-- </div> --}}
         </div>
-        <div class="template-note-footer">
-          <div class="container-fluid">
+        <div class="template-note-footer container-fluid">
+          {{!-- <div class="container-fluid"> --}}
             {{> noteSocial}}
-          </div>
+            {{> noteNavigator}}
+          {{!-- </div> --}}
         </div>
       </article>
     </main>

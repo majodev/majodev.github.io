@@ -75,7 +75,11 @@ body {
 }
 
 .container-fluid {
-  max-width: 768px;
+  // max-width: 768px;
+}
+
+.template-note-header, .template-note-contents, .template-default {
+  max-width: 720px; //30 = default padding
 }
 
 // .template-default, .template-note {
@@ -83,7 +87,7 @@ body {
 // }
 
 .template-default/*, .template-note*/  {
-  padding-top: 20px;
+  // padding-top: 20px;
   padding-bottom: 20px;
   // padding: 20px 15px 20px 15px; /* for navbar? EVENTUALLY NOT NEEDED! */
 }
@@ -233,7 +237,7 @@ body {
 // font styling
 
 pre {
-  font-size: 50%;
+  font-size: 65%;
 }
 
 @media (min-width: @screen-sm-min) {
@@ -282,6 +286,7 @@ blockquote {
 .template-note .contents > p:first-child:first-letter { 
   text-transform: uppercase;
   font-size: 200%;
+  color: @color-first-character;
 }
 
 .block-header {
@@ -348,7 +353,9 @@ a:hover, a:focus {
 }
 
 // .template-note-footer {
-//   padding-bottom: 15px;
+//   position: fixed;
+//   width: 100%;
+//   bottom: 0;
 // }
 
 
@@ -363,7 +370,7 @@ a:hover, a:focus {
   margin-left: 0px;
   margin-right: 0px;
   font-size: @font-size-small;
-  font-weight: 300;
+  // font-weight: 300;
 }
 
 .block-noteNavigator > li > a {

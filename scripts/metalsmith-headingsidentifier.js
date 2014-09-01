@@ -20,10 +20,27 @@ module.exports = plugin;
  */
 
 function plugin(options) {
+
+  var limitExecution = false;
+  var allowField = "";
+
+  if (_.isUndefined(options) === false && _.isUndefined(options.allow) === false) {
+    limitExecution = true;
+    allowField = options.allow;
+  }
+
+
   return function(files, metalsmith, done) {
     setImmediate(done);
     Object.keys(files).forEach(function(file) {
       if (!html(file)) return;
+
+      if (limitExecution) {
+        if (files[file][allowField] !== true) {
+          //console.log("exclude " + file);
+          return;
+        }
+      }
 
       var idcache = {}; // to handle douple ids
       var data = files[file];
@@ -36,7 +53,8 @@ function plugin(options) {
           if (idcache[id]) {
             id = id + '-' + index;
           }
-          $(element).id = id;
+          // $(element).id = id;
+          $(element).attr("id", id);
           idcache[id] = 1;
         } else {
           console.log("got id:" + id);

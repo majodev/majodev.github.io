@@ -1,10 +1,11 @@
-@nprogress-height: 4px;
+@nprogress-height: 3px;
 @nprogress-spinner-tickness: 3px;
 @nprogress-spinner-dimensions: 15px;
 @nprogress-spinner-offset: 22px;
 @nprogress-opacity: 1;
 
-@header-offset-height: @header-nav-height + @header-bar-height;
+@header-offset-height: @nprogress-height; //@header-nav-height + @header-bar-height;
+@nprogress-positioning: fixed; //absolute;
 
 /* Make clicks pass-through */
 #nprogress {
@@ -13,7 +14,7 @@
 
 #nprogress .bar {
   background: @color-nprogress;
-  position: absolute;
+  position: @nprogress-positioning;
   z-index: 1031;
   top: (@header-offset-height - @nprogress-height);
   left: 0px;
@@ -38,19 +39,19 @@
 // }
 
 /* Fancy blur effect (for top spinner line)*/
-// #nprogress .peg {
-//   display: block;
-//   position: absolute;
-//   right: 0px;
-//   width: 100px;
-//   height: 100%;
-//   box-shadow: 0 0 10px @color-nprogress, 0 0 5px @color-nprogress;
-//   opacity: 1.0;
+#nprogress .peg {
+  display: block;
+  position: @nprogress-positioning;
+  right: 0px;
+  width: 100px;
+  height: 100%;
+  box-shadow: 0 0 10px @color-nprogress, 0 0 5px @color-nprogress;
+  opacity: 1.0;
 
-//   -webkit-transform: rotate(3deg) translate(0px, -4px);
-//       -ms-transform: rotate(3deg) translate(0px, -4px);
-//           transform: rotate(3deg) translate(0px, -4px);
-// }
+  -webkit-transform: rotate(3deg) translate(0px, -4px);
+      -ms-transform: rotate(3deg) translate(0px, -4px);
+          transform: rotate(3deg) translate(0px, -4px);
+}
 
 /* Remove these to get rid of the spinner */
 // #nprogress .spinner {
@@ -96,7 +97,7 @@
 
 // .nprogress-custom-parent #nprogress .spinner,
 .nprogress-custom-parent #nprogress .bar {
-  position: absolute;
+  position: @nprogress-positioning;
 }
 
 // @-webkit-keyframes nprogress-spinner {
