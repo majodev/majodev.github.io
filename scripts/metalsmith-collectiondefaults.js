@@ -27,7 +27,8 @@ function plugin(options) {
           return;
         } else {
           _.each(_.keys(defCol), function(defColKey) {
-            if (defColKey === collection) {
+            //if (defColKey === collection) { // metalsmith-collections update 0.6.1, is now array!
+            if (_.contains(collection, defColKey) === true) {
               // collection default matches file collection
               _.each(_.keys(defCol[defColKey]), function(defColItem) {
                 //console.log(defColItem + ":" + defCol[defColKey][defColItem]);
