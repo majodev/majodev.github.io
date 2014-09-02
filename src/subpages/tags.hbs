@@ -2,6 +2,7 @@
 title: tags
 template: default.hbs
 sequence: 3
+setHeadingsIDs: true
 ---
 
 {{!-- <div class="tagCloud">
@@ -14,7 +15,7 @@ sequence: 3
   {{#each _sortedTags}}
     <h3 id="{{tag}}">#{{tag}}</h3>
     {{#withSortReverse children "date"}}
-      {{> noteItem}}
+      {{> noteItemSmall}}
     {{/withSortReverse}}
   {{/each}}
 </div>

@@ -11,8 +11,10 @@ sequence: 1
     <article>
       {{> noteItem}}
       <p class="no-margin no-padding"><small>{{>tagList}} {{> noteReadingInfo}}</small></p>
-      {{> firstparagraph}}
-      <a class="fontsize-small" href="/{{path}}">{{!-- <i class="fa fa-book"></i>&nbsp; --}}continue reading</a>
+      <div class="notePreview">
+        {{> firstparagraph}}
+        <a class="fontsize-small" href="/{{path}}"><i class="fa fa-level-up fa-rotate-90"></i>&nbsp;&nbsp;continue reading</a>
+      </div>
     </article>
   {{/each}}
 </div>
