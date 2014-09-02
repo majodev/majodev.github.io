@@ -8,13 +8,13 @@ sequence: 1
 
 <div class="notes">
   {{#each notes}}
-    <article>
+    <article class="notes-article">
       {{> noteItem}}
       <p class="no-margin no-padding"><small>{{>tagList}} {{> noteReadingInfo}}</small></p>
-      <div class="notePreview">
+      {{!-- <div class="notePreview"> --}}
         {{> firstparagraph}}
         <a class="fontsize-small" href="/{{path}}"><i class="fa fa-level-up fa-rotate-90"></i>&nbsp;&nbsp;continue reading</a>
-      </div>
+      {{!-- </div> --}}
     </article>
   {{/each}}
 </div>

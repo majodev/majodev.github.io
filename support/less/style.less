@@ -334,10 +334,6 @@ a:hover, a:focus {
   background: @color-nav-note-breadcrumb-bg;
 }
 
-.template-default article + article {
-  padding-top: 25px;
-}
-
 // -----------------------------------------------------------------------------
 // -----------------------------------------------------------------------------
 // template note styling
@@ -440,12 +436,25 @@ a:hover, a:focus {
   min-width: 55px;
 }
 
-.block-firstparagraph {
-  //font-size: @font-size-small;
-}
-
 .block-firstparagraph p {
   margin: 0;
+}
+
+.block-firstparagraph {
+    position: relative;
+}
+ 
+.block-firstparagraph a {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  text-decoration: none; /* No underlines on the link */
+  z-index: 10; /* Places the link above everything else in the div */
+  background-color: #FFF; /* Fix to make div clickable in IE */
+  opacity: 0; /* Fix to make div clickable in IE */
+  filter: alpha(opacity=1); /* Fix to make div clickable in IE */
 }
 
 .block-navBrand {
@@ -466,26 +475,22 @@ a:hover, a:focus {
   margin-top: 9px;
 }
 
+.block-noteItem h3 a {
+  color: @color-head;
+}
 
 // -----------------------------------------------------------------------------
 // -----------------------------------------------------------------------------
-// notePreview
+// page only styling
 
-// .notePreview {
-//     position: relative;
-// }
+.notes-article:hover {
+  // opacity: 0.9;
+  background: @gray-lighter;
+}
 
-// .notePreview a {
-//   position: absolute;
-//     width: 100%;
-//     height: 100%;
-//     top: 0;
-//     left: 0;
-//     text-decoration: none; /* No underlines on the link */
-//     z-index: 10;  //Places the link above everything else in the div 
-//     background-color: #FFF; /* Fix to make div clickable in IE */
-//     opacity: 0; /* Fix to make div clickable in IE */
-//     filter: alpha(opacity=1); /* Fix to make div clickable in IE */
-// }
+.notes-article + .notes-article {
+  margin-top: 25px;
+}
+
 
 @import "printStyles.less";
