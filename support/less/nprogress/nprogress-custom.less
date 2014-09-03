@@ -1,8 +1,9 @@
-@nprogress-height: 2px;
-@nprogress-spinner-tickness: 3px;
-@nprogress-spinner-dimensions: 15px;
-@nprogress-spinner-offset: 22px;
-@nprogress-opacity: 1;
+@nprogress-height: 51px;
+// @nprogress-spinner-tickness: 3px;
+// @nprogress-spinner-dimensions: 15px;
+// @nprogress-spinner-offset: 22px;
+@nprogress-opacity: 0.1;
+@nprogress-z-index: 0;
 
 @header-offset-height: @nprogress-height; //@header-nav-height + @header-bar-height;
 @nprogress-positioning: fixed; //absolute;
@@ -15,7 +16,7 @@
 #nprogress .bar {
   background: @color-nprogress;
   position: @nprogress-positioning;
-  z-index: 1031;
+  z-index: @nprogress-z-index;
   top: (@header-offset-height - @nprogress-height);
   left: 0px;
   width: 100%;
@@ -39,19 +40,19 @@
 // }
 
 /* Fancy blur effect (for top spinner line)*/
-#nprogress .peg {
-  display: block;
-  position: @nprogress-positioning;
-  right: 0px;
-  width: 100px;
-  height: 100%;
-  box-shadow: 0 0 10px @color-nprogress, 0 0 5px @color-nprogress;
-  opacity: 1.0;
+// #nprogress .peg {
+//   display: block;
+//   position: @nprogress-positioning;
+//   right: 0px;
+//   width: 100px;
+//   height: 100%;
+//   box-shadow: 0 0 10px @color-nprogress, 0 0 5px @color-nprogress;
+//   opacity: 1.0;
 
-  -webkit-transform: rotate(3deg) translate(0px, -4px);
-      -ms-transform: rotate(3deg) translate(0px, -4px);
-          transform: rotate(3deg) translate(0px, -4px);
-}
+//   -webkit-transform: rotate(3deg) translate(0px, -4px);
+//       -ms-transform: rotate(3deg) translate(0px, -4px);
+//           transform: rotate(3deg) translate(0px, -4px);
+// }
 
 /* Remove these to get rid of the spinner */
 // #nprogress .spinner {
@@ -62,7 +63,7 @@
 //   right: 5px;
 //   //left: @nprogress-spinner-offset;
 //   top: (@header-offset-height - @nprogress-spinner-offset);
-//   z-index: 1031;
+//   z-index: @nprogress-z-index;
   
 //   // centering...
 //   // margin: auto;

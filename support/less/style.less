@@ -348,12 +348,6 @@ a:hover, a:focus {
   padding-bottom: 50px;
 }
 
-// .template-note-footer {
-//   position: fixed;
-//   width: 100%;
-//   bottom: 0;
-// }
-
 
 // -----------------------------------------------------------------------------
 // -----------------------------------------------------------------------------
@@ -479,18 +473,47 @@ a:hover, a:focus {
   color: @color-head;
 }
 
+// hack hack hack !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// hack to test nav with item underline
+@media (min-width: @grid-float-breakpoint) {
+  .navbar-default .navbar-nav > li > a:hover, 
+  .navbar-default .navbar-nav > li > a:focus {
+    border-bottom: 2px solid;
+    border-bottom-color: @color-main-2; 
+    background-color: transparent;
+    color: @color-main-2;
+    padding-top: 11.5px;
+    padding-bottom: 9.5px;
+  }
+
+  .navbar-default .navbar-nav > .active > a,
+  .navbar-default .navbar-nav > .active > a:hover,
+  .navbar-default .navbar-nav > .active > a:focus {
+    border-bottom: 2px solid;
+    border-bottom-color: @color-main-1; 
+    background-color: transparent;
+    padding-top: 11.5px;
+    padding-bottom: 9.5px;
+  }
+}
+
 // -----------------------------------------------------------------------------
 // -----------------------------------------------------------------------------
 // page only styling
 
 .notes-article:hover {
-  opacity: 0.9;
+  opacity: 0.8;
   // background: @gray-lighter;
 }
 
 .notes-article + .notes-article {
   margin-top: 25px;
 }
+
+
+
 
 
 @import "printStyles.less";
