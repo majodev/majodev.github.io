@@ -124,9 +124,9 @@ Metalsmith(__dirname)
     metaKeyCount: "wordCount",
     metaKeyReadingTime: "readingTime"
   }))
-  .use(highlightjs({
-    tabReplace: "  "
-  }))
+  // .use(highlightjs({
+  //   tabReplace: "  "
+  // }))
   .use(hbs())
   .use(headingsidentifier({
     allow: "setHeadingsIDs"
