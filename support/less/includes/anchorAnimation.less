@@ -1,38 +1,40 @@
+@anchorAnimation-color: @color-links-hover; //fade(@brand-primary, 15%);
+
 /* Animations for :target headings (via http://cardinalcss.com) */ 
 @-webkit-keyframes anchorAnimation {
-    0%   { background-color: transparent; }
-    10%  { background-color: lighten(@brand-primary, 30%);     }
-    100% { background-color: transparent; }
+    0%   { color: inherit; }
+    20%  { color: @anchorAnimation-color;     }
+    100% { color: inherit; }
 }
 
 @-moz-keyframes anchorAnimation {
-    0%   { background-color: transparent; }
-    10%  { background-color: lighten(@brand-primary, 30%);     }
-    100% { background-color: transparent; }
+    0%   { color: inherit; }
+    20%  { color: @anchorAnimation-color;     }
+    100% { color: inherit; }
 }
 
 @-ms-keyframes anchorAnimation {
-    0%   { background-color: transparent; }
-    10%  { background-color: lighten(@brand-primary, 30%);     }
-    100% { background-color: transparent; }
+    0%   { color: inherit; }
+    20%  { color: @anchorAnimation-color;     }
+    100% { color: inherit; }
 }
 
 @-o-keyframes anchorAnimation {
-    0%   { background-color: transparent; }
-    10%  { background-color: lighten(@brand-primary, 30%);     }
-    100% { background-color: transparent; }
+    0%   { color: inherit; }
+    20%  { color: @anchorAnimation-color;     }
+    100% { color: inherit; }
 }
 
 @keyframes anchorAnimation {
-    0%   { background-color: transparent; }
-    10%  { background-color: lighten(@brand-primary, 30%);     }
-    100% { background-color: transparent; }
+    0%   { color: inherit; }
+    20%  { color: @anchorAnimation-color;     }
+    100% { color: inherit; }
 }
 
 :target, .targetAnimation {
-  -webkit-animation: anchorAnimation 2s ease;
-  -moz-animation: anchorAnimation 2s ease;
-  -ms-animation: anchorAnimation 2s ease;
-  -o-animation: anchorAnimation 2s ease;
-  animation: anchorAnimation 2s ease;
+  -webkit-animation: anchorAnimation 1s ease;
+  -moz-animation: anchorAnimation 1s ease;
+  -ms-animation: anchorAnimation 1s ease;
+  -o-animation: anchorAnimation 1s ease;
+  animation: anchorAnimation 1s ease;
 }

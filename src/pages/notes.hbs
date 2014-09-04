@@ -10,11 +10,11 @@ sequence: 1
   {{#each notes}}
     <article class="notes-article">
       <div class="notes-article-inner">
+        <a href="/{{path}}"></a>
         {{> noteItem}}
         {{> firstparagraph}}
       </div>
       <p class="no-margin no-padding">{{> noteLink}} · {{> tagList}} · {{> noteReadingInfo}}</p>
-      
     </article>
   {{/each}}
 </div>

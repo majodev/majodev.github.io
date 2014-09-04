@@ -40,7 +40,8 @@
 //## Font, line-height, and color for body text, headings, and more.
 
 @font-family-sans-serif:  "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
-@font-family-serif:       Georgia, "Times New Roman", Times, serif;
+//@font-family-serif:       Georgia, "Times New Roman", Times, serif;
+@font-family-narrow:      "PT Sans Narrow";
 //** Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.
 @font-family-monospace:   "Source Code Pro", Menlo, Monaco, Consolas, "Courier New", monospace;
 @font-family-base:        @font-family-sans-serif;
@@ -76,7 +77,7 @@
 
 
 //** By default, this inherits from the `<body>`.
-@headings-font-family:    "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;;
+@headings-font-family:    @font-family-sans-serif;
 @headings-font-weight:    600;
 @headings-line-height:    1.1;
 @headings-color:          @color-head; //inherit;
@@ -820,7 +821,7 @@
 //
 //##
 
-@code-color:                  #c7254e;// inherit; //#ccc; //#c7254e;
+@code-color:                  #d14; //#c7254e;// inherit; //#ccc; //#c7254e;
 @code-bg:                     @gray-lighter; //#222; //#f9f2f4;
 
 @kbd-color:                   @gray-lighter; //#fff

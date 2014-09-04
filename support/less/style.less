@@ -384,20 +384,25 @@ a:hover, a:focus {
 }
 
 .block-noteLink, .block-noteDate, .block-tagItem, .block-noteReadingInfo, .block-noteAuthor {
-  font-family: "PT Sans Narrow";
+  font-family: @font-family-narrow;
   text-transform: uppercase;
   font-size: @font-size-small;
   font-weight: 400;
 }
 
-// .block-tagItemHeader {
-//   font-family: "PT Sans Narrow";
-//   text-transform: uppercase;
-//   font-weight: 400;
-// }
+.block-tagItemHeader {
+  font-family: @font-family-narrow;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+.block-navBrandMobile {
+  font-family: @font-family-narrow;
+}
 
 .block-noteBreadcrumb {
   font-size: @font-size-smaller;
+  font-family: @font-family-narrow;
 }
 
 .block-noteBreadcrumb .breadcrumb {
@@ -445,23 +450,6 @@ a:hover, a:focus {
 
 .block-firstparagraph p {
   margin: 0;
-}
-
-.block-firstparagraph {
-    position: relative;
-}
- 
-.block-firstparagraph a {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  text-decoration: none; /* No underlines on the link */
-  z-index: 10; /* Places the link above everything else in the div */
-  background-color: #FFF; /* Fix to make div clickable in IE */
-  opacity: 0; /* Fix to make div clickable in IE */
-  filter: alpha(opacity=1); /* Fix to make div clickable in IE */
 }
 
 .block-navBrand {
@@ -516,13 +504,34 @@ a:hover, a:focus {
 // -----------------------------------------------------------------------------
 // page only styling
 
-.notes-article-inner:hover {
-  // opacity: 0.8;
-  background: @gray-lighter;
-}
-
 .notes-article + .notes-article {
   margin-top: 25px;
+}
+
+.notes-article-inner {
+  position: relative;
+}
+ 
+.notes-article-inner > a {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  text-decoration: none; /* No underlines on the link */
+  z-index: 10; /* Places the link above everything else in the div */
+  background-color: #FFF; /* Fix to make div clickable in IE */
+  opacity: 0; /* Fix to make div clickable in IE */
+  filter: alpha(opacity=1); /* Fix to make div clickable in IE */
+}
+
+.notes-article-inner:hover {
+  opacity: 0.9;
+  //background: @gray-lighter;
+}
+
+.notes-article-inner:hover + p > .block-noteLink {
+  color: @color-links-hover;
 }
 
 
