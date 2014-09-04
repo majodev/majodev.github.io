@@ -3,6 +3,7 @@ jQuery(function($) {
   // base from https://github.com/roryg/ghostwriter/blob/master/assets/js/scripts.js
 
   var AJAX_SELECTOR = "#ajax-container";
+  var SCRIPTS_SELECTOR = "#scripts_src";
   // var FOOTER_CLASS = ".block-footer"; // no longer needed!
   var FADE_TIME_AJAX_MS = 100;
   //var FADE_TIME_CHILDS_MS = 250;
@@ -10,6 +11,7 @@ jQuery(function($) {
 
   var History = window.History;
   var $targetContainer = $(AJAX_SELECTOR);
+  var $scriptsContainer = $(SCRIPTS_SELECTOR);
   var loading = false;
   var loadAnchor = "";
   var $body = $(document.body);
@@ -76,6 +78,7 @@ jQuery(function($) {
       success: function(result) {
         var $html = $(result);
         var newContent = $($html.filter(AJAX_SELECTOR)[0]).children();
+        var newScripts = $($html.filter(SCRIPTS_SELECTOR)[0]).children();
 
         NProgress.inc();
 
@@ -115,6 +118,7 @@ jQuery(function($) {
 
         function exchangeContent() {
           $targetContainer.html(newContent);
+          $scriptsContainer.html(newScripts);
           setLoading(false);
           addNavbarAffixFunctionality();
           addCollapseOnClick();
