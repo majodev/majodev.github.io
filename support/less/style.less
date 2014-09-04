@@ -301,6 +301,7 @@ blockquote {
 a:hover, a:focus {
   background: @color-links-bg-hover;
   text-decoration: none;
+  transition: color, 200ms, ease;
 }
 
 .block-footer a {
@@ -481,22 +482,26 @@ a:hover, a:focus {
 @media (min-width: @grid-float-breakpoint) {
   .navbar-default .navbar-nav > li > a:hover, 
   .navbar-default .navbar-nav > li > a:focus {
-    border-bottom: 2px solid;
+    border-bottom: 3px solid;
     border-bottom-color: @color-main-2; 
     background-color: transparent;
     color: @color-main-2;
     padding-top: 11.5px;
-    padding-bottom: 9.5px;
+    padding-bottom: 8.5px;
+    transition: none;
+    // transition-property: color, border-color;
+    // transition-duration: 200ms;
+    // transition: border-bottom-width 200ms ease;
   }
 
   .navbar-default .navbar-nav > .active > a,
   .navbar-default .navbar-nav > .active > a:hover,
   .navbar-default .navbar-nav > .active > a:focus {
-    border-bottom: 2px solid;
+    border-bottom: 3px solid;
     border-bottom-color: @color-main-1; 
     background-color: transparent;
     padding-top: 11.5px;
-    padding-bottom: 9.5px;
+    padding-bottom: 8.5px;
   }
 }
 
@@ -527,15 +532,14 @@ a:hover, a:focus {
 
 .notes-article-inner:hover {
   opacity: 0.9;
+  transition: opacity, 200ms, ease;
   //background: @gray-lighter;
 }
 
 .notes-article-inner:hover + p > .block-noteLink {
   color: @color-links-hover;
+  transition: color, 200ms, ease;
 }
-
-
-
 
 
 @import "printStyles.less";

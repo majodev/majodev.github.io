@@ -47,7 +47,7 @@ function plugin(options) {
       var $ = cheerio.load(data.contents.toString());
 
       $("h1,h2,h3,h4,h5,h6").each(function(index, element) {
-        var id = element.id;
+        var id = $(element).attr("id");
         if (!id) {
           id = ($(element).text()).replace(/&.*?;/g, '').replace(/\s+/g, '-').replace(/[^\w\-]/g, '').toLowerCase();
           if (idcache[id]) {
@@ -57,7 +57,7 @@ function plugin(options) {
           $(element).attr("id", id);
           idcache[id] = 1;
         } else {
-          console.log("got id:" + id);
+          // console.log(file + " got id:" + id);
         }
         $(element).prepend('<a class="heading-anchor" href="#' + id + '"><span></span></a>');
       });
