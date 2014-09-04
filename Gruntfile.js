@@ -284,7 +284,7 @@ module.exports = function(grunt) {
   grunt.registerTask("serverdelay", ["execute:testserver-gzip-delay"]);
 
   grunt.registerTask("build-dev", ["clean:build", "execute:metalsmith-dev", "less:development", "copy"]);
-  grunt.registerTask("build-productive", ["imagemin", "execute:metalsmith-productive", "css-productive", "uglify:js_src", "uglify:js", "uglify:js_head", "htmlmin", "copy:support-root", "copy:inject-fonts"]);
+  grunt.registerTask("build-productive", ["execute:metalsmith-productive", "css-productive", "uglify:js_src", "uglify:js", "uglify:js_head", "htmlmin", "copy:support-root", "copy:inject-fonts"]);
 
   grunt.registerTask("css-productive", ["less:productive", "autoprefixer", "cssmin:combine"]);
 };

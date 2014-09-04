@@ -375,13 +375,26 @@ a:hover, a:focus {
   color: @color-note-pager-hover;
 }
 
-.block-tagItem {
-  font-size: @font-size-small;
+.block-tagItem i, .block-tagItemHeader i {
+  font-size: 80%;
 }
 
 .block-noteReadingInfo {
   color: @gray-light;
 }
+
+.block-noteLink, .block-noteDate, .block-tagItem, .block-noteReadingInfo, .block-noteAuthor {
+  font-family: "PT Sans Narrow";
+  text-transform: uppercase;
+  font-size: @font-size-small;
+  font-weight: 400;
+}
+
+// .block-tagItemHeader {
+//   font-family: "PT Sans Narrow";
+//   text-transform: uppercase;
+//   font-weight: 400;
+// }
 
 .block-noteBreadcrumb {
   font-size: @font-size-smaller;
@@ -465,7 +478,7 @@ a:hover, a:focus {
   margin-bottom: 5px;
 }
 
-.block-noteInfo > h5 {
+.block-noteSubTitle > h5 {
   margin-top: 9px;
 }
 
@@ -503,9 +516,9 @@ a:hover, a:focus {
 // -----------------------------------------------------------------------------
 // page only styling
 
-.notes-article:hover {
-  opacity: 0.8;
-  // background: @gray-lighter;
+.notes-article-inner:hover {
+  // opacity: 0.8;
+  background: @gray-lighter;
 }
 
 .notes-article + .notes-article {

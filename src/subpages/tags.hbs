@@ -13,7 +13,7 @@ setHeadingsIDs: true
 
 <div class="tags">
   {{#each _sortedTags}}
-    <h3 id="{{tag}}">#{{tag}}</h3>
+    {{> tagItemHeader}}
     {{#withSortReverse children "date"}}
       {{> noteItemSmall}}
     {{/withSortReverse}}
