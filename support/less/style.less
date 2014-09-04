@@ -301,7 +301,10 @@ blockquote {
 a:hover, a:focus {
   background: @color-links-bg-hover;
   text-decoration: none;
-  transition: color, 200ms, ease;
+}
+
+a:link, a:visited, a:hover, a:focus, a:active {
+  transition: all, 200ms, cubic-bezier(0.165,0.630,0.140,0.820);
 }
 
 .block-footer a {
@@ -509,6 +512,8 @@ a:hover, a:focus {
 // -----------------------------------------------------------------------------
 // page only styling
 
+// notes.hbs ----
+
 .notes-article + .notes-article {
   margin-top: 25px;
 }
@@ -530,10 +535,15 @@ a:hover, a:focus {
   filter: alpha(opacity=1); /* Fix to make div clickable in IE */
 }
 
+.notes-article-inner {
+  transition: all, 200ms, ease;
+}
+
 .notes-article-inner:hover {
-  opacity: 0.9;
-  transition: opacity, 200ms, ease;
-  //background: @gray-lighter;
+  // color: #000;
+  // color: @color-links-hover;
+  opacity: 0.7;
+  // background: fade(@color-links-hover, 5%);
 }
 
 .notes-article-inner:hover + p > .block-noteLink {
