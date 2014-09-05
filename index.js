@@ -56,7 +56,8 @@ Metalsmith(__dirname)
   .source("./src")
   .destination("./build")
   .use(ignore([
-    "**/.DS_Store"
+    "**/.DS_Store",
+    "**/contact.md"
   ]))
   .use(filetimestamp())
   .use(permapath({

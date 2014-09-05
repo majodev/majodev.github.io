@@ -1,5 +1,5 @@
 ---
-title: Home
+title: Hello
 template: plain.hbs
 scripts:
 - index.js
@@ -16,8 +16,31 @@ full stack engineer, entrepreneur wanna-be, abstractor, generalist, nerd, indie 
 
 <div class="jumbotron">
   {{!-- <div class="container-fluid"> --}}
-    <h1>{{_author}}</h1>
-    <p>full stack engineer, entrepreneur wanna-be, abstractor, generalist, nerd, indie gamer, graduated information management MSc BSc</p>
-    <p><a class="btn btn-primary btn-lg" role="button"><i class="fa fa-twitter"></i>&nbsp;@majodev</a> <a class="btn btn-primary btn-lg" role="button"><i class="fa fa-paper-plane"></i>&nbsp;say hello</a></p>
+    <h1 class="text-center"><small>Hi! I'm </small>{{_author}}<small>, MSc BSc</small></h1>
+    <p class="text-center"><img src="/assets/img/twitter_pic_quad_500x500.png" height="250px" width="250px"></p>
+    <p class="text-center">full stack engineer, entrepreneur wanna-be, abstractor, generalist, nerd, indie gamer, graduated information management MSc BSc</p>
+    <p class="text-center"><a class="btn btn-primary btn-lg" role="button"><i class="fa fa-paper-plane"></i>&nbsp;say hello</a>&nbsp;<a class="btn btn-primary btn-lg" role="button"><i class="fa fa-twitter"></i>&nbsp;@majodev</a></p>
   {{!-- <div> --}}
 </div>
+
+{{!-- <div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-8">
+      <h1>Latest Note</h1>
+      {{#withFirst notes}}
+        <article class="notes-article">
+          <div class="notes-article-inner">
+            <a href="/{{path}}"></a>
+            {{> noteItem}}
+            {{> firstparagraph}}
+          </div>
+          <p class="no-margin no-padding">{{> noteLink}} · {{> tagList}} · {{> noteReadingInfo}}</p>
+        </article>
+      {{/withFirst}}
+    </div>
+    <div class="col-sm-4">
+      <h1>Tweets</h1>
+      <p>test</p>
+    </div>
+  </div>
+<div> --}}

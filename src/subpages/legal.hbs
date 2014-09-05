@@ -4,6 +4,8 @@ template: default.hbs
 sequence: 2
 ---
 
-<p>The opinions expressed herein are **exclusively** my own personal opinions and do not represent my employer's view in any way.</p>
+<p><i class="fa fa-copyright"></i> {{_year}} {{_author}} | {{> twitterLink}}</p>
 
-<p><a href="/">{{_sitename}}</a> is not responsible for externally hosted material, including linked articles, photos or any other media.</p>
+<p>The opinions expressed herein are <strong>exclusively my own personal opinions</strong> and do not represent my employer's view in any way.</p>
+
+<p>{{_author}} is not responsible for externally hosted material, including linked articles, photos or any other media.</p>
