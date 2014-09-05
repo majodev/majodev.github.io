@@ -120,7 +120,8 @@ jQuery(function($) {
           $targetContainer.html(newContent);
           $scriptsContainer.html(newScripts);
           setLoading(false);
-          addNavbarAffixFunctionality();
+          //addNavbarAffixFunctionality();
+          $(".navbar-fixed-top").headroom();
           addCollapseOnClick();
         }
 
@@ -213,8 +214,10 @@ jQuery(function($) {
     if (value === true) {
       NProgress.start();
       $body.addClass('loading');
+      $(".headroom").removeClass("headroom--unpinned");
+      $(".headroom").addClass("headroom--pinned");
     } else {
-      NProgress.done();
+      NProgress.done(true);
       $body.removeClass('loading');
     }
     loading = value;
@@ -305,25 +308,25 @@ jQuery(function($) {
     });
   }
 
-  function addNavbarAffixFunctionality() {
-    // add affix functionalities
-    $(".navbar-toggle-affix").affix({
-      offset: {
-        top: 1
-      }
-    });
-    $(".navbar-toggle-affix").on("click", function() {
+  // function addNavbarAffixFunctionality() {
+  //   // add affix functionalities
+  //   $(".navbar-toggle-affix").affix({
+  //     offset: {
+  //       top: 1
+  //     }
+  //   });
+  //   $(".navbar-toggle-affix").on("click", function() {
 
-      var currentY = $(window).scrollTop();
+  //     var currentY = $(window).scrollTop();
 
-      if (currentY > 10) {
-        $("html").velocity("scroll", {
-          offset: "0px"
-        });
-      }
+  //     if (currentY > 10) {
+  //       $("html").velocity("scroll", {
+  //         offset: "0px"
+  //       });
+  //     }
 
-    });
-  }
+  //   });
+  // }
 
   function addCollapseOnClick() {
     // http://stackoverflow.com/questions/16680543/hide-twitter-bootstrap-nav-collapse-on-click
@@ -336,7 +339,7 @@ jQuery(function($) {
 
   // config startup
 
-  addNavbarAffixFunctionality();
+  //addNavbarAffixFunctionality();
   addCollapseOnClick();
 
 });

@@ -8,3 +8,5 @@ NProgress.configure({
   trickleRate: 0.01,
   trickleSpeed: 100
 });
+
+$(".navbar-fixed-top").headroom();

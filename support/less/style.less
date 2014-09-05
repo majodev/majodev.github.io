@@ -54,6 +54,10 @@ html.no-js .navbar-toggle {
   display: none;
 }
 
+html.no-js .navbar-fixed-top {
+  position: relative; 
+}
+
 
 // -----------------------------------------------------------------------------
 // -----------------------------------------------------------------------------
@@ -146,7 +150,9 @@ body {
 
 .navbar {
   border: 0px;
-  z-index: @zindex-navbar;
+  //z-index: @zindex-navbar;
+  background: #fff;
+  opacity: 0.95;
 }
 
 @media (max-width: @grid-float-breakpoint-max) {
@@ -194,10 +200,10 @@ body {
   border-radius: 0px;
 }
 
-.navbar-toggle-affix {
-  right: 0;
-  z-index: 1001;
-}
+// .navbar-toggle-affix {
+//   right: 0;
+//   z-index: 1001;
+// }
 
 .navbar-collapse { // remove border from navbar collapse
   border-top: 0;
@@ -488,6 +494,17 @@ a:link, a:visited, a:hover, a:focus, a:active {
   color: @color-head;
 }
 
+.block-navBrandImage {
+  position: absolute;
+  top: 0;
+  left: 15px;
+  //z-index: @zindex-navbar-fixed + 1000;
+}
+
+.block-navBrandText {
+  padding-left: 52px;
+}
+
 // hack hack hack !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -557,6 +574,17 @@ a:link, a:visited, a:hover, a:focus, a:active {
 
 .notes-article-inner:hover + p > .block-noteLink {
   color: @color-links-hover;
+}
+
+
+.headroom {
+    transition: transform 200ms linear;
+}
+.headroom--pinned {
+    transform: translateY(0%);
+}
+.headroom--unpinned {
+    transform: translateY(-100%);
 }
 
 
