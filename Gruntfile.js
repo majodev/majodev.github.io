@@ -195,6 +195,20 @@ module.exports = function(grunt) {
         }]
       }
     },
+    xmlmin: { // Task
+      dist: { // Target
+        options: { // Target options
+          preserveComments: false
+        },
+        files: [{
+          expand: true, // Enable dynamic expansion.
+          cwd: 'build/', // Src matches are relative to this path.
+          src: ['**/*.xml'], // Actual pattern(s) to match.
+          dest: 'build/', // Destination path prefix.
+          ext: '.xml', // Dest filepaths will have this extension.
+        }]
+      }
+    },
     imagemin: {
       options: { // Target options
         optimizationLevel: 7
@@ -277,14 +291,35 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-imagemin');
   grunt.loadNpmTasks("grunt-modernizr");
   grunt.loadNpmTasks('grunt-autoprefixer');
+  grunt.loadNpmTasks('grunt-xmlmin');
 
-  grunt.registerTask("default", ["clean:temporary", "modernizr", "build-dev", "http-server:dev", "watch"]);
-  grunt.registerTask("productive", ["clean", "modernizr", "build-productive", "clean:temporary", "server"]);
-  grunt.registerTask("server", ["execute:testserver-gzip"]);
-  grunt.registerTask("serverdelay", ["execute:testserver-gzip-delay"]);
+  grunt.registerTask("default", [
+    "clean:temporary", "modernizr", "build-dev", "http-server:dev", "watch"
+  ]);
 
-  grunt.registerTask("build-dev", ["clean:build", "execute:metalsmith-dev", "less:development", "copy"]);
-  grunt.registerTask("build-productive", ["execute:metalsmith-productive", "css-productive", "uglify:js_src", "uglify:js", "uglify:js_head", "htmlmin", "copy:support-root", "copy:inject-fonts"]);
+  grunt.registerTask("productive", [
+    "clean", "modernizr", "build-productive", "clean:temporary", "server"
+  ]);
 
-  grunt.registerTask("css-productive", ["less:productive", "autoprefixer", "cssmin:combine"]);
+  grunt.registerTask("server", [
+    "execute:testserver-gzip"
+  ]);
+
+  grunt.registerTask("serverdelay", [
+    "execute:testserver-gzip-delay"
+  ]);
+
+  grunt.registerTask("build-dev", [
+    "clean:build", "execute:metalsmith-dev", "less:development", "copy"
+  ]);
+
+  grunt.registerTask("build-productive", [
+    "execute:metalsmith-productive", "css-productive", "uglify:js_src",
+    "uglify:js", "uglify:js_head", "htmlmin", "copy:support-root",
+    "copy:inject-fonts", "xmlmin"
+  ]);
+
+  grunt.registerTask("css-productive", [
+    "less:productive", "autoprefixer", "cssmin:combine"
+  ]);
 };

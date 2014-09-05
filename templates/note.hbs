@@ -1,25 +1,30 @@
 {{> pre}}
 <div id="wrapper">
   {{> header}}
-  {{> noteBreadcrumb}}
+  {{!-- {{> noteBreadcrumb}} --}}
+  {{!-- <div class="container-fluid">
+    {{> noteNavigator}}
+  </div> --}}
   <div class="template-note">
     <main>
       <article>
-        <div class="template-note-header container-fluid">
-          {{!-- <div class="container-fluid">  --}}
-            {{> noteTitle}}
-            {{> noteSubTitle}}
-          {{!-- </div> --}}
+        <div class="template-note-header-wrapper">
+          <div class="template-note-header container-fluid">
+            {{!-- <div class="container-fluid">  --}}
+              {{> noteNavigator}}
+              {{> noteTitle}}
+              {{> noteSubTitle}}
+            {{!-- </div> --}}
+          </div>
         </div>
         <div class="template-note-contents container-fluid">
           {{!-- <div class="container-fluid"> --}}
-            {{> contents}}
+{{> contents}}
           {{!-- </div> --}}
         </div>
         <div class="template-note-footer container-fluid">
           {{!-- <div class="container-fluid"> --}}
-            {{> noteSocial}}
-            {{> noteNavigator}}
+            {{!-- {{> noteSocial}} --}}
           {{!-- </div> --}}
         </div>
       </article>

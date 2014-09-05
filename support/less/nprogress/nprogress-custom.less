@@ -1,9 +1,10 @@
-@nprogress-height: 51px;
+@color-nprogress: @color-nav-bg-hover; //@color-nav;
+@nprogress-height: @header-nav-height;
 // @nprogress-spinner-tickness: 3px;
 // @nprogress-spinner-dimensions: 15px;
 // @nprogress-spinner-offset: 22px;
-@nprogress-opacity: 0.1;
-@nprogress-z-index: 0;
+@nprogress-opacity: 1;
+@nprogress-z-index: @zindex-navbar - 1;
 
 @header-offset-height: @nprogress-height; //@header-nav-height + @header-bar-height;
 @nprogress-positioning: fixed; //absolute;
