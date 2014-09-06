@@ -1,79 +1,79 @@
 {{!-- 0815 bootstrap nav! --}}
 
-<header class="block-header">
+{{!-- <header class=""> --}}
 
-  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container-fluid">
-      
+<header class="block-header navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container-fluid">
+    
 
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
-        <div class="navbar-toggle-affix" data-spy="affix">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-content">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-        </div>
-        <span>{{> navBrand}}{{> navBrandMobile}}</span>
-      </div><!-- /.navbar-header -->
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <div class="navbar-toggle-affix" data-spy="affix">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-content">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <span>{{> navBrand}}{{> navBrandMobile}}</span>
+    </div><!-- /.navbar-header -->
 
 
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="navbar-content">
-        <ul class="nav navbar-nav">
-          {{#each pages}}
-            {{#if path}} <!-- check non-root page -->
-              
-              {{#if ../../isNote}} <!-- note page -->
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="navbar-content">
+      <ul class="nav navbar-nav">
+        {{#each pages}}
+          {{#if path}} <!-- check non-root page -->
+            
+            {{#if ../../isNote}} <!-- note page -->
 
-                {{#is path "notes/"}} <!-- page path matches notes/ path! -->
-                  {{> navPageActive}} <!-- note page selected! -->
-                {{else}}
-                  {{> navPage}} <!-- note page NOT selected! -->
-                {{/is}}
+              {{#is path "notes/"}} <!-- page path matches notes/ path! -->
+                {{> navPageActive}} <!-- note page selected! -->
+              {{else}}
+                {{> navPage}} <!-- note page NOT selected! -->
+              {{/is}}
 
-              {{else}} <!-- normal page -->
+            {{else}} <!-- normal page -->
 
-                {{#is ../../../path path}} <!-- page path matches current path! -->
-                  {{> navPageActive}} <!-- normal page selected! -->
-                {{else}}
-                  {{> navPage}} <!-- normal page NOT selected! -->
-                {{/is}}
+              {{#is ../../../path path}} <!-- page path matches current path! -->
+                {{> navPageActive}} <!-- normal page selected! -->
+              {{else}}
+                {{> navPage}} <!-- normal page NOT selected! -->
+              {{/is}}
 
-              {{/if}}
-
-            {{else}} <!-- root page (index.md) -->
-              
-              {{#unless ../../path}} <!-- has the current page a path? -->
-                {{#if ../../../skipPermalink}} <!-- was it permalink skipped? -->
-                  {{> navPage}} <!-- non permalinked page selected! -->
-                {{else}}
-                  {{> navPageActive}} <!-- root page selected! -->
-                {{/if}}
-              {{else}} 
-                {{> navPage}} <!-- root page NOT selected! -->
-              {{/unless}}
-              
             {{/if}}
-          {{/each}}
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-          {{#each subpages}}
 
-            {{#is ../path path}} <!-- subpages -->
-              {{> navSubPageActive}} <!-- subpage selected! -->
-            {{else}}
-              {{> navSubPage}} <!-- subpage NOT selected! -->
-            {{/is}}
+          {{else}} <!-- root page (index.md) -->
+            
+            {{#unless ../../path}} <!-- has the current page a path? -->
+              {{#if ../../../skipPermalink}} <!-- was it permalink skipped? -->
+                {{> navPage}} <!-- non permalinked page selected! -->
+              {{else}}
+                {{> navPageActive}} <!-- root page selected! -->
+              {{/if}}
+            {{else}} 
+              {{> navPage}} <!-- root page NOT selected! -->
+            {{/unless}}
+            
+          {{/if}}
+        {{/each}}
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        {{#each subpages}}
 
-          {{/each}}
-        </ul>
-      </div><!-- /.navbar-collapse -->
+          {{#is ../path path}} <!-- subpages -->
+            {{> navSubPageActive}} <!-- subpage selected! -->
+          {{else}}
+            {{> navSubPage}} <!-- subpage NOT selected! -->
+          {{/is}}
+
+        {{/each}}
+      </ul>
+    </div><!-- /.navbar-collapse -->
 
 
-    </div><!-- /.container-fluid -->
-  </nav>
+  </div><!-- /.container-fluid -->
+{{!--   </nav> --}}
 </header>
 

@@ -9,4 +9,4 @@ NProgress.configure({
   trickleSpeed: 100
 });
 
-$(".navbar-fixed-top").headroom();
+$(".block-header").headroom();

@@ -121,7 +121,7 @@ jQuery(function($) {
           $scriptsContainer.html(newScripts);
           setLoading(false);
           //addNavbarAffixFunctionality();
-          $(".navbar-fixed-top").headroom();
+          $(".block-header").headroom();
           addCollapseOnClick();
         }
 
@@ -214,8 +214,12 @@ jQuery(function($) {
     if (value === true) {
       NProgress.start();
       $body.addClass('loading');
-      $(".headroom").removeClass("headroom--unpinned");
-      $(".headroom").addClass("headroom--pinned");
+      // $(".block-header").removeClass("headroom");
+      // $(".block-header").removeClass("headroom--unpinned");
+      $(".block-header").addClass("headroom-forceShow");
+      // $(".block-header").removeClass("headroom--top");
+      // $(".block-header").removeClass("headroom--not-top");
+      
     } else {
       NProgress.done(true);
       $body.removeClass('loading');

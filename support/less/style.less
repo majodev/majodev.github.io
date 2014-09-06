@@ -124,6 +124,7 @@ body {
 }
 
 #wrapper {
+  margin-top: @header-nav-height;
   z-index: 0;
   min-height: 100%;
 }
@@ -294,6 +295,10 @@ blockquote {
 
 .block-header {
   font-weight: 600;
+}
+
+.jumbotron {
+  margin-bottom: 0px;
 }
 
 
@@ -577,13 +582,24 @@ a:link, a:visited, a:hover, a:focus, a:active {
 
 
 .headroom {
-    transition: transform 200ms linear;
+  // position: fixed;
+  // top: 0;
+  // left: 0;
+  // right: 0;
+  transition: transform 200ms linear;
 }
 .headroom--pinned {
-    transform: translateY(0%);
+  // top: 0;
+  transform: translateY(0%);
 }
 .headroom--unpinned {
-    transform: translateY(-100%);
+  // top: -@header-nav-height;
+  transform: translateY(-100%);
+}
+
+.headroom-forceShow {
+  // transition: none !important;
+  transform: translateY(0%) !important;
 }
 
 
