@@ -10,7 +10,7 @@ module.exports = function(grunt) {
       },
       "metalsmith-productive": {
         options: {
-          args: ["productive"]
+          args: ["--productive"]
         },
         src: ["index.js"]
       },

@@ -15,18 +15,10 @@ var path = require('path');
 var fs = require('fs');
 var _ = require("lodash");
 
+var argv = require('minimist')(process.argv.slice(2));
 
-var emulateDelayMaxMS = 0;
-var emulateDelayMinMS = 0;
-
-if (process.argv[2] === "--maxdelay" && _.isNaN(Number(process.argv[3])) === false) {
-  emulateDelayMaxMS = Number(process.argv[3]);
-}
-
-if (process.argv[4] === "--mindelay" && _.isNaN(Number(process.argv[5])) === false) {
-  emulateDelayMinMS = Number(process.argv[5]);
-}
-
+var emulateDelayMaxMS = argv.maxdelay > 0 ? argv.maxdelay : 0;
+var emulateDelayMinMS = argv.mindelay > 0 ? argv.mindelay : 0;
 
 
 http.createServer(function(request, response) {
@@ -122,4 +114,4 @@ function getRandomInt(min, max) {
   return delay;
 }
 
-console.log('Serving compressed files on http://localhost:' + port + " (scripts/testserver-gzip.js)");
+console.log('Serving compressed files on http://localhost:' + port + " mindelay: " + emulateDelayMinMS + " maxdelay: " + emulateDelayMaxMS);

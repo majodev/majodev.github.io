@@ -1,4 +1,5 @@
 // node generic libs
+var argv = require('minimist')(process.argv.slice(2));
 var moment = require("moment");
 
 // metalsmith plugins
@@ -33,10 +34,12 @@ registerPartials("templates/base");
 registerPartials("templates/blocks");
 
 // check commandline args if development version should be generated!
-var dev = process.argv[2] !== "productive" ? true : false;
+var dev = argv.productive === true ? false : true;
 
 if (dev === false) {
   console.log("-- metalsmith generates productive build...");
+} else {
+  console.log("-- metalsmith generates development build...");
 }
 
 // metalsmith pipeline
