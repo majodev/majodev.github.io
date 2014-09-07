@@ -276,6 +276,12 @@ module.exports = function(grunt) {
         src: ['**/*.css'],
         dest: '_tmp/'
       }
+    },
+    "git-describe": {
+      "options": {
+        template: "{%=object%}{%=dirty%}"
+      },
+      repo: {},
     }
   });
 
@@ -292,6 +298,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks("grunt-modernizr");
   grunt.loadNpmTasks('grunt-autoprefixer');
   grunt.loadNpmTasks('grunt-xmlmin');
+  grunt.loadNpmTasks('grunt-git-describe');
 
   grunt.registerTask("default", [
     "clean:temporary", "modernizr", "build-dev", "http-server:dev", "watch"
@@ -322,4 +329,12 @@ module.exports = function(grunt) {
   grunt.registerTask("css-productive", [
     "less:productive", "autoprefixer", "cssmin:combine"
   ]);
+
+  grunt.registerTask('get-git-revision', function() {
+    grunt.event.once('git-describe', function(rev) {
+      // grunt.log.writeln("Git Revision: " + rev);
+      grunt.option('gitRevision', rev);
+    });
+    grunt.task.run('git-describe');
+  });
 };

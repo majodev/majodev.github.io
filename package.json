@@ -44,6 +44,7 @@
     "grunt-contrib-uglify": "^0.5.1",
     "grunt-contrib-watch": "^0.6.1",
     "grunt-execute": "^0.2.2",
+    "grunt-git-describe": "^2.3.2",
     "grunt-http-server": "0.0.5",
     "grunt-modernizr": "^0.5.2",
     "grunt-xmlmin": "^0.1.1"
