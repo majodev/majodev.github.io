@@ -1,10 +1,14 @@
 @color-nprogress: @color-nav;
+@color-nprogress-spinner: @color-links;
 @nprogress-height: @header-nav-height;
-// @nprogress-spinner-tickness: 3px;
-// @nprogress-spinner-dimensions: 15px;
-// @nprogress-spinner-offset: 22px;
-@nprogress-opacity: 1;
-@nprogress-z-index: @zindex-navbar-fixed -1;
+@nprogress-spinner-tickness: 3px;
+@nprogress-spinner-dimensions: 46px;
+@nprogress-spinner-offset-top: 2px;
+@nprogress-spinner-offset-left: 12px;
+@nprogress-opacity: 0.9;
+@nprogress-spinner-opacity: 0.65;
+@nprogress-z-index: @zindex-navbar-fixed - 1;
+@nprogress-z-index-spinner: @zindex-navbar-fixed + 1;
 
 @header-offset-height: @nprogress-height; //@header-nav-height + @header-bar-height;
 @nprogress-positioning: fixed; //absolute;
@@ -56,58 +60,59 @@
 // }
 
 /* Remove these to get rid of the spinner */
-// #nprogress .spinner {
-//   // normal...
-//   display: block;
-//   position: fixed;
-//   //bottom: @nprogress-spinner-offset + @nprogress-height;
-//   right: 5px;
-//   //left: @nprogress-spinner-offset;
-//   top: (@header-offset-height - @nprogress-spinner-offset);
-//   z-index: @nprogress-z-index;
+#nprogress .spinner {
+  // normal...
+  display: block;
+  position: fixed;
+  //bottom: @nprogress-spinner-offset + @nprogress-height;
+  // right: 5px;
+  left: @nprogress-spinner-offset-left;
+  top: @nprogress-spinner-offset-top;
+  z-index: @nprogress-z-index-spinner;
   
-//   // centering...
-//   // margin: auto;
-//   // position: fixed;
-//   // width: @nprogress-spinner-dimensions;
-//   // height: @nprogress-spinner-dimensions;
-//   // top: 0; 
-//   // left: 0; 
-//   // bottom: 0; 
-//   // right: 0;
-// }
+  // centering...
+  // margin: auto;
+  // position: fixed;
+  // width: @nprogress-spinner-dimensions;
+  // height: @nprogress-spinner-dimensions;
+  // top: 0; 
+  // left: 0; 
+  // bottom: 0; 
+  // right: 0;
+}
 
-// #nprogress .spinner-icon {
-//   width: @nprogress-spinner-dimensions;
-//   height: @nprogress-spinner-dimensions;
-//   box-sizing: border-box;
+#nprogress .spinner-icon {
+  z-index: @nprogress-z-index-spinner;
+  width: @nprogress-spinner-dimensions;
+  height: @nprogress-spinner-dimensions;
+  box-sizing: border-box;
 
-//   border: solid @nprogress-spinner-tickness transparent;
-//   border-top-color: @color-nprogress;
-//   border-left-color: @color-nprogress;
-//   border-radius: 50%;
-//   opacity: 1;
+  border: solid @nprogress-spinner-tickness transparent;
+  border-top-color: @color-nprogress-spinner;
+  border-left-color: @color-nprogress-spinner;
+  border-radius: 50%;
+  opacity: @nprogress-spinner-opacity;
 
-//   -webkit-animation: nprogress-spinner 400ms linear infinite;
-//           animation: nprogress-spinner 400ms linear infinite;
-// }
+  -webkit-animation: nprogress-spinner 800ms linear infinite;
+          animation: nprogress-spinner 800ms linear infinite;
+}
 
-// .nprogress-custom-parent {
-//   overflow: hidden;
-//   position: relative;
-// }
+.nprogress-custom-parent {
+  overflow: hidden;
+  position: relative;
+}
 
-// .nprogress-custom-parent #nprogress .spinner,
+.nprogress-custom-parent #nprogress .spinner,
 .nprogress-custom-parent #nprogress .bar {
   position: @nprogress-positioning;
 }
 
-// @-webkit-keyframes nprogress-spinner {
-//   0%   { -webkit-transform: rotate(0deg); }
-//   100% { -webkit-transform: rotate(360deg); }
-// }
-// @keyframes nprogress-spinner {
-//   0%   { transform: rotate(0deg); }
-//   100% { transform: rotate(360deg); }
-// }
+@-webkit-keyframes nprogress-spinner {
+  0%   { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+@keyframes nprogress-spinner {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
 

@@ -3,10 +3,8 @@ $(function() {
 });
 
 NProgress.configure({
-  showSpinner: false,
+  showSpinner: true,
   minimum: 0.2,
   trickleRate: 0.01,
   trickleSpeed: 100
 });
-
-$(".block-header").headroom();

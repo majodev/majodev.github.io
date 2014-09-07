@@ -121,7 +121,7 @@ jQuery(function($) {
           $scriptsContainer.html(newScripts);
           setLoading(false);
           //addNavbarAffixFunctionality();
-          $(".block-header").headroom();
+          initHeadroom();
           addCollapseOnClick();
         }
 
@@ -214,12 +214,7 @@ jQuery(function($) {
     if (value === true) {
       NProgress.start();
       $body.addClass('loading');
-      // $(".block-header").removeClass("headroom");
-      // $(".block-header").removeClass("headroom--unpinned");
-      $(".block-header").addClass("headroom-forceShow");
-      // $(".block-header").removeClass("headroom--top");
-      // $(".block-header").removeClass("headroom--not-top");
-      
+      forceShowHeadroom();
     } else {
       NProgress.done(true);
       $body.removeClass('loading');
@@ -341,9 +336,25 @@ jQuery(function($) {
     });
   }
 
+  function initHeadroom() {
+    // `Headroom.cutsTheMustard` is only true if browser supports all features required by headroom.
+    // By guarding your code with this condition, the widget will safely degrade
+    // https://github.com/WickyNilliams/headroom.js/issues/64
+    if (Headroom.cutsTheMustard) {
+      $(".block-header").headroom();
+    }
+  }
+
+  function forceShowHeadroom() {
+    if (Headroom.cutsTheMustard) {
+      $(".block-header").addClass("headroom-forceShow");
+    }
+  }
+
   // config startup
 
   //addNavbarAffixFunctionality();
   addCollapseOnClick();
+  initHeadroom();
 
 });
