@@ -36,6 +36,8 @@ registerPartials("templates/blocks");
 // check commandline args if development version should be generated!
 var dev = argv.productive === true ? false : true;
 
+console.log(argv);
+
 if (dev === false) {
   console.log("-- metalsmith generates productive build...");
 } else {
@@ -54,7 +56,8 @@ Metalsmith(__dirname)
     _keywords: "Mario Ranftl, majodev, personal website, portfolio",
     _builddate: moment().format("DD MMM YYYY, HH:mm Z"),
     _year: moment().format("YYYY"),
-    _inject: injectFiles(dev) // holds all external client libs
+    _inject: injectFiles(dev), // holds all external client libs
+    _gitrevision: argv.gitrevision ? argv.gitrevision : "no git revision set"
   })
   .source("./src")
   .destination("./build")

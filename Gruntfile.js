@@ -6,11 +6,14 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON("package.json"),
     execute: {
       "metalsmith-dev": {
+        options: {
+          args: ["--gitrevision", "<%=grunt.option('gitRevision')%>"]
+        },
         src: ["index.js"]
       },
       "metalsmith-productive": {
         options: {
-          args: ["--productive"]
+          args: ["--productive", "--gitrevision", "<%=grunt.option('gitRevision')%>"]
         },
         src: ["index.js"]
       },
@@ -285,6 +288,10 @@ module.exports = function(grunt) {
     }
   });
 
+  // ---
+  // load required tasks
+  // ---
+
   grunt.loadNpmTasks("grunt-execute");
   grunt.loadNpmTasks("grunt-contrib-watch");
   grunt.loadNpmTasks("grunt-http-server");
@@ -300,6 +307,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-xmlmin');
   grunt.loadNpmTasks('grunt-git-describe');
 
+  // ---
+  // main tasks
+  // ---
+
   grunt.registerTask("default", [
     "clean:temporary", "modernizr", "build-dev", "http-server:dev", "watch"
   ]);
@@ -307,6 +318,32 @@ module.exports = function(grunt) {
   grunt.registerTask("productive", [
     "clean", "modernizr", "build-productive", "clean:temporary", "server"
   ]);
+
+  // ---
+  // dev tasks
+  // ---
+
+  grunt.registerTask("build-dev", [
+    "clean:build", "get-git-revision", "execute:metalsmith-dev", "less:development", "copy"
+  ]);
+
+  // ---
+  // productive tasks
+  // ---
+
+  grunt.registerTask("build-productive", [
+    "get-git-revision", "execute:metalsmith-productive", "css-productive", "uglify:js_src",
+    "uglify:js", "uglify:js_head", "htmlmin", "copy:support-root",
+    "copy:inject-fonts", "xmlmin"
+  ]);
+
+  grunt.registerTask("css-productive", [
+    "less:productive", "autoprefixer", "cssmin:combine"
+  ]);
+
+  // ---
+  // webserver tasks
+  // ---
 
   grunt.registerTask("server", [
     "execute:testserver-gzip"
@@ -316,25 +353,15 @@ module.exports = function(grunt) {
     "execute:testserver-gzip-delay"
   ]);
 
-  grunt.registerTask("build-dev", [
-    "clean:build", "execute:metalsmith-dev", "less:development", "copy"
-  ]);
-
-  grunt.registerTask("build-productive", [
-    "execute:metalsmith-productive", "css-productive", "uglify:js_src",
-    "uglify:js", "uglify:js_head", "htmlmin", "copy:support-root",
-    "copy:inject-fonts", "xmlmin"
-  ]);
-
-  grunt.registerTask("css-productive", [
-    "less:productive", "autoprefixer", "cssmin:combine"
-  ]);
+  // ---
+  // minor tasks
+  // ---
 
   grunt.registerTask('get-git-revision', function() {
     grunt.event.once('git-describe', function(rev) {
-      // grunt.log.writeln("Git Revision: " + rev);
       grunt.option('gitRevision', rev);
     });
     grunt.task.run('git-describe');
   });
+
 };
