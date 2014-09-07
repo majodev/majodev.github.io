@@ -36,8 +36,6 @@ registerPartials("templates/blocks");
 // check commandline args if development version should be generated!
 var dev = argv.productive === true ? false : true;
 
-console.log(argv);
-
 if (dev === false) {
   console.log("-- metalsmith generates productive build...");
 } else {
