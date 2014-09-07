@@ -1,13 +1,13 @@
 @color-nprogress: @color-nav;
-@color-nprogress-spinner: @color-links;
-@nprogress-height: @header-nav-height;
-@nprogress-spinner-tickness: 3px;
-@nprogress-spinner-dimensions: 46px;
-@nprogress-spinner-offset-top: 2px;
-@nprogress-spinner-offset-left: 12px;
+@color-nprogress-spinner: @color-nav;
+@nprogress-height: 2px;
+@nprogress-spinner-tickness: 2px;
+@nprogress-spinner-dimensions: 44px;
+@nprogress-spinner-offset-top: 3px;
+@nprogress-spinner-offset-left: 13px;
 @nprogress-opacity: 0.9;
-@nprogress-spinner-opacity: 0.65;
-@nprogress-z-index: @zindex-navbar-fixed - 1;
+@nprogress-spinner-opacity: 0.9;
+@nprogress-z-index: @zindex-navbar-fixed + 1;
 @nprogress-z-index-spinner: @zindex-navbar-fixed + 1;
 
 @header-offset-height: @nprogress-height; //@header-nav-height + @header-bar-height;
@@ -29,21 +29,6 @@
   opacity: @nprogress-opacity;
 }
 
-/* Fancy blur effect (for bottom spinner-line! )*/
-// #nprogress .peg {
-//   display: block;
-//   position: absolute;
-//   right: 0px;
-//   width: 100px;
-//   height: 100%;
-//   box-shadow: 0 0 10px @color-nprogress, 0 0 5px @color-nprogress;
-//   opacity: 1.0;
-
-//   -webkit-transform: rotate(-3deg) translate(0px, 4px);
-//       -ms-transform: rotate(-3deg) translate(0px, 4px);
-//           transform: rotate(-3deg) translate(0px, 4px);
-// }
-
 /* Fancy blur effect (for top spinner line)*/
 // #nprogress .peg {
 //   display: block;
@@ -59,43 +44,6 @@
 //           transform: rotate(3deg) translate(0px, -4px);
 // }
 
-/* Remove these to get rid of the spinner */
-#nprogress .spinner {
-  // normal...
-  display: block;
-  position: fixed;
-  //bottom: @nprogress-spinner-offset + @nprogress-height;
-  // right: 5px;
-  left: @nprogress-spinner-offset-left;
-  top: @nprogress-spinner-offset-top;
-  z-index: @nprogress-z-index-spinner;
-  
-  // centering...
-  // margin: auto;
-  // position: fixed;
-  // width: @nprogress-spinner-dimensions;
-  // height: @nprogress-spinner-dimensions;
-  // top: 0; 
-  // left: 0; 
-  // bottom: 0; 
-  // right: 0;
-}
-
-#nprogress .spinner-icon {
-  z-index: @nprogress-z-index-spinner;
-  width: @nprogress-spinner-dimensions;
-  height: @nprogress-spinner-dimensions;
-  box-sizing: border-box;
-
-  border: solid @nprogress-spinner-tickness transparent;
-  border-top-color: @color-nprogress-spinner;
-  border-left-color: @color-nprogress-spinner;
-  border-radius: 50%;
-  opacity: @nprogress-spinner-opacity;
-
-  -webkit-animation: nprogress-spinner 800ms linear infinite;
-          animation: nprogress-spinner 800ms linear infinite;
-}
 
 .nprogress-custom-parent {
   overflow: hidden;
@@ -107,6 +55,40 @@
   position: @nprogress-positioning;
 }
 
+// default spinner
+
+/* Remove these to get rid of the spinner */
+#nprogress .spinner {
+  display: block;
+  position: @nprogress-positioning;
+  left: @nprogress-spinner-offset-left;
+  top: @nprogress-spinner-offset-top;
+  z-index: @nprogress-z-index-spinner;
+}
+
+#nprogress .spinner-icon {
+  z-index: @nprogress-z-index-spinner;
+  width: @nprogress-spinner-dimensions;
+  height: @nprogress-spinner-dimensions;
+  box-sizing: border-box;
+
+  border: solid @nprogress-spinner-tickness transparent;
+  border-top-color: @color-nprogress-spinner;
+  // border-left-color: @color-nprogress-spinner;
+
+  // border-bottom: @nprogress-spinner-tickness solid @color-nprogress-spinner;
+  // border-left: @nprogress-spinner-tickness solid @color-nprogress-spinner;
+  // border-top: @nprogress-spinner-tickness solid @color-nprogress-spinner;
+  // border-right: @nprogress-spinner-tickness solid fade(@color-nprogress-spinner, 10%);
+
+  border-radius: 50%;
+  opacity: @nprogress-spinner-opacity;
+
+  -webkit-animation: nprogress-spinner 600ms linear infinite;
+          animation: nprogress-spinner 600ms linear infinite;
+}
+
+
 @-webkit-keyframes nprogress-spinner {
   0%   { -webkit-transform: rotate(0deg); }
   100% { -webkit-transform: rotate(360deg); }
@@ -115,4 +97,3 @@
   0%   { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
-

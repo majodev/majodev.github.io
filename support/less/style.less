@@ -58,7 +58,7 @@ html.no-js .navbar-fixed-top {
   position: relative; 
 }
 
-html.no-js .template-default, html.no-js .template-plain, html.no-js .template-note {
+html.no-js .pushdown-header {
   padding-top: 0px;
 }
 
@@ -131,7 +131,7 @@ body {
 // -----------------------------------------------------------------------------
 // nav positioning & style
 
-.template-default, .template-plain, .template-note {
+.pushdown-header {
   padding-top: @header-nav-height;
 }
 
@@ -202,6 +202,13 @@ body {
   border-top: 0;
   box-shadow: none;
 }
+
+@media (min-width: @grid-float-breakpoint) {
+  .navbar-nav.navbar-right:last-child {
+    margin-right: -5px;
+  }
+}
+
 
 
 // -----------------------------------------------------------------------------
