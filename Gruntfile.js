@@ -227,7 +227,7 @@ module.exports = function(grunt) {
     },
     modernizr: {
       dist: {
-        "devFile": "bower_components/modernizr/modernizr.js", // [REQUIRED] Path to the build you're using for development.
+        "devFile": "node_modules/modernizr/dist/modernizr-build.js", // [REQUIRED] Path to the build you're using for development.
         "outputFile": "_tmp/modernizr-custom.js", // [REQUIRED] Path to save out the built file.
         "extra": { // Based on default settings on http://modernizr.com/download/
           "shiv": true,
@@ -285,6 +285,23 @@ module.exports = function(grunt) {
         template: "{%=object%}{%=dirty%}"
       },
       repo: {},
+    },
+    shell: {
+      options: {
+        stderr: true
+      },
+      init_modernizr_dependencies: {
+        command: [
+          "cd node_modules/modernizr",
+          "npm install -d"
+        ].join("&&")
+      },
+      build_modernizr: {
+        command: [
+          "cd node_modules/modernizr",
+          "grunt build"
+        ].join("&&")
+      }
     }
   });
 
@@ -306,10 +323,15 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-autoprefixer');
   grunt.loadNpmTasks('grunt-xmlmin');
   grunt.loadNpmTasks('grunt-git-describe');
+  grunt.loadNpmTasks('grunt-shell');
 
   // ---
   // main tasks
   // ---
+
+  grunt.registerTask("init", [
+    "shell:init_modernizr_dependencies", "shell:build_modernizr"
+  ]);
 
   grunt.registerTask("default", [
     "clean:temporary", "modernizr", "build-dev", "http-server:dev", "watch"

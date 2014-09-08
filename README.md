@@ -4,13 +4,12 @@ website source code hosted on majodev.github.io and **ranf.tl**!
 
 ## Prerequites
 These have to be installed globally:
-- node / npm
-- bower
-- grunt
+- node
+- grunt (`npm install -g grunt-cli`)
 
 ```bash
-  npm install
-  bower install
+  npm install -d // install all project dependencies
+  grunt init // init project (modernizr build, ...)
 ```
 
 ## Build (dev environment)
@@ -18,9 +17,14 @@ These have to be installed globally:
   grunt
 ```
 
-go to localhost:8080 and enjoy.
+go to `localhost:8080`.
 
-## Build (productive)
+## Build (productive) and start a gzip server
 ```bash
   grunt productive
+```
+
+## Run gzip server with emulated delay
+```bash
+  grunt serverdelay
 ```

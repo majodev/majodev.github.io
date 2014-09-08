@@ -7,10 +7,9 @@
         "support/less/includes",
         "support/less/bootstrap",
         "support/less/nprogress",
-        "bower_components/bootstrap/less",
-        "bower_components/lato/less",
-        "bower_components/font-awesome/css",
-        "bower_components/highlightjs/src/styles"
+        "node_modules/bootstrap/less",
+        "node_modules/font-awesome/css",
+        "node_modules/highlight.js/styles"
       ],
       "src": "support/less/style.less",
       "dest": "build/assets/css/style.css"
@@ -19,15 +18,15 @@
       "_tmp/modernizr-custom.js"
     ],
     "js": [
-      "bower_components/jquery/dist/jquery.js",
-      "bower_components/velocity/velocity.js",
-      "bower_components/fastclick/lib/fastclick.js",
-      "bower_components/headroom.js/dist/headroom.js",
-      "bower_components/headroom.js/dist/jQuery.headroom.js",
-      "bower_components/bootstrap/js/transition.js",
-      "bower_components/bootstrap/js/collapse.js",
-      "bower_components/history.js/scripts/bundled-uncompressed/html4+html5/jquery.history.js",
-      "bower_components/nprogress/nprogress.js",
+      "node_modules/jquery/dist/jquery.js",
+      "node_modules/velocity-animate/velocity.js",
+      "node_modules/fastclick/lib/fastclick.js",
+      "node_modules/headroom.js/dist/headroom.js",
+      "node_modules/headroom.js/dist/jQuery.headroom.js",
+      "node_modules/bootstrap/js/transition.js",
+      "node_modules/bootstrap/js/collapse.js",
+      "node_modules/historyjs/scripts/bundled-uncompressed/html4+html5/jquery.history.js",
+      "node_modules/nprogress/nprogress.js",
       "support/js/consoleErrors.js",
       "support/js/configure.js",
       "support/js/ajax.js",
@@ -35,8 +34,7 @@
       "support/js/disclaimer.js"
     ],
     "fonts": [
-      "bower_components/font-awesome/fonts/fontawesome-webfont.*",
-      "bower_components/lato/font/lato-*.*"
+      "node_modules/font-awesome/fonts/fontawesome-webfont.*"
     ],
     "metalsmithBaseDir": {
       "css": "/assets/css/",
