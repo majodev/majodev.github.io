@@ -155,7 +155,12 @@ body {
   .block-navBrand {
     padding-right: 0px;
   }
+
 }
+
+// .navbar-collapse.collapse.in { // remove opacity background on show collapse
+//   background: #fff;
+// }
 
 // mobile navbar button styling...
 
@@ -206,6 +211,33 @@ body {
 @media (min-width: @grid-float-breakpoint) {
   .navbar-nav.navbar-right:last-child {
     margin-right: -5px;
+  }
+}
+
+// overwride default nav non collapsed with underline
+@media (min-width: @grid-float-breakpoint) {
+  .navbar-default .navbar-nav > .active > a,
+  .navbar-default .navbar-nav > .active > a:hover,
+  .navbar-default .navbar-nav > .active > a:focus,
+  .navbar-default .navbar-nav > li > a:hover, 
+  .navbar-default .navbar-nav > li > a:focus {
+    border-bottom: 2px solid;
+    background-color: transparent;
+    padding-top: 11.5px;
+    padding-bottom: 9.5px;
+  }
+
+  .navbar-default .navbar-nav > li > a:hover, 
+  .navbar-default .navbar-nav > li > a:focus {
+    border-bottom-color: @color-nav-bg-active; 
+    color: @color-nav-bg-active;
+    transition-property: color;
+  }
+
+  .navbar-default .navbar-nav > .active > a,
+  .navbar-default .navbar-nav > .active > a:hover,
+  .navbar-default .navbar-nav > .active > a:focus {
+    border-bottom-color: @color-main-1; 
   }
 }
 
@@ -538,33 +570,6 @@ a:link, a:visited, a:hover, a:focus, a:active {
 
 .block-navBrandText {
   padding-left: 42px;
-}
-
-// hack hack hack !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-// hack to test nav with item underline
-@media (min-width: @grid-float-breakpoint) {
-  .navbar-default .navbar-nav > li > a:hover, 
-  .navbar-default .navbar-nav > li > a:focus {
-    border-bottom: 2px solid;
-    border-bottom-color: @color-main-2; 
-    background-color: transparent;
-    color: @color-main-2;
-    padding-top: 11.5px;
-    padding-bottom: 9.5px;
-    transition: none;
-  }
-
-  .navbar-default .navbar-nav > .active > a,
-  .navbar-default .navbar-nav > .active > a:hover,
-  .navbar-default .navbar-nav > .active > a:focus {
-    border-bottom: 2px solid;
-    border-bottom-color: @color-main-1; 
-    background-color: transparent;
-    padding-top: 11.5px;
-    padding-bottom: 9.5px;
-  }
 }
 
 // -----------------------------------------------------------------------------

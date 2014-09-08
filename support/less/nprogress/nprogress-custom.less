@@ -1,12 +1,17 @@
-@color-nprogress: @color-nav;
-@color-nprogress-spinner: @color-nav;
+@color-nprogress: @color-links;
+@color-nprogress-spinner: @color-links-hover;
+
 @nprogress-height: 2px;
-@nprogress-spinner-tickness: 2px;
-@nprogress-spinner-dimensions: 44px;
-@nprogress-spinner-offset-top: 3px;
-@nprogress-spinner-offset-left: 13px;
-@nprogress-opacity: 0.9;
-@nprogress-spinner-opacity: 0.9;
+
+@nprogress-spinner-tickness: 8px;
+@nprogress-spinner-dimensions: 42px;
+
+@nprogress-spinner-offset-top: (50px - @nprogress-spinner-dimensions) / 2;
+@nprogress-spinner-offset-left: 10px + ((50px - @nprogress-spinner-dimensions) / 2);
+
+@nprogress-opacity: 1;
+@nprogress-spinner-opacity: 0.75;
+
 @nprogress-z-index: @zindex-navbar-fixed + 1;
 @nprogress-z-index-spinner: @zindex-navbar-fixed + 1;
 
@@ -74,7 +79,7 @@
 
   border: solid @nprogress-spinner-tickness transparent;
   border-top-color: @color-nprogress-spinner;
-  // border-left-color: @color-nprogress-spinner;
+  border-left-color: @color-nprogress-spinner;
 
   // border-bottom: @nprogress-spinner-tickness solid @color-nprogress-spinner;
   // border-left: @nprogress-spinner-tickness solid @color-nprogress-spinner;
@@ -84,8 +89,8 @@
   border-radius: 50%;
   opacity: @nprogress-spinner-opacity;
 
-  -webkit-animation: nprogress-spinner 600ms linear infinite;
-          animation: nprogress-spinner 600ms linear infinite;
+  -webkit-animation: nprogress-spinner 400ms linear infinite;
+          animation: nprogress-spinner 400ms linear infinite;
 }
 
 
