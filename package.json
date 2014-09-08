@@ -1,19 +1,29 @@
 {
   "name": "majodev.github.io",
   "homepage": "http://ranf.tl",
-  "version": "0.0.1",
-  "description": "ranf.tl | Mario Ranftl | majodev webpage",
+  "version": "0.9.0",
+  "description": "ranf.tl | Mario Ranftl | majodev homepage",
   "main": "index.js",
   "keywords": [
     "metalsmith",
     "blog",
-    "majodev"
+    "majodev",
+    "Ranftl",
+    "ranf.tl",
+    "Mario",
+    "@majodev"
   ],
   "author": "majodev",
   "license": "MIT",
+  "private": true,
   "repository": {
     "type": "git",
     "url": "https://github.com/majodev/majodev.github.io.git"
+  },
+  "scripts": {
+    "initialize": "grunt init",
+    "run": "grunt",
+    "productive": "grunt productive"
   },
   "dependencies": {
     "async": "^0.9.0",
@@ -35,7 +45,7 @@
     "metalsmith-templates": "^0.5.2",
     "minimist": "^1.1.0",
     "modernizr": "git://github.com/Modernizr/Modernizr",
-    "moment": "^2.8.2",
+    "moment": "^2.8.3",
     "nprogress": "^0.1.6",
     "speakingurl": "^0.10.0",
     "swag": "^0.7.0",
