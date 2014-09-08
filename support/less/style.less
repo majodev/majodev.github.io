@@ -225,13 +225,14 @@ body {
     background-color: transparent;
     padding-top: 11.5px;
     padding-bottom: 9.5px;
+    border-bottom-color: transparent;
+    transition-property: color, border-bottom-color;
   }
 
   .navbar-default .navbar-nav > li > a:hover, 
   .navbar-default .navbar-nav > li > a:focus {
     border-bottom-color: @color-nav-bg-active; 
     color: @color-nav-bg-active;
-    transition-property: color;
   }
 
   .navbar-default .navbar-nav > .active > a,
