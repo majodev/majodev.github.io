@@ -54,7 +54,7 @@ module.exports = function(grunt) {
       },
       "support-js": {
         files: ["support/js/**/*.*"],
-        tasks: ["copy:inject-js"],
+        tasks: ["browserify:dev", "copy:inject-js"],
         options: {
           interrupt: false,
           livereload: true
@@ -302,6 +302,28 @@ module.exports = function(grunt) {
           "grunt build"
         ].join("&&")
       }
+    },
+    browserify: {
+      dev: {
+        files: {
+          '_tmp/bundle.js': ["support/js/main.js"],
+        },
+        options: {
+          browserifyOptions: {
+            debug: true
+          }
+        }
+      },
+      productive: {
+        files: {
+          '_tmp/bundle.js': ["support/js/main.js"],
+        },
+        options: {
+          browserifyOptions: {
+            debug: false
+          }
+        }
+      }
     }
   });
 
@@ -324,6 +346,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-xmlmin');
   grunt.loadNpmTasks('grunt-git-describe');
   grunt.loadNpmTasks('grunt-shell');
+  grunt.loadNpmTasks('grunt-browserify');
 
   // ---
   // main tasks
@@ -346,7 +369,7 @@ module.exports = function(grunt) {
   // ---
 
   grunt.registerTask("build-dev", [
-    "clean:build", "get-git-revision", "execute:metalsmith-dev", "less:development", "copy"
+    "clean:build", "browserify:dev", "get-git-revision", "execute:metalsmith-dev", "less:development", "copy"
   ]);
 
   // ---
@@ -354,7 +377,7 @@ module.exports = function(grunt) {
   // ---
 
   grunt.registerTask("build-productive", [
-    "get-git-revision", "execute:metalsmith-productive", "css-productive", "uglify:js_src",
+    "browserify:productive", "get-git-revision", "execute:metalsmith-productive", "css-productive", "uglify:js_src",
     "uglify:js", "uglify:js_head", "htmlmin", "copy:support-root",
     "copy:inject-fonts", "xmlmin"
   ]);

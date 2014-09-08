@@ -27,11 +27,7 @@
       "node_modules/bootstrap/js/collapse.js",
       "node_modules/historyjs/scripts/bundled-uncompressed/html4+html5/jquery.history.js",
       "node_modules/nprogress/nprogress.js",
-      "support/js/consoleErrors.js",
-      "support/js/configure.js",
-      "support/js/ajax.js",
-      "support/js/konamicode.js",
-      "support/js/disclaimer.js"
+      "_tmp/bundle.js"
     ],
     "fonts": [
       "node_modules/font-awesome/fonts/fontawesome-webfont.*"

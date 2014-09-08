@@ -1,4 +1,7 @@
-jQuery(function($) {
+var uiHelper = require("./uiHelper");
+var urlHelper = require("./urlHelper");
+
+$(function($) {
 
   // base from https://github.com/roryg/ghostwriter/blob/master/assets/js/scripts.js
 
@@ -14,7 +17,6 @@ jQuery(function($) {
   var $scriptsContainer = $(SCRIPTS_SELECTOR);
   var loading = false;
   var loadAnchor = "";
-  var $body = $(document.body);
 
   // Check if history is enabled for the browser
   if (!History.enabled) {
@@ -23,8 +25,8 @@ jQuery(function($) {
 
 
   // https://gist.github.com/db/966388
-  // jquery.ajax.progress.js
-  // add XHR2 progress events to jQuery.ajax
+  // $.ajax.progress.js
+  // add XHR2 progress events to $.ajax
   (function addXhrProgressEvent($) {
     var originalXhr = $.ajaxSettings.xhr;
     $.ajaxSetup({
@@ -44,7 +46,7 @@ jQuery(function($) {
         return req;
       }
     });
-  })(jQuery);
+  })($);
 
   History.Adapter.bind(window, "anchorchange", function() {
     var displayedPage = window.location.href;
@@ -53,12 +55,12 @@ jQuery(function($) {
     // console.log("anchorchange! url: " + window.location.href +
     //   " currentState: " + History.getState().url);
 
-    if (removeAnchorFromUrl(displayedPage) !== removeAnchorFromUrl(statePage)) {
-      if (testSameOrigin(displayedPage) === true) {
+    if (urlHelper.removeAnchorFromUrl(displayedPage) !== urlHelper.removeAnchorFromUrl(statePage)) {
+      if (urlHelper.testSameOrigin(displayedPage) === true) {
         // anchoring a wrong page - remember anchor and change state immediately
         setLoading(true);
-        loadAnchor = getAnchor(displayedPage);
-        History.replaceState({}, null, removeAnchorFromUrl(displayedPage));
+        loadAnchor = urlHelper.getAnchor(displayedPage);
+        History.replaceState({}, null, urlHelper.removeAnchorFromUrl(displayedPage));
       } else {
         // non ajaxable page + anchor!
         // console.warn("non ajaxable page with anchor enchountered!");
@@ -69,7 +71,7 @@ jQuery(function($) {
 
   History.Adapter.bind(window, "statechange", function() {
     var State = History.getState();
-    var url = removeAnchorFromUrl(State.url);
+    var url = urlHelper.removeAnchorFromUrl(State.url);
     //console.log("statechange - url: " + url);
 
     $.ajax({
@@ -80,7 +82,8 @@ jQuery(function($) {
         var newContent = $($html.filter(AJAX_SELECTOR)[0]).children();
         var newScripts = $($html.filter(SCRIPTS_SELECTOR)[0]).children();
 
-        NProgress.inc();
+        uiHelper.incPageLoadingProgress();
+        //NProgress.inc();
 
         // Set the title to the requested urls document title
         document.title = $html.filter("title").text();
@@ -120,33 +123,8 @@ jQuery(function($) {
           $targetContainer.html(newContent);
           $scriptsContainer.html(newScripts);
           setLoading(false);
-          //addNavbarAffixFunctionality();
-          initHeadroom();
-          addCollapseOnClick();
+          uiHelper.init();
         }
-
-
-        // via velocity (fade)
-
-        // $targetContainer.velocity("fadeOut", {
-        //   duration: FADE_TIME_AJAX_MS,
-        //   complete: function(elements) {
-        //     NProgress.inc();
-        //     // old content fade complete
-        //     $targetContainer.html(newContent);
-        //     $targetContainer.velocity("fadeIn", {
-        //       duration: FADE_TIME_AJAX_MS,
-        //       complete: function(elements) {
-        //         NProgress.inc();
-        //         // new content fade complete
-        //         attachAnchor(url, null);
-        //         setLoading(false);
-
-        //         addNavbarAffixFunctionality();
-        //       }
-        //     });
-        //   }
-        // });
 
       },
       error: function(error) {
@@ -159,15 +137,17 @@ jQuery(function($) {
         var currentProgress = 0;
         if (evt.lengthComputable) {
           currentProgress = (evt.loaded / evt.total);
-          if (NProgress.status > currentProgress) { // dont progress back!
-            NProgress.inc();
-          } else {
-            NProgress.set(currentProgress);
-          }
+          uiHelper.incPageLoadingProgress(currentProgress);
+          // if (NProgress.status > currentProgress) { // dont progress back!
+          //   NProgress.inc();
+          // } else {
+          //   NProgress.set(currentProgress);
+          // }
           //NProgress.set(NProgress.status + ((evt.loaded / evt.total) / 2));
           //console.log("Loaded " + parseInt((evt.loaded / evt.total * 100), 10) + "%");
         } else {
-          NProgress.inc();
+          uiHelper.incPageLoadingProgress();
+          //NProgress.inc();
           //console.log("Length not computable.");
         }
       }
@@ -176,7 +156,7 @@ jQuery(function($) {
 
   $("body").on("click", "a", function(e) {
     if (checkEventShouldBeCaptured(e) === true &&
-      testSameOrigin(e.target.href) === true) {
+      urlHelper.testSameOrigin(e.target.href) === true) {
 
       e.preventDefault();
 
@@ -186,9 +166,9 @@ jQuery(function($) {
         var title = $(this).attr("title") || null;
 
         // If it's a url with anchor, clear it immediately!
-        if (hasAnchor(url)) {
-          loadAnchor = getAnchor(url);
-          url = removeAnchorFromUrl(url);
+        if (urlHelper.hasAnchor(url)) {
+          loadAnchor = urlHelper.getAnchor(url);
+          url = urlHelper.removeAnchorFromUrl(url);
         }
 
         // If the requested url is not the current states url push
@@ -211,14 +191,7 @@ jQuery(function($) {
   });
 
   function setLoading(value) {
-    if (value === true) {
-      NProgress.start();
-      $body.addClass('loading');
-      forceShowHeadroom();
-    } else {
-      NProgress.done(true);
-      $body.removeClass('loading');
-    }
+    uiHelper.setPageLoading(value);
     loading = value;
   }
 
@@ -239,33 +212,6 @@ jQuery(function($) {
 
       loadAnchor = "";
     }
-  }
-
-  function hasAnchor(url) {
-    if (url.indexOf("#") !== -1) {
-      return true;
-    }
-    return false;
-  }
-
-  function removeAnchorFromUrl(url) {
-    return url.split("#")[0];
-  }
-
-  function getAnchor(url) {
-    return url.split("#")[1];
-  }
-
-  // via http://stackoverflow.com/questions/9404793/check-if-same-origin-policy-applies
-  function testSameOrigin(url) {
-    var loc = window.location,
-      a = document.createElement('a');
-
-    a.href = url;
-
-    return a.hostname == loc.hostname &&
-      a.port == loc.port &&
-      a.protocol == loc.protocol;
   }
 
   function checkEventShouldBeCaptured(event) {
@@ -306,55 +252,5 @@ jQuery(function($) {
 
     });
   }
-
-  // function addNavbarAffixFunctionality() {
-  //   // add affix functionalities
-  //   $(".navbar-toggle-affix").affix({
-  //     offset: {
-  //       top: 1
-  //     }
-  //   });
-  //   $(".navbar-toggle-affix").on("click", function() {
-
-  //     var currentY = $(window).scrollTop();
-
-  //     if (currentY > 10) {
-  //       $("html").velocity("scroll", {
-  //         offset: "0px"
-  //       });
-  //     }
-
-  //   });
-  // }
-
-  function addCollapseOnClick() {
-    // http://stackoverflow.com/questions/16680543/hide-twitter-bootstrap-nav-collapse-on-click
-    $('.nav a').on('click', function() {
-      if ($('.navbar-toggle').css('display') != 'none') {
-        $(".navbar-toggle").trigger("click");
-      }
-    });
-  }
-
-  function initHeadroom() {
-    // `Headroom.cutsTheMustard` is only true if browser supports all features required by headroom.
-    // By guarding your code with this condition, the widget will safely degrade
-    // https://github.com/WickyNilliams/headroom.js/issues/64
-    if (Headroom.cutsTheMustard) {
-      $(".block-header").headroom();
-    }
-  }
-
-  function forceShowHeadroom() {
-    if (Headroom.cutsTheMustard) {
-      $(".block-header").addClass("headroom-forceShow");
-    }
-  }
-
-  // config startup
-
-  //addNavbarAffixFunctionality();
-  addCollapseOnClick();
-  initHeadroom();
 
 });
