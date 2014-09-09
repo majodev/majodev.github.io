@@ -5,6 +5,7 @@
       "dirs": [
         "support/less/",
         "support/less/includes",
+        "support/fonts",
         "support/less/bootstrap",
         "support/less/nprogress",
         "node_modules/bootstrap/less",
@@ -30,7 +31,11 @@
       "_tmp/bundle.js"
     ],
     "fonts": [
-      "node_modules/font-awesome/fonts/fontawesome-webfont.*"
+      "node_modules/font-awesome/fonts/fontawesome-webfont.*",
+      "support/fonts/*.eot",
+      "support/fonts/*.svg",
+      "support/fonts/*.ttf",
+      "support/fonts/*.woff"
     ],
     "metalsmithBaseDir": {
       "css": "/assets/css/",
