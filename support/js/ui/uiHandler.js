@@ -1,4 +1,7 @@
+var uiConfig = require("./uiConfig");
 var $body = $(document.body);
+
+uiConfig.init();
 
 function pinHeader() {
   if (Headroom.cutsTheMustard) {
