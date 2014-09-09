@@ -121,6 +121,7 @@ module.exports = function(grunt) {
     less: {
       development: {
         options: {
+          sourceMap: true,
           paths: config.inject.less.dirs
         },
         files: [{

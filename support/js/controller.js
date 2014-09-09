@@ -1,5 +1,14 @@
 var ajaxHandler = require("./ajax/ajaxHandler");
 var uiHandler = require("./ui/uiHandler");
+var disqus = require("./plugins/disqus");
+
+// init is called on document.ready by main module!
+function init() {
+  console.log("controller: init");
+  ajaxHandler.init();
+  uiHandler.init();
+  disqus.init();
+}
 
 ajaxHandler.on("beforePageExchange", function() {
   // console.log("beforePageExchange");
@@ -9,6 +18,7 @@ ajaxHandler.on("beforePageExchange", function() {
 ajaxHandler.on("pageExchanged", function() {
   // console.log("pageExchanged");
   uiHandler.init();
+  disqus.reset();
 });
 
 ajaxHandler.on("loadingStart", function() {
@@ -26,12 +36,6 @@ ajaxHandler.on("loadingEnd", function() {
   uiHandler.setPageLoading(false);
 });
 
-
-
 module.exports = {
-  init: function() {
-    console.log("controller: init");
-    ajaxHandler.init();
-    uiHandler.init();
-  }
+  init: init
 };

@@ -22,6 +22,7 @@ var filetimestamp = require("./scripts/metalsmith-filetimestamp");
 var firstparagraph = require("./scripts/metalsmith-firstparagraph");
 var headingsidentifier = require("./scripts/metalsmith-headingsidentifier");
 var sitemapper = require("./scripts/metalsmith-sitemapper");
+var includedrafts = require("./scripts/metalsmith-includedrafts");
 
 // custom node scripts
 var registerHelpers = require("./scripts/registerHelpers");
@@ -42,6 +43,8 @@ if (dev === false) {
   console.log("-- metalsmith generates development build...");
 }
 
+var absoluteUrl = "http://ranf.tl/";
+
 // metalsmith pipeline
 Metalsmith(__dirname)
   .metadata({
@@ -55,7 +58,8 @@ Metalsmith(__dirname)
     _builddate: moment().format("DD MMM YYYY, HH:mm Z"),
     _year: moment().format("YYYY"),
     _inject: injectFiles(dev), // holds all external client libs
-    _gitrevision: argv.gitrevision ? argv.gitrevision : "no git revision set"
+    _gitrevision: argv.gitrevision ? argv.gitrevision : "no git revision set",
+    _absoluteUrl: absoluteUrl
   })
   .source("./src")
   .destination("./build")
@@ -63,6 +67,9 @@ Metalsmith(__dirname)
     "**/.DS_Store",
     "**/contact.md"
   ]))
+  .use(includedrafts({
+    include: dev
+  }))
   .use(filetimestamp())
   .use(permapath({
     mode: "pre",
@@ -104,6 +111,9 @@ Metalsmith(__dirname)
       sitemap: {
         changefreq: "monthly",
         priority: "1.0"
+      },
+      disqus: {
+        enabled: false
       }
     },
     notes: {
@@ -113,13 +123,19 @@ Metalsmith(__dirname)
         changefreq: "daily",
         priority: "0.8"
       },
-      setHeadingsIDs: true
+      setHeadingsIDs: true,
+      disqus: {
+        enabled: true
+      }
     },
     subpages: {
       isSubpage: true,
       sitemap: {
         changefreq: "monthly",
         priority: "0.5"
+      },
+      disqus: {
+        enabled: false
       }
     }
   }))
@@ -145,7 +161,7 @@ Metalsmith(__dirname)
   }))
   .use(sitemapper({
     modifiedProperty: "lastModified",
-    absoluteUrl: "http://ranf.tl/"
+    absoluteUrl: absoluteUrl
   }))
 // .use(debugsmith({
 //   printMetaKeys: true
