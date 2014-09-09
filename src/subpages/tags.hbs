@@ -5,18 +5,15 @@ sequence: 3
 setHeadingsIDs: true
 published: true
 ---
-
-{{!-- <div class="tagCloud">
-  {{#each _sortedTags}}
-    <a href="#{{tag}}" style="font-size: {{multiply 7 children.length }}px">#{{tag}}</a>
-  {{/each}}
-</div> --}}
-
+{{#if _sortedTags}}
 <div class="tags">
   {{#each _sortedTags}}
-    {{> tagItemHeader}}
-    {{#withSortReverse children "date"}}
-      {{> noteItemSmall}}
-    {{/withSortReverse}}
+  {{> tagItemHeader}}
+  {{#withSortReverse children "date"}}
+  {{> noteItemSmall}}
+  {{/withSortReverse}}
   {{/each}}
 </div>
+{{else}}
+<p>Sorry, nothing is currently tagged.</p>
+{{/if}}

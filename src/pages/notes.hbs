@@ -4,18 +4,20 @@ template: default.hbs
 sequence: 1
 published: true
 ---
-
+{{#if notes}}
 <p>This is a list of all of the posts I have written which are available for public viewing.</p>
-
 <div class="notes">
   {{#each notes}}
-    <article class="notes-article">
-      <div class="notes-article-inner">
-        <a href="/{{path}}"></a>
-        {{> noteItem}}
-        {{> firstparagraph}}
-      </div>
-      <p class="no-margin no-padding">{{> noteLink}} · {{> tagList}} · {{> noteReadingInfo}}</p>
-    </article>
+  <article class="notes-article">
+    <div class="notes-article-inner">
+      <a href="/{{path}}"></a>
+      {{> noteItem}}
+      {{> firstparagraph}}
+    </div>
+    <p class="no-margin no-padding">{{> noteLink}} · {{> tagList}} · {{> noteReadingInfo}}</p>
+  </article>
   {{/each}}
 </div>
+{{else}}
+<p>Sorry, no published notes.</p>
+{{/if}}
