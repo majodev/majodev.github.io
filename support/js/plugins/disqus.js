@@ -1,9 +1,7 @@
 var DISQUS_DIV_ID = "#disqus_thread";
-
+var disqus_shortname = 'ranftl';
 var data = {};
-
 var initialized = false;
-var disqus_shortname = 'majodev'; // required: replace example with your forum shortname
 var disqus_identifier, disqus_title, disqus_url, disqus_config;
 
 function checkPageIsDisqusEnabled() {
