@@ -30,4 +30,4 @@ module.exports = {
   removeAnchorFromUrl: removeAnchorFromUrl,
   getAnchor: getAnchor,
   testSameOrigin: testSameOrigin
-}
+};
