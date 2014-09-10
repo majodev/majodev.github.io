@@ -1,6 +1,6 @@
 {{#or isPage isSubpage}}
-  <span class="block-navBrandMobile">{{>breadcrumbSeparator}} <span class="block-navBrandMobileInner">{{uppercase title}}</span></span>
+  <span class="block-navBrandMobile">{{>breadcrumbSeparator}} <span class="block-navBrandMobileInner">{{ title}}</span></span>
 {{/or}}
 {{#if isNote}}
-  <span class="block-navBrandMobile">{{>breadcrumbSeparator}} <span class="block-navBrandMobileInner"><a href="/notes/">NOTES</a></span></span>
+  <span class="block-navBrandMobile">{{>breadcrumbSeparator}} <span class="block-navBrandMobileInner"><a href="/notes/">Notes</a></span></span>
 {{/if}}

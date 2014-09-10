@@ -206,8 +206,8 @@ body {
   .navbar-default .navbar-nav > li > a:focus {
     border-bottom: 2px solid;
     background-color: transparent;
-    padding-top: 11.5px;
-    padding-bottom: 9.5px;
+    padding-top: 14px;
+    padding-bottom: 7px;
     border-bottom-color: transparent;
     transition-property: color, border-bottom-color;
   }
@@ -446,12 +446,24 @@ a:link, a:visited, a:hover, a:focus, a:active {
   font-weight: 400;
 }
 
-.block-navBrandMobile {
+.block-navPage, .block-navPageActive {
   font-family: @font-family-narrow;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 20px;
 }
 
 .block-navSubPage, .block-navSubPageActive {
-  font-size: @font-size-smaller;
+  font-family: @font-family-narrow;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 16px;
+  //font-size: @font-size-smaller;
+}
+
+.block-navBrandMobile {
+  font-family: @font-family-narrow;
+  text-transform: uppercase;
 }
 
 .block-navBrandMobile {
