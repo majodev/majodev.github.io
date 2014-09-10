@@ -1,7 +1,8 @@
-var urlHelper = require("./urlHelper");
-
 var EventEmitter = require('events').EventEmitter;
 var util = require("util");
+var _ = require("lodash");
+
+var urlHelper = require("./urlHelper");
 
 // constants
 var AJAX_SELECTOR = "#ajax-container";
@@ -88,10 +89,7 @@ function jqueryLinkEvent(e) {
         if (loadAnchor.length > 0) {
           attachAnchor(url, title);
         } else {
-          // same url just scroll to top!
-          $("html").velocity("scroll", {
-            offset: "0px"
-          });
+          ajaxHandler.emit("triedSameUrlLoading");
         }
       }
     }
@@ -132,22 +130,19 @@ function historyStateChange() {
       var newContent = $($html.filter(AJAX_SELECTOR)[0]).children();
       var newScripts = $($html.filter(SCRIPTS_SELECTOR)[0]).children();
 
-      ajaxHandler.emit("beforePageExchange");
+      ajaxHandler.emit("beforePageExchange", {
+        callback: function () {
+          attachAnchor(url, null);
+        }
+      });
 
       // Set the title to the requested urls document title
       document.title = $html.filter("title").text();
 
       exchangeMetaData($html);
 
-      $("html").velocity("scroll", {
-        offset: "0px",
-        complete: function(elements) {
-          attachAnchor(url, null);
-        }
-      });
-
       // stop old running javascript...
-      if (typeof window.dealloc !== "undefined") {
+      if (_.isUndefined(window.dealloc) === false) {
         try {
           window.dealloc();
           window.dealloc = undefined;
@@ -157,7 +152,7 @@ function historyStateChange() {
       }
 
       // direct
-      if (typeof window.ontouchstart !== 'undefined') { // handle touch device issue
+      if (_.isUndefined(window.ontouchstart) === false) { // handle touch device issue
         $targetContainer.html("");
         setTimeout(function() {
           // http://stackoverflow.com/questions/3120497/safari-iphone-ipad-mouse-hover-on-new-link-after-prior-one-is-replaced-with-ja
@@ -207,18 +202,11 @@ function setLoading(value) {
 }
 
 function attachAnchor(url, title) {
-  var $anchor = $("#" + loadAnchor);
-
   if (loadAnchor.length > 0) {
     History.replaceState({}, title, url + "#" + loadAnchor);
 
-    $anchor.velocity("scroll", {
-      complete: function(elements) {
-        $anchor.addClass("targetAnimation");
-        $anchor.one('webkitAnimationEnd oanimationend msAnimationEnd animationend', function(e) {
-          $anchor.removeClass("targetAnimation");
-        });
-      }
+    ajaxHandler.emit("attachedAnchor", {
+      anchorname: loadAnchor
     });
 
     loadAnchor = "";
@@ -240,12 +228,12 @@ function exchangeMetaData($newhtml) {
     var attribute = $currentMeta.attr("name");
 
     try {
-      if (typeof attribute !== typeof undefined && attribute !== false) {
+      if (_.isUndefined(attribute) === false && attribute !== false) {
         //console.log("got meta name");
         newMetaContent = $newhtml.filter("meta[name=" + attribute + "]")[0].content;
       } else {
         attribute = $currentMeta.attr("http-equiv");
-        if (typeof attribute !== typeof undefined && attribute !== false) {
+        if (_.isUndefined(attribute) === false && attribute !== false) {
           newMetaContent = $newhtml.filter("meta[http-equiv=" + attribute + "]")[0].content;
           //console.log("got meta http-equiv");
         } else {

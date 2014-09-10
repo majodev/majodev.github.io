@@ -11,9 +11,10 @@ function init() {
   disqus.init();
 }
 
-ajaxHandler.on("beforePageExchange", function() {
+ajaxHandler.on("beforePageExchange", function(options) {
   // console.log("beforePageExchange");
   uiHandler.incPageLoadingProgress();
+  uiHandler.scrollTop(options.callback);
 });
 
 ajaxHandler.on("pageExchanged", function() {
@@ -35,6 +36,14 @@ ajaxHandler.on("loadingProgress", function(progressValue) {
 ajaxHandler.on("loadingEnd", function() {
   // console.log("loadingEnd");
   uiHandler.setPageLoading(false);
+});
+
+ajaxHandler.on("triedSameUrlLoading", function() {
+  uiHandler.scrollTop();
+});
+
+ajaxHandler.on("attachedAnchor", function(options) {
+  uiHandler.scrollToAnchor(options.anchorname, options.callback);
 });
 
 cheat.on("executed", function() {

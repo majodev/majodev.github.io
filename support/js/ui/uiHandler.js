@@ -1,6 +1,10 @@
 var NProgress = require("nprogress");
+var _ = require("lodash");
+
 var uiConfig = require("./uiConfig");
+
 var $body = $(document.body);
+var $html = $("html");
 
 uiConfig.init();
 
@@ -10,7 +14,12 @@ function pinHeader() {
   }
 }
 
-function addCollapseOnClick() {
+function init() {
+  initHeadroom();
+  initCollapsing();
+}
+
+function initCollapsing() {
   // http://stackoverflow.com/questions/16680543/hide-twitter-bootstrap-nav-collapse-on-click
   $('.nav a').on('click', function() {
     if ($('.navbar-toggle').css('display') != 'none') {
@@ -51,13 +60,38 @@ function incPageLoadingProgress(value) {
   }
 }
 
-function init() {
-  initHeadroom();
-  addCollapseOnClick();
+function scrollTop(callback) {
+  $html.velocity("scroll", {
+    offset: "0px",
+    complete: function(elements) {
+      if (_.isFunction(callback) === true) {
+        callback();
+      }
+    }
+  });
+}
+
+function scrollToAnchor(anchorname, callback) {
+
+  var $anchor = $("#" + anchorname);
+
+  $anchor.velocity("scroll", {
+    complete: function(elements) {
+      $anchor.addClass("targetAnimation");
+      $anchor.one('webkitAnimationEnd oanimationend msAnimationEnd animationend', function(e) {
+        $anchor.removeClass("targetAnimation");
+      });
+      if (_.isFunction(callback) === true) {
+        callback();
+      }
+    }
+  });
 }
 
 module.exports = {
   init: init,
   setPageLoading: setPageLoading,
-  incPageLoadingProgress: incPageLoadingProgress
+  incPageLoadingProgress: incPageLoadingProgress,
+  scrollTop: scrollTop,
+  scrollToAnchor: scrollToAnchor
 };
