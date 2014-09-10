@@ -17,7 +17,7 @@ function injectUrl(url) {
 
   if (element !== null) {
     $(element).prop('disabled', false);
-    console.log("enabled " + $(element).prop("id"));
+    // console.log("enabled " + $(element).prop("id"));
   } else {
     element = dominject({
       type: "style",
@@ -27,7 +27,7 @@ function injectUrl(url) {
       }, // attributes to be added to the injected dom element
       timeout: 60 * 1000, // defaults to one minute that is allowed before the injection times out
       next: function(err, el) {
-        console.log("injected " + $(element).prop("id"));
+        // console.log("injected " + $(element).prop("id"));
       }
     });
   }
@@ -52,7 +52,7 @@ module.exports = {
       var $linkItem = $(linkItem);
       if (checkLinkIsRelevant($linkItem) === true && $linkItem.prop('disabled') === false) {
         $linkItem.prop('disabled', true);
-        console.log("disabled " + $linkItem.prop("id"));
+        // console.log("disabled " + $linkItem.prop("id"));
       }
     });
 
