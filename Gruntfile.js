@@ -325,6 +325,37 @@ module.exports = function(grunt) {
           }
         }
       }
+    },
+    lodash: {
+      build: {
+        dest: '_tmp/lodash-custom.js',
+        options: {
+          flags: [
+            "--debug"
+          ],
+          exports: ['global']
+          // lodash-autobuild will add this after analysis of source code
+          // include: "names, of, lodash, methods, in, your, source" 
+        }
+      }
+    },
+    lodashAutobuild: {
+      // Multiple autobuild targets supported
+      app: {
+        // The path to your source file(s)
+        src: ['support/js/**/*.js'],
+        // Default options:
+        options: {
+          // Set to the configured lodash task options.include
+          lodashConfigPath: 'lodash.build.options.include',
+          // The name(s) of the lodash object(s)
+          lodashObjects: ['_'],
+          // Undefined lodashTargets or an empty targets
+          // array will run all lodash targets. Specify
+          // targets by name to run specific targets
+          lodashTargets: ['build']
+        }
+      }
     }
   });
 
@@ -348,6 +379,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-git-describe');
   grunt.loadNpmTasks('grunt-shell');
   grunt.loadNpmTasks('grunt-browserify');
+  grunt.loadNpmTasks('grunt-lodash');
+  grunt.loadNpmTasks('grunt-lodash-autobuild');
 
   // ---
   // main tasks
@@ -358,11 +391,11 @@ module.exports = function(grunt) {
   ]);
 
   grunt.registerTask("default", [
-    "clean:temporary", "modernizr", "build-dev", "http-server:dev", "watch"
+    "clean:temporary", "modernizr", "lodashAutobuild", "build-dev", "http-server:dev", "watch"
   ]);
 
   grunt.registerTask("productive", [
-    "clean", "modernizr", "build-productive", "clean:temporary", "server"
+    "clean", "modernizr", "lodashAutobuild", "build-productive", "clean:temporary", "server"
   ]);
 
   // ---

@@ -68,8 +68,11 @@
     "grunt-execute": "^0.2.2",
     "grunt-git-describe": "^2.3.2",
     "grunt-http-server": "0.0.5",
+    "grunt-lodash": "^0.3.0",
+    "grunt-lodash-autobuild": "^0.3.0",
     "grunt-modernizr": "^0.5.2",
     "grunt-shell": "^1.1.1",
-    "grunt-xmlmin": "^0.1.1"
+    "grunt-xmlmin": "^0.1.1",
+    "lodash-cli": "^2.4.2"
   }
 }

@@ -1,5 +1,3 @@
-var _ = require("lodash");
-
 module.exports = function() {
   if (_.isUndefined(window.dealloc) === false) {
     try {

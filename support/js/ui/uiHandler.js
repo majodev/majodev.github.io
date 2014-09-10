@@ -1,5 +1,4 @@
 var NProgress = require("nprogress");
-var _ = require("lodash");
 
 var uiConfig = require("./uiConfig");
 
