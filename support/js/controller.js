@@ -1,6 +1,7 @@
 var ajaxHandler = require("./ajax/ajaxHandler");
 var uiHandler = require("./ui/uiHandler");
 var disqus = require("./plugins/disqus");
+var cheat = require("./sugar/cheat");
 
 // init is called on document.ready by main module!
 function init() {
@@ -34,6 +35,10 @@ ajaxHandler.on("loadingProgress", function(progressValue) {
 ajaxHandler.on("loadingEnd", function() {
   // console.log("loadingEnd");
   uiHandler.setPageLoading(false);
+});
+
+cheat.on("executed", function() {
+  alert("cheat executed!");
 });
 
 module.exports = {

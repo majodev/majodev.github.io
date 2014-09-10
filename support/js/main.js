@@ -1,8 +1,6 @@
 var controller = require("./controller");
-
-require("./consoleErrors");
-require("./konamicode");
-require("./disclaimer");
+require("./sugar/consoleErrors");
+require("./sugar/disclaimer");
 
 $(function($) {
   controller.init();
