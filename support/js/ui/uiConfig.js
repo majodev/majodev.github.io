@@ -1,3 +1,5 @@
+var NProgress = require("nprogress");
+
 module.exports = {
   init: function() {
     $(function() {

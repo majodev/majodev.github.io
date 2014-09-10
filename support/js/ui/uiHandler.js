@@ -1,3 +1,4 @@
+var NProgress = require("nprogress");
 var uiConfig = require("./uiConfig");
 var $body = $(document.body);
 
