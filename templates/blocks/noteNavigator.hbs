@@ -1,24 +1,8 @@
-{{!-- <div class="block-noteNavigator row">
-  <div class="col-xs-12 col-sm-6">
-    {{#if next}}
-      <div class="text-center-xs text-left-sm">
-        <a href="/{{ next.path }}">&larr; {{ next.title }}</a>
-      </div>
-    {{/if}}
-  </div>
-  <div class="col-xs-12 col-sm-6">
-    {{#if previous}}
-      <div class="text-center-xs text-right-sm">
-        <a href="/{{ previous.path }}">{{ previous.title }} &rarr;</a>
-      </div>
-    {{/if}}
-  </div>
-</div> --}}
 <ul class="pager block-noteNavigator">
   {{#if next}}
-    <li class="previous text-right"><a href="/{{ next.path }}" title="{{next.title}}"><i class="fa fa-angle-double-left"></i>&nbsp;&nbsp;previous note{{!-- <span class="hidden-xs">: {{ next.title }}</span> --}}</a></li>
+    <li class="previous text-right"><a href="/{{ next.path }}" title="{{next.title}}"><i class="fa fa-angle-double-left"></i>&nbsp;&nbsp;previous note</a></li>
   {{/if}}
   {{#if previous}}
-    <li class="next"><a href="/{{ previous.path }}" title="{{previous.title}}">next note{{!-- <span class="hidden-xs">: {{ previous.title }}</span> --}}&nbsp;&nbsp;<i class="fa fa-angle-double-right"></i></a></li>
+    <li class="next"><a href="/{{ previous.path }}" title="{{previous.title}}">next note&nbsp;&nbsp;<i class="fa fa-angle-double-right"></i></a></li>
   {{/if}}
 </ul>

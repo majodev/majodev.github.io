@@ -1,34 +1,23 @@
 {{> pre}}
 <div id="wrapper">
   {{> header}}
-  {{!-- {{> noteBreadcrumb}} --}}
-  {{!-- <div class="container-fluid">
-    {{> noteNavigator}}
-  </div> --}}
   <div class="template-note pushdown-header">
     <main>
-      <article>
-        <div class="template-note-header-wrapper">
-          <div class="template-note-header container-fluid">
-            {{!-- <div class="container-fluid">  --}}
-              {{> noteNavigator}}
-              {{> noteTitle}}
-              {{> noteSubTitle}}
-            {{!-- </div> --}}
-          </div>
+    <article>
+      <div class="template-note-header-wrapper">
+        <div class="template-note-header container-fluid">
+          {{> noteNavigator}}
+          {{> noteTitle}}
+          {{> noteSubTitle}}
         </div>
-        <div class="template-note-contents container-fluid">
-          {{!-- <div class="container-fluid"> --}}
+      </div>
+      <div class="template-note-contents container-fluid">
 {{> contents}}
-          {{!-- </div> --}}
-        </div>
-        <div class="template-note-footer container-fluid">
-          {{> disqus}}
-          {{!-- <div class="container-fluid"> --}}
-            {{!-- {{> noteSocial}} --}}
-          {{!-- </div> --}}
-        </div>
-      </article>
+      </div>
+      <div class="template-note-footer container-fluid">
+        {{> disqus}}
+      </div>
+    </article>
     </main>
   </div> {{!-- end template-note --}}
 </div> {{!-- end wrapper --}}

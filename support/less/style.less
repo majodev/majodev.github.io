@@ -89,10 +89,6 @@ body {
   max-width: 720px; //30 = default padding
 }
 
-// .template-default, .template-note {
-//   height: 100%;
-// }
-
 .template-default, .template-note  {
   padding-bottom: 20px;
 }
@@ -138,10 +134,6 @@ body {
   min-height: @header-nav-height;
 }
 
-.block-noteBreadcrumb, .template-default-header-border {
-  height: @header-bar-height;
-}
-
 .navbar {
   border: 0px;
   // opacity: 0.8;
@@ -156,10 +148,6 @@ body {
   }
 
 }
-
-// .navbar-collapse.collapse.in { // remove opacity background on show collapse
-//   background: #fff;
-// }
 
 // mobile navbar button styling...
 
@@ -283,14 +271,6 @@ body {
   z-index: -1;
 }
 
-.block-header {
-  
-}
-
-.block-noteBreadcrumb {
-  background: @color-nav-note-breadcrumb-bg;
-}
-
 
 // -----------------------------------------------------------------------------
 // -----------------------------------------------------------------------------
@@ -326,22 +306,9 @@ blockquote {
   font-style: italic;
 }
 
-.template-note .contents > p:first-child { 
-  // margin-bottom: 22px;
-  //font-size: @font-size-medium; //17px;
-  //font-weight: 400;
-  //line-height: 1.4;
-}
-
 .template-note .contents > p:first-child:first-line { 
   line-height: 1.15;
 }
-
-// @media (min-width: @screen-sm-min) {
-//   .template-note .contents > p:first-child {
-    //font-size: @font-size-mediumer; //18px;
-//   }
-// }
 
 .template-note .contents > p:first-child:first-letter { 
   text-transform: uppercase;
@@ -399,10 +366,7 @@ a:link, a:visited, a:hover, a:focus, a:active {
 // -----------------------------------------------------------------------------
 // template default styling
 
-.template-default-header-border {
-  height: 27px;
-  background: @color-nav-note-breadcrumb-bg;
-}
+
 
 // -----------------------------------------------------------------------------
 // -----------------------------------------------------------------------------
@@ -447,7 +411,6 @@ a:link, a:visited, a:hover, a:focus, a:active {
   text-transform: uppercase;
   border-bottom: 1px solid;
   border-bottom-color: rgba(181,203,209,0.5);
-  // font-weight: 300;
 }
 
 .block-noteNavigator > li > a {
@@ -485,26 +448,6 @@ a:link, a:visited, a:hover, a:focus, a:active {
 
 .block-navBrandMobile {
   font-family: @font-family-narrow;
-}
-
-.block-noteBreadcrumb {
-  font-size: @font-size-smaller;
-  font-family: @font-family-narrow;
-}
-
-.block-noteBreadcrumb .breadcrumb {
-  margin-bottom: 0px;
-  padding: 5px 0px 5px 0px;
-  background: transparent;
-}
-
-.block-noteBreadcrumb .breadcrumb a {
-  color: @color-nav-note-breadcrumb-a;
-}
-
-.block-noteBreadcrumb .breadcrumb a:hover, .block-noteBreadcrumb .breadcrumb a:focus {
-  color: @color-nav-note-breadcrumb-hover;
-  text-decoration: initial;
 }
 
 .block-navSubPage, .block-navSubPageActive {
@@ -560,12 +503,6 @@ a:link, a:visited, a:hover, a:focus, a:active {
 .block-noteItem h3 a {
   color: @color-head;
 }
-
-// .block-navBrandImage {
-//   position: absolute;
-//   top: 0;
-//   left: 15px;
-// }
 
 .block-navBrandImage {
   z-index: @zindex-navbar-fixed + 2;
@@ -630,11 +567,7 @@ a:link, a:visited, a:hover, a:focus, a:active {
 }
 
 .notes-article-inner:hover {
-  // color: #000;
-  // color: @color-links-hover;
   opacity: 0.7;
-  // color: @gray-light !important;
-  // background: fade(@color-links-hover, 5%);
 }
 
 .notes-article-inner:hover + p > .block-noteLink {
@@ -643,18 +576,12 @@ a:link, a:visited, a:hover, a:focus, a:active {
 
 
 .headroom {
-  // position: fixed;
-  // top: 0;
-  // left: 0;
-  // right: 0;
   transition: transform 200ms linear;
 }
 .headroom--pinned {
-  // top: 0;
   transform: translateY(0%);
 }
 .headroom--unpinned {
-  // top: -@header-nav-height;
   transform: translateY(-100%);
 }
 
