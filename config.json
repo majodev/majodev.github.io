@@ -28,7 +28,7 @@
       "node_modules/bootstrap/js/transition.js",
       "node_modules/bootstrap/js/collapse.js",
       "node_modules/historyjs/scripts/bundled-uncompressed/html4+html5/jquery.history.js",
-      "_tmp/bundle.js"
+      "_tmp/support-bundle.js"
     ],
     "fonts": [
       "node_modules/font-awesome/fonts/fontawesome-webfont.*",

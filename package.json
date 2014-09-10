@@ -50,8 +50,7 @@
     "nprogress": "^0.1.6",
     "speakingurl": "^0.10.0",
     "swag": "^0.7.0",
-    "velocity-animate": "^1.0.1",
-    "watchify": "^1.0.2"
+    "velocity-animate": "^1.0.1"
   },
   "devDependencies": {
     "grunt": "^0.4.5",

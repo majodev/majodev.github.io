@@ -307,7 +307,7 @@ module.exports = function(grunt) {
     browserify: {
       dev: {
         files: {
-          '_tmp/bundle.js': ["support/js/main.js"],
+          '_tmp/support-bundle.js': ["support/js/main.js"],
         },
         options: {
           browserifyOptions: {
@@ -317,7 +317,7 @@ module.exports = function(grunt) {
       },
       productive: {
         files: {
-          '_tmp/bundle.js': ["support/js/main.js"],
+          '_tmp/support-bundle.js': ["support/js/main.js"],
         },
         options: {
           browserifyOptions: {
