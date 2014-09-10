@@ -131,25 +131,15 @@ function historyStateChange() {
       var newScripts = $($html.filter(SCRIPTS_SELECTOR)[0]).children();
 
       ajaxHandler.emit("beforePageExchange", {
-        callback: function () {
+        callback: function() {
           attachAnchor(url, null);
         }
       });
 
       // Set the title to the requested urls document title
       document.title = $html.filter("title").text();
-
+      // exchange the meta
       exchangeMetaData($html);
-
-      // stop old running javascript...
-      if (_.isUndefined(window.dealloc) === false) {
-        try {
-          window.dealloc();
-          window.dealloc = undefined;
-        } catch (e) {
-          console.error("ajax: could not dealloc previous running script! error:" + e);
-        }
-      }
 
       // direct
       if (_.isUndefined(window.ontouchstart) === false) { // handle touch device issue
@@ -174,30 +164,26 @@ function historyStateChange() {
     error: function(error) {
       console.error("AJAX error" + error);
       setLoading(false);
-
-      document.location.href = "/404.html";
+      ajaxHandler.emit("loadingError");
     },
     progress: function(evt) {
       var currentProgress = 0;
       if (evt.lengthComputable) {
         currentProgress = (evt.loaded / evt.total);
-        ajaxHandler.emit("loadingProgress", currentProgress);
-      } else {
-
-        ajaxHandler.emit("loadingProgress", currentProgress);
       }
+      ajaxHandler.emit("loadingProgress", currentProgress);
     }
   });
 }
 
 function setLoading(value) {
 
-  if(value === true) {
+  if (value === true) {
     ajaxHandler.emit("loadingStart");
   } else {
     ajaxHandler.emit("loadingEnd");
   }
-  
+
   loading = value;
 }
 

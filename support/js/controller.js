@@ -2,10 +2,11 @@ var ajaxHandler = require("./ajax/ajaxHandler");
 var uiHandler = require("./ui/uiHandler");
 var disqus = require("./plugins/disqus");
 var cheat = require("./sugar/cheat");
+var stopPageScripts = require("./sugar/stopPageScripts");
 
 // init is called on document.ready by main module!
 function init() {
-  console.log("controller: init");
+  // console.log("controller: init");
   ajaxHandler.init();
   uiHandler.init();
   disqus.init();
@@ -13,6 +14,8 @@ function init() {
 
 ajaxHandler.on("beforePageExchange", function(options) {
   // console.log("beforePageExchange");
+  uiHandler.incPageLoadingProgress();
+  stopPageScripts();
   uiHandler.incPageLoadingProgress();
   uiHandler.scrollTop(options.callback);
 });
@@ -39,11 +42,18 @@ ajaxHandler.on("loadingEnd", function() {
 });
 
 ajaxHandler.on("triedSameUrlLoading", function() {
+  // console.log("triedSameUrlLoading");
   uiHandler.scrollTop();
 });
 
 ajaxHandler.on("attachedAnchor", function(options) {
+  // console.log("attachedAnchor");
   uiHandler.scrollToAnchor(options.anchorname, options.callback);
+});
+
+ajaxHandler.on("loadingError", function() {
+  // console.log("loadingError");
+  document.location.href = "/404.html";
 });
 
 cheat.on("executed", function() {
