@@ -2,14 +2,16 @@
 
 website source code hosted on majodev.github.io and **ranf.tl**!
 
-## Prerequites
-These have to be installed globally:
-- node
-- grunt (`npm install -g grunt-cli`)
+## Prerequisites
+- [node](http://nodejs.org/)
+- [grunt](http://gruntjs.com/) (`npm install -g grunt-cli`)
 
+## Install
 ```bash
-  npm install -d // install all project dependencies
-  grunt init // init project (modernizr build, ...)
+  git clone https://github.com/majodev/majodev.github.io.git
+  cd majodev.github.io
+  npm install -d
+  grunt init
 ```
 
 ## Build (dev environment)
@@ -24,7 +26,12 @@ go to `localhost:8080`.
   grunt productive
 ```
 
-## Run gzip server with emulated delay
+### Run gzip server with emulated delay
 ```bash
   grunt serverdelay
+```
+
+### Minify all images
+```bash
+  grunt imagemin
 ```
