@@ -30,6 +30,7 @@
     "bootstrap": "^3.2.0",
     "cheerio": "^0.17.0",
     "debug": "^1.0.4",
+    "dominject": "^1.0.3",
     "fastclick": "^1.0.3",
     "font-awesome": "^4.2.0",
     "handlebars": "^2.0.0",

@@ -132,7 +132,8 @@ function historyStateChange() {
       ajaxHandler.emit("beforePageExchange", {
         callback: function() {
           attachAnchor(url, null);
-        }
+        },
+        $newHTML: $html
       });
 
       // Set the title to the requested urls document title

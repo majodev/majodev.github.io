@@ -3,6 +3,7 @@ var uiHandler = require("./ui/uiHandler");
 var disqus = require("./plugins/disqus");
 var cheat = require("./sugar/cheat");
 var stopPageScripts = require("./sugar/stopPageScripts");
+var cssInjector = require("./sugar/cssInjector");
 
 // init is called on document.ready by main module!
 function init() {
@@ -18,6 +19,11 @@ ajaxHandler.on("beforePageExchange", function(options) {
   stopPageScripts();
   uiHandler.incPageLoadingProgress();
   uiHandler.scrollTop(options.callback);
+  uiHandler.incPageLoadingProgress();
+  cssInjector.removeCSSFromMeta();
+  uiHandler.incPageLoadingProgress();
+  cssInjector.injectCSSIntoMeta(options.$newHTML);
+  uiHandler.incPageLoadingProgress();
 });
 
 ajaxHandler.on("pageExchanged", function() {
