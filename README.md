@@ -14,14 +14,18 @@ website source code hosted on majodev.github.io and **ranf.tl**!
   grunt init
 ```
 
-## Build (dev environment)
+## Build dev
+**features:** debug mode with drafts and code source maps (+ custom Modernizr and lodash build)
+
 ```bash
   grunt
 ```
 
-go to `localhost:8080`.
+grunt is now watching for changes and runs a webserver on `localhost:8080`.
 
-## Build (productive) and start a gzip server
+## Build productive
+**features:** concat & compress all js/css/html/xml files and start a gzip server
+
 ```bash
   grunt productive
 ```
@@ -35,3 +39,7 @@ go to `localhost:8080`.
 ```bash
   grunt imagemin
 ```
+
+
+## License
+See `LICENSE.md` for detailed information
