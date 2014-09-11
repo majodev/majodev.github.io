@@ -74,10 +74,28 @@ function pre(files, options, done) {
     // exclude outer most index file from these operation!
     if (relative === true && postfix === "index" && dirname(file) !== ".") {
       Object.keys(files).forEach(function(relatedFile) {
-        if (relatedFile !== file && isPermalinkedExtension(relatedFile) === false && relatedFile.indexOf(dirname(file)) !== -1) {
+        var subfolder = "";
+        if (relatedFile !== file && isPermalinkedExtension(relatedFile) === false && relatedFile.indexOf(dirname(file)) === 0) {
+
+          // console.log("-- " + relatedFile + " related to " + dirname(file));
+
+          // if related file is deeper nested, also append its subfolders
+          subfolder = dirname(relatedFile.replace(dirname(file), ""));
+          if (subfolder[0] === "/") {
+            // remove starting slash
+            subfolder = subfolder.substring(1);
+            if (subfolder.length > 1) {
+              // there is an actual subfolder
+              // append trailing slash
+              subfolder = subfolder + "/";
+            }
+          }
+
           // Path of related file must be changed as well!
-          files[relatedFile].path = targetname + basename(relatedFile);
-          // console.log(files[relatedFile].path);
+          files[relatedFile].path = targetname + subfolder + basename(relatedFile);
+
+
+          // console.log("-- " + file + " --> " + files[relatedFile].path);
         }
       });
     }
@@ -141,17 +159,16 @@ function fileToFolderName(file, postfix, custom) {
     if (custom !== false && custom.excludeDir === true) {
       targetname = directory.split(custom.dir)[1];
 
-      if(targetname[0] === "/") {
+      if (targetname[0] === "/") {
         // remove beginning slash
         targetname = targetname.substring(1);
       }
-      
+
     } else {
       targetname = directory;
     }
   }
 
-  
 
 
   // filename to foldername if not index!

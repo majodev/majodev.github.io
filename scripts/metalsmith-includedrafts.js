@@ -26,7 +26,7 @@ function plugin(options) {
 
             if (reduceAllExtensions(file) === "index") {
               Object.keys(files).forEach(function(relatedFile) {
-                if (relatedFile !== file && relatedFile.indexOf(dirname(file)) !== -1) {
+                if (relatedFile !== file && relatedFile.indexOf(dirname(file)) === 0) {
                   console.log("-- -- excluding related file: " + relatedFile);
                   delete files[relatedFile];
                 }
