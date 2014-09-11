@@ -1,0 +1,16 @@
+.reveal {
+  position: fixed;
+}
+
+html {
+  overflow: initial;
+}
+
+body {
+  overflow-y: scroll;
+}
+
+/*.reveal .progress {
+  position: absolute;
+  bottom: 50px;
+}*/
