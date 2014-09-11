@@ -139,8 +139,8 @@ Metalsmith(__dirname)
       }
     }
   }))
-  .use(markdown())
   .use(datamarkdown())
+  .use(markdown())
   .use(firstparagraph())
   .use(wordcount({
     metaKeyCount: "wordCount",

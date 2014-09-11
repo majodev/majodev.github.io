@@ -13,27 +13,33 @@ module.exports = plugin;
  * parses all blocks that have the attribute data-markdown set
  *
  * Idea originally by Paul Irish, see https://gist.github.com/paulirish/1343518
- * 
+ *
  * @param {Object} options
  * @return {Function}
  */
 
-function plugin(options){
+function plugin(options) {
   marked.setOptions(options);
 
-  return function(files, metalsmith, done){
+  return function(files, metalsmith, done) {
     setImmediate(done);
-    Object.keys(files).forEach(function(file){
+    Object.keys(files).forEach(function(file) {
       if (!isHtml(file) && !isMarkdown(file)) return;
       var data = files[file];
+      var foundMatches = false;
 
       var $ = cheerio.load(data.contents.toString());
 
-      $("[data-markdown]").each(function (index) {
-        $(this).html(marked($(this).text()));
+      $("[data-markdown]").each(function(index) {
+        var markedText = marked($(this).text());
+        //console.log($(this).text());
+        $(this).html(markedText);
+        foundMatches = true;
       });
 
-      files[file].contents = $.html();
+      if (foundMatches) {
+        files[file].contents = $.html();
+      }
 
     });
   };
@@ -46,7 +52,7 @@ function plugin(options){
  * @return {Boolean}
  */
 
-function isHtml(file){
+function isHtml(file) {
   return /\.html?/.test(extname(file));
 }
 

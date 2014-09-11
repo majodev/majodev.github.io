@@ -17,8 +17,21 @@ navCustom:
   backgroundAlpha: 0.1
 ---
 
-<div class="reveal"><div class="slides"><section data-markdown>
+<div class="reveal"><div class="slides">
+
+
+<section data-markdown>
 # Some selected projects
 ### Portfolio
 Created by asdf
-</section></div></div>
+</section>
+
+
+<section data-markdown>
+asdf
+
+![Kittens](https://www.math.ku.edu/~wsanders/Kittens/Cute_Kitten_Playing_Games.jpg)
+
+</section>
+
+</div></div>
