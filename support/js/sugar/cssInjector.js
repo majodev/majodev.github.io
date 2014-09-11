@@ -21,7 +21,7 @@ function injectUrl(url, callback) {
 
   if (element !== null) {
     $(element).prop('disabled', false);
-    console.log("enabled " + $(element).prop("id"));
+    //console.log("enabled " + $(element).prop("id"));
     callback(null);
   } else {
 
@@ -40,7 +40,7 @@ function injectUrl(url, callback) {
 
           callback(null);
 
-          console.log("injected " + $(element).prop("id"));
+          //console.log("injected " + $(element).prop("id"));
         }
       });
 
@@ -71,7 +71,8 @@ module.exports = {
 
     }, function(err) {
       if (err) {
-        console.log('A link failed to process');
+        console.error('A link failed to process error:' + err);
+        //console.log('A link failed to process');
       } else {
         // console.log('All links have been processed successfully');
       }
@@ -93,7 +94,7 @@ module.exports = {
       var $linkItem = $(linkItem);
       if (checkLinkIsRelevant($linkItem) === true && $linkItem.prop('disabled') === false) {
         $linkItem.prop('disabled', true);
-        console.log("disabled " + $linkItem.prop("id"));
+        //console.log("disabled " + $linkItem.prop("id"));
       }
     });
 
