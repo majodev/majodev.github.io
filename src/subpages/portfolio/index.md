@@ -2,6 +2,7 @@
 title: Portfolio
 template: onlynav.hbs
 sequence: 2
+published: true
 styles:
 - revealjs/css/reveal.css
 - revealjs/css/theme/moon.css
@@ -11,6 +12,9 @@ scripts:
 - revealjs/js/reveal.js
 - revealjs/lib/js/classList.js
 - portfolio.js
+navCustom:
+  backgroundColor: "#000"
+  backgroundAlpha: 0.1
 ---
 
 <!-- <iframe src="http://localhost:8081/reveal.js/" width="100%" height="100%" scrolling="no" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> -->

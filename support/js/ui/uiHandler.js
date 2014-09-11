@@ -19,12 +19,52 @@ function init() {
 }
 
 function initCollapsing() {
+  var defaultNavBG = "#fefefe";
+  var defaultNavOpacity = 0.8;
+  var defaultNavOpacityFocused = 1;
+  var defaultsOverwritten = false;
+
+
   // http://stackoverflow.com/questions/16680543/hide-twitter-bootstrap-nav-collapse-on-click
   $('.nav a').on('click', function() {
     if ($('.navbar-toggle').css('display') != 'none') {
       $(".navbar-toggle").trigger("click");
     }
   });
+
+  if ($(".block-header").data("backgroundcolor") !== "") {
+    defaultNavBG = $(".block-header").data("backgroundcolor");
+    defaultsOverwritten = true;
+  }
+
+  if ($(".block-header").data("backgroundalpha") !== "") {
+    defaultNavOpacity = Number($(".block-header").data("backgroundalpha"));
+    defaultsOverwritten = true;
+  }
+
+  if (defaultsOverwritten) {
+    $(".block-header").velocity({
+      backgroundColor: defaultNavBG,
+      backgroundColorAlpha: defaultNavOpacity
+    });
+  }
+
+  $('.navbar').on('show.bs.collapse', function() {
+    $(".block-header").velocity({
+      backgroundColor: defaultNavBG,
+      backgroundColorAlpha: defaultNavOpacityFocused
+    });
+    console.log("show collapse");
+  })
+
+  $('.navbar').on('hide.bs.collapse', function() {
+    $(".block-header").velocity({
+      backgroundColor: defaultNavBG,
+      backgroundColorAlpha: defaultNavOpacity
+    });
+    console.log("hide collapse");
+  })
+
 }
 
 function initHeadroom() {

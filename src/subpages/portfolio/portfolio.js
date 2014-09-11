@@ -23,19 +23,10 @@ Reveal.initialize({
   }]
 });
 
-$(".block-header").velocity({
-  backgroundColor: "#000000",
-  backgroundColorAlpha: 0.1
-});
-
-
 window.dealloc = function() {
 
-  $(".block-header").css("background-color", "#FFF");
+  Reveal.removeEventListeners()
+  Reveal = null;
 
-  // console.log("dealloc");
-  // $(".block-header").velocity({
-  //   backgroundColor: "#FFFFFF",
-  //   backgroundColorAlpha: 1
-  // });
+  $(".block-header").css("background-color", "#fefefe");
 }
