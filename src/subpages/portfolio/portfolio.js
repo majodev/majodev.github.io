@@ -1,3 +1,4 @@
+
 // Full list of configuration options available here:
 // https://github.com/hakimel/reveal.js#configuration
 Reveal.initialize({
@@ -26,3 +27,15 @@ $(".block-header").velocity({
   backgroundColor: "#000000",
   backgroundColorAlpha: 0.1
 });
+
+
+window.dealloc = function() {
+
+  $(".block-header").css("background-color", "#FFF");
+
+  // console.log("dealloc");
+  // $(".block-header").velocity({
+  //   backgroundColor: "#FFFFFF",
+  //   backgroundColorAlpha: 1
+  // });
+}

@@ -1,3 +1,5 @@
+var async = require("async");
+
 var ajaxHandler = require("./ajax/ajaxHandler");
 var uiHandler = require("./ui/uiHandler");
 var disqus = require("./plugins/disqus");
@@ -14,20 +16,38 @@ function init() {
 }
 
 ajaxHandler.on("beforePageExchange", function(options) {
+
   // console.log("beforePageExchange");
-  uiHandler.incPageLoadingProgress();
-  stopPageScripts();
-  uiHandler.incPageLoadingProgress();
-  uiHandler.scrollTop(options.callback);
-  uiHandler.incPageLoadingProgress();
-  cssInjector.removeCSSFromMeta();
-  uiHandler.incPageLoadingProgress();
-  cssInjector.injectCSSIntoMeta(options.$newHTML);
-  uiHandler.incPageLoadingProgress();
+
+  uiHandler.fadeOutContainer(function() {
+    uiHandler.incPageLoadingProgress();
+    stopPageScripts();
+
+    async.parallel([
+
+        function(callback) {
+          uiHandler.scrollTop(callback);
+        },
+        function(callback) {
+          cssInjector.removeCSSFromMeta();
+          cssInjector.injectCSSIntoMeta(options.$newHTML, callback);
+        }
+      ],
+      function(err, results) {
+        if (err) {
+          console.error("async beforePageExchange error" + err);
+        }
+        uiHandler.incPageLoadingProgress();
+        options.callback();
+      }
+    );
+  });
+
 });
 
 ajaxHandler.on("pageExchanged", function() {
   // console.log("pageExchanged");
+  //uiHandler.fadeInContainer();
   uiHandler.init();
   disqus.reset();
 });
@@ -39,7 +59,7 @@ ajaxHandler.on("loadingStart", function() {
 
 ajaxHandler.on("loadingProgress", function(progressValue) {
   // console.log("loadingProgress: " + progressValue);
-  uiHandler.incPageLoadingProgress(progressValue);
+  uiHandler.incPageLoadingProgress();
 });
 
 ajaxHandler.on("loadingEnd", function() {

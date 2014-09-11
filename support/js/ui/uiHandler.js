@@ -81,7 +81,18 @@ function scrollToAnchor(anchorname, callback) {
         $anchor.removeClass("targetAnimation");
       });
       if (_.isFunction(callback) === true) {
-        callback();
+        callback(null);
+      }
+    }
+  });
+}
+
+function fadeOutContainer(callback) {
+  $(".uiHandlerFade").velocity("fadeOut", {
+    duration: 180,
+    complete: function() {
+      if (_.isFunction(callback) === true) {
+        callback(null);
       }
     }
   });
@@ -92,5 +103,6 @@ module.exports = {
   setPageLoading: setPageLoading,
   incPageLoadingProgress: incPageLoadingProgress,
   scrollTop: scrollTop,
-  scrollToAnchor: scrollToAnchor
+  scrollToAnchor: scrollToAnchor,
+  fadeOutContainer: fadeOutContainer
 };

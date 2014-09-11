@@ -131,33 +131,37 @@ function historyStateChange() {
 
       ajaxHandler.emit("beforePageExchange", {
         callback: function() {
+          beforePageExchangeComplete();
           attachAnchor(url, null);
         },
         $newHTML: $html
       });
 
-      // Set the title to the requested urls document title
-      document.title = $html.filter("title").text();
-      // exchange the meta
-      exchangeMetaData($html);
 
-      // direct
-      if (_.isUndefined(window.ontouchstart) === false) { // handle touch device issue
-        $targetContainer.html("");
-        setTimeout(function() {
-          // http://stackoverflow.com/questions/3120497/safari-iphone-ipad-mouse-hover-on-new-link-after-prior-one-is-replaced-with-ja
-          // fix ios hover issue by re-adding everything asynchronous
+      function beforePageExchangeComplete() {
+        // Set the title to the requested urls document title
+        document.title = $html.filter("title").text();
+        // exchange the meta
+        exchangeMetaData($html);
+
+        // direct
+        if (_.isUndefined(window.ontouchstart) === false) { // handle touch device issue
+          $targetContainer.html("");
+          setTimeout(function() {
+            // http://stackoverflow.com/questions/3120497/safari-iphone-ipad-mouse-hover-on-new-link-after-prior-one-is-replaced-with-ja
+            // fix ios hover issue by re-adding everything asynchronous
+            exchangeContent();
+          }, 0);
+        } else {
           exchangeContent();
-        }, 0);
-      } else {
-        exchangeContent();
-      }
+        }
 
-      function exchangeContent() {
-        $targetContainer.html(newContent);
-        $scriptsContainer.html(newScripts);
-        setLoading(false);
-        ajaxHandler.emit("pageExchanged");
+        function exchangeContent() {
+          $targetContainer.html(newContent);
+          $scriptsContainer.html(newScripts);
+          setLoading(false);
+          ajaxHandler.emit("pageExchanged");
+        }
       }
 
     },

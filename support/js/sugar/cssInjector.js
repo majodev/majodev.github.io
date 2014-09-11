@@ -1,4 +1,5 @@
 var dominject = require("dominject");
+var async = require("async");
 
 // ATTENTION: only links (to css files) with an set "data-cssinjector" property
 // to "dynamic" will be dynamically injected, activated and deactivated!
@@ -15,12 +16,13 @@ function checkLinkIsRelevant($link) {
   return false;
 }
 
-function injectUrl(url) {
+function injectUrl(url, callback) {
   var element = _.isUndefined(document.getElementById(url)) ? null : document.getElementById(url);
 
   if (element !== null) {
     $(element).prop('disabled', false);
     console.log("enabled " + $(element).prop("id"));
+    callback(null);
   } else {
 
     try {
@@ -30,11 +32,13 @@ function injectUrl(url) {
         attrs: {
           type: "text/css"
         }, // attributes to be added to the injected dom element
-        timeout: 60 * 1000, // defaults to one minute that is allowed before the injection times out
+        timeout: 15 * 1000, // 15 seconds
         next: function(err, el) {
           if (err) {
             console.error("cssInjector dominject error " + err);
           }
+
+          callback(null);
 
           console.log("injected " + $(element).prop("id"));
         }
@@ -44,6 +48,7 @@ function injectUrl(url) {
       $(element).data(DATA_ATTRIBUTE, DATA_FLAG_DYNAMIC);
     } catch (err) {
       console.error("cssInjector catched error " + err);
+      callback(err);
     }
 
   }
@@ -51,16 +56,36 @@ function injectUrl(url) {
 
 
 module.exports = {
-  injectCSSIntoMeta: function($newHTML) {
+  injectCSSIntoMeta: function($newHTML, completeCallback) {
 
     var cssLinks = $($newHTML).filter("link");
 
-    _.each(cssLinks, function(link) {
+    async.each(cssLinks, function(link, callback) {
       var $link = $(link);
+
       if (checkLinkIsRelevant($link) === true) {
-        injectUrl($link.prop("id"));
+        injectUrl($link.prop("id"), callback);
+      } else {
+        callback(null);
       }
+
+    }, function(err) {
+      if (err) {
+        console.log('A link failed to process');
+      } else {
+        // console.log('All links have been processed successfully');
+      }
+
+      completeCallback(null);
+
     });
+
+    // _.each(cssLinks, function(link) {
+    //   var $link = $(link);
+    //   if (checkLinkIsRelevant($link) === true) {
+    //     injectUrl($link.prop("id"));
+    //   }
+    // });
   },
   removeCSSFromMeta: function() {
 
