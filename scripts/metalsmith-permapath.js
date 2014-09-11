@@ -134,14 +134,25 @@ function fileToFolderName(file, postfix, custom) {
   var targetname = "";
   var directory = dirname(file);
 
+  // console.log(file + " -- " + postfix);
+
   // add pre path
   if (directory !== ".") {
     if (custom !== false && custom.excludeDir === true) {
       targetname = directory.split(custom.dir)[1];
+
+      if(targetname[0] === "/") {
+        // remove beginning slash
+        targetname = targetname.substring(1);
+      }
+      
     } else {
       targetname = directory;
     }
   }
+
+  
+
 
   // filename to foldername if not index!
   if (postfix !== "index") {

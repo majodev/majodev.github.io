@@ -91,16 +91,16 @@ Metalsmith(__dirname)
   .use(metaformat())
   .use(collections({
     pages: {
-      pattern: "pages/**/*.*",
+      pattern: "pages/**/*.+(md|hbs|html)",
       sortBy: "sequence"
     },
     notes: {
-      pattern: "notes/**/*.md",
+      pattern: "notes/**/*.+(md|hbs|html)",
       sortBy: "date",
       reverse: true
     },
     subpages: {
-      pattern: "subpages/**/*.*",
+      pattern: "subpages/**/*.+(md|hbs|html)",
       sortBy: "sequence"
     }
   }))
