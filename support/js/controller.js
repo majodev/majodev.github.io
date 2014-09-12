@@ -21,10 +21,8 @@ ajaxHandler.on("beforePageExchange", function(options) {
 
   uiHandler.fadeOutContainer(function() {
     uiHandler.incPageLoadingProgress();
-    stopPageScripts();
 
     async.parallel([
-
         function(callback) {
           uiHandler.scrollTop(callback);
         },
@@ -37,6 +35,7 @@ ajaxHandler.on("beforePageExchange", function(options) {
         if (err) {
           console.error("async beforePageExchange error" + err);
         }
+        stopPageScripts();
         uiHandler.incPageLoadingProgress();
         options.callback();
       }

@@ -86,15 +86,20 @@ function initCollapsing() {
   // http://stackoverflow.com/questions/17233804/how-to-prevent-sticky-hover-effects-for-buttons-on-touch-devices
   // http://stackoverflow.com/questions/3120497/safari-iphone-ipad-mouse-hover-on-new-link-after-prior-one-is-replaced-with-ja
   if (_.isUndefined(window.ontouchstart) === false) { // handle touch device issue
+
     _.each($(".navbar-nav a"), function(linkItem) {
       var $navLink = $(linkItem);
       var orgContent = $navLink.html();
 
-      $navLink.html("<a>" + $navLink.text() + "</a>");
+      $navLink.hide();
+      $navLink.html("");
+
+      //$navLink.html($navLink.text());
 
       setTimeout(function() {
         $navLink.html(orgContent);
-      }, 0);
+        $navLink.show();
+      }, 10);
     });
   }
 
