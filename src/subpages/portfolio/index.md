@@ -13,25 +13,62 @@ scripts:
 - revealjs/lib/js/classList.js
 - portfolio.js
 navCustom:
-  backgroundColor: "#000"
-  backgroundAlpha: 0.1
+  backgroundColor: "#111"
+  backgroundAlpha: 0.2
+ajax:
+  preventpopstate: true
 ---
-
 <div class="reveal"><div class="slides">
 
 
+
+
 <section data-markdown>
-# Some selected projects
-### Portfolio
-Created by asdf
+# Portfolio
+### Some selected projects
 </section>
 
 
-<section data-markdown>
-asdf
+<section data-markdown data-background="#ef4356" data-background-transition="slide">
+# Catz!
 
 ![Kittens](https://www.math.ku.edu/~wsanders/Kittens/Cute_Kitten_Playing_Games.jpg)
+</section>
 
+<section data-markdown>
+![krmit](ehm_yeah_oO.gif)
+</section>
+
+<section data-markdown>
+```javascript
+window.dealloc = function() {
+
+  Reveal.removeEventListeners();
+  Reveal = null;
+
+  $(".block-header").css("background-color", "#fefefe");
+};
+```
+</section>
+
+<section data-markdown>
+# 2012
+</section>
+
+<section data-markdown>
+# 2011
+</section>
+
+<section data-markdown>
+# 2010
+</section>
+
+<section data-markdown>
+# 2009
+</section>
+
+<section data-markdown>
+# 2008
 </section>
 
 </div></div>

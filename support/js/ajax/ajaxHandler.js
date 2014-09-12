@@ -9,11 +9,16 @@ var SCRIPTS_SELECTOR = "#scripts_src";
 var FADE_TIME_AJAX_MS = 100;
 
 // runtime vars
-var History = null;
+// https://github.com/devote/HTML5-History-API
+var location = window.history.location || window.location; // 
+// using history instead of History!
+
+// own
 var $targetContainer = null;
 var $scriptsContainer = null;
 var loading = false;
 var loadAnchor = "";
+var ajaxpreventUrl = "";
 
 var AjaxHandler = function() {};
 util.inherits(AjaxHandler, EventEmitter);
@@ -22,12 +27,11 @@ var ajaxHandler = new AjaxHandler();
 
 AjaxHandler.prototype.init = function() {
   // Check if history is enabled for the browser
-  if (!window.History.enabled) {
-    console.error("AjaxHandler: History not enabled, aborting.");
-    return false;
+  if (history.emulated === true) {
+    console.warn("AjaxHandler: History is emulated, polyfilled!");
+    //return false;
   }
 
-  History = window.History;
   $targetContainer = $(AJAX_SELECTOR);
   $scriptsContainer = $(SCRIPTS_SELECTOR);
 
@@ -56,8 +60,38 @@ AjaxHandler.prototype.init = function() {
     });
   })($);
 
-  History.Adapter.bind(window, "anchorchange", historyAnchorChange);
-  History.Adapter.bind(window, "statechange", historyStateChange);
+
+  setPreventAjax($targetContainer);
+
+  // window.onpopstate = function (event) {
+  //   console.log(event);
+  //   historyStateChange(event);
+  // };
+
+  // window.onhashchange = function (event) {
+  //   console.log(event);
+  // };
+
+  // hang on popstate event triggered by pressing back/forward in browser
+  $(window).on('popstate', function(e) {
+    console.log(e);
+    if (ajaxpreventUrl !== "") {
+      // check if ajaxPrevent url matches new location
+
+      if (ajaxpreventUrl === urlHelper.removeAnchorFromUrl(location.href)) {
+        // do nothing, ajax prevented!
+        //console.log("ajax prevented " + ajaxpreventUrl + " matches " + location.href);
+      } else {
+        // no match - other url, change state as usual
+        historyStateChange(location.href);
+      }
+    } else {
+      historyStateChange(location.href);
+    }
+  });
+
+  //History.Adapter.bind(window, "anchorchange", historyAnchorChange);
+  //History.Adapter.bind(window, "statechange", historyStateChange);
   $("body").on("click", "a", jqueryLinkEvent);
 
 };
@@ -66,10 +100,12 @@ function jqueryLinkEvent(e) {
   if (checkEventShouldBeCaptured(e) === true &&
     urlHelper.testSameOrigin(e.target.href) === true) {
 
+    console.log(e);
+
     e.preventDefault();
 
     if (loading === false) {
-      var currentState = History.getState();
+      var currentState = location;
       var url = $(this).attr("href");
       var title = $(this).attr("title") || null;
 
@@ -83,7 +119,8 @@ function jqueryLinkEvent(e) {
       // the new state and make the ajax call.
       if (url !== currentState.hash && url.length !== 0) {
         setLoading(true);
-        History.pushState({}, title, url);
+        history.pushState({}, title, url);
+        historyStateChange(url);
       } else {
         if (loadAnchor.length > 0) {
           attachAnchor(url, title);
@@ -95,30 +132,42 @@ function jqueryLinkEvent(e) {
   }
 }
 
-function historyAnchorChange() {
-  var displayedPage = window.location.href;
-  var statePage = History.getState().url;
+// function historyAnchorChange() {
+//   var displayedPage = location;
+//   var statePage = history.getState().url;
 
-  // console.log("anchorchange! url: " + window.location.href +
-  //   " currentState: " + History.getState().url);
+//   // console.log("anchorchange! url: " + window.location.href +
+//   //   " currentState: " + history.getState().url);
 
-  if (urlHelper.removeAnchorFromUrl(displayedPage) !== urlHelper.removeAnchorFromUrl(statePage)) {
-    if (urlHelper.testSameOrigin(displayedPage) === true) {
-      // anchoring a wrong page - remember anchor and change state immediately
-      setLoading(true);
-      loadAnchor = urlHelper.getAnchor(displayedPage);
-      History.replaceState({}, null, urlHelper.removeAnchorFromUrl(displayedPage));
-    } else {
-      // non ajaxable page + anchor!
-      // console.warn("non ajaxable page with anchor enchountered!");
-      document.location.href = displayedPage;
-    }
+//   if (urlHelper.removeAnchorFromUrl(displayedPage) !== urlHelper.removeAnchorFromUrl(statePage)) {
+//     if (urlHelper.testSameOrigin(displayedPage) === true) {
+//       // anchoring a wrong page - remember anchor and change state immediately
+//       setLoading(true);
+//       loadAnchor = urlHelper.getAnchor(displayedPage);
+//       history.replaceState({}, null, urlHelper.removeAnchorFromUrl(displayedPage));
+//     } else {
+//       // non ajaxable page + anchor!
+//       // console.warn("non ajaxable page with anchor enchountered!");
+//       location = displayedPage;
+//     }
+//   }
+// }
+
+function setPreventAjax($container) {
+  if (_.isUndefined($container.data("preventpopstate")) === false) {
+    //console.log("ajaxprevent on url " + location.href + " active");
+    ajaxpreventUrl = urlHelper.removeAnchorFromUrl(location.href);
+    return true;
   }
+
+  //console.log("ajaxprevent inactive");
+  ajaxpreventUrl = "";
+  return false;
 }
 
-function historyStateChange() {
-  var State = History.getState();
-  var url = urlHelper.removeAnchorFromUrl(State.url);
+function historyStateChange(urlToLoad) {
+  var State = history.state;
+  var url = urlHelper.removeAnchorFromUrl(urlToLoad);
   //console.log("statechange - url: " + url);
 
   $.ajax({
@@ -128,6 +177,8 @@ function historyStateChange() {
       var $html = $(result);
       var newContent = $($html.filter(AJAX_SELECTOR)[0]).children();
       var newScripts = $($html.filter(SCRIPTS_SELECTOR)[0]).children();
+
+      setPreventAjax($($html.filter(AJAX_SELECTOR)[0]));
 
       ajaxHandler.emit("beforePageExchange", {
         callback: function() {
@@ -193,7 +244,7 @@ function setLoading(value) {
 
 function attachAnchor(url, title) {
   if (loadAnchor.length > 0) {
-    History.replaceState({}, title, url + "#" + loadAnchor);
+    history.replaceState({}, title, url + "#" + loadAnchor);
 
     ajaxHandler.emit("attachedAnchor", {
       anchorname: loadAnchor

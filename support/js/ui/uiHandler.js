@@ -13,6 +13,12 @@ function pinHeader() {
   }
 }
 
+function unPinHeader() {
+  if (Headroom.cutsTheMustard) {
+    $(".block-header").removeClass("headroom-forceShow");
+  }
+}
+
 function init() {
   initHeadroom();
   initCollapsing();
@@ -23,6 +29,7 @@ function initCollapsing() {
   var defaultNavOpacity = 0.8;
   var defaultNavOpacityFocused = 1;
   var defaultsOverwritten = false;
+  var fadeDurationMS = 200;
 
 
   // http://stackoverflow.com/questions/16680543/hide-twitter-bootstrap-nav-collapse-on-click
@@ -32,17 +39,20 @@ function initCollapsing() {
     }
   });
 
-  if ($(".block-header").data("backgroundcolor") !== "") {
+  if (_.isUndefined($(".block-header").data("backgroundcolor")) === false) {
+    //console.log("custom backgroundcolor");
     defaultNavBG = $(".block-header").data("backgroundcolor");
     defaultsOverwritten = true;
   }
 
-  if ($(".block-header").data("backgroundalpha") !== "") {
+  if (_.isUndefined($(".block-header").data("backgroundalpha")) === false) {
+    //console.log("custom backgroundalpha");
     defaultNavOpacity = Number($(".block-header").data("backgroundalpha"));
     defaultsOverwritten = true;
   }
 
   if (defaultsOverwritten) {
+    //console.log("defaultsOverwritten");
     $(".block-header").velocity({
       backgroundColor: defaultNavBG,
       backgroundColorAlpha: defaultNavOpacity
@@ -50,19 +60,25 @@ function initCollapsing() {
   }
 
   $('.navbar').on('show.bs.collapse', function() {
+    pinHeader();
     $(".block-header").velocity({
       backgroundColor: defaultNavBG,
       backgroundColorAlpha: defaultNavOpacityFocused
+    }, {
+      duration: fadeDurationMS
     });
-    console.log("show collapse");
+    //console.log("show collapse");
   })
 
   $('.navbar').on('hide.bs.collapse', function() {
+    unPinHeader();
     $(".block-header").velocity({
       backgroundColor: defaultNavBG,
       backgroundColorAlpha: defaultNavOpacity
+    }, {
+      duration: fadeDurationMS
     });
-    console.log("hide collapse");
+    //console.log("hide collapse");
   })
 
 }

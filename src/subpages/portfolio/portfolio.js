@@ -4,7 +4,7 @@
 Reveal.initialize({
   controls: true,
   progress: true,
-  history: false,
+  history: true,
   center: true,
 
   theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
@@ -25,8 +25,8 @@ Reveal.initialize({
 
 window.dealloc = function() {
 
-  Reveal.removeEventListeners()
+  Reveal.removeEventListeners();
   Reveal = null;
 
   $(".block-header").css("background-color", "#fefefe");
-}
+};
