@@ -168,7 +168,7 @@ function scrollToAnchor(anchorname, callback) {
 
 function fadeOutContainer(callback) {
   $(".uiHandlerFade").velocity("fadeOut", {
-    duration: 180,
+    duration: 200,
     complete: function() {
       if (_.isFunction(callback) === true) {
         callback(null);

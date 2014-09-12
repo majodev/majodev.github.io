@@ -6,18 +6,20 @@
 // adapted from https://raw.githubusercontent.com/cbracco/cardinal/master/css/main.css
 
 ::-moz-selection {
-    background: @color-text-selection; /* 1 */
+    color: @color-text-selection;
+    background: @color-text-selection-bg; /* 1 */
     text-shadow: none;   /* 2 */
 }
 
 ::selection {
-    background: @color-text-selection; /* 1 */
+    color: @color-text-selection;
+    background: @color-text-selection-bg; /* 1 */
     text-shadow: none;   /* 2 */
 }
 
 /* Change `background` for text selections when browser is unfocused */
 ::selection:window-inactive {
-    background: @color-text-selection-unfocused;
+    background: @color-text-selection-bg-unfocused;
 }
 
 /* Remove `background` on images when selected */

@@ -5,10 +5,8 @@ sequence: 2
 published: true
 styles:
 - revealjs/css/reveal.css
-- revealjs/css/theme/moon.css
 - portfolio.css
 scripts:
-- revealjs/lib/js/head.min.js
 - revealjs/js/reveal.js
 - revealjs/lib/js/classList.js
 - portfolio.js
@@ -29,14 +27,16 @@ ajax:
 </section>
 
 
-<section data-markdown data-background="#ef4356" data-background-transition="slide">
+<section data-markdown data-background="#072540">
 # Catz!
 
 ![Kittens](https://www.math.ku.edu/~wsanders/Kittens/Cute_Kitten_Playing_Games.jpg)
 </section>
 
 <section data-markdown>
-![krmit](ehm_yeah_oO.gif)
+Kermit lol
+
+![krmit](img/ehm_yeah_oO.gif)
 </section>
 
 <section data-markdown>

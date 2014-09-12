@@ -19,6 +19,8 @@ ajaxHandler.on("beforePageExchange", function(options) {
 
   // console.log("beforePageExchange");
 
+  stopPageScripts();
+
   uiHandler.fadeOutContainer(function() {
     uiHandler.incPageLoadingProgress();
 
@@ -35,7 +37,7 @@ ajaxHandler.on("beforePageExchange", function(options) {
         if (err) {
           console.error("async beforePageExchange error" + err);
         }
-        stopPageScripts();
+
         uiHandler.incPageLoadingProgress();
         options.callback();
       }

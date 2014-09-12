@@ -19,11 +19,14 @@
 @color-links: #139dc1; //fade(mix(@color-main-2, #00f, 99%), 80%);
 @color-links-hover: #7bd9f2; //@color-main-1;
 @color-nav: @color-main-1;
-@color-text-selection: fade(@color-main-1, 30%); //lighten(#68C088, 10%);
+
+@color-text-selection-bg: #d33682; //fade(@color-main-1, 30%);
+@color-text-selection: white;
+@color-text-selection-bg-unfocused: fade(@color-text-selection-bg, 50%);
 
 // colors
 @color-text: #3d3d3d; //#516473;
-@color-head: #2d2d2d; //#516473;
+@color-head: #002b36; //#2d2d2d; //#516473;
 @color-first-character: @color-head;
 
 // general dependent colors
@@ -34,7 +37,7 @@
 @color-nav-active: @color-main-1;
 
 @color-footer: @color-main-3;
-@color-footer-bg: @color-main-1;
+@color-footer-bg: #002b36; //@color-main-1;
 @color-footer-links: mix(@color-main-2, #00f, 95%);
 @color-footer-links-hover: lighten(@color-footer-links, 10%);
 
@@ -51,8 +54,6 @@
 @color-note-pager-bg-hover: @color-links-bg-hover;
 
 @color-gray-lighter: @color-nav-bg;
-
-@color-text-selection-unfocused: fade(@color-text-selection, 15%);
 
 @color-button-bg-hover: @color-footer-links-hover; //@color-links-bg-hover;
 @color-button-hover: #fefefe; //@color-links;
