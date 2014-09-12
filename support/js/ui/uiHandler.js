@@ -68,7 +68,7 @@ function initCollapsing() {
       duration: fadeDurationMS
     });
     //console.log("show collapse");
-  })
+  });
 
   $('.navbar').on('hide.bs.collapse', function() {
     unPinHeader();
@@ -79,7 +79,24 @@ function initCollapsing() {
       duration: fadeDurationMS
     });
     //console.log("hide collapse");
-  })
+  });
+
+
+  // fixes ios hover bug on navbar links!
+  // http://stackoverflow.com/questions/17233804/how-to-prevent-sticky-hover-effects-for-buttons-on-touch-devices
+  // http://stackoverflow.com/questions/3120497/safari-iphone-ipad-mouse-hover-on-new-link-after-prior-one-is-replaced-with-ja
+  if (_.isUndefined(window.ontouchstart) === false) { // handle touch device issue
+    _.each($(".navbar-nav a"), function(linkItem) {
+      var $navLink = $(linkItem);
+      var orgContent = $navLink.html();
+
+      $navLink.html("<a>" + $navLink.text() + "</a>");
+
+      setTimeout(function() {
+        $navLink.html(orgContent);
+      }, 0);
+    });
+  }
 
 }
 
@@ -117,7 +134,7 @@ function incPageLoadingProgress(value) {
 
 function scrollTop(callback) {
   $html.velocity("scroll", {
-    offset: "0px",
+    offset: "0",
     complete: function(elements) {
       if (_.isFunction(callback) === true) {
         callback();
@@ -131,6 +148,7 @@ function scrollToAnchor(anchorname, callback) {
   var $anchor = $("#" + anchorname);
 
   $anchor.velocity("scroll", {
+    offset: "-50", // include header offset
     complete: function(elements) {
       $anchor.addClass("targetAnimation");
       $anchor.one('webkitAnimationEnd oanimationend msAnimationEnd animationend', function(e) {

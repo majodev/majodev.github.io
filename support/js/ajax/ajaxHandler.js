@@ -74,7 +74,7 @@ AjaxHandler.prototype.init = function() {
 
   // hang on popstate event triggered by pressing back/forward in browser
   $(window).on('popstate', function(e) {
-    console.log(e);
+    //console.log(e);
     if (ajaxpreventUrl !== "") {
       // check if ajaxPrevent url matches new location
 
@@ -100,7 +100,7 @@ function jqueryLinkEvent(e) {
   if (checkEventShouldBeCaptured(e) === true &&
     urlHelper.testSameOrigin(e.target.href) === true) {
 
-    console.log(e);
+    //console.log(e);
 
     e.preventDefault();
 
@@ -183,7 +183,6 @@ function historyStateChange(urlToLoad) {
       ajaxHandler.emit("beforePageExchange", {
         callback: function() {
           beforePageExchangeComplete();
-          attachAnchor(url, null);
         },
         $newHTML: $html
       });
@@ -194,18 +193,8 @@ function historyStateChange(urlToLoad) {
         document.title = $html.filter("title").text();
         // exchange the meta
         exchangeMetaData($html);
-
-        // direct
-        if (_.isUndefined(window.ontouchstart) === false) { // handle touch device issue
-          $targetContainer.html("");
-          setTimeout(function() {
-            // http://stackoverflow.com/questions/3120497/safari-iphone-ipad-mouse-hover-on-new-link-after-prior-one-is-replaced-with-ja
-            // fix ios hover issue by re-adding everything asynchronous
-            exchangeContent();
-          }, 0);
-        } else {
-          exchangeContent();
-        }
+        exchangeContent();
+        attachAnchor(url, null);
 
         function exchangeContent() {
           $targetContainer.html(newContent);

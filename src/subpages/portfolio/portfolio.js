@@ -23,6 +23,12 @@ Reveal.initialize({
   }]
 });
 
+
+$(".navigate-left").addClass("needsclick");
+$(".navigate-right").addClass("needsclick");
+$(".navigate-up").addClass("needsclick");
+$(".navigate-down").addClass("needsclick");
+
 window.dealloc = function() {
 
   Reveal.removeEventListeners();

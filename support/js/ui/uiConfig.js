@@ -1,9 +1,10 @@
 var NProgress = require("nprogress");
+var FastClickAttach = require("fastclick");
 
 module.exports = {
   init: function() {
     $(function() {
-      FastClick.attach(document.body);
+      FastClickAttach(document.body);
     });
 
     NProgress.configure({
