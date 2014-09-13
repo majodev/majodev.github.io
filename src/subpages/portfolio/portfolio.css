@@ -466,6 +466,7 @@ body {
   left: 50%;
   right: 50%;
   top: initial;
+  margin-top: 0px;
   margin-left: -44px; /* double dimension */
   
 }
@@ -475,6 +476,7 @@ body {
   left: 50%;
   right: 50%;
   top: initial;
+  margin-top: 0px;
   margin-left: 22px;
   margin-bottom: 15px;
 }
