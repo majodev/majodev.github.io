@@ -151,6 +151,15 @@ module.exports = function(grunt) {
           src: _.union(config.inject.css, ["_tmp/style.css"]),
           dest: config.inject.gruntTargetDir.css + config.inject.productive.css
         }]
+      },
+      css_src: {
+        files: [{
+          expand: true, // Enable dynamic expansion.
+          cwd: 'build/', // Src matches are relative to this path.
+          src: ['**/*.css'], // Actual pattern(s) to match.
+          dest: 'build/', // Destination path prefix.
+          ext: '.css', // Dest filepaths will have this extension.
+        }]
       }
     },
     uglify: {
@@ -411,13 +420,18 @@ module.exports = function(grunt) {
   // ---
 
   grunt.registerTask("build-productive", [
-    "browserify:productive", "get-git-revision", "execute:metalsmith-productive", "css-productive", "uglify:js_src",
-    "uglify:js", "uglify:js_head", "htmlmin", "copy:support-root",
+    "browserify:productive", "get-git-revision", "execute:metalsmith-productive", 
+    "css-productive", "js-productive", 
+    "htmlmin", "copy:support-root",
     "copy:inject-fonts", "xmlmin"
   ]);
 
   grunt.registerTask("css-productive", [
-    "less:productive", "autoprefixer", "cssmin:combine"
+    "cssmin:css_src", "less:productive", "autoprefixer", "cssmin:combine"
+  ]);
+
+  grunt.registerTask("js-productive", [
+    "uglify:js_src", "uglify:js", "uglify:js_head"
   ]);
 
   // ---

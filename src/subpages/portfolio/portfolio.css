@@ -178,8 +178,8 @@ body {
 .paginate-flex {
   position: relative;
   margin: 10px;
-  width: 35px;
-  height: 35px;
+  width: 22px;
+  height: 22px;
   cursor: pointer;
   -webkit-transform: translate3d(0, 0, 0);
   -moz-transform: translate3d(0, 0, 0);
@@ -193,7 +193,7 @@ body {
     position: absolute;
     top: 40%;
     left: 0;
-    width: 35px;
+    width: 22px;
     height: 5px;
     border-radius: 2.5px;
     background: #fff;
@@ -316,66 +316,66 @@ body {
       -ms-transform: translate(5px, 0) rotate(0deg);
       transform: translate(5px, 0) rotate(0deg); }
   .paginate-flex.up {
-    -webkit-transform: rotate(90deg);
-    -moz-transform: rotate(90deg);
-    -ms-transform: rotate(90deg);
-    transform: rotate(90deg);
+    -webkit-transform: rotate(270deg);
+    -moz-transform: rotate(270deg);
+    -ms-transform: rotate(270deg);
+    transform: rotate(270deg);
   }
     .paginate-flex.up i {
-      -webkit-transform-origin: 0% 50%;
-      -moz-transform-origin: 0% 50%;
-      -ms-transform-origin: 0% 50%;
-      transform-origin: 0% 50%; }
+      -webkit-transform-origin: 100% 50%;
+      -moz-transform-origin: 100% 50%;
+      -ms-transform-origin: 100% 50%;
+      transform-origin: 100% 50%; }
     .paginate-flex.up i:first-child {
-      -webkit-transform: translate(0, -1px) rotate(40deg);
-      -moz-transform: translate(0, -1px) rotate(40deg);
-      -ms-transform: translate(0, -1px) rotate(40deg);
-      transform: translate(0, -1px) rotate(40deg); }
+      -webkit-transform: translate(0, 1px) rotate(40deg);
+      -moz-transform: translate(0, 1px) rotate(40deg);
+      -ms-transform: translate(0, 1px) rotate(40deg);
+      transform: translate(0, 1px) rotate(40deg); }
     .paginate-flex.up i:last-child {
-      -webkit-transform: translate(0, 1px) rotate(-40deg);
-      -moz-transform: translate(0, 1px) rotate(-40deg);
-      -ms-transform: translate(0, 1px) rotate(-40deg);
-      transform: translate(0, 1px) rotate(-40deg); }
+      -webkit-transform: translate(0, -1px) rotate(-40deg);
+      -moz-transform: translate(0, -1px) rotate(-40deg);
+      -ms-transform: translate(0, -1px) rotate(-40deg);
+      transform: translate(0, -1px) rotate(-40deg); }
     .paginate-flex.up:hover i:first-child {
-      -webkit-transform: translate(0, -1px) rotate(30deg);
-      -moz-transform: translate(0, -1px) rotate(30deg);
-      -ms-transform: translate(0, -1px) rotate(30deg);
-      transform: translate(0, -1px) rotate(30deg); }
+      -webkit-transform: translate(0, 1px) rotate(30deg);
+      -moz-transform: translate(0, 1px) rotate(30deg);
+      -ms-transform: translate(0, 1px) rotate(30deg);
+      transform: translate(0, 1px) rotate(30deg); }
     .paginate-flex.up:hover i:last-child {
-      -webkit-transform: translate(0, 1px) rotate(-30deg);
-      -moz-transform: translate(0, 1px) rotate(-30deg);
-      -ms-transform: translate(0, 1px) rotate(-30deg);
-      transform: translate(0, 1px) rotate(-30deg); }
+      -webkit-transform: translate(0, -1px) rotate(-30deg);
+      -moz-transform: translate(0, -1px) rotate(-30deg);
+      -ms-transform: translate(0, -1px) rotate(-30deg);
+      transform: translate(0, -1px) rotate(-30deg); }
     .paginate-flex.up:active i:first-child {
-      -webkit-transform: translate(1px, -1px) rotate(25deg);
-      -moz-transform: translate(1px, -1px) rotate(25deg);
-      -ms-transform: translate(1px, -1px) rotate(25deg);
-      transform: translate(1px, -1px) rotate(25deg); }
+      -webkit-transform: translate(1px, 1px) rotate(25deg);
+      -moz-transform: translate(1px, 1px) rotate(25deg);
+      -ms-transform: translate(1px, 1px) rotate(25deg);
+      transform: translate(1px, 1px) rotate(25deg); }
     .paginate-flex.up:active i:last-child {
-      -webkit-transform: translate(1px, 1px) rotate(-25deg);
-      -moz-transform: translate(1px, 1px) rotate(-25deg);
-      -ms-transform: translate(1px, 1px) rotate(-25deg);
-      transform: translate(1px, 1px) rotate(-25deg); }
+      -webkit-transform: translate(1px, -1px) rotate(-25deg);
+      -moz-transform: translate(1px, -1px) rotate(-25deg);
+      -ms-transform: translate(1px, -1px) rotate(-25deg);
+      transform: translate(1px, -1px) rotate(-25deg); }
     .paginate-flex.up[data-state=disabled] i:first-child {
-      -webkit-transform: translate(-5px, 0) rotate(0deg);
-      -moz-transform: translate(-5px, 0) rotate(0deg);
-      -ms-transform: translate(-5px, 0) rotate(0deg);
-      transform: translate(-5px, 0) rotate(0deg); }
+      -webkit-transform: translate(5px, 0) rotate(0deg);
+      -moz-transform: translate(5px, 0) rotate(0deg);
+      -ms-transform: translate(5px, 0) rotate(0deg);
+      transform: translate(5px, 0) rotate(0deg); }
     .paginate-flex.up[data-state=disabled] i:last-child {
-      -webkit-transform: translate(-5px, 0) rotate(0deg);
-      -moz-transform: translate(-5px, 0) rotate(0deg);
-      -ms-transform: translate(-5px, 0) rotate(0deg);
-      transform: translate(-5px, 0) rotate(0deg); }
+      -webkit-transform: translate(5px, 0) rotate(0deg);
+      -moz-transform: translate(5px, 0) rotate(0deg);
+      -ms-transform: translate(5px, 0) rotate(0deg);
+      transform: translate(5px, 0) rotate(0deg); }
     .paginate-flex.up[data-state=disabled]:hover i:first-child {
-      -webkit-transform: translate(-5px, 0) rotate(0deg);
-      -moz-transform: translate(-5px, 0) rotate(0deg);
-      -ms-transform: translate(-5px, 0) rotate(0deg);
-      transform: translate(-5px, 0) rotate(0deg); }
+      -webkit-transform: translate(5px, 0) rotate(0deg);
+      -moz-transform: translate(5px, 0) rotate(0deg);
+      -ms-transform: translate(5px, 0) rotate(0deg);
+      transform: translate(5px, 0) rotate(0deg); }
     .paginate-flex.up[data-state=disabled]:hover i:last-child {
-      -webkit-transform: translate(-5px, 0) rotate(0deg);
-      -moz-transform: translate(-5px, 0) rotate(0deg);
-      -ms-transform: translate(-5px, 0) rotate(0deg);
-      transform: translate(-5px, 0) rotate(0deg); }
+      -webkit-transform: translate(5px, 0) rotate(0deg);
+      -moz-transform: translate(5px, 0) rotate(0deg);
+      -ms-transform: translate(5px, 0) rotate(0deg);
+      transform: translate(5px, 0) rotate(0deg); }
   .paginate-flex.down {
     -webkit-transform: rotate(90deg);
     -moz-transform: rotate(90deg);
@@ -418,25 +418,25 @@ body {
       -ms-transform: translate(1px, -1px) rotate(-25deg);
       transform: translate(1px, -1px) rotate(-25deg); }
     .paginate-flex.down[data-state=disabled] i:first-child {
-      -webkit-transform: translate(5px, 0) rotate(0deg);
-      -moz-transform: translate(5px, 0) rotate(0deg);
-      -ms-transform: translate(5px, 0) rotate(0deg);
-      transform: translate(5px, 0) rotate(0deg); }
+      -webkit-transform: translate(0px, 0) rotate(0deg);
+      -moz-transform: translate(0px, 0) rotate(0deg);
+      -ms-transform: translate(0px, 0) rotate(0deg);
+      transform: translate(0px, 0) rotate(0deg); }
     .paginate-flex.down[data-state=disabled] i:last-child {
-      -webkit-transform: translate(5px, 0) rotate(0deg);
-      -moz-transform: translate(5px, 0) rotate(0deg);
-      -ms-transform: translate(5px, 0) rotate(0deg);
-      transform: translate(5px, 0) rotate(0deg); }
+      -webkit-transform: translate(0px, 0) rotate(0deg);
+      -moz-transform: translate(0px, 0) rotate(0deg);
+      -ms-transform: translate(0px, 0) rotate(0deg);
+      transform: translate(0px, 0) rotate(0deg); }
     .paginate-flex.down[data-state=disabled]:hover i:first-child {
-      -webkit-transform: translate(5px, 0) rotate(0deg);
-      -moz-transform: translate(5px, 0) rotate(0deg);
-      -ms-transform: translate(5px, 0) rotate(0deg);
-      transform: translate(5px, 0) rotate(0deg); }
+      -webkit-transform: translate(0px, 0) rotate(0deg);
+      -moz-transform: translate(0px, 0) rotate(0deg);
+      -ms-transform: translate(0px, 0) rotate(0deg);
+      transform: translate(0px, 0) rotate(0deg); }
     .paginate-flex.down[data-state=disabled]:hover i:last-child {
-      -webkit-transform: translate(5px, 0) rotate(0deg);
-      -moz-transform: translate(5px, 0) rotate(0deg);
-      -ms-transform: translate(5px, 0) rotate(0deg);
-      transform: translate(5px, 0) rotate(0deg); }
+      -webkit-transform: translate(0px, 0) rotate(0deg);
+      -moz-transform: translate(0px, 0) rotate(0deg);
+      -ms-transform: translate(0px, 0) rotate(0deg);
+      transform: translate(0px, 0) rotate(0deg); }
   .paginate-flex[data-state=disabled] {
     opacity: 0.3;
     cursor: default; }
@@ -447,13 +447,17 @@ body {
 }
 
 .paginate-flex-button.left {
-  left: 10px;
-  margin-top: -35px;
+  left: 15px;
+  bottom: 15px;
+  top: initial;
+  margin-top: -22px;
 }
 
 .paginate-flex-button.right {
-  right: 10px;
-  margin-top: -35px;
+  right: 15px;
+  bottom: 15px;
+  top: initial;
+  margin-top: -22px;
 }
 
 .paginate-flex-button.up {
@@ -462,7 +466,8 @@ body {
   left: 50%;
   right: 50%;
   top: initial;
-  margin-left: 25px;
+  margin-left: -44px; /* double dimension */
+  
 }
 
 .paginate-flex-button.down {
@@ -470,6 +475,6 @@ body {
   left: 50%;
   right: 50%;
   top: initial;
-  margin-left: -70px;
-  margin-bottom: 20px;
+  margin-left: 22px;
+  margin-bottom: 15px;
 }

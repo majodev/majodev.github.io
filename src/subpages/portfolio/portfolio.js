@@ -69,11 +69,6 @@ Reveal.configure({
   }
 });
 
-// $(".navigate-left").addClass("needsclick");
-// $(".navigate-right").addClass("needsclick");
-// $(".navigate-up").addClass("needsclick");
-// $(".navigate-down").addClass("needsclick");
-
 var $paginatorLeft = $(".paginate-flex-button.left");
 var $paginatorRight = $(".paginate-flex-button.right");
 var $paginatorUp = $(".paginate-flex-button.up");
@@ -109,35 +104,20 @@ function checkPaginatorVisibility() {
   } else {
     $paginatorLeft.attr("data-state", "disabled");
   }
-
   if (routes.right) {
     $paginatorRight.attr("data-state", "");
   } else {
     $paginatorRight.attr("data-state", "disabled");
   }
-
   if (routes.up) {
     $paginatorUp.attr("data-state", "");
-    // $paginatorUp.velocity("fadeIn", {
-    //   duration: 150
-    // });
   } else {
     $paginatorUp.attr("data-state", "disabled");
-    // $paginatorUp.velocity("fadeOut", {
-    //   duration: 150
-    // });
   }
-
   if (routes.down) {
     $paginatorDown.attr("data-state", "");
-    // $paginatorDown.velocity("fadeIn", {
-    //   duration: 150
-    // });
   } else {
     $paginatorDown.attr("data-state", "disabled");
-    // $paginatorDown.velocity("fadeOut", {
-    //   duration: 150
-    // });
   }
 }
 
