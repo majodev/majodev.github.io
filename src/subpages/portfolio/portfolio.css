@@ -167,6 +167,7 @@ body {
 
 
 /* paginator */
+/* http://lab.hakim.se/flexing-pagination/ */
 
 .paginate-flex-button {
   -webkit-appearance: none;
@@ -177,8 +178,8 @@ body {
 .paginate-flex {
   position: relative;
   margin: 10px;
-  width: 50px;
-  height: 50px;
+  width: 35px;
+  height: 35px;
   cursor: pointer;
   -webkit-transform: translate3d(0, 0, 0);
   -moz-transform: translate3d(0, 0, 0);
@@ -192,7 +193,7 @@ body {
     position: absolute;
     top: 40%;
     left: 0;
-    width: 50px;
+    width: 35px;
     height: 5px;
     border-radius: 2.5px;
     background: #fff;
@@ -201,7 +202,7 @@ body {
     -ms-transition: all 0.15s ease;
     transition: all 0.15s ease; }
   .paginate-flex.left {
-    right: 58%; }
+  }
     .paginate-flex.left i {
       -webkit-transform-origin: 0% 50%;
       -moz-transform-origin: 0% 50%;
@@ -258,7 +259,7 @@ body {
       -ms-transform: translate(-5px, 0) rotate(0deg);
       transform: translate(-5px, 0) rotate(0deg); }
   .paginate-flex.right {
-    left: 58%; }
+  }
     .paginate-flex.right i {
       -webkit-transform-origin: 100% 50%;
       -moz-transform-origin: 100% 50%;
@@ -314,21 +315,161 @@ body {
       -moz-transform: translate(5px, 0) rotate(0deg);
       -ms-transform: translate(5px, 0) rotate(0deg);
       transform: translate(5px, 0) rotate(0deg); }
+  .paginate-flex.up {
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+  }
+    .paginate-flex.up i {
+      -webkit-transform-origin: 0% 50%;
+      -moz-transform-origin: 0% 50%;
+      -ms-transform-origin: 0% 50%;
+      transform-origin: 0% 50%; }
+    .paginate-flex.up i:first-child {
+      -webkit-transform: translate(0, -1px) rotate(40deg);
+      -moz-transform: translate(0, -1px) rotate(40deg);
+      -ms-transform: translate(0, -1px) rotate(40deg);
+      transform: translate(0, -1px) rotate(40deg); }
+    .paginate-flex.up i:last-child {
+      -webkit-transform: translate(0, 1px) rotate(-40deg);
+      -moz-transform: translate(0, 1px) rotate(-40deg);
+      -ms-transform: translate(0, 1px) rotate(-40deg);
+      transform: translate(0, 1px) rotate(-40deg); }
+    .paginate-flex.up:hover i:first-child {
+      -webkit-transform: translate(0, -1px) rotate(30deg);
+      -moz-transform: translate(0, -1px) rotate(30deg);
+      -ms-transform: translate(0, -1px) rotate(30deg);
+      transform: translate(0, -1px) rotate(30deg); }
+    .paginate-flex.up:hover i:last-child {
+      -webkit-transform: translate(0, 1px) rotate(-30deg);
+      -moz-transform: translate(0, 1px) rotate(-30deg);
+      -ms-transform: translate(0, 1px) rotate(-30deg);
+      transform: translate(0, 1px) rotate(-30deg); }
+    .paginate-flex.up:active i:first-child {
+      -webkit-transform: translate(1px, -1px) rotate(25deg);
+      -moz-transform: translate(1px, -1px) rotate(25deg);
+      -ms-transform: translate(1px, -1px) rotate(25deg);
+      transform: translate(1px, -1px) rotate(25deg); }
+    .paginate-flex.up:active i:last-child {
+      -webkit-transform: translate(1px, 1px) rotate(-25deg);
+      -moz-transform: translate(1px, 1px) rotate(-25deg);
+      -ms-transform: translate(1px, 1px) rotate(-25deg);
+      transform: translate(1px, 1px) rotate(-25deg); }
+    .paginate-flex.up[data-state=disabled] i:first-child {
+      -webkit-transform: translate(-5px, 0) rotate(0deg);
+      -moz-transform: translate(-5px, 0) rotate(0deg);
+      -ms-transform: translate(-5px, 0) rotate(0deg);
+      transform: translate(-5px, 0) rotate(0deg); }
+    .paginate-flex.up[data-state=disabled] i:last-child {
+      -webkit-transform: translate(-5px, 0) rotate(0deg);
+      -moz-transform: translate(-5px, 0) rotate(0deg);
+      -ms-transform: translate(-5px, 0) rotate(0deg);
+      transform: translate(-5px, 0) rotate(0deg); }
+    .paginate-flex.up[data-state=disabled]:hover i:first-child {
+      -webkit-transform: translate(-5px, 0) rotate(0deg);
+      -moz-transform: translate(-5px, 0) rotate(0deg);
+      -ms-transform: translate(-5px, 0) rotate(0deg);
+      transform: translate(-5px, 0) rotate(0deg); }
+    .paginate-flex.up[data-state=disabled]:hover i:last-child {
+      -webkit-transform: translate(-5px, 0) rotate(0deg);
+      -moz-transform: translate(-5px, 0) rotate(0deg);
+      -ms-transform: translate(-5px, 0) rotate(0deg);
+      transform: translate(-5px, 0) rotate(0deg); }
+  .paginate-flex.down {
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+  }
+    .paginate-flex.down i {
+      -webkit-transform-origin: 100% 50%;
+      -moz-transform-origin: 100% 50%;
+      -ms-transform-origin: 100% 50%;
+      transform-origin: 100% 50%; }
+    .paginate-flex.down i:first-child {
+      -webkit-transform: translate(0, 1px) rotate(40deg);
+      -moz-transform: translate(0, 1px) rotate(40deg);
+      -ms-transform: translate(0, 1px) rotate(40deg);
+      transform: translate(0, 1px) rotate(40deg); }
+    .paginate-flex.down i:last-child {
+      -webkit-transform: translate(0, -1px) rotate(-40deg);
+      -moz-transform: translate(0, -1px) rotate(-40deg);
+      -ms-transform: translate(0, -1px) rotate(-40deg);
+      transform: translate(0, -1px) rotate(-40deg); }
+    .paginate-flex.down:hover i:first-child {
+      -webkit-transform: translate(0, 1px) rotate(30deg);
+      -moz-transform: translate(0, 1px) rotate(30deg);
+      -ms-transform: translate(0, 1px) rotate(30deg);
+      transform: translate(0, 1px) rotate(30deg); }
+    .paginate-flex.down:hover i:last-child {
+      -webkit-transform: translate(0, -1px) rotate(-30deg);
+      -moz-transform: translate(0, -1px) rotate(-30deg);
+      -ms-transform: translate(0, -1px) rotate(-30deg);
+      transform: translate(0, -1px) rotate(-30deg); }
+    .paginate-flex.down:active i:first-child {
+      -webkit-transform: translate(1px, 1px) rotate(25deg);
+      -moz-transform: translate(1px, 1px) rotate(25deg);
+      -ms-transform: translate(1px, 1px) rotate(25deg);
+      transform: translate(1px, 1px) rotate(25deg); }
+    .paginate-flex.down:active i:last-child {
+      -webkit-transform: translate(1px, -1px) rotate(-25deg);
+      -moz-transform: translate(1px, -1px) rotate(-25deg);
+      -ms-transform: translate(1px, -1px) rotate(-25deg);
+      transform: translate(1px, -1px) rotate(-25deg); }
+    .paginate-flex.down[data-state=disabled] i:first-child {
+      -webkit-transform: translate(5px, 0) rotate(0deg);
+      -moz-transform: translate(5px, 0) rotate(0deg);
+      -ms-transform: translate(5px, 0) rotate(0deg);
+      transform: translate(5px, 0) rotate(0deg); }
+    .paginate-flex.down[data-state=disabled] i:last-child {
+      -webkit-transform: translate(5px, 0) rotate(0deg);
+      -moz-transform: translate(5px, 0) rotate(0deg);
+      -ms-transform: translate(5px, 0) rotate(0deg);
+      transform: translate(5px, 0) rotate(0deg); }
+    .paginate-flex.down[data-state=disabled]:hover i:first-child {
+      -webkit-transform: translate(5px, 0) rotate(0deg);
+      -moz-transform: translate(5px, 0) rotate(0deg);
+      -ms-transform: translate(5px, 0) rotate(0deg);
+      transform: translate(5px, 0) rotate(0deg); }
+    .paginate-flex.down[data-state=disabled]:hover i:last-child {
+      -webkit-transform: translate(5px, 0) rotate(0deg);
+      -moz-transform: translate(5px, 0) rotate(0deg);
+      -ms-transform: translate(5px, 0) rotate(0deg);
+      transform: translate(5px, 0) rotate(0deg); }
   .paginate-flex[data-state=disabled] {
     opacity: 0.3;
     cursor: default; }
 
-.paginate-flex-button.left {
+.paginate-flex-button {
   position: fixed;
-  left: 15px;
   z-index: 200;
-  margin-top: -50px;
+}
+
+.paginate-flex-button.left {
+  left: 10px;
+  margin-top: -35px;
 }
 
 .paginate-flex-button.right {
-  position: fixed;
-  right: 15px;
-  z-index: 200;
-  left: initial;
-  margin-top: -50px;
+  right: 10px;
+  margin-top: -35px;
+}
+
+.paginate-flex-button.up {
+  /*top: 37.5px;*/
+  bottom: 10px;
+  left: 50%;
+  right: 50%;
+  top: initial;
+  margin-left: 25px;
+}
+
+.paginate-flex-button.down {
+  bottom: 10px;
+  left: 50%;
+  right: 50%;
+  top: initial;
+  margin-left: -70px;
+  margin-bottom: 20px;
 }

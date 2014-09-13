@@ -76,6 +76,8 @@ Reveal.configure({
 
 var $paginatorLeft = $(".paginate-flex-button.left");
 var $paginatorRight = $(".paginate-flex-button.right");
+var $paginatorUp = $(".paginate-flex-button.up");
+var $paginatorDown = $(".paginate-flex-button.down");
 
 
 Reveal.addEventListener('ready', function(event) {
@@ -87,20 +89,55 @@ Reveal.addEventListener('ready', function(event) {
     Reveal.navigateRight();
   });
 
+  $paginatorUp.on("click", function() {
+    Reveal.navigateUp();
+  });
+
+  $paginatorDown.on("click", function() {
+    Reveal.navigateDown();
+  });
+
   checkPaginatorVisibility();
 });
 
 function checkPaginatorVisibility() {
-  // console.log("checkPaginatorVisibility");
-  if (Reveal.isFirstSlide() === true) {
-    $paginatorLeft.attr("data-state", "disabled");
-  } else {
+
+  var routes = Reveal.availableRoutes();
+
+  if (routes.left) {
     $paginatorLeft.attr("data-state", "");
-  }
-  if (Reveal.isLastSlide() === true) {
-    $paginatorRight.attr("data-state", "disabled");
   } else {
+    $paginatorLeft.attr("data-state", "disabled");
+  }
+
+  if (routes.right) {
     $paginatorRight.attr("data-state", "");
+  } else {
+    $paginatorRight.attr("data-state", "disabled");
+  }
+
+  if (routes.up) {
+    $paginatorUp.attr("data-state", "");
+    // $paginatorUp.velocity("fadeIn", {
+    //   duration: 150
+    // });
+  } else {
+    $paginatorUp.attr("data-state", "disabled");
+    // $paginatorUp.velocity("fadeOut", {
+    //   duration: 150
+    // });
+  }
+
+  if (routes.down) {
+    $paginatorDown.attr("data-state", "");
+    // $paginatorDown.velocity("fadeIn", {
+    //   duration: 150
+    // });
+  } else {
+    $paginatorDown.attr("data-state", "disabled");
+    // $paginatorDown.velocity("fadeOut", {
+    //   duration: 150
+    // });
   }
 }
 
@@ -112,6 +149,8 @@ window.dealloc = function() {
 
   $paginatorLeft.off();
   $paginatorRight.off();
+  $paginatorUp.off();
+  $paginatorDown.off();
 
   Reveal.removeEventListeners();
   Reveal = null;
