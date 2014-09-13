@@ -23,25 +23,27 @@ ajaxHandler.on("beforePageExchange", function(options) {
 
   uiHandler.fadeOutContainer(function() {
     uiHandler.incPageLoadingProgress();
+    uiHandler.resetNavStyle(function() {
 
-    async.parallel([
-        function(callback) {
-          uiHandler.scrollTop(callback);
-        },
-        function(callback) {
-          cssInjector.removeCSSFromMeta();
-          cssInjector.injectCSSIntoMeta(options.$newHTML, callback);
-        }
-      ],
-      function(err, results) {
-        if (err) {
-          console.error("async beforePageExchange error" + err);
-        }
+      async.parallel([
+          function(callback) {
+            uiHandler.scrollTop(callback);
+          },
+          function(callback) {
+            cssInjector.removeCSSFromMeta();
+            cssInjector.injectCSSIntoMeta(options.$newHTML, callback);
+          }
+        ],
+        function(err, results) {
+          if (err) {
+            console.error("async beforePageExchange error" + err);
+          }
 
-        uiHandler.incPageLoadingProgress();
-        options.callback();
-      }
-    );
+          uiHandler.incPageLoadingProgress();
+          options.callback();
+        }
+      );
+    });
   });
 
 });

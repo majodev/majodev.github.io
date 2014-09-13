@@ -134,6 +134,4 @@ window.dealloc = function() {
 
   Reveal.removeEventListeners();
   Reveal = null;
-
-  $(".block-header").css("background-color", "#fefefe");
 };

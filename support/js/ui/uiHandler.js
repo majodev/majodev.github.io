@@ -5,7 +5,17 @@ var uiConfig = require("./uiConfig");
 var $body = $(document.body);
 var $html = $("html");
 
-uiConfig.init();
+uiConfig.init(); // only once
+
+// runtime vars
+var defaultNavStyleOverwritten = false;
+var defaultNavStyleBG = "#fefefe";
+var defaultNavStyleOpacity = 0.8;
+var defaultNavStyleOpacityFocused = 1;
+var defaultFadeDuration = 200;
+var defaultHeaderOffset = 50;
+
+
 
 function pinHeader() {
   if (Headroom.cutsTheMustard) {
@@ -19,17 +29,15 @@ function unPinHeader() {
   }
 }
 
-function init() {
+function init() { // called per page ajax refresh and on init!
   initHeadroom();
-  initCollapsing();
+  initNavigation();
 }
 
-function initCollapsing() {
-  var defaultNavBG = "#fefefe";
-  var defaultNavOpacity = 0.8;
-  var defaultNavOpacityFocused = 1;
-  var defaultsOverwritten = false;
-  var fadeDurationMS = 200;
+function initNavigation() {
+  var currentNavBG = defaultNavStyleBG;
+  var currentNavOpacity = defaultNavStyleOpacity;
+  var currentNavOpacityFocused = defaultNavStyleOpacityFocused;
 
 
   // http://stackoverflow.com/questions/16680543/hide-twitter-bootstrap-nav-collapse-on-click
@@ -41,31 +49,31 @@ function initCollapsing() {
 
   if (_.isUndefined($(".block-header").data("backgroundcolor")) === false) {
     //console.log("custom backgroundcolor");
-    defaultNavBG = $(".block-header").data("backgroundcolor");
-    defaultsOverwritten = true;
+    currentNavBG = $(".block-header").data("backgroundcolor");
+    defaultNavStyleOverwritten = true;
   }
 
   if (_.isUndefined($(".block-header").data("backgroundalpha")) === false) {
     //console.log("custom backgroundalpha");
-    defaultNavOpacity = Number($(".block-header").data("backgroundalpha"));
-    defaultsOverwritten = true;
+    currentNavOpacity = Number($(".block-header").data("backgroundalpha"));
+    defaultNavStyleOverwritten = true;
   }
 
-  if (defaultsOverwritten) {
-    //console.log("defaultsOverwritten");
+  if (defaultNavStyleOverwritten) {
+    //console.log("defaultNavStyleOverwritten");
     $(".block-header").velocity({
-      backgroundColor: defaultNavBG,
-      backgroundColorAlpha: defaultNavOpacity
+      backgroundColor: currentNavBG,
+      backgroundColorAlpha: currentNavOpacity
     });
   }
 
   $('.navbar').on('show.bs.collapse', function() {
     pinHeader();
     $(".block-header").velocity({
-      backgroundColor: defaultNavBG,
-      backgroundColorAlpha: defaultNavOpacityFocused
+      backgroundColor: currentNavBG,
+      backgroundColorAlpha: currentNavOpacityFocused
     }, {
-      duration: fadeDurationMS
+      duration: defaultFadeDuration
     });
     //console.log("show collapse");
   });
@@ -73,15 +81,36 @@ function initCollapsing() {
   $('.navbar').on('hide.bs.collapse', function() {
     unPinHeader();
     $(".block-header").velocity({
-      backgroundColor: defaultNavBG,
-      backgroundColorAlpha: defaultNavOpacity
+      backgroundColor: currentNavBG,
+      backgroundColorAlpha: currentNavOpacity
     }, {
-      duration: fadeDurationMS
+      duration: defaultFadeDuration
     });
     //console.log("hide collapse");
   });
 
 
+  fixNavIOSHoverBug();
+}
+
+function resetNavStyle(callback) {
+  if(defaultNavStyleOverwritten === false) {
+    callback(null);
+  } else {
+    $(".block-header").velocity({
+      backgroundColor: defaultNavStyleBG,
+      backgroundColorAlpha: defaultNavStyleOpacity
+    }, {
+      duration: defaultFadeDuration,
+      complete: function () {
+        defaultNavStyleOverwritten = false;
+        callback(null);
+      }
+    });
+  }
+}
+
+function fixNavIOSHoverBug() {
   // fixes ios hover bug on navbar links!
   // http://stackoverflow.com/questions/17233804/how-to-prevent-sticky-hover-effects-for-buttons-on-touch-devices
   // http://stackoverflow.com/questions/3120497/safari-iphone-ipad-mouse-hover-on-new-link-after-prior-one-is-replaced-with-ja
@@ -102,7 +131,6 @@ function initCollapsing() {
       }, 10);
     });
   }
-
 }
 
 function initHeadroom() {
@@ -153,7 +181,7 @@ function scrollToAnchor(anchorname, callback) {
   var $anchor = $("#" + anchorname);
 
   $anchor.velocity("scroll", {
-    offset: "-50", // include header offset
+    offset: "-" + defaultHeaderOffset, // include header offset
     complete: function(elements) {
       $anchor.addClass("targetAnimation");
       $anchor.one('webkitAnimationEnd oanimationend msAnimationEnd animationend', function(e) {
@@ -168,7 +196,7 @@ function scrollToAnchor(anchorname, callback) {
 
 function fadeOutContainer(callback) {
   $(".uiHandlerFade").velocity("fadeOut", {
-    duration: 200,
+    duration: defaultFadeDuration,
     complete: function() {
       if (_.isFunction(callback) === true) {
         callback(null);
@@ -183,5 +211,6 @@ module.exports = {
   incPageLoadingProgress: incPageLoadingProgress,
   scrollTop: scrollTop,
   scrollToAnchor: scrollToAnchor,
-  fadeOutContainer: fadeOutContainer
+  fadeOutContainer: fadeOutContainer,
+  resetNavStyle: resetNavStyle
 };
