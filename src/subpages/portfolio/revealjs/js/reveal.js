@@ -649,7 +649,7 @@ var Reveal = (function(){
 		}
 
 		if( config.progress && dom.progress ) {
-			dom.progress.addEventListener( 'click', onProgressClicked, false );
+			//dom.progress.addEventListener( 'click', onProgressClicked, false );
 		}
 
 		if( config.focusBodyOnPageVisiblityChange ) {
@@ -703,7 +703,7 @@ var Reveal = (function(){
 		}
 
 		if ( config.progress && dom.progress ) {
-			dom.progress.removeEventListener( 'click', onProgressClicked, false );
+			//dom.progress.removeEventListener( 'click', onProgressClicked, false );
 		}
 
 		[ 'touchstart', 'click' ].forEach( function( eventName ) {

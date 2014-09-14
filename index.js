@@ -24,7 +24,7 @@ var headingsidentifier = require("./scripts/metalsmith-headingsidentifier");
 var sitemapper = require("./scripts/metalsmith-sitemapper");
 var includedrafts = require("./scripts/metalsmith-includedrafts");
 var datamarkdown = require("./scripts/metalsmith-datamarkdown");
-var hbspagebyuid = require("./scripts/metalsmith-hbspagebyuid");
+var hbswithuid = require("./scripts/metalsmith-hbswithuid");
 
 // custom node scripts
 var registerHelpers = require("./scripts/registerHelpers");
@@ -150,7 +150,7 @@ Metalsmith(__dirname)
   .use(highlightjs({
     tabReplace: "  "
   }))
-  .use(hbspagebyuid())
+  .use(hbswithuid())
   .use(hbs())
   .use(headingsidentifier({
     allow: "setHeadingsIDs"

@@ -1,10 +1,10 @@
 {{#if disqus.enabled}}
 <h2>Comments</h2>
-{{#if published}}
-<div id="disqus_thread" class="block-disqus" data-pageid="{{path}}" data-title="{{title}}" data-url="{{_absoluteUrl}}{{path}}" data-lang="en"></div>
+{{#and published uid}}
+<div id="disqus_thread" class="block-disqus" data-pageid="{{uid}}" data-title="{{title}}" data-url="{{_absoluteUrl}}{{path}}" data-lang="en"></div>
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments</a>!<br /></noscript>
 <a href="http://disqus.com" class="dsq-brlink">Loading comments...<br />Powered by <span class="logo-disqus">Disqus</span></a>
 {{else}}
-<div class="block-disqus">Comments will be inserted if <code>published: true</code>.</div>
-{{/if}}
+<div class="block-disqus">Comments will be inserted if <code>published: true</code> and a permanent <code>uid</code> is set.</div>
+{{/and}}
 {{/if}}

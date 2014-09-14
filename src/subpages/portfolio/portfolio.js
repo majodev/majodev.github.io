@@ -78,18 +78,22 @@ var $paginatorDown = $(".paginate-flex-button.down");
 Reveal.addEventListener('ready', function(event) {
   $paginatorLeft.on("click", function() {
     Reveal.navigateLeft();
+    this.blur();
   });
 
   $paginatorRight.on("click", function() {
     Reveal.navigateRight();
+    this.blur();
   });
 
   $paginatorUp.on("click", function() {
     Reveal.navigateUp();
+    this.blur();
   });
 
   $paginatorDown.on("click", function() {
     Reveal.navigateDown();
+    this.blur();
   });
 
   checkPaginatorVisibility();
