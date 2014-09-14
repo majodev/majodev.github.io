@@ -1,44 +1,44 @@
 var NProgress = require("nprogress");
-
 var uiConfig = require("./uiConfig");
 
-var $body = $(document.body);
-var $html = $("html");
+// constants
+var HEADER_CLASS = ".block-header";
+var DEFAULT_NAV_BG = "#fefefe";
+var DEFAULT_NAV_OPACITY = 0.8;
+var DEFAULT_NAV_OPACITY_FOCUS = 1;
+var DEFAULT_FADE_MS = 200;
+var DEFAULT_HEAD_HEIGHT = 50;
 
-uiConfig.init(); // only once
 
 // runtime vars
+var $body = $(document.body);
+var $html = $("html");
+var $header; // initialized @ init()
 var defaultNavStyleOverwritten = false;
-var defaultNavStyleBG = "#fefefe";
-var defaultNavStyleOpacity = 0.8;
-var defaultNavStyleOpacityFocused = 1;
-var defaultFadeDuration = 200;
-var defaultHeaderOffset = 50;
 
 
-
-function pinHeader() {
-  if (Headroom.cutsTheMustard) {
-    $(".block-header").addClass("headroom-forceShow");
-  }
-}
-
-function unPinHeader() {
-  if (Headroom.cutsTheMustard) {
-    $(".block-header").removeClass("headroom-forceShow");
-  }
-}
+var startup = _.once(function () { // do this only once
+  uiConfig.init(); 
+});
 
 function init() { // called per page ajax refresh and on init!
-  initHeadroom();
-  initNavigation();
+  startup();
+
+  initHead();
+  initNav();
 }
 
-function initNavigation() {
-  var currentNavBG = defaultNavStyleBG;
-  var currentNavOpacity = defaultNavStyleOpacity;
-  var currentNavOpacityFocused = defaultNavStyleOpacityFocused;
+function initHead() {
+  $header = $(HEADER_CLASS);
+  if (Headroom.cutsTheMustard) {
+    // `Headroom.cutsTheMustard` is only true if browser supports all features required by headroom.
+    // By guarding your code with this condition, the widget will safely degrade
+    // https://github.com/WickyNilliams/headroom.js/issues/64
+    $header.headroom();
+  }
+}
 
+function initNav() {
 
   // http://stackoverflow.com/questions/16680543/hide-twitter-bootstrap-nav-collapse-on-click
   $('.nav a').on('click', function() {
@@ -47,62 +47,68 @@ function initNavigation() {
     }
   });
 
-  if (_.isUndefined($(".block-header").data("backgroundcolor")) === false) {
+  setNavStyle();
+  navFixIOSHoverBug();
+}
+
+function setNavStyle() {
+  var currentNavBG = DEFAULT_NAV_BG;
+  var currentNavOpacity = DEFAULT_NAV_OPACITY;
+  var currentNavOpacityFocused = DEFAULT_NAV_OPACITY_FOCUS;
+
+  if (_.isUndefined($header.data("backgroundcolor")) === false) {
     //console.log("custom backgroundcolor");
-    currentNavBG = $(".block-header").data("backgroundcolor");
+    currentNavBG = $header.data("backgroundcolor");
     defaultNavStyleOverwritten = true;
   }
 
-  if (_.isUndefined($(".block-header").data("backgroundalpha")) === false) {
+  if (_.isUndefined($header.data("backgroundalpha")) === false) {
     //console.log("custom backgroundalpha");
-    currentNavOpacity = Number($(".block-header").data("backgroundalpha"));
+    currentNavOpacity = Number($header.data("backgroundalpha"));
     defaultNavStyleOverwritten = true;
   }
 
   if (defaultNavStyleOverwritten) {
     //console.log("defaultNavStyleOverwritten");
-    $(".block-header").velocity({
+    $header.velocity({
       backgroundColor: currentNavBG,
       backgroundColorAlpha: currentNavOpacity
     });
   }
 
   $('.navbar').on('show.bs.collapse', function() {
-    pinHeader();
-    $(".block-header").velocity({
+    forceHeadroomShow();
+    $header.velocity({
       backgroundColor: currentNavBG,
       backgroundColorAlpha: currentNavOpacityFocused
     }, {
-      duration: defaultFadeDuration
+      duration: DEFAULT_FADE_MS
     });
     //console.log("show collapse");
   });
 
   $('.navbar').on('hide.bs.collapse', function() {
-    unPinHeader();
-    $(".block-header").velocity({
+    unforceHeadroomShow();
+    $header.velocity({
       backgroundColor: currentNavBG,
       backgroundColorAlpha: currentNavOpacity
     }, {
-      duration: defaultFadeDuration
+      duration: DEFAULT_FADE_MS
     });
     //console.log("hide collapse");
   });
-
-
-  fixNavIOSHoverBug();
-}
+} 
 
 function resetNavStyle(callback) {
-  if(defaultNavStyleOverwritten === false) {
+  if (defaultNavStyleOverwritten === false) {
     callback(null);
   } else {
-    $(".block-header").velocity({
-      backgroundColor: defaultNavStyleBG,
-      backgroundColorAlpha: defaultNavStyleOpacity
+    $header.velocity({
+      backgroundColor: DEFAULT_NAV_BG,
+      backgroundColorAlpha: DEFAULT_NAV_OPACITY
     }, {
-      duration: defaultFadeDuration,
-      complete: function () {
+      duration: DEFAULT_FADE_MS,
+      complete: function() {
         defaultNavStyleOverwritten = false;
         callback(null);
       }
@@ -110,7 +116,7 @@ function resetNavStyle(callback) {
   }
 }
 
-function fixNavIOSHoverBug() {
+function navFixIOSHoverBug() {
   // fixes ios hover bug on navbar links!
   // http://stackoverflow.com/questions/17233804/how-to-prevent-sticky-hover-effects-for-buttons-on-touch-devices
   // http://stackoverflow.com/questions/3120497/safari-iphone-ipad-mouse-hover-on-new-link-after-prior-one-is-replaced-with-ja
@@ -133,12 +139,22 @@ function fixNavIOSHoverBug() {
   }
 }
 
-function initHeadroom() {
-  // `Headroom.cutsTheMustard` is only true if browser supports all features required by headroom.
-  // By guarding your code with this condition, the widget will safely degrade
-  // https://github.com/WickyNilliams/headroom.js/issues/64
+function forceHeadroomShow() {
   if (Headroom.cutsTheMustard) {
-    $(".block-header").headroom();
+    $header.addClass("headroom-forceShow");
+  }
+}
+
+function unforceHeadroomShow() {
+  if (Headroom.cutsTheMustard) {
+    $header.removeClass("headroom-forceShow");
+  }
+}
+
+function showHeadroomNow() { // bug, does not always work!
+  if (Headroom.cutsTheMustard) {
+    $header.addClass("headroom--pinned");
+    $header.removeClass("headroom--unpinned");
   }
 }
 
@@ -146,7 +162,7 @@ function setPageLoading(value) {
   if (value === true) {
     NProgress.start();
     $body.addClass('loading');
-    pinHeader();
+    forceHeadroomShow();
   } else {
     NProgress.done(true);
     $body.removeClass('loading');
@@ -181,12 +197,13 @@ function scrollToAnchor(anchorname, callback) {
   var $anchor = $("#" + anchorname);
 
   $anchor.velocity("scroll", {
-    offset: "-" + defaultHeaderOffset, // include header offset
+    offset: "-" + DEFAULT_HEAD_HEIGHT, // include header offset
     complete: function(elements) {
       $anchor.addClass("targetAnimation");
       $anchor.one('webkitAnimationEnd oanimationend msAnimationEnd animationend', function(e) {
         $anchor.removeClass("targetAnimation");
       });
+      showHeadroomNow();
       if (_.isFunction(callback) === true) {
         callback(null);
       }
@@ -196,7 +213,7 @@ function scrollToAnchor(anchorname, callback) {
 
 function fadeOutContainer(callback) {
   $(".uiHandlerFade").velocity("fadeOut", {
-    duration: defaultFadeDuration,
+    duration: DEFAULT_FADE_MS,
     complete: function() {
       if (_.isFunction(callback) === true) {
         callback(null);
