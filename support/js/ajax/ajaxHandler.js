@@ -60,17 +60,8 @@ AjaxHandler.prototype.init = function() {
     });
   })($);
 
-
+  // check startup occured at ajaxPrevented page
   setPreventAjax($targetContainer);
-
-  // window.onpopstate = function (event) {
-  //   console.log(event);
-  //   historyStateChange(event);
-  // };
-
-  // window.onhashchange = function (event) {
-  //   console.log(event);
-  // };
 
   // hang on popstate event triggered by pressing back/forward in browser
   $(window).on('popstate', function(e) {
@@ -90,68 +81,48 @@ AjaxHandler.prototype.init = function() {
     }
   });
 
-  //History.Adapter.bind(window, "anchorchange", historyAnchorChange);
-  //History.Adapter.bind(window, "statechange", historyStateChange);
   $("body").on("click", "a", jqueryLinkEvent);
 
 };
 
 function jqueryLinkEvent(e) {
-  if (checkEventShouldBeCaptured(e) === true &&
-    urlHelper.testSameOrigin(e.target.href) === true) {
+  if (ajaxpreventUrl === "" &&
+    ajaxpreventUrl !== urlHelper.removeAnchorFromUrl(e.target.href)) {
+    if (checkEventShouldBeCaptured(e) === true &&
+      urlHelper.testSameOrigin(e.target.href) === true) {
 
-    //console.log(e);
+      //console.log(e);
 
-    e.preventDefault();
+      e.preventDefault();
 
-    if (loading === false) {
-      var currentState = location;
-      var url = $(this).attr("href");
-      var title = $(this).attr("title") || null;
+      if (loading === false) {
+        var currentState = location;
+        var url = $(this).attr("href");
+        var title = $(this).attr("title") || null;
 
-      // If it's a url with anchor, clear it immediately!
-      if (urlHelper.hasAnchor(url)) {
-        loadAnchor = urlHelper.getAnchor(url);
-        url = urlHelper.removeAnchorFromUrl(url);
-      }
+        // If it's a url with anchor, clear it immediately!
+        if (urlHelper.hasAnchor(url)) {
+          loadAnchor = urlHelper.getAnchor(url);
+          url = urlHelper.removeAnchorFromUrl(url);
+        }
 
-      // If the requested url is not the current states url push
-      // the new state and make the ajax call.
-      if (url !== currentState.hash && url.length !== 0) {
-        setLoading(true);
-        history.pushState({}, title, url);
-        historyStateChange(url);
-      } else {
-        if (loadAnchor.length > 0) {
-          attachAnchor(url, title);
+        // If the requested url is not the current states url push
+        // the new state and make the ajax call.
+        if (url !== currentState.hash && url.length !== 0) {
+          setLoading(true);
+          history.pushState({}, title, url);
+          historyStateChange(url);
         } else {
-          ajaxHandler.emit("triedSameUrlLoading");
+          if (loadAnchor.length > 0) {
+            attachAnchor(url, title);
+          } else {
+            ajaxHandler.emit("triedSameUrlLoading");
+          }
         }
       }
     }
   }
 }
-
-// function historyAnchorChange() {
-//   var displayedPage = location;
-//   var statePage = history.getState().url;
-
-//   // console.log("anchorchange! url: " + window.location.href +
-//   //   " currentState: " + history.getState().url);
-
-//   if (urlHelper.removeAnchorFromUrl(displayedPage) !== urlHelper.removeAnchorFromUrl(statePage)) {
-//     if (urlHelper.testSameOrigin(displayedPage) === true) {
-//       // anchoring a wrong page - remember anchor and change state immediately
-//       setLoading(true);
-//       loadAnchor = urlHelper.getAnchor(displayedPage);
-//       history.replaceState({}, null, urlHelper.removeAnchorFromUrl(displayedPage));
-//     } else {
-//       // non ajaxable page + anchor!
-//       // console.warn("non ajaxable page with anchor enchountered!");
-//       location = displayedPage;
-//     }
-//   }
-// }
 
 function setPreventAjax($container) {
   if (_.isUndefined($container.data("preventpopstate")) === false) {
