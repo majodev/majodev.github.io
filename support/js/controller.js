@@ -6,10 +6,11 @@ var disqus = require("./plugins/disqus");
 var cheat = require("./sugar/cheat");
 var stopPageScripts = require("./sugar/stopPageScripts");
 var cssInjector = require("./sugar/cssInjector");
+var decryptEmail = require("./sugar/decryptEmail");
 
 // init is called on document.ready by main module!
 function init() {
-  // console.log("controller: init");
+  decryptEmail();
   ajaxHandler.init();
   uiHandler.init();
   disqus.init();
@@ -51,6 +52,7 @@ ajaxHandler.on("beforePageExchange", function(options) {
 ajaxHandler.on("pageExchanged", function() {
   // console.log("pageExchanged");
   //uiHandler.fadeInContainer();
+  decryptEmail();
   uiHandler.init();
   disqus.reset();
 });

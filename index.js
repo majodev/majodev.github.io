@@ -30,6 +30,7 @@ var hbswithuid = require("./scripts/metalsmith-hbswithuid");
 var registerHelpers = require("./scripts/registerHelpers");
 var registerPartials = require("./scripts/registerPartials");
 var injectFiles = require("./scripts/injectFiles");
+var stringToHexa = require("./scripts/stringToHexa");
 
 // registering all Handlebars swag helpers and template partials within all directories
 registerHelpers();
@@ -55,7 +56,7 @@ Metalsmith(__dirname)
     _authorTwitter: "majodev",
     _sitename: "ranf.tl",
     _siterepo: "https://github.com/majodev/majodev.github.io/",
-    _mail: "mario@ranf.tl",
+    _mailEncrypted: stringToHexa("mario@ranf.tl"),
     _keywords: "Mario Ranftl, majodev, personal website, portfolio",
     _builddate: moment().format("DD MMM YYYY, HH:mm Z"),
     _year: moment().format("YYYY"),
