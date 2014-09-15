@@ -24,7 +24,7 @@ function plugin(options) {
   return function(files, metalsmith, done) {
     setImmediate(done);
     Object.keys(files).forEach(function(file) {
-      if (!isHtml(file) && !isMarkdown(file)) return;
+      if (!isHtml(file)) return;
       var data = files[file];
       var foundMatches = false;
 
@@ -54,8 +54,4 @@ function plugin(options) {
 
 function isHtml(file) {
   return /\.html?/.test(extname(file));
-}
-
-function isMarkdown(file) {
-  return /\.md|\.markdown/.test(file);
 }

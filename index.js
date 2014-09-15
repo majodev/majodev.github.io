@@ -140,8 +140,13 @@ Metalsmith(__dirname)
       }
     }
   }))
-  .use(datamarkdown())
-  .use(markdown())
+  .use(markdown({
+    gfm: true,
+    breaks: true,
+    tables: true,
+    smartLists: true,
+    smartypants: true
+  }))
   .use(firstparagraph())
   .use(wordcount({
     metaKeyCount: "wordCount",
@@ -154,6 +159,13 @@ Metalsmith(__dirname)
   .use(hbs())
   .use(headingsidentifier({
     allow: "setHeadingsIDs"
+  }))
+  .use(datamarkdown({
+    gfm: true,
+    breaks: true,
+    tables: true,
+    smartLists: true,
+    smartypants: true
   }))
   .use(templates({
     engine: "handlebars",

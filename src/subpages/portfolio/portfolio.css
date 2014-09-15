@@ -10,6 +10,10 @@ body {
   overflow-y: scroll;
 }
 
+embed, img, object, video {
+  display: initial;
+}
+
 
 
 /* adapted from theme moon.css */
