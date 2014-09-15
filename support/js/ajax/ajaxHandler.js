@@ -66,19 +66,23 @@ AjaxHandler.prototype.init = function() {
   // hang on popstate event triggered by pressing back/forward in browser
   $(window).on('popstate', function(e) {
     //console.log(e);
-    if (ajaxpreventUrl !== "") {
-      // check if ajaxPrevent url matches new location
-
-      if (ajaxpreventUrl === urlHelper.removeAnchorFromUrl(location.href)) {
-        // do nothing, ajax prevented!
-        //console.log("ajax prevented " + ajaxpreventUrl + " matches " + location.href);
-      } else {
-        // no match - other url, change state as usual
-        historyStateChange(location.href);
-      }
-    } else {
+    if (checkPreventAjax(location.href) === false) {
       historyStateChange(location.href);
     }
+
+    // if (ajaxpreventUrl !== "") {
+    //   // check if ajaxPrevent url matches new location
+
+    //   if (ajaxpreventUrl === urlHelper.removeAnchorFromUrl(location.href)) {
+    //     // do nothing, ajax prevented!
+    //     //console.log("ajax prevented " + ajaxpreventUrl + " matches " + location.href);
+    //   } else {
+    //     // no match - other url, change state as usual
+        
+    //   }
+    // } else {
+    //   historyStateChange(location.href);
+    // }
   });
 
   $("body").on("click", "a", jqueryLinkEvent);
@@ -86,7 +90,7 @@ AjaxHandler.prototype.init = function() {
 };
 
 function jqueryLinkEvent(e) {
-  if (ajaxpreventUrl !== urlHelper.removeAnchorFromUrl(e.target.href) &&
+  if (checkPreventAjax(e.target.href) === false &&
     checkEventShouldBeCaptured(e) === true &&
     urlHelper.testSameOrigin(e.target.href) === true) {
 
@@ -120,6 +124,15 @@ function jqueryLinkEvent(e) {
       }
     }
   }
+}
+
+function checkPreventAjax(url) {
+  if(ajaxpreventUrl !== "") {
+    if (ajaxpreventUrl === urlHelper.removeAnchorFromUrl(url)) {
+      return true;
+    }
+  }
+  return false;
 }
 
 function setPreventAjax($container) {
