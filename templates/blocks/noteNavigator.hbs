@@ -1,8 +1,8 @@
 <ul class="pager block-noteNavigator">
   {{#if next}}
-    <li class="previous text-right"><a href="/{{ next.path }}" title="{{next.title}}"><i class="fa fa-angle-double-left"></i>&nbsp;&nbsp;previous note</a></li>
+    <li class="previous text-right"><a href="/{{ next.path }}" title="{{next.title}}"><i class="fa fa-angle-double-left"></i>&nbsp;&nbsp;older note</a></li>
   {{/if}}
   {{#if previous}}
-    <li class="next"><a href="/{{ previous.path }}" title="{{previous.title}}">next note&nbsp;&nbsp;<i class="fa fa-angle-double-right"></i></a></li>
+    <li class="next"><a href="/{{ previous.path }}" title="{{previous.title}}">newer note&nbsp;&nbsp;<i class="fa fa-angle-double-right"></i></a></li>
   {{/if}}
 </ul>

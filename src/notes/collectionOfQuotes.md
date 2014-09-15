@@ -1,10 +1,10 @@
 ---
-title: My favourite quotes (hello world)
+title: My favourite quotes
 tags: 
-- personal
+- private
 ---
 
-Hello World! As my first published note, I wanted share a few quotes with you which I've hoarded over the last *decades* (*nah*, let's say *months*).
+I wanted share a few quotes with you which I've hoarded over the last *decades* (*nah*, let's say *months*).
 
 So here we go...   
 

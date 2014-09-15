@@ -33,10 +33,10 @@ function plugin(options) {
     // console.log("-- all uids: " + _.keys(uidCollection));
 
     Handlebars.registerHelper('withuid', function(hbscontext, hbsoptions) {
-      var result = uidCollection[hbsoptions];
+      var result = uidCollection[hbscontext];
 
       if (_.isUndefined(result) === true) {
-        throw new Error("Cannot find file with uid " + hbsoptions);
+        throw new Error("Cannot find file with uid " + hbscontext);
       }
 
       return hbsoptions.fn(result);

@@ -1,5 +1,8 @@
 var DISQUS_DIV_ID = "#disqus_thread";
-var disqus_shortname = 'ranftl';
+var DISQUS_FORUM_ID = "ranftl";
+
+
+var disqus_shortname = DISQUS_FORUM_ID;
 var data = {};
 var initialized = false;
 var disqus_identifier, disqus_title, disqus_url, disqus_config;
@@ -16,7 +19,7 @@ function readDisqusData() {
     id: $(DISQUS_DIV_ID).data('pageid'),
     title: $(DISQUS_DIV_ID).data('title'),
     url: $(DISQUS_DIV_ID).data('url'),
-    lang: $(DISQUS_DIV_ID).data('url')
+    lang: $(DISQUS_DIV_ID).data('lang')
   };
 }
 
