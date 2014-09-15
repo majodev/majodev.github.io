@@ -86,38 +86,36 @@ AjaxHandler.prototype.init = function() {
 };
 
 function jqueryLinkEvent(e) {
-  if (ajaxpreventUrl === "" &&
-    ajaxpreventUrl !== urlHelper.removeAnchorFromUrl(e.target.href)) {
-    if (checkEventShouldBeCaptured(e) === true &&
-      urlHelper.testSameOrigin(e.target.href) === true) {
+  if (ajaxpreventUrl !== urlHelper.removeAnchorFromUrl(e.target.href) &&
+    checkEventShouldBeCaptured(e) === true &&
+    urlHelper.testSameOrigin(e.target.href) === true) {
 
-      //console.log(e);
+    //console.log(e);
 
-      e.preventDefault();
+    e.preventDefault();
 
-      if (loading === false) {
-        var currentState = location;
-        var url = $(this).attr("href");
-        var title = $(this).attr("title") || null;
+    if (loading === false) {
+      var currentState = location;
+      var url = $(this).attr("href");
+      var title = $(this).attr("title") || null;
 
-        // If it's a url with anchor, clear it immediately!
-        if (urlHelper.hasAnchor(url)) {
-          loadAnchor = urlHelper.getAnchor(url);
-          url = urlHelper.removeAnchorFromUrl(url);
-        }
+      // If it's a url with anchor, clear it immediately!
+      if (urlHelper.hasAnchor(url)) {
+        loadAnchor = urlHelper.getAnchor(url);
+        url = urlHelper.removeAnchorFromUrl(url);
+      }
 
-        // If the requested url is not the current states url push
-        // the new state and make the ajax call.
-        if (url !== currentState.hash && url.length !== 0) {
-          setLoading(true);
-          history.pushState({}, title, url);
-          historyStateChange(url);
+      // If the requested url is not the current states url push
+      // the new state and make the ajax call.
+      if (url !== currentState.hash && url.length !== 0) {
+        setLoading(true);
+        history.pushState({}, title, url);
+        historyStateChange(url);
+      } else {
+        if (loadAnchor.length > 0) {
+          attachAnchor(url, title);
         } else {
-          if (loadAnchor.length > 0) {
-            attachAnchor(url, title);
-          } else {
-            ajaxHandler.emit("triedSameUrlLoading");
-          }
+          ajaxHandler.emit("triedSameUrlLoading");
         }
       }
     }
