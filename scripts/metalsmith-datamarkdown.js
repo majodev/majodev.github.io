@@ -1,6 +1,7 @@
 var marked = require("marked");
 var cheerio = require('cheerio');
 var extname = require('path').extname;
+var he = require("he");
 
 /**
  * Expose `plugin`.
@@ -31,8 +32,8 @@ function plugin(options) {
       var $ = cheerio.load(data.contents.toString());
 
       $("[data-markdown]").each(function(index) {
-        var markedText = marked($(this).text());
-        //console.log($(this).text());
+        var markedText = marked(he.decode($(this).html()));
+        //console.log(markedText);
         $(this).html(markedText);
         foundMatches = true;
       });
