@@ -283,11 +283,20 @@ module.exports = function(grunt) {
           'Safari >= 6'
         ]
       },
-      tempo: {
+      temporary: {
         expand: true,
         cwd: '_tmp/',
         src: ['**/*.css'],
         dest: '_tmp/'
+      },
+      css_src: {
+        files: [{
+          expand: true, // Enable dynamic expansion.
+          cwd: 'build/', // Src matches are relative to this path.
+          src: ['**/*.css'], // Actual pattern(s) to match.
+          dest: 'build/', // Destination path prefix.
+          ext: '.css', // Dest filepaths will have this extension.
+        }]
       }
     },
     "git-describe": {
@@ -420,14 +429,14 @@ module.exports = function(grunt) {
   // ---
 
   grunt.registerTask("build-productive", [
-    "browserify:productive", "get-git-revision", "execute:metalsmith-productive", 
-    "css-productive", "js-productive", 
+    "browserify:productive", "get-git-revision", "execute:metalsmith-productive",
+    "css-productive", "js-productive",
     "htmlmin", "copy:support-root",
     "copy:inject-fonts", "xmlmin"
   ]);
 
   grunt.registerTask("css-productive", [
-    "cssmin:css_src", "less:productive", "autoprefixer", "cssmin:combine"
+    "autoprefixer:css_src", "cssmin:css_src", "less:productive", "autoprefixer:temporary", "cssmin:combine"
   ]);
 
   grunt.registerTask("js-productive", [
