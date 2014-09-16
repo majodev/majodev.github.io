@@ -69,20 +69,6 @@ AjaxHandler.prototype.init = function() {
     if (checkPreventAjax(location.href) === false) {
       historyStateChange(location.href);
     }
-
-    // if (ajaxpreventUrl !== "") {
-    //   // check if ajaxPrevent url matches new location
-
-    //   if (ajaxpreventUrl === urlHelper.removeAnchorFromUrl(location.href)) {
-    //     // do nothing, ajax prevented!
-    //     //console.log("ajax prevented " + ajaxpreventUrl + " matches " + location.href);
-    //   } else {
-    //     // no match - other url, change state as usual
-
-    //   }
-    // } else {
-    //   historyStateChange(location.href);
-    // }
   });
 
   $("body").on("click", "a", jqueryLinkEvent);
@@ -99,7 +85,8 @@ function jqueryLinkEvent(e) {
   if (_.isUndefined(href) === false &&
     checkPreventAjax(href) === false &&
     checkEventShouldBeCaptured(e) === true &&
-    urlHelper.testSameOrigin(href) === true) {
+    urlHelper.testSameOrigin(href) === true &&
+    urlHelper.isProhibitedExtension(href) === false) {
 
     e.preventDefault();
 
@@ -134,7 +121,7 @@ function jqueryLinkEvent(e) {
 function checkPreventAjax(url) {
   if (ajaxpreventUrl !== "") {
     if (ajaxpreventUrl === urlHelper.removeAnchorFromUrl(url)) {
-      console.log("url ajax prevented!");
+      //console.log("url ajax prevented!");
       return true;
     }
   }

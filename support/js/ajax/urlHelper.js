@@ -1,3 +1,5 @@
+var extname = require('path').extname;
+
 function hasAnchor(url) {
   if (url.indexOf("#") !== -1) {
     return true;
@@ -25,9 +27,19 @@ function testSameOrigin(url) {
     a.protocol == loc.protocol;
 }
 
+function isProhibitedExtension(url) {
+  var extension = extname(url).toLowerCase();
+  if (extension === "" || extension === ".html") {
+    return false;
+  } else {
+    return true;
+  }
+}
+
 module.exports = {
   hasAnchor: hasAnchor,
   removeAnchorFromUrl: removeAnchorFromUrl,
   getAnchor: getAnchor,
-  testSameOrigin: testSameOrigin
+  testSameOrigin: testSameOrigin,
+  isProhibitedExtension: isProhibitedExtension
 };
