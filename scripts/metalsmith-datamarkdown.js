@@ -32,13 +32,16 @@ function plugin(options) {
       var $ = cheerio.load(data.contents.toString());
 
       $("[data-markdown]").each(function(index) {
-        var markedText = marked(he.decode($(this).html()));
+        // grab the html of the node and 
+        // decode all html entities (as marked doesn't have to know about them)
+        // decoding fixes problems with smartypants
+        var markedText = marked(he.decode($(this).html())); 
         //console.log(markedText);
         $(this).html(markedText);
         foundMatches = true;
       });
 
-      if (foundMatches) {
+      if (foundMatches) { // only do anything to contents, if matches were found
         files[file].contents = $.html();
       }
 
