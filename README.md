@@ -1,6 +1,6 @@
-# ranf.tl
+# majodev.github.io
 
-website source code hosted on majodev.github.io and **ranf.tl**!
+> as hosted on **[ranf.tl](http://ranf.tl)**
 
 ## Prerequisites
 - [node](http://nodejs.org/)
@@ -15,7 +15,7 @@ website source code hosted on majodev.github.io and **ranf.tl**!
 ```
 
 ## Build dev
-**features:** debug mode with drafts and code source maps (+ custom Modernizr and lodash build)
+**features:** debug mode with drafts and source maps (+ custom Modernizr and lodash builds)
 
 ```bash
   grunt
@@ -30,18 +30,22 @@ grunt is now watching for changes and runs a webserver on `localhost:8080`.
   grunt productive
 ```
 
+## Minor manual tasks
+These tasks must be run manually.
+
 ### Run gzip server with emulated delay
 ```bash
   grunt serverdelay
 ```
 
 ### Minify all images
+**Important:** overwrites every image found in `src` and `support`.
 ```bash
   grunt imagemin
 ```
 
 ### Check for 404 links
-**important:** needs casperjs installed globally!
+**Important:** needs [capsperjs](http://casperjs.org/) installed globally!
 
 ```bash
   npm install -g casperjs #install casperjs globally
