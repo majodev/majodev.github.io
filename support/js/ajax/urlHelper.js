@@ -1,5 +1,3 @@
-var extname = require('path').extname;
-
 function hasAnchor(url) {
   if (url.indexOf("#") !== -1) {
     return true;
@@ -20,20 +18,43 @@ function testSameOrigin(url) {
   var loc = window.location,
     a = document.createElement('a');
 
+  var realPortLoc = loc.port;
+  var realPortUrl;
+
+  if (realPortLoc.trim() === "") {
+    realPortLoc = "80"; // catch IE problem, not knowing the actual port oO
+  }
+
   a.href = url;
+  realPortUrl = a.port;
+
+  if (a.port.trim() === "") {
+    realPortUrl = "80"; // catch chrome windows problem, not knowing the actual port of a created anchor oO
+  }
 
   return a.hostname == loc.hostname &&
-    a.port == loc.port &&
+    realPortUrl == realPortLoc &&
     a.protocol == loc.protocol;
 }
 
 function isProhibitedExtension(url) {
-  var extension = extname(url).toLowerCase();
+  var extension = getExtension(getPath(url)).toLowerCase();
+  // only no extension or .html is allowed to be ajaxed
   if (extension === "" || extension === ".html") {
     return false;
   } else {
     return true;
   }
+}
+
+function getExtension(url) {
+  // http://stackoverflow.com/questions/190852/how-can-i-get-file-extensions-with-javascript
+  return url.substr((~-url.lastIndexOf(".") >>> 0) + 2);
+}
+
+function getPath(url) {
+  // http://stackoverflow.com/questions/441755/regular-expression-to-remove-hostname-and-port-from-url
+  return /^.*?:\/\/.*?(\/.*)$/.exec(url)[1];
 }
 
 module.exports = {

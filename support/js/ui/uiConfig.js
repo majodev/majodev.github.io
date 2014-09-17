@@ -7,11 +7,11 @@ module.exports = {
       FastClickAttach(document.body);
     });
 
-    NProgress.configure({
-      showSpinner: true,
-      minimum: 0.2,
-      trickleRate: 0.01,
-      trickleSpeed: 100
-    });
+    // NProgress.configure({
+    //   showSpinner: true,
+    //   minimum: 0.2,
+    //   trickleRate: 0.01,
+    //   trickleSpeed: 100
+    // });
   }
 };

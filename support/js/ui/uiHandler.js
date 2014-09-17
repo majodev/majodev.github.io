@@ -17,8 +17,8 @@ var $header; // initialized @ init()
 var defaultNavStyleOverwritten = false;
 
 
-var startup = _.once(function () { // do this only once
-  uiConfig.init(); 
+var startup = _.once(function() { // do this only once
+  uiConfig.init();
 });
 
 function init() { // called per page ajax refresh and on init!
@@ -69,10 +69,22 @@ function setNavStyle() {
   }
 
   if (defaultNavStyleOverwritten) {
+    //$header.css("background-color", "rgba(0, 0, 0, 0)");
     //console.log("defaultNavStyleOverwritten");
     $header.velocity({
       backgroundColor: currentNavBG,
-      backgroundColorAlpha: currentNavOpacity
+      backgroundColorAlpha: 0
+    }, {
+      duration: 0,
+      complete: function() {
+        $header.velocity({
+          backgroundColor: currentNavBG,
+          backgroundColorAlpha: currentNavOpacity
+        }, {
+          delay: DEFAULT_FADE_MS*3,
+          duration: DEFAULT_FADE_MS*4
+        });
+      }
     });
   }
 
@@ -97,7 +109,7 @@ function setNavStyle() {
     });
     //console.log("hide collapse");
   });
-} 
+}
 
 function resetNavStyle(callback) {
   if (defaultNavStyleOverwritten === false) {
