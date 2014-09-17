@@ -485,5 +485,19 @@ body {
   /*margin-top: 0px;*/
   margin-right: 0px;
   margin-left: 0px;
+}
 
+
+
+/* bootstrap tooltip portfolio styling */
+
+.tooltip-arrow {
+  display: none;
+}
+
+.tooltip-inner {
+  font-family: "PT Sans Narrow";
+  text-transform: uppercase;
+  background-color: transparent;
+  color: #7bd9f2;
 }

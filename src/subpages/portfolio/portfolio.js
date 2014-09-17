@@ -74,23 +74,31 @@ var $paginatorRight = $(".paginate-flex-button.right");
 var $paginatorUp = $(".paginate-flex-button.up");
 var $paginatorDown = $(".paginate-flex-button.down");
 
+var toolTipOptions = {
+  container: 'body',
+  delay: {
+    "show": 50,
+    "hide": 150
+  }
+};
 
 Reveal.addEventListener('ready', function(event) {
+  
   $paginatorLeft.on("click", function() {
     Reveal.navigateLeft();
     this.blur();
   });
-
+  
   $paginatorRight.on("click", function() {
     Reveal.navigateRight();
     this.blur();
   });
-
+  
   $paginatorUp.on("click", function() {
     Reveal.navigateUp();
     this.blur();
   });
-
+  
   $paginatorDown.on("click", function() {
     Reveal.navigateDown();
     this.blur();
@@ -105,23 +113,31 @@ function checkPaginatorVisibility() {
 
   if (routes.left) {
     $paginatorLeft.attr("data-state", "");
+    $paginatorLeft.tooltip(toolTipOptions);
   } else {
     $paginatorLeft.attr("data-state", "disabled");
+    $paginatorLeft.tooltip('destroy');
   }
   if (routes.right) {
     $paginatorRight.attr("data-state", "");
+    $paginatorRight.tooltip(toolTipOptions);
   } else {
     $paginatorRight.attr("data-state", "disabled");
+    $paginatorRight.tooltip('destroy');
   }
   if (routes.up) {
     $paginatorUp.attr("data-state", "");
+    $paginatorUp.tooltip(toolTipOptions);
   } else {
     $paginatorUp.attr("data-state", "disabled");
+    $paginatorUp.tooltip('destroy');
   }
   if (routes.down) {
     $paginatorDown.attr("data-state", "");
+    $paginatorDown.tooltip(toolTipOptions);
   } else {
     $paginatorDown.attr("data-state", "disabled");
+    $paginatorDown.tooltip('destroy');
   }
 }
 
@@ -130,6 +146,11 @@ Reveal.addEventListener('slidechanged', function(event) {
 });
 
 window.dealloc = function() {
+
+  $paginatorLeft.tooltip('destroy');
+  $paginatorRight.tooltip('destroy');
+  $paginatorUp.tooltip('destroy');
+  $paginatorDown.tooltip('destroy');
 
   $paginatorLeft.off();
   $paginatorRight.off();

@@ -17,10 +17,14 @@ ajax:
   preventpopstate: true
 ---
 
-<button class="paginate-flex left paginate-flex-button" data-state="disabled"><i></i><i></i></button><button class="paginate-flex right paginate-flex-button" data-state="disabled"><i></i><i></i></button><button class="paginate-flex up paginate-flex-button" data-state="disabled"><i></i><i></i></button><button class="paginate-flex down paginate-flex-button" data-state="disabled"><i></i><i></i></button><div class="reveal"><div class="slides">
+<!-- reveal paginate buttons -->
 
+<button class="paginate-flex left paginate-flex-button" data-state="disabled" data-toggle="tooltip" data-placement="right" title="previous"><i></i><i></i></button>
+<button class="paginate-flex up paginate-flex-button" data-state="disabled" data-toggle="tooltip" data-placement="left" title="overview"><i></i><i></i></button>
+<button class="paginate-flex down paginate-flex-button" data-state="disabled" data-toggle="tooltip" data-placement="right" title="details"><i></i><i></i></button>
+<button class="paginate-flex right paginate-flex-button" data-state="disabled" data-toggle="tooltip" data-placement="left" title="next"><i></i><i></i></button>
 
-
+<div class="reveal"><div class="slides"> <!-- begin reveal -->
 
 <section id="cover" data-markdown>
 # Portfolio
@@ -131,6 +135,4 @@ published on September 2010
 </section>
 </section>
 
-
-
-</div></div>
+</div></div> <!-- end reveal -->

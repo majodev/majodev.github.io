@@ -27,6 +27,7 @@
       "node_modules/headroom.js/dist/jQuery.headroom.js",
       "node_modules/bootstrap/js/transition.js",
       "node_modules/bootstrap/js/collapse.js",
+      "node_modules/bootstrap/js/tooltip.js",
       "node_modules/html5-history-api/history.js",
       "_tmp/support-bundle.js"
     ],
