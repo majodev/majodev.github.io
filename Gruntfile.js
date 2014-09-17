@@ -320,6 +320,11 @@ module.exports = function(grunt) {
           "cd node_modules/modernizr",
           "grunt build"
         ].join("&&")
+      },
+      "casperjs": {
+        command: [
+          "casperjs scripts/404checker.js http://localhost:8080/"
+        ].join("&&")
       }
     },
     browserify: {
@@ -453,6 +458,10 @@ module.exports = function(grunt) {
 
   grunt.registerTask("serverdelay", [
     "execute:testserver-gzip-delay"
+  ]);
+
+  grunt.registerTask("linkcheck", [
+    "http-server:dev", "shell:casperjs"
   ]);
 
   // ---

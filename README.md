@@ -40,6 +40,13 @@ grunt is now watching for changes and runs a webserver on `localhost:8080`.
   grunt imagemin
 ```
 
+### Check for 404 links
+**important:** needs casperjs installed globally!
+
+```bash
+  npm install -g casperjs #install casperjs globally
+  grunt linkcheck
+```
 
 ## License
 See `LICENSE.md` for detailed information
