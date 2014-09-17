@@ -241,9 +241,9 @@ module.exports = function(grunt) {
         "outputFile": "_tmp/modernizr-custom.js", // [REQUIRED] Path to save out the built file.
         "extra": { // Based on default settings on http://modernizr.com/download/
           "shiv": true,
-          "printshiv": false,
-          "load": false, // exclude yepnope for now, we will enable it if shims are really needed!
-          "mq": false,
+          "printshiv": true,
+          "load": true, // yepnope
+          "mq": true, // add support for media queryies
           "cssclasses": true
         },
         "extensibility": { // Based on default settings on http://modernizr.com/download/
