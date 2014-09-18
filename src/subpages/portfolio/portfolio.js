@@ -83,6 +83,11 @@ var toolTipOptions = {
 };
 
 Reveal.addEventListener('ready', function(event) {
+
+  $paginatorLeft.show();
+  $paginatorRight.show();
+  $paginatorUp.show();
+  $paginatorDown.show();
   
   $paginatorLeft.on("click", function() {
     Reveal.navigateLeft();

@@ -45,8 +45,8 @@ html * {
  * GLOBAL STYLES
  *********************************************/
 body {
-  background: #002b36;
-  background-color: #002b36; }
+  background: #222; /*#002b36;*/
+  background-color: #222; /*#002b36;*/ }
 
 .reveal {
   font-family: "Source Sans Pro", sans-serif;
