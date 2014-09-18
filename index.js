@@ -25,6 +25,7 @@ var sitemapper = require("./scripts/metalsmith-sitemapper");
 var includedrafts = require("./scripts/metalsmith-includedrafts");
 var datamarkdown = require("./scripts/metalsmith-datamarkdown");
 var hbswithuid = require("./scripts/metalsmith-hbswithuid");
+var randomasciismiley = require("./scripts/metalsmith-randomasciismiley");
 
 // custom node scripts
 var registerHelpers = require("./scripts/registerHelpers");
@@ -92,6 +93,7 @@ Metalsmith(__dirname)
     fileMetaKey: "tags"
   }))
   .use(metaformat())
+  .use(randomasciismiley())
   .use(collections({
     pages: {
       pattern: "pages/**/*.+(md|hbs|html)",
