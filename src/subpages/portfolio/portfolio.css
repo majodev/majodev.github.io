@@ -1,3 +1,7 @@
+.portfolioHeader { /*custom nav style as in metadata*/
+  background: rgba(1,1,1, 0.1);
+}
+
 .reveal {
   position: fixed;
 }

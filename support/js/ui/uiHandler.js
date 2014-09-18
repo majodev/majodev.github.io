@@ -4,7 +4,7 @@ var coolAsciiFaces = require("cool-ascii-faces");
 
 // constants
 var HEADER_CLASS = ".block-header";
-var DEFAULT_NAV_BG = "#fefefe";
+// var DEFAULT_NAV_BG = "#fefefe";
 var DEFAULT_NAV_OPACITY = 0.8;
 var DEFAULT_NAV_OPACITY_FOCUS = 1;
 var DEFAULT_FADE_MS = 200;
@@ -25,8 +25,8 @@ var startup = _.once(function() { // do this only once
 function init() { // called per page ajax refresh and on init!
   startup();
 
-  initHead();
-  initNav();
+  initHeadroom();
+  initHeadNav();
   initFooterSmily();
 }
 
@@ -46,7 +46,7 @@ function initFooterSmily() {
   });
 }
 
-function initHead() {
+function initHeadroom() {
   $header = $(HEADER_CLASS);
   if (Headroom.cutsTheMustard) {
     // `Headroom.cutsTheMustard` is only true if browser supports all features required by headroom.
@@ -58,8 +58,7 @@ function initHead() {
   }
 }
 
-function initNav() {
-
+function initHeadNav() {
   // http://stackoverflow.com/questions/16680543/hide-twitter-bootstrap-nav-collapse-on-click
   $('.nav a').on('click', function() {
     if ($('.navbar-toggle').css('display') != 'none') {
@@ -67,88 +66,20 @@ function initNav() {
     }
   });
 
-  setNavStyle();
-  navFixIOSHoverBug();
-}
-
-function setNavStyle() {
-  var currentNavBG = DEFAULT_NAV_BG;
-  var currentNavOpacity = DEFAULT_NAV_OPACITY;
-  var currentNavOpacityFocused = DEFAULT_NAV_OPACITY_FOCUS;
-
-  if (_.isUndefined($header.data("backgroundcolor")) === false) {
-    //console.log("custom backgroundcolor");
-    currentNavBG = $header.data("backgroundcolor");
-    defaultNavStyleOverwritten = true;
-  }
-
-  if (_.isUndefined($header.data("backgroundalpha")) === false) {
-    //console.log("custom backgroundalpha");
-    currentNavOpacity = Number($header.data("backgroundalpha"));
-    defaultNavStyleOverwritten = true;
-  }
-
-  if (defaultNavStyleOverwritten) {
-    //$header.css("background-color", "rgba(0, 0, 0, 0)");
-    //console.log("defaultNavStyleOverwritten");
-    $header.velocity({
-      backgroundColor: currentNavBG,
-      backgroundColorAlpha: 0
-    }, {
-      duration: 0,
-      complete: function() {
-        $header.velocity({
-          backgroundColor: currentNavBG,
-          backgroundColorAlpha: currentNavOpacity
-        }, {
-          delay: DEFAULT_FADE_MS*3,
-          duration: DEFAULT_FADE_MS*4
-        });
-      }
-    });
-  }
-
   $('.navbar').on('show.bs.collapse', function() {
     forceHeadroomShow();
     $header.velocity({
-      backgroundColor: currentNavBG,
-      backgroundColorAlpha: currentNavOpacityFocused
+      backgroundColorAlpha: DEFAULT_NAV_OPACITY_FOCUS
     }, {
       duration: DEFAULT_FADE_MS
     });
-    //console.log("show collapse");
   });
 
   $('.navbar').on('hide.bs.collapse', function() {
     unforceHeadroomShow();
-    $header.velocity({
-      backgroundColor: currentNavBG,
-      backgroundColorAlpha: currentNavOpacity
-    }, {
-      duration: DEFAULT_FADE_MS
-    });
-    //console.log("hide collapse");
+    $header.removeAttr('style');
   });
-}
 
-function resetNavStyle(callback) {
-  if (defaultNavStyleOverwritten === false) {
-    callback(null);
-  } else {
-    $header.velocity({
-      backgroundColor: DEFAULT_NAV_BG,
-      backgroundColorAlpha: DEFAULT_NAV_OPACITY
-    }, {
-      duration: DEFAULT_FADE_MS,
-      complete: function() {
-        defaultNavStyleOverwritten = false;
-        callback(null);
-      }
-    });
-  }
-}
-
-function navFixIOSHoverBug() {
   // fixes ios hover bug on navbar links!
   // http://stackoverflow.com/questions/17233804/how-to-prevent-sticky-hover-effects-for-buttons-on-touch-devices
   // http://stackoverflow.com/questions/3120497/safari-iphone-ipad-mouse-hover-on-new-link-after-prior-one-is-replaced-with-ja
@@ -260,6 +191,5 @@ module.exports = {
   incPageLoadingProgress: incPageLoadingProgress,
   scrollTop: scrollTop,
   scrollToAnchor: scrollToAnchor,
-  fadeOutContainer: fadeOutContainer,
-  resetNavStyle: resetNavStyle
+  fadeOutContainer: fadeOutContainer
 };
