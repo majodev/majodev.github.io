@@ -1,15 +1,16 @@
 ---
 uid: page_index
-title: About me
+title: About
 template: plain.hbs
 published: true
 ---
 
 
+<div class="index_bg_pusher"></div>
 
 <div class="jumbotron">
-  <h1 class="text-center letter-spacing-3"><small></small>{{_author}}<small></small></h1>
-  <p class="text-center"><img src="/assets/img/twitter_pic_quad_500x500.png" height="250px" width="250px"></p>
+  <h1 class="text-center letter-spacing-3">Hi<br><small>I'm Mario Ranftl</small></h1>
+  {{!-- <p class="text-center"><img src="/assets/img/twitter_pic_quad_500x500.png" height="250px" width="250px"></p> --}}
   <p class="text-center">full stack engineer, entrepreneur wanna-be, abstractor, generalist, nerd, indie gamer, graduated information management MSc BSc</p>
   <p class="text-center"><a class="btn btn-primary btn-lg" role="button" {{> emailData}}><i class="fa fa-paper-plane"></i>&nbsp;say hello</a>&nbsp;<a class="btn btn-primary btn-lg" role="button" href="http://twitter.com/{{_authorTwitter}}"><i class="fa fa-twitter"></i>&nbsp;@{{_authorTwitter}}</a></p>
 </div>

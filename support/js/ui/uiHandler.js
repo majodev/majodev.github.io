@@ -1,5 +1,6 @@
 var NProgress = require("nprogress");
 var uiConfig = require("./uiConfig");
+var coolAsciiFaces = require("cool-ascii-faces");
 
 // constants
 var HEADER_CLASS = ".block-header";
@@ -26,6 +27,23 @@ function init() { // called per page ajax refresh and on init!
 
   initHead();
   initNav();
+  initFooterSmily();
+}
+
+function initFooterSmily() {
+  $(".block-footerBottomText").on("click", function () {
+    $(this).velocity({
+      translateY: "200%"
+    }, {
+      complete: function () {
+        $(this).text(coolAsciiFaces());
+        $(this).velocity({
+          translateY: "0%"
+        });
+      }
+    });
+    
+  });
 }
 
 function initHead() {
@@ -34,7 +52,9 @@ function initHead() {
     // `Headroom.cutsTheMustard` is only true if browser supports all features required by headroom.
     // By guarding your code with this condition, the widget will safely degrade
     // https://github.com/WickyNilliams/headroom.js/issues/64
-    $header.headroom();
+    $header.headroom({
+      offset: 0
+    });
   }
 }
 

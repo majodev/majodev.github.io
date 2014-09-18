@@ -22,6 +22,7 @@
 @import "text-selection.less"; // custom text selection colors
 @import "helpers.less"; // some font-size and positioning helpers
 @import "heading-anchor.less"; // provide a clickable anchor to all headings
+@import "headroom.less"; // style headroom.js classes
 
 // -----------------------------------------------------------------------------
 // -----------------------------------------------------------------------------
@@ -139,8 +140,9 @@ body {
 }
 
 .navbar {
-  border: 1px solid transparent;
+  // border: 1px solid transparent; // this border might fix ios header handling?
   // opacity: 0.8;
+  border: none;
 }
 
 @media (max-width: @grid-float-breakpoint-max) {
@@ -280,7 +282,7 @@ body {
 
 .block-footer:after {
   content: "";
-  background: url(/assets/img/bg_main_tile_transparent.png);
+  // background: url(/assets/img/bg_main_tile_transparent.png);
   opacity: 0.65;
   top: 0;
   left: 0;
@@ -575,9 +577,38 @@ a:link, a:visited, a:hover, a:focus, a:active {
   letter-spacing: -1px;
 }
 
+.block-footerBottomText {
+  bottom: 2px;
+  position: absolute;
+  right: 0;
+  left: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  text-align: center;
+  font-family: @font-family-monospace;
+  font-size: 100%;
+  cursor: pointer;
+}
+
 // -----------------------------------------------------------------------------
 // -----------------------------------------------------------------------------
 // page only styling
+
+// index.hbs ----
+
+.index_bg_pusher {
+  background-color: #000;
+  background-image: url('/assets/img/index_photo_full.jpg');
+  background-size: cover;
+  background-position: 50%;
+  height: 100vh;
+  max-height: 100%;
+  width: 100%;
+  text-shadow: 0 0 10px rgba(0,0,0,.8);
+  color: #fff;
+}
+
 
 // legal.hbs ----
 
@@ -626,22 +657,6 @@ a:link, a:visited, a:hover, a:focus, a:active {
 
 .notes-article-inner:hover + p > .block-noteLink {
   color: @color-links-hover;
-}
-
-
-.headroom {
-  transition: transform 200ms linear;
-}
-.headroom--pinned {
-  transform: translateY(0%);
-}
-.headroom--unpinned {
-  transform: translateY(-100%);
-}
-
-.headroom-forceShow {
-  transition: none !important;
-  transform: translateY(0%) !important;
 }
 
 
