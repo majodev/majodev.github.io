@@ -227,8 +227,8 @@ body {
   .navbar-default .navbar-nav > .active > a:focus,
   .navbar-default .navbar-nav > li > a:hover, 
   .navbar-default .navbar-nav > li > a:focus {
-    border-bottom-color: @color-nav-bg-active; 
-    color: @color-nav-bg-active;
+    border-bottom-color: @color-nav-hover-desktop; 
+    color: @color-nav-hover-desktop;
   }
 }
 
@@ -597,9 +597,14 @@ a:link, a:visited, a:hover, a:focus, a:active {
 }
 
 .indexHeader {
-  //background: fade(@color-bg, 25%);
-  background: fade(#222, 5%);
+  background: fade(@color-bg, 5%);
 }
+
+.index-text-wrap p {
+  font-size: @font-size-base;
+  font-weight: @default-font-weight;
+}
+
 // .indexHeader .navbar-nav > li > a {
 //   color: #fff;
 // }
