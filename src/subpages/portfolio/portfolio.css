@@ -505,3 +505,12 @@ body {
   background-color: transparent;
   color: #7bd9f2;
 }
+
+
+/* print media (not supported currently) */
+/*@media print {
+
+  .paginate-flex {
+    display: none;
+  }
+}*/
