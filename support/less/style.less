@@ -202,7 +202,7 @@ body {
   }
 }
 
-// overwride default nav non collapsed with underline
+// overwride default nav non collapsed with underline on below gridbreak devices
 @media (min-width: @grid-float-breakpoint) {
   .navbar-default .navbar-nav > .active > a,
   .navbar-default .navbar-nav > .active > a:hover,
@@ -218,18 +218,6 @@ body {
     transition-property: color, border-bottom-color;
   }
 
-  // .navbar-default .navbar-nav > li > a:hover, 
-  // .navbar-default .navbar-nav > li > a:focus {
-  //   border-bottom-color: @color-nav-bg-active; 
-  //   color: @color-nav-bg-active;
-  // }
-
-  // .navbar-default .navbar-nav > .active > a,
-  // .navbar-default .navbar-nav > .active > a:hover,
-  // .navbar-default .navbar-nav > .active > a:focus {
-  //   border-bottom-color: @color-main-1; 
-  // }
-
   .navbar-default .navbar-nav > .active > a {
     border-bottom-color: @color-nav;
   }
@@ -242,8 +230,6 @@ body {
     border-bottom-color: @color-nav-bg-active; 
     color: @color-nav-bg-active;
   }
-
-
 }
 
 
