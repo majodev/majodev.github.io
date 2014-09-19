@@ -39,6 +39,7 @@
     "headroom.js": "git://github.com/WickyNilliams/headroom.js",
     "highlight.js": "^8.2.0",
     "html5-history-api": "^4.1.13",
+    "jquery": "^1.11.1",
     "konami-js": "0.0.2",
     "lodash": "^2.4.1",
     "marked": "^0.3.2",

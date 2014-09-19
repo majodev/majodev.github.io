@@ -4,8 +4,6 @@ var coolAsciiFaces = require("cool-ascii-faces");
 
 // constants
 var HEADER_CLASS = ".block-header";
-// var DEFAULT_NAV_BG = "#fefefe";
-var DEFAULT_NAV_OPACITY = 0.8;
 var DEFAULT_NAV_OPACITY_FOCUS = 1;
 var DEFAULT_FADE_MS = 200;
 var DEFAULT_HEAD_HEIGHT = 50;
