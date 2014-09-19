@@ -1,4 +1,4 @@
-// more fontsizes
+// custom fontsizes
 @font-size-medium: ceil((@font-size-base * 1.07));
 @font-size-mediumer: ceil((@font-size-base * 1.15));
 @default-font-weight: 400;
@@ -15,33 +15,35 @@
 @color-main-2: #05ACC2;
 @color-main-3: #D2F3F1;
 
-@color-nav-bg: fade(#fefefe, 80%); //fade(mix(@color-main-2, #00f, 99%), 10%); // 1
+// links
 @color-links: #139dc1; //fade(mix(@color-main-2, #00f, 99%), 80%);
 @color-links-hover: #7bd9f2; //@color-main-1;
-@color-nav: @color-main-1;
 
+// nav
+@color-nav-bg: fade(#fefefe, 80%); //fade(mix(@color-main-2, #00f, 99%), 10%); // 1
+@color-nav: @color-main-1;
+@color-nav-hover: @color-main-1;
+@color-nav-active: @color-main-1;
+@color-nav-bg-active: @color-links-hover; //@color-nav-bg-hover; //fade(mix(@color-main-2, #00f, 99%), 43.33%);  // 2
+@color-nav-bg-hover: fade(mix(@color-main-2, #00f, 99%), 20%); //fade(mix(@color-main-2, #00f, 99%), 20%);
+
+// select
 @color-text-selection-bg: #d33682; //fade(@color-main-1, 30%);
 @color-text-selection: white;
 @color-text-selection-bg-unfocused: fade(@color-text-selection-bg, 50%);
 
-// colors
+// text
 @color-text: #3d3d3d; //#516473;
 @color-head: #002b36; //#2d2d2d; //#516473;
 @color-first-character: @color-head;
 
-// general dependent colors
-
-@color-nav-bg-hover: fade(mix(@color-main-2, #00f, 99%), 20%); //fade(mix(@color-main-2, #00f, 99%), 20%);
-@color-nav-hover: @color-main-1;
-@color-nav-bg-active: @color-links-hover; //@color-nav-bg-hover; //fade(mix(@color-main-2, #00f, 99%), 43.33%);  // 2
-@color-nav-active: @color-main-1;
-
+// footer
 @color-footer: @color-main-3;
 @color-footer-bg: #222; //#002b36; //@color-main-1;
 @color-footer-links: mix(@color-main-2, #00f, 95%);
 @color-footer-links-hover: lighten(@color-footer-links, 10%);
 
-
+// general dependent
 @color-links-bg-hover: transparent; //fade(mix(@color-main-2, #00f, 99%), 10%);
 
 @color-navbar-mobile-toggle-bars: @color-nav;
