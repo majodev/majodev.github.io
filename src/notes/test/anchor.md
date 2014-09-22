@@ -1,8 +1,11 @@
 ---
+uid: note_test_anchor
 title: Lorem ipsum text
 date: 2014-07-30
 tags:
 - testing
+related:
+- note_test_links
 ---
 
 Your favourite lorem ipsum test (plus jerking around with anchors).

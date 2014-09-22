@@ -1,11 +1,12 @@
+<div class="block-noteRelated">
+<h2 class="linedSeparator"><i class="fa fa-puzzle-piece"></i>&nbsp;&nbsp;Related notes</h2>
 {{#if related}}
-  <div class="block-noteRelated">
-  <h2 class="linedSeparator"><i class="fa fa-link"></i>&nbsp;&nbsp;Related notes</h2>
   {{#each related}}
     {{#withuid this}}
       {{> noteArticleItem}}
     {{/withuid}}
   {{/each}}
-  </div>
 {{else}}
+<p>Some notes are special. Pick <a href="{{#withuid "page_notes"}}/{{path}}{{/withuid}}"> another one</a>.</p>
 {{/if}}
+</div>

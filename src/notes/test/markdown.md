@@ -1,8 +1,12 @@
 ---
+uid: note_test_markdown
 title: Markdown sample file
 date: 2014-08-01
 tags:
 - testing
+related:
+- note_test_anchor
+- note_test_highlighting
 ---
 
 This note demonstrates some of what [Markdown][1] is capable of doing.

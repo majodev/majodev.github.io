@@ -1,7 +1,10 @@
 ---
+uid: note_test_blockquotes
 title: My favourite quotes
 tags: 
-- private
+- testing
+related:
+- note_test_markdown
 ---
 
 I wanted share a few quotes with you which I've hoarded over the last *decades* (*nah*, let's say *months*).
