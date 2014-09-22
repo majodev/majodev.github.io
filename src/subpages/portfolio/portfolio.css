@@ -451,7 +451,7 @@ body {
     cursor: default; }
 
 .paginate-flex:hover i:first-child, .paginate-flex:hover i:last-child {
-  background: #7bd9f2;
+  background: #139dc1;
 }
 
 .paginate-flex-button {
@@ -504,7 +504,18 @@ body {
   font-family: "PT Sans Narrow";
   text-transform: uppercase;
   background-color: transparent;
-  color: #7bd9f2;
+  color: #139dc1;
+}
+
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6,
+.reveal p,
+.reveal ul {
+  text-shadow: 0 0 7px rgba(0,0,0,0.5);
 }
 
 

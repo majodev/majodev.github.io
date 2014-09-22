@@ -232,7 +232,9 @@ body {
   }
 }
 
-
+// .block-header a {
+//   text-shadow: fade(@color-head, 15%) 0.05em 0.05em 0.1em
+// }
 
 // -----------------------------------------------------------------------------
 // -----------------------------------------------------------------------------
@@ -585,7 +587,7 @@ a:link, a:visited, a:hover, a:focus, a:active {
 // index.hbs ----
 
 .index_bg_pusher {
-  background-color: #000;
+  background-color: @color-footer-bg;
   background-image: url('/assets/img/index_photo_full.jpg');
   background-size: cover;
   background-position: 50%;
@@ -593,11 +595,11 @@ a:link, a:visited, a:hover, a:focus, a:active {
   max-height: 100%;
   width: 100%;
   text-shadow: 0 0 10px rgba(0,0,0,.8);
-  color: #fff;
+  color: @color-bg;
 }
 
 .indexHeader {
-  background: fade(@color-bg, 5%);
+  background: fade(@color-bg, 15%);
 }
 
 .index-text-wrap p {
