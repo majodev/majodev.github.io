@@ -27,4 +27,4 @@ Btw. what do you think about my chosen domain *"ranf.tl"*? I think this variatio
 
 ![out](i am out.gif)
 
-Have some feedback on the design or structure? Please leave a comment below or catch me up on [twitter](http://twitter.com/majodev). Don't forget to **subscribe to my mailing list**. <!-- TODO: MAILING LIST !!!!! -->
+Have some feedback on the design or structure? Please leave a comment below or catch me up on [twitter](http://twitter.com/majodev). If you are into RSS (or prefer platforms like [Feedly](https://feedly.com/)), feel free subscribe to my notes via [this Atom/RSS feed](/feed.xml).

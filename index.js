@@ -48,6 +48,7 @@ if (dev === false) {
 }
 
 var absoluteUrl = "http://ranf.tl/";
+var currentDate = new Date();
 
 // metalsmith pipeline
 Metalsmith(__dirname)
@@ -59,8 +60,9 @@ Metalsmith(__dirname)
     _siterepo: "https://github.com/majodev/majodev.github.io/",
     _mailEncrypted: stringToHexa("mario@ranf.tl"),
     _keywords: "Mario Ranftl, majodev, personal website, portfolio",
-    _builddate: moment().format("DD MMM YYYY, HH:mm Z"),
-    _year: moment().format("YYYY"),
+    _builddate: moment(currentDate).format("DD MMM YYYY, HH:mm Z"),
+    _builddateISO: moment(currentDate).toISOString(),
+    _year: moment(currentDate).format("YYYY"),
     _inject: injectFiles(dev), // holds all external client libs
     _gitrevision: argv.gitrevision ? argv.gitrevision.toString() : "no git revision set",
     _absoluteUrl: absoluteUrl
