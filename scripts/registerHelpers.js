@@ -26,6 +26,10 @@ function registerHelpers() {
     return result;
   }, 'array');
 
+  Swag.addHelper("encodeuri", function (str) {
+    return encodeURIComponent(str);  
+  }, "string");
+
   // register Swag Handlebars helpers
   Swag.registerHelpers(Handlebars);
 }

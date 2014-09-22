@@ -1,7 +1,7 @@
 {{#if disqus.enabled}}
 {{#and published uid}}
-<span class="block-noteCommentCount">{{!-- <i class="fa fa-comment"></i>&nbsp; --}}<a href="{{_absoluteUrl}}{{path}}#disqus_thread" data-disqus-identifier="{{uid}}">0 Comments</a></span>
+<span class="block-noteCommentCount text-nowrap">{{!-- <i class="fa fa-comment"></i>&nbsp; --}}<a href="{{_absoluteUrl}}{{path}}#disqus_thread" data-disqus-identifier="{{uid}}">0 Comments</a></span>
 {{else}}
-<span class="block-noteCommentCount">0 Comments</span>
+<span class="block-noteCommentCount text-nowrap">0 Comments</span>
 {{/and}}
 {{/if}}
