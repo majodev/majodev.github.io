@@ -2,12 +2,13 @@
 <div class="block-noteShare">
   <h2 class="linedSeparator"><i class="fa fa-share-alt"></i>&nbsp;&nbsp;Share</h2>
   <ul class="list-inline text-center">
-    <li><a class="btn btn-primary" role="button" href="mailto:?subject={{encodeuri title}}&body={{encodeuri _absoluteUrl}}{{encodeuri path}}"><i class="fa fa-paper-plane"></i></a></li>
+    <li><a class="btn btn-primary" role="button" href="mailto:?subject={{encodeuri title}}&body={{encodeuri _absoluteUrl}}{{encodeuri path}}"><i class="fa fa-paper-plane"></i>&nbsp;spam</a></li>
     <li><a class="btn btn-primary" role="button" target="_blank" href="http://twitter.com/intent/tweet?url={{encodeuri _absoluteUrl}}{{encodeuri path}}&text={{encodeuri title}}&via={{_authorTwitter}}"><i class="fa fa-twitter fa-lg"></i></a></li>
     <li><a class="btn btn-primary" role="button" target="_blank" href="http://www.facebook.com/sharer.php?u={{encodeuri _absoluteUrl}}{{encodeuri path}}"><i class="fa fa-facebook fa-lg"></i></a></li>
     <li><a class="btn btn-primary" role="button" target="_blank" href="https://plus.google.com/share?url={{encodeuri _absoluteUrl}}{{encodeuri path}}"><i class="fa fa-google-plus fa-lg"></i></a></li>
     <li><a class="btn btn-primary" role="button" target="_blank" href="http://www.linkedin.com/shareArticle?mini=true&amp;ro=true&amp;url={{encodeuri _absoluteUrl}}{{encodeuri path}}&amp;title={{encodeuri title}}&amp;source={{encodeuri _author}}&amp;summary={{truncate firstparagraphText 200 "..."}}&amp;armin=armin"><i class="fa fa-linkedin fa-lg"></i></a></li>
     <li><a class="btn btn-primary" role="button" target="_blank" href="//pinterest.com/pin/create/link/?url={{encodeuri _absoluteUrl}}{{encodeuri path}}{{!-- &media=REQUIRED_MEDIA_LINK_MISSING --}}&description={{encodeuri title}}"><i class="fa fa-pinterest fa-lg"></i></a></li>
     <li><a class="btn btn-primary" role="button" target="_blank" href="http://www.tumblr.com/share/link?url={{encodeuri _absoluteUrl}}{{encodeuri path}}&amp;name={{encodeuri title}}&amp;description={{truncate firstparagraphText 200 "..."}}"><i class="fa fa-tumblr fa-lg"></i></a></li>
+    <li><a class="btn btn-primary" role="button" href="/feed.xml"><i class="fa fa-rss fa-lg"></i>&nbsp;subscribe</a></li>
   </ul>
 </div>
