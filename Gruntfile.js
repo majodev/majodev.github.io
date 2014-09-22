@@ -470,7 +470,7 @@ module.exports = function(grunt) {
 
   grunt.registerTask('get-git-revision', function() {
     grunt.event.once('git-describe', function(rev) {
-      grunt.option('gitRevision', rev);
+      grunt.option('gitRevision', rev.toString());
     });
     grunt.task.run('git-describe');
   });

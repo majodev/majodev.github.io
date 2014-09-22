@@ -62,7 +62,7 @@ Metalsmith(__dirname)
     _builddate: moment().format("DD MMM YYYY, HH:mm Z"),
     _year: moment().format("YYYY"),
     _inject: injectFiles(dev), // holds all external client libs
-    _gitrevision: argv.gitrevision ? argv.gitrevision : "no git revision set",
+    _gitrevision: argv.gitrevision ? argv.gitrevision.toString() : "no git revision set",
     _absoluteUrl: absoluteUrl
   })
   .source("./src")
