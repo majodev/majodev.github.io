@@ -1,7 +1,7 @@
 ---
 uid: note_hello_world
 title: Hello World
-date: 2014-09-15
+date: 2014-09-22
 tags:
 - private
 ---
@@ -19,11 +19,14 @@ Date:   Wed Jul 23 22:29:33 2014 +0200
     initial commit
 ```
 
-This site is not backed by any traditional blogging CMS (e.g. [Wordpress](http://wpde.org/), [Ghost](https://ghost.org/) or [Medium](https://medium.com/)). Instead I developed it from scratch and used the nifty little static site generator [metalsmith](http://metalsmith.io). My site is therefore only a bundle containing minified HTML/CSS/JS, which I can host anywhere: No serverside logic or databases required, thus avoiding the most common security threats! Templates with [Handlebars](http://handlebarsjs.com/), writing with [Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) and a flat file hierarchy with [YAML](http://www.yaml.org/) frontmatter is all I need from a CMS. 
+This site is not backed by any traditional blogging CMS (e.g. [Wordpress](http://wpde.org/), [Ghost](https://ghost.org/) or [Medium](https://medium.com/)). Instead I developed it from scratch and used the nifty little static site generator [metalsmith](http://metalsmith.io). This "build" version is therefore only a bundle containing minified HTML/CSS/JS, which I can deploy anywhere: No serverside logic or databases required, thus avoiding the most common security threats. Fundamentally, my development environment provides a poor man's barebones CMS. Most essential features:
+* Templates in [Handlebars](http://handlebarsjs.com/), 
+* Writing in [Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) and 
+* A flat file hierarchy with [YAML](http://www.yaml.org/) frontmatter. 
 
-If you are interested, feel free to checkout the [source code](https://github.com/majodev/majodev.github.io/), hosting is currently done though blazing fast [GitHub Pages](https://pages.github.com/) (which is free). By the way, I'm in the process of publishing all my plugins I've written for [metalsmith](http://metalsmith.io). Check back later if you want some information on that.
+If you are interested, feel free to checkout the [source code](https://github.com/majodev/majodev.github.io/), hosting is currently done though blazing fast [GitHub Pages](https://pages.github.com/) (which is free). By the way, I'm in the process of publishing all the plugins I've written for [metalsmith](http://metalsmith.io). Check back later if you want some information on that.
 
-Btw. what do you think about my chosen domain *"ranf.tl"*? I think this variation of my surname is perfect, as it's very short and memorable (ranftl.com and ranftl.at were already taken). Anyways, I'm glad you are able to finally read this and maybe you'll find something useful here in the next weeks.
+BTW. what do you think about my chosen domain *"ranf.tl"*? I think this variation of my surname is pretty neat, as it's very short and hopefully memorable (ranftl.com and ranftl.at were already taken). Futhermore I can finally equip my family with some handy nice looking email addresses. Anyways, I'm glad you are able to read this and maybe you'll find something useful here in the next weeks. 
 
 ![out](i am out.gif)
 
