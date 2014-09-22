@@ -1,0 +1,11 @@
+{{#if related}}
+  <div class="block-noteRelated">
+  <h2 class="linedSeparator"><i class="fa fa-link"></i>&nbsp;&nbsp;Related notes</h2>
+  {{#each related}}
+    {{#withuid this}}
+      {{> noteArticleItem}}
+    {{/withuid}}
+  {{/each}}
+  </div>
+{{else}}
+{{/if}}

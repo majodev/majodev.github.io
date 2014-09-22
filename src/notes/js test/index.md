@@ -6,6 +6,8 @@ tags:
 - javascript
 scripts: 
 - test.js
+related:
+- giftest
 ---
 trying out if JavaScript works within my notes...
 
