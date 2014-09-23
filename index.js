@@ -1,6 +1,5 @@
 // node generic libs
 var argv = require('minimist')(process.argv.slice(2));
-var moment = require("moment");
 
 // metalsmith plugins
 var Metalsmith = require("metalsmith");
@@ -14,7 +13,6 @@ var debugsmith = require("./scripts/metalsmith-debugsmith");
 var hbs = require("./scripts/metalsmith-hbs");
 var permapath = require("./scripts/metalsmith-permapath");
 var highlightjs = require("./scripts/metalsmith-highlightjs");
-var metaformat = require("./scripts/metalsmith-metaformat");
 var tagtree = require("./scripts/metalsmith-tagtree");
 var collectiondefaults = require("./scripts/metalsmith-collectiondefaults");
 var wordcount = require("./scripts/metalsmith-wordcount");
@@ -48,7 +46,6 @@ if (dev === false) {
 }
 
 var absoluteUrl = "http://ranf.tl/";
-var currentDate = new Date();
 
 // metalsmith pipeline
 Metalsmith(__dirname)
@@ -60,9 +57,7 @@ Metalsmith(__dirname)
     _siterepo: "https://github.com/majodev/majodev.github.io/",
     _mailEncrypted: stringToHexa("mario@ranf.tl"),
     _keywords: "Mario Ranftl, majodev, personal website, portfolio",
-    _builddate: moment(currentDate).format("DD MMM YYYY, HH:mm Z"),
-    _builddateISO: moment(currentDate).toISOString(),
-    _year: moment(currentDate).format("YYYY"),
+    _builddate: new Date(),
     _inject: injectFiles(dev), // holds all external client libs
     _gitrevision: argv.gitrevision ? argv.gitrevision.toString() : "no git revision set",
     _gitcommitcount: argv.gitcommitcount ? argv.gitcommitcount.toString() : "no git commit count",
@@ -95,7 +90,6 @@ Metalsmith(__dirname)
     sortedMetaKey: "_sortedTags",
     fileMetaKey: "tags"
   }))
-  .use(metaformat())
   .use(randomasciismiley())
   .use(collections({
     pages: {

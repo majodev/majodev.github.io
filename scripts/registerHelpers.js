@@ -1,6 +1,7 @@
 var Handlebars = require("handlebars");
 var Swag = require("swag");
 var _ = require("lodash");
+var moment = require("moment");
 
 module.exports = registerHelpers;
 
@@ -27,8 +28,28 @@ function registerHelpers() {
   }, 'array');
 
   Swag.addHelper("encodeuri", function (str) {
-    return encodeURIComponent(str);  
+    return encodeURIComponent(str);
   }, "string");
+
+  Swag.addHelper("dateFormatShort", function (date) {
+    return moment(date).format("DD MMM YYYY");
+  }, "date");
+
+  Swag.addHelper("dateFormatLong", function (date) {
+    return moment(date).format("DD MMM YYYY, HH:mm Z");
+  }, "date");
+
+  Swag.addHelper("dateFormatMeta", function (date) {
+    return moment(date).format("YYYY-MM-DD@HH:mm:ss Z");
+  }, "date");
+
+  Swag.addHelper("dateFormatISO", function (date) {
+    return moment(date).toISOString();
+  }, "date");
+
+  Swag.addHelper("dateFormatYear", function (date) {
+    return moment(date).format("YYYY");
+  }, "date");
 
   // register Swag Handlebars helpers
   Swag.registerHelpers(Handlebars);

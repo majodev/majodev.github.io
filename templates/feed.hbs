@@ -1,43 +1,24 @@
-{{!-- via https://gist.github.com/RobinThrift/10502785  --}}
-{{!-- <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>{{ _sitename }}</title>
-    <description>notes by {{ _author }}</description>
-    <link>{{ _absoluteUrl }}</link>
-    <atom:link href="{{ _absoluteUrl }}feed.xml" rel="self" type="application/rss+xml" />
-    {{#each notes }}
-      <item>
-        <title>{{ this.title }}</title>
-        <description>{{ this.firstparagraphText }}</description>
-        <pubDate>{{ this.formattedDateMeta }}</pubDate>
-        <link>{{ ../_absoluteUrl }}{{ this.path }}</link>
-        <guid isPermaLink="true">{{ ../_absoluteUrl }}{{ this.path }}</guid>
-      </item>
-    {{/each}}
-  </channel>
-</rss> --}}
 {{!-- via http://atomenabled.org/developers/syndication/#sampleFeed --}}
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>{{ _sitename }}</title>
   <description>notes by {{ _author }}</description>
   <link href="{{ _absoluteUrl }}"/>
-  <updated>{{ _buildDateISO }}</updated>
+  <updated>{{ dateFormatISO _builddate }}</updated>
   <author>
     <name>{{ _author }}</name>
   </author>
   <id>{{ _absoluteUrl }}</id>
   <icon>{{ _absoluteUrl }}apple-touch-icon-precomposed.png</icon>
   <logo>{{ _absoluteUrl }}tile-wide.png</logo>
-  <rights> © {{_year}} {{_author}} </rights>
+  <rights> © {{dateFormatYear _builddate}} {{_author}} </rights>
   {{#each notes }}
   <entry>
     <title>{{ this.title }}</title>
     <link href="{{ ../_absoluteUrl }}{{ this.path }}"/>
     <id>{{ ../_absoluteUrl }}{{ this.path }}</id>
-    <updated>{{ this.lastModifiedISO }}</updated>
-    <published>{{ this.formattedDateISO }}</published>
+    <updated>{{ dateFormatISO lastModified }}</updated>
+    <published>{{ dateFormatISO date }}</published>
     <summary>{{ this.firstparagraphText }}</summary>
     <content type="html" src="{{ ../_absoluteUrl }}{{this.path}}"></content>
     <author>
