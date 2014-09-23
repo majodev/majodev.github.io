@@ -7,13 +7,13 @@ module.exports = function(grunt) {
     execute: {
       "metalsmith-dev": {
         options: {
-          args: ["--gitrevision", "<%=grunt.option('gitRevision')%>"]
+          args: ["--gitrevision", "<%=grunt.option('gitRevision')%>", "--gitcommitcount", "<%=grunt.option('gitCommitCount')%>"]
         },
         src: ["index.js"]
       },
       "metalsmith-productive": {
         options: {
-          args: ["--productive", "--gitrevision", "<%=grunt.option('gitRevision')%>"]
+          args: ["--productive", "--gitrevision", "<%=grunt.option('gitRevision')%>", "--gitcommitcount", "<%=grunt.option('gitCommitCount')%>"]
         },
         src: ["index.js"]
       },
@@ -325,6 +325,16 @@ module.exports = function(grunt) {
         command: [
           "casperjs scripts/404checker.js http://localhost:8080/"
         ].join("&&")
+      },
+      "commitCount": {
+        command: "git rev-list HEAD --count",
+        options: {
+          callback: function saveCount(err, stdout, stderr, cb) {
+            //console.log("commit count: [" + stdout.trim() + "]");
+            grunt.option('gitCommitCount', stdout.trim());
+            cb();
+          }
+        }
       }
     },
     browserify: {
@@ -426,7 +436,7 @@ module.exports = function(grunt) {
   // ---
 
   grunt.registerTask("build-dev", [
-    "clean:build", "browserify:dev", "get-git-revision", "execute:metalsmith-dev", "less:development", "copy"
+    "clean:build", "browserify:dev", "get-git-revision", "shell:commitCount", "execute:metalsmith-dev", "less:development", "copy"
   ]);
 
   // ---
@@ -434,7 +444,8 @@ module.exports = function(grunt) {
   // ---
 
   grunt.registerTask("build-productive", [
-    "browserify:productive", "get-git-revision", "execute:metalsmith-productive",
+    "browserify:productive", "get-git-revision", "shell:commitCount", 
+    "execute:metalsmith-productive",
     "css-productive", "js-productive",
     "htmlmin", "copy:support-root",
     "copy:inject-fonts", "xmlmin"
@@ -470,6 +481,7 @@ module.exports = function(grunt) {
 
   grunt.registerTask('get-git-revision', function() {
     grunt.event.once('git-describe', function(rev) {
+      //console.log(rev);
       grunt.option('gitRevision', rev.toString());
     });
     grunt.task.run('git-describe');
