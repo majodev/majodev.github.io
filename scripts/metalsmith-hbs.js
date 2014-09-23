@@ -1,4 +1,5 @@
-// converted from https://github.com/segmentio/metalsmith-markdown/blob/master/lib/index.js to parse handlebars files
+// adapted from https://github.com/segmentio/metalsmith-markdown/blob/master/lib/index.js to parse handlebars files
+// possible solution to https://github.com/segmentio/metalsmith/issues/75
 
 var basename = require('path').basename;
 var dirname = require('path').dirname;
@@ -31,14 +32,16 @@ function plugin() {
       var data = files[file];
       var dir = dirname(file);
 
-      var html = basename(file, extname(file));
+      var newFileName = reduceAllExtensions(file);
 
-      if (!isMarkdown(file)) {
-        html += ".html";
+      if (isMarkdown(file)) {
+        newFileName += ".md";
+      } else {
+        newFileName += ".html"; // assumes .html is the default output format!
       }
 
-      if ('.' != dir) {
-        html = dir + '/' + html;
+      if (dir !== '.') {
+        newFileName = dir + '/' + newFileName;
       }
 
       var template = Handlebars.compile(data.contents.toString());
@@ -46,7 +49,8 @@ function plugin() {
       data.contents = new Buffer(str);
 
       delete files[file];
-      files[html] = data;
+      files[newFileName] = data;
+      // console.log(newFileName);
     });
   };
 }
@@ -66,9 +70,19 @@ function mergeMeta(global, local, filename) {
 }
 
 function isHandlebars(file) {
-  return /\.hbs|\.handlebars/.test(extname(file));
+  return /\.hbs|\.handlebars/.test(file);
 }
 
 function isMarkdown(file) {
   return /\.md|\.markdown/.test(file);
+}
+
+function reduceAllExtensions(file) {
+  var trimmedFilename = basename(file, extname(file));
+  if (extname(trimmedFilename) !== "") {
+    //console.log(trimmedFilename);
+    return reduceAllExtensions(trimmedFilename);
+  } else {
+    return trimmedFilename;
+  }
 }
