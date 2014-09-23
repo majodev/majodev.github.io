@@ -11,29 +11,20 @@ customHeaderClass: indexHeader
   <h1 class="letter-spacing-3">Hi<br><small>I'm Mario Ranftl</small></h1>
   
   <div class="row index-text-wrap">
-    <div class="col-md-6 text-right-md"><p>Let's cover academics first{{!-- wherein I talk about myself in third person --}}: I earned a master's (2014) and bachelor's (2011) degree in information management from FH JOANNEUM Austria. 
-    {{!-- I'm an <a href="http://dictionary.cambridge.org/dictionary/business-english/information-manager">information manager</a> and hold a Master's (2014) and Bachelor's (2011) degree in Science from FH JOANNEUM, Austria. --}}</p></div>
+    <div class="col-md-6 text-right-md"><p>Let's cover academics first: I earned a master's (2014) and bachelor's (2011) degree in information management from FH JOANNEUM Austria.</p></div>
     <div class="col-md-6 text-left-md"><p>Second Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et</p></div>
   </div>
 
-  <hr>
+  {{!-- <hr> --}}
+
+  <h2 class="linedSeparator">TL;DR</h2>
 
   <div class="row">
-    <div class="col-md-8 col-md-offset-2"><p class="index-text-summary"><strong>TL;DR</strong><br><span class="text-nowrap">information management grad.</span> <span class="text-nowrap"><a href="http://www.fh-joanneum.at/aw/home/Studienangebot_Uebersicht/department_angewandte_informatik/aim/Menschen/AbsolventInnen_Master_DI_/~cpam/aim_absolventinnenMA_2011/?lan=en">DI (MSc equiv.)</a></span> &amp; <a href="https://www.fh-joanneum.at/aw/home/Studienangebot_Uebersicht/department_angewandte_informatik/ima/Menschen/AbsolventInnen/~cfle/ima_absolventinnenBA_2008/?lan=en">BSc</a>, <span class="text-nowrap">full stack engineer</span>, <span class="text-nowrap">wannabe entrepreneur</span>, <span class="text-nowrap">mediocre guitar player</span>, <span class="text-nowrap">above average nerd</span></p></div>
+    <div class="col-md-8 col-md-offset-2"><p class="index-text-summary">{{!-- <strong>TL;DR</strong><br> --}}<span class="text-nowrap">information management grad.</span> <span class="text-nowrap"><a href="http://www.fh-joanneum.at/aw/home/Studienangebot_Uebersicht/department_angewandte_informatik/aim/Menschen/AbsolventInnen_Master_DI_/~cpam/aim_absolventinnenMA_2011/?lan=en">DI (MSc equiv.)</a></span> &amp; <a href="https://www.fh-joanneum.at/aw/home/Studienangebot_Uebersicht/department_angewandte_informatik/ima/Menschen/AbsolventInnen/~cfle/ima_absolventinnenBA_2008/?lan=en">BSc</a>, <span class="text-nowrap">full stack engineer</span>, <span class="text-nowrap">wannabe entrepreneur</span>, <span class="text-nowrap">mediocre guitar player</span>, <span class="text-nowrap">above average nerd</span></p></div>
   </div>
   
   {{> contactButtons}}
 
-  {{!-- <ul class="list-inline">
-    <li><a class="btn btn-primary btn-lg" role="button" {{> emailData}}><i class="fa fa-paper-plane"></i>&nbsp;say hello</a></li>
-    <li><a class="btn btn-primary btn-lg" role="button" href="http://twitter.com/{{_authorTwitter}}"><i class="fa fa-twitter fa-lg"></i>&nbsp;@{{_authorTwitter}}</a></li>
-  </ul>
-
-  <ul class="list-inline">
-    <li><a class="btn btn-primary btn-lg" role="button" href="http://github.com/majodev"><i class="fa fa-github fa-lg"></i></a></li>
-    <li><a class="btn btn-primary btn-lg" role="button" href="http://at.linkedin.com/in/marioranftl"><i class="fa fa-linkedin fa-lg"></i></a></li>
-    <li><a class="btn btn-primary btn-lg" role="button" href="http://www.youtube.com/user/majodev"><i class="fa fa-youtube fa-lg"></i></a></li>
-    <li><a class="btn btn-primary btn-lg" role="button" href="/feed.xml"><i class="fa fa-rss fa-lg"></i></a></li>
-  </ul> --}}
+  {{> noteLatest}}
 
 </div>
