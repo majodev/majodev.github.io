@@ -368,6 +368,23 @@ a:link, a:visited, a:hover, a:focus, a:active {
 
 // -----------------------------------------------------------------------------
 // -----------------------------------------------------------------------------
+// template default styling
+
+.template-default h1.linedSeparator {
+  margin-top: 23px;
+  transition-property: margin-top;
+  transition-duration: 200ms;
+  transition-timing-function: cubic-bezier(0.165,0.630,0.140,0.820);
+}
+
+@media (min-width: @grid-float-breakpoint) {
+  .template-default h1.linedSeparator {
+    margin-top: 46px;
+  }
+}
+
+// -----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
 // template note styling
 
 .template-note-header {
