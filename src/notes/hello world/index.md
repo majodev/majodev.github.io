@@ -1,7 +1,6 @@
 ---
 uid: note_hello_world
 title: Hello World
-date: 2014-09-22
 tags:
 - private
 ---
@@ -24,9 +23,9 @@ This site is not backed by any traditional blogging CMS (e.g. [Wordpress](http:/
 * Writing in [Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) and 
 * A flat file hierarchy with [YAML](http://www.yaml.org/) frontmatter. 
 
-If you are interested, feel free to checkout the [source code](https://github.com/majodev/majodev.github.io/), hosting is currently done though blazing fast [GitHub Pages](https://pages.github.com/) (which is free). By the way, I'm in the process of publishing all the plugins I've written for [metalsmith](http://metalsmith.io). Check back later if you want some information on that.
+If you are interested, feel free to checkout the [source code](https://github.com/majodev/majodev.github.io/), hosting is currently done though blazing fast [GitHub Pages](https://pages.github.com/) (which is free). I'm currently in the process of publishing all the plugins I've written for [metalsmith](http://metalsmith.io). Check back later if you want some information on that.
 
-BTW. what do you think about my chosen domain *"ranf.tl"*? I think this variation of my surname is pretty neat, as it's very short and hopefully memorable (ranftl.com and ranftl.at were already taken). Futhermore I can finally equip my family with some handy nice looking email addresses. Anyways, I'm glad you are able to read this and maybe you'll find something useful here in the next weeks. 
+By the way, what do you think about my chosen domain *"ranf.tl"*? I think this variation of my surname is pretty neat, as it's very short and hopefully memorable (ranftl.com and ranftl.at were already taken). Futhermore I can finally equip my family with some handy & nice looking email addresses. Anyways, I'm glad you are able to read this and maybe you'll find something useful here in the next weeks. 
 
 ![out](i am out.gif)
 

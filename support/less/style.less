@@ -87,10 +87,6 @@ body {
   height: 100%;
 }
 
-.container-fluid {
-  // max-width: 768px;
-}
-
 .template-default, .template-note-header, .template-note-contents, .template-note-footer {
   max-width: 720px; //30 = default padding
 }
@@ -142,7 +138,6 @@ body {
 
 .navbar {
   // border: 1px solid transparent; // this border might fix ios header handling?
-  // opacity: 0.8;
   border: none;
 }
 
@@ -233,10 +228,6 @@ body {
   }
 }
 
-// .block-header a {
-//   text-shadow: fade(@color-head, 15%) 0.05em 0.05em 0.1em
-// }
-
 // -----------------------------------------------------------------------------
 // -----------------------------------------------------------------------------
 // colors and background styling
@@ -271,8 +262,6 @@ body {
 
 .block-footer:after {
   content: "";
-  // background: url(/assets/img/bg_main_tile_transparent.png);
-  // background: url(/assets/img/stressed_linen.png);
   opacity: 0.85;
   top: 0;
   left: 0;
@@ -382,7 +371,6 @@ a:link, a:visited, a:hover, a:focus, a:active {
 // template note styling
 
 .template-note-header {
-  //background: url(/assets/img/bg_main_tile_transparent.png) repeat;
   margin-bottom: 2px;
   padding-bottom: 4px;
 }
@@ -471,7 +459,6 @@ a:link, a:visited, a:hover, a:focus, a:active {
   text-transform: uppercase;
   font-weight: 400;
   font-size: 16px;
-  //font-size: @font-size-smaller;
 }
 
 .block-navBrandText {
@@ -603,13 +590,21 @@ a:link, a:visited, a:hover, a:focus, a:active {
 }
 
 .block-noteArticleItem-inner {
-  transition-property: color, opacity, background;
+  // transform: scale(1);
+  // transition-property: color, background, transform;
+  transition-property: opacity;
   transition-duration: 200ms;
   transition-timing-function: cubic-bezier(0.165,0.630,0.140,0.820);
 }
 
 .block-noteArticleItem-inner:hover {
-  opacity: 0.7;
+  // transform: scale(1.01);
+  // background: fade(@color-footer-links, 20%);
+  // background: fade(@color-nav, 95%); //fade(@color-nav-hover-desktop, 30%);
+  // color: #fefefe;
+  //color: #fff !important;
+  //color: @color-main-3;
+  opacity: 0.8;
 }
 
 .block-noteArticleItem-inner:hover + p > .block-noteLink {
@@ -663,24 +658,16 @@ a:link, a:visited, a:hover, a:focus, a:active {
   font-weight: @default-font-weight;
 }
 
-// .indexHeader .navbar-nav > li > a {
-//   color: #fff;
-// }
-// .indexHeader .navbar-brand {
-//   color: #fff;
-// }
-
-
 // legal.hbs ----
 
-@media (min-width: @grid-float-breakpoint) {
-  .dl-horizontal dt {
-    width: 180px;
-  }
-  .dl-horizontal dd {
-    margin-left: 200px;
-  }
-}
+// @media (min-width: @grid-float-breakpoint) {
+//   .dl-horizontal dt {
+//     width: 180px;
+//   }
+//   .dl-horizontal dd {
+//     margin-left: 200px;
+//   }
+// }
 
 
 
