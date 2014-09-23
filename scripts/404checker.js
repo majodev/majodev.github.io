@@ -25,6 +25,7 @@ var casper = require("casper").create({
 });
 var checked = [];
 var linkErrors = [];
+var linkWarnings = [];
 var currentLink = 0;
 var fs = require('fs');
 var upTo = ~~casper.cli.get('max-depth') || 9007199254740992;
@@ -76,14 +77,17 @@ function crawl(link) {
     } else if (this.currentHTTPStatus === 500) {
       casper.echo(countStatus() + link + ' is broken (HTTP 500)', "ERROR");
       linkErrors.push(link + ' is broken (HTTP 500)');
-    } else {
+    } else if (this.currentHTTPStatus === 200) {
       this.echo(countStatus() + link + f(' is okay (HTTP %s)', this.currentHTTPStatus));
+    } else {
+      casper.echo(countStatus() + link + ' is akward (HTTP ' + this.currentHTTPStatus + ')', "WARNING");
+      linkWarnings.push(link + ' is akward (HTTP ' + this.currentHTTPStatus + ')');
     }
   });
   // EDIT: allow external link checking but and scrape links from them!
   if (link.indexOf(baseUrl) === 0 && link.indexOf(".pdf") === -1) {
     this.then(function() {
-      var newLinks = searchLinks.call(this);
+      var newLinks = removeForbidden(cutForbidden(searchLinks.call(this)));
       links = unique(links.concat(newLinks).filter(function(url) {
         return checked.indexOf(url) === -1;
       }));
@@ -124,6 +128,40 @@ function searchLinks() {
   }), this.getCurrentUrl());
 }
 
+function removeForbidden(urlsArray) {
+  var newUrlsArray = urlsArray;
+  for (var i = newUrlsArray.length - 1; i >= 0; i--) {
+    if (newUrlsArray[i].indexOf("mailto:") === 0) {
+      newUrlsArray.splice(i, 1);
+    }
+  }
+  return newUrlsArray;
+}
+
+function cutForbidden(urlsArray) {
+  var newUrlsArray = urlsArray;
+  for (var i = 0; i < newUrlsArray.length; i++) {
+    newUrlsArray[i] = cutForbiddenHashTag(cutForbiddenQuestionMark(newUrlsArray[i]));
+  }
+  return newUrlsArray;
+}
+
+function cutForbiddenQuestionMark(url) {
+  var newurl = url;
+  if (url.indexOf("?") !== -1) {
+    newurl = url.split("?")[0];
+  }
+  return newurl;
+}
+
+function cutForbiddenHashTag(url) {
+  var newurl = url;
+  if (url.indexOf("#") !== -1) {
+    newurl = url.split("#")[0];
+  }
+  return newurl;
+}
+
 // As long as it has a next link, and is under the maximum limit, will keep running
 function check() {
   // EDIT: always take the first child in array
@@ -136,9 +174,12 @@ function check() {
     currentLink++;
     this.run(check);
   } else {
-    this.echo("All done, " + checked.length + " unique links checked. " + linkErrors.length + " errors.", "INFO");
+    this.echo("All done, " + checked.length + " unique links checked. " + linkErrors.length + " errors, " + linkWarnings.length + " warnings.", "INFO");
     for (var i = linkErrors.length - 1; i >= 0; i--) {
       this.echo("error: " + linkErrors[i], "ERROR");
+    }
+    for (var x = linkWarnings.length - 1; x >= 0; x--) {
+      this.echo("warning: " + linkWarnings[x], "WARNING");
     }
     this.exit();
   }
