@@ -644,12 +644,22 @@ a:link, a:visited, a:hover, a:focus, a:active {
   min-width: 65px;
 }
 
+.block-contactButtons ul {
+  margin-top: 30px;
+}
+
 .block-contactButtons ul li {
   margin-top: 10px;
 }
 
-.block-noteLatest .container-fluid {
+.block-noteLatest .block-noteArticleItem {
   max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.block-noteLatest > .linedSeparator {
+  margin-bottom: 30px;
 }
 
 // -----------------------------------------------------------------------------
@@ -681,6 +691,7 @@ a:link, a:visited, a:hover, a:focus, a:active {
 
 .index-text-summary {
   font-size: 20px !important;
+  margin-top: 30px;
 }
 
 @media (min-width: @grid-float-breakpoint) {
@@ -688,6 +699,25 @@ a:link, a:visited, a:hover, a:focus, a:active {
     font-size: 27px !important;
   }
 }
+
+.index_foot {
+  // padding-top: 30px;
+  padding-bottom: 30px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.index_main {
+  padding-bottom: 0px !important;
+}
+
+@media screen and (min-width: @screen-sm-min) {
+  .index_foot {
+    // padding-top: 48px;
+    padding-bottom: 48px;
+  }
+}
+
 
 // legal.hbs ----
 

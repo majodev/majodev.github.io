@@ -6,25 +6,29 @@ published: true
 customHeaderClass: indexHeader
 ---
 <div class="index_bg_pusher"></div>
-<div class="jumbotron text-center">
+<div class="jumbotron index_main">
 
-  <h1 class="letter-spacing-3">Hi<br><small>I'm Mario Ranftl</small></h1>
+  <h1 class="text-center letter-spacing-3">Hi<br><small>I'm Mario Ranftl</small></h1>
   
-  <div class="row index-text-wrap">
-    <div class="col-md-6 text-right-md"><p>Let's cover academics first: I earned a master's (2014) and bachelor's (2011) degree in information management from FH JOANNEUM Austria.</p></div>
-    <div class="col-md-6 text-left-md"><p>Second Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et</p></div>
+  <div class="text-left text-center-md row index-text-wrap">
+    <div class="col-md-6 text-justify-md"><p>Let's cover academics first: I earned a master's (2014) and bachelor's (2011) degree in information management from FH JOANNEUM Austria. These study programmes helped me become an IT generalist and covered technical fields (network infrastructure, e-security, application development, ...) as well as business fields (like process mgmt, change mgmt, project mgmt and law).</p></div>
+    <div class="col-md-6 text-justify-md"><p>I'm also very into open source and the GitHub community and have made some baby steps there. Preferred programming language currently is JavaScript, however, due to my former programming background (VB, C, Java and ActionScript) I'm not very into frontend web development (apart from this site). Thus I'm mostly doing stuff in node.js in general (and node-webkit if it comes to desktop apps).</p></div>
   </div>
 
   {{!-- <hr> --}}
 
   <h2 class="linedSeparator">TL;DR</h2>
 
-  <div class="row">
+  <div class="row text-center">
     <div class="col-md-8 col-md-offset-2"><p class="index-text-summary">{{!-- <strong>TL;DR</strong><br> --}}<span class="text-nowrap">information management grad.</span> <span class="text-nowrap"><a href="http://www.fh-joanneum.at/aw/home/Studienangebot_Uebersicht/department_angewandte_informatik/aim/Menschen/AbsolventInnen_Master_DI_/~cpam/aim_absolventinnenMA_2011/?lan=en">DI (MSc equiv.)</a></span> &amp; <a href="https://www.fh-joanneum.at/aw/home/Studienangebot_Uebersicht/department_angewandte_informatik/ima/Menschen/AbsolventInnen/~cfle/ima_absolventinnenBA_2008/?lan=en">BSc</a>, <span class="text-nowrap">full stack engineer</span>, <span class="text-nowrap">wannabe entrepreneur</span>, <span class="text-nowrap">mediocre guitar player</span>, <span class="text-nowrap">above average nerd</span></p></div>
   </div>
   
+  <h2 class="linedSeparator">Contact</h2>
+
   {{> contactButtons}}
 
-  {{!-- {{> noteLatest}} --}}
+</div>
 
+<div class="index_foot">
+  {{> noteLatest}}
 </div>
