@@ -672,16 +672,38 @@ a:link, a:visited, a:hover, a:focus, a:active {
   background-color: @color-footer-bg;
   background-image: url('/assets/img/index_photo_full.jpg');
   background-size: cover;
-  background-position: 50%;
+  background-position: 49% 15%;
   height: 100vh;
   max-height: 100%;
   width: 100%;
   text-shadow: 0 0 10px rgba(0,0,0,.8);
   color: @color-bg;
+  position: relative;
+}
+
+.index_img_footer {
+  position: absolute;
+  bottom: 6px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.index_img_footer > a {
+  transition-property: color;
+  transition-duration: 200ms;
+  transition-timing-function: cubic-bezier(0.165,0.630,0.140,0.820);
+  color: @color-bg;
+}
+
+.index_img_footer > a:hover, .index_img_footer > a:focus {
+  color: @color-links;
 }
 
 .indexHeader {
-  background: fade(@color-bg, 15%);
+  background: fade(@color-bg, 55%);
 }
 
 .index-text-wrap p {

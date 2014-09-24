@@ -61,6 +61,10 @@ function registerHelpers() {
     return result.join('');
   }, "array");
 
+  Swag.addHelper('json', function(obj) {
+    return JSON.stringify(obj);
+  }, "object");
+
   // register Swag Handlebars helpers
   Swag.registerHelpers(Handlebars);
 }

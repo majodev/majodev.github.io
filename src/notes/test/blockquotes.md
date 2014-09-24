@@ -28,3 +28,7 @@ So here we go...
 <!-- -->
 
 > Programmers classicly underestimate how much effort things are. <footer>Jonathan Blow [via State of Play](https://www.youtube.com/watch?v=HTumujaqEe8&list=UU1kYEPLh7TtoPdM0YSi0VlA)</footer>
+
+<!-- -->
+
+> Life cannot be evaluated. <footer>me</footer>
