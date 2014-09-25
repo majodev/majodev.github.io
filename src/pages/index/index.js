@@ -1,0 +1,105 @@
+// main page index file
+(function() {
+
+  // consts
+  var BG_IMG = {
+    WIDTH: 3501,
+    HEIGHT: 1904,
+    WIDTH_MOD: 0.49,
+    HEIGHT_MOD: 0.15
+  };
+
+  var OVERLAY_WRAPPER_ID = "#index_overlay_wrapper";
+
+  // runtime vars
+  var $overlay_wrapper = $(OVERLAY_WRAPPER_ID);
+  // var canvas = buildCanvas();
+  // var ctx = canvas.getContext("2d");
+
+  // $overlay_wrapper.append(canvas);
+
+  // $(window).on("resize", function() {
+  //   canvas.width = $overlay_wrapper.width();
+  //   canvas.height = $overlay_wrapper.height();
+
+  //   draw();
+  // });
+
+  // adapted from http://www.growingwiththeweb.com/2013/04/aligning-and-element-with-background.html
+  function normalizedPoint(point) {
+
+    var wrapperWidth = $overlay_wrapper.width();
+    var wrapperHeight = $overlay_wrapper.height();
+
+    var xScale = wrapperWidth / BG_IMG.WIDTH;
+    var yScale = wrapperHeight / BG_IMG.HEIGHT;
+
+    var scale;
+    var yOffset = 0;
+    var xOffset = 0;
+
+    if (xScale > yScale) {
+      // The image fits perfectly in x axis, stretched in y
+      scale = xScale;
+      yOffset = (wrapperHeight - (BG_IMG.HEIGHT * scale)) * BG_IMG.HEIGHT_MOD;
+    } else {
+      // The image fits perfectly in y axis, stretched in x
+      scale = yScale;
+      xOffset = (wrapperWidth - (BG_IMG.WIDTH * scale)) * BG_IMG.WIDTH_MOD;
+    }
+
+    return {
+      x: (point.x) * scale + xOffset,
+      y: (point.y) * scale + yOffset
+    };
+
+  }
+
+  // function buildCanvas() {
+  //   var newCanvas = document.createElement("canvas");
+  //   newCanvas.className = "myClass";
+  //   newCanvas.id = "myId";
+  //   newCanvas.width = $overlay_wrapper.width();
+  //   newCanvas.height = $overlay_wrapper.height();
+
+  //   return newCanvas;
+  // }
+
+  // function draw() {
+  //   var point = normalizedPoint({
+  //     x: 1750,
+  //     y: 948
+  //   });
+
+  //   ctx.fillStyle = "#FF0000";
+  //   ctx.fillRect(point.x, point.y, 2, 2);
+  // }
+
+  // draw();
+
+
+  $(window).on("resize", function() {
+    positionOverlays();
+  });
+
+
+  function positionOverlays() {
+    var $overlay_item = $("#overlay_1");
+
+    $overlay_item.show();
+
+    var newPoint = normalizedPoint({
+      x: Number($overlay_item.attr("data-posX")),
+      y: Number($overlay_item.attr("data-posY"))
+    });
+
+    $overlay_item.css("left", newPoint.x);
+    $overlay_item.css("top", newPoint.y);
+
+  }
+
+  positionOverlays();
+
+
+
+}());

@@ -164,6 +164,11 @@ function fileToFolderName(file, postfix, custom) {
         targetname = targetname.substring(1);
       }
 
+      if (targetname.indexOf("index") === 0) {
+        // a folder cannot be named index - cut that!
+        targetname = targetname.substring(5);
+      }
+
     } else {
       targetname = directory;
     }

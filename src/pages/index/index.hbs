@@ -4,15 +4,28 @@ title: About
 template: plain.hbs
 published: true
 customHeaderClass: indexHeader
+scripts:
+- index.js
 ---
-<div class="index_bg_pusher"><span class="index_img_footer nonSelectable"><a href="#hello"><i class="fa fa-chevron-circle-down fa-3x"></i></a></span></div>
+<div class="index_bg_pusher">
+
+  <div id="index_overlay_wrapper">
+    <span id="overlay_1" class="index_overlay_text" data-posX="1826", data-posY="810" hidden>likes sunglasses</span>
+  </div>
+  <span class="index_img_footer nonSelectable"><a href="#hello"><i class="fa fa-chevron-circle-down fa-3x"></i></a></span>
+
+</div>
+
 <div class="jumbotron index_main">
 
   <h1 id="hello" class="text-center letter-spacing-3">Hi<br><small>I'm Mario Ranftl</small></h1>
   
   <div class="text-left text-center-md row index-text-wrap">
+
     <div class="col-md-6 text-justify-md"><p>Let's cover academics first: I earned a master's (2014) and bachelor's (2011) degree in information management from FH JOANNEUM Austria. These study programmes helped me become an IT generalist and covered technical fields (network infrastructure, e-security, application development, ...) as well as business fields (like process mgmt, change mgmt, project mgmt and law).</p></div>
-    <div class="col-md-6 text-justify-md"><p>I'm also very into open source and the GitHub community and have made some baby steps there. Preferred programming language currently is JavaScript, however, due to my former programming background (VB, C, Java and ActionScript) I'm not very into frontend web development (apart from this site). Thus I'm mostly doing stuff in node.js in general (and node-webkit if it comes to desktop apps).</p></div>
+
+    <div class="col-md-6 text-justify-md"><p>I like well documented, tested and maintainable code bases. I'm furthermore very into open source (I love GitHub) and have made a few baby steps with some small projects and cntributions there. My preferred programming language currently is JavaScript, however, due to my former programming background (VB, C, Java and ActionScript) I'm not very into frontend web development (apart from this site), thus I'm mostly doing backend stuff in node.js (and node-webkit if it comes to desktop apps) currently.</p></div>
+
   </div>
 
   {{!-- <hr> --}}
@@ -20,7 +33,9 @@ customHeaderClass: indexHeader
   <h2 class="linedSeparator">TL;DR</h2>
 
   <div class="row text-center">
+
     <div class="col-md-8 col-md-offset-2"><p class="index-text-summary">{{!-- <strong>TL;DR</strong><br> --}}<span class="text-nowrap">information management grad.</span> <span class="text-nowrap"><a href="http://www.fh-joanneum.at/aw/home/Studienangebot_Uebersicht/department_angewandte_informatik/aim/Menschen/AbsolventInnen_Master_DI_/~cpam/aim_absolventinnenMA_2011/?lan=en">DI (MSc equiv.)</a></span> &amp; <a href="https://www.fh-joanneum.at/aw/home/Studienangebot_Uebersicht/department_angewandte_informatik/ima/Menschen/AbsolventInnen/~cfle/ima_absolventinnenBA_2008/?lan=en">BSc</a>, <span class="text-nowrap">full stack engineer</span>, <span class="text-nowrap">wannabe entrepreneur</span>, <span class="text-nowrap">mediocre guitar player</span>, <span class="text-nowrap">above average nerd</span></p></div>
+
   </div>
   
   <h2 class="linedSeparator">Contact</h2>
