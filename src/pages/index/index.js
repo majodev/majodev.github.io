@@ -10,20 +10,10 @@
   };
 
   var OVERLAY_WRAPPER_ID = "#index_overlay_wrapper";
+  var OVERLAY_ITEM_CLASS = ".index_overlay_item";
 
   // runtime vars
   var $overlay_wrapper = $(OVERLAY_WRAPPER_ID);
-  // var canvas = buildCanvas();
-  // var ctx = canvas.getContext("2d");
-
-  // $overlay_wrapper.append(canvas);
-
-  // $(window).on("resize", function() {
-  //   canvas.width = $overlay_wrapper.width();
-  //   canvas.height = $overlay_wrapper.height();
-
-  //   draw();
-  // });
 
   // adapted from http://www.growingwiththeweb.com/2013/04/aligning-and-element-with-background.html
   function normalizedPoint(point) {
@@ -52,54 +42,63 @@
       x: (point.x) * scale + xOffset,
       y: (point.y) * scale + yOffset
     };
-
   }
 
-  // function buildCanvas() {
-  //   var newCanvas = document.createElement("canvas");
-  //   newCanvas.className = "myClass";
-  //   newCanvas.id = "myId";
-  //   newCanvas.width = $overlay_wrapper.width();
-  //   newCanvas.height = $overlay_wrapper.height();
+  $(window).on("resize", positionOverlays);
 
-  //   return newCanvas;
-  // }
-
-  // function draw() {
-  //   var point = normalizedPoint({
-  //     x: 1750,
-  //     y: 948
-  //   });
-
-  //   ctx.fillStyle = "#FF0000";
-  //   ctx.fillRect(point.x, point.y, 2, 2);
-  // }
-
-  // draw();
-
-
-  $(window).on("resize", function() {
-    positionOverlays();
-  });
+  // development only!!!
+  // setInterval(function () {
+  //   positionOverlays();
+  // }, 200);
 
 
   function positionOverlays() {
-    var $overlay_item = $("#overlay_1");
+    $(OVERLAY_ITEM_CLASS).each(function() {
+      var $overlay_item = $(this);
 
-    $overlay_item.show();
+      var newPoint = normalizedPoint({
+        x: Number($overlay_item.attr("data-posX")),
+        y: Number($overlay_item.attr("data-posY"))
+      });
 
-    var newPoint = normalizedPoint({
-      x: Number($overlay_item.attr("data-posX")),
-      y: Number($overlay_item.attr("data-posY"))
+      if ($overlay_item.hasClass("index_overlay_item_right")) {
+        $overlay_item.css("left", newPoint.x);
+        $overlay_item.css("top", newPoint.y);
+      } 
+
+      if ($overlay_item.hasClass("index_overlay_item_left")) {
+        $overlay_item.css("right", $overlay_wrapper.width()-newPoint.x);
+        $overlay_item.css("top", newPoint.y);
+      }
+
     });
+  }
 
-    $overlay_item.css("left", newPoint.x);
-    $overlay_item.css("top", newPoint.y);
+  function animateOverlays() {
 
+    var standardDelay = 500;
+    var delayIncrease = 250;
+
+    $(OVERLAY_ITEM_CLASS).each(function() {
+      var $overlay_item = $(this);
+
+      $overlay_item.velocity("fadeIn", {
+        duration: 500,
+        delay: standardDelay
+      });
+
+      standardDelay += delayIncrease;
+    });
   }
 
   positionOverlays();
+  animateOverlays();
 
 
+  window.dealloc = function() {
+    $(window).off("resize", positionOverlays);
+
+    $overlay_wrapper = null;
+  };
 
 }());
