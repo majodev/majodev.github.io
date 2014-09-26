@@ -79,6 +79,9 @@
     var standardDelay = 500;
     var delayIncrease = 250;
 
+    // $(OVERLAY_ITEM_CLASS).velocity("fadeIn", { drag: true });
+    // $(OVERLAY_ITEM_CLASS).velocity("transition.slideDownBigIn", { drag: true });
+
     $(OVERLAY_ITEM_CLASS).each(function() {
       var $overlay_item = $(this);
 
@@ -89,6 +92,7 @@
 
       standardDelay += delayIncrease;
     });
+
   }
 
   positionOverlays();

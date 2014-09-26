@@ -18,7 +18,7 @@ Date:   Wed Jul 23 22:29:33 2014 +0200
     initial commit
 ```
 
-This site is not backed by any traditional blogging CMS (e.g. [Wordpress](http://wpde.org/), [Ghost](https://ghost.org/) or [Medium](https://medium.com/)). Instead I developed it from scratch and used the nifty little static site generator [metalsmith](http://metalsmith.io). This "build" version is therefore only a bundle containing minified HTML/CSS/JS, which I can deploy anywhere: No serverside logic or databases required, thus avoiding the most common security threats. Fundamentally, my development environment provides a poor man's barebones CMS. Most essential features:
+This site is not backed by any traditional blogging CMS (e.g. [Wordpress](http://wpde.org/), [Ghost](https://ghost.org/) or [Medium](https://medium.com/)). Instead I developed it from scratch and used the nifty little static site generator [metalsmith](http://metalsmith.io). This current "build" is therefore only a **bundle** containing minified HTML, CSS and JS, which I can deploy anywhere: No serverside logic or databases required, thus avoiding the most common security threats. Fundamentally, my development environment provides a poor man's barebones CMS. Most essential features:
 * Templates in [Handlebars](http://handlebarsjs.com/), 
 * Writing in [Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) and 
 * A flat file hierarchy with [YAML](http://www.yaml.org/) frontmatter. 
