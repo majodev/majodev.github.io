@@ -1,60 +1,69 @@
 // main page index file
 (function() {
 
-  // consts
-  var BG_IMG = {
-    WIDTH: 3501,
-    HEIGHT: 1904,
-    WIDTH_MOD: 0.49,
-    HEIGHT_MOD: 0.15
-  };
+  var WAIT_TIME_BEFORE_START_MS = 3000;
+  setTimeout(function() {
 
-  var OVERLAY_WRAPPER_ID = "#index_overlay_wrapper";
-  var OVERLAY_ITEM_CLASS = ".index_overlay_item";
+    // consts
+    var BG_IMG = {
+      WIDTH: 3501,
+      HEIGHT: 1904,
+      WIDTH_MOD: 0.49,
+      HEIGHT_MOD: 0.15
+    };
 
-  // runtime vars
-  var $overlay_wrapper = $(OVERLAY_WRAPPER_ID);
+    var BG_IMG_CLASS = ".index_bg_pusher";
+    var OVERLAY_ITEM_CLASS = ".index_overlay_item";
 
-  // adapted from http://www.growingwiththeweb.com/2013/04/aligning-and-element-with-background.html
-  function normalizedPoint(point) {
+    // runtime vars
+    var $bg_img = $(BG_IMG_CLASS);
+    var currentLoopItem = -1;
 
-    var wrapperWidth = $overlay_wrapper.width();
-    var wrapperHeight = $overlay_wrapper.height();
+    // compute real absolute position, with values relative to original pos on img
+    // adapted from http://www.growingwiththeweb.com/2013/04/aligning-and-element-with-background.html
+    function normalizedPoint(point) {
 
-    var xScale = wrapperWidth / BG_IMG.WIDTH;
-    var yScale = wrapperHeight / BG_IMG.HEIGHT;
+      var wrapperWidth = $bg_img.width();
+      var wrapperHeight = $bg_img.height();
 
-    var scale;
-    var yOffset = 0;
-    var xOffset = 0;
+      var xScale = wrapperWidth / BG_IMG.WIDTH;
+      var yScale = wrapperHeight / BG_IMG.HEIGHT;
 
-    if (xScale > yScale) {
-      // The image fits perfectly in x axis, stretched in y
-      scale = xScale;
-      yOffset = (wrapperHeight - (BG_IMG.HEIGHT * scale)) * BG_IMG.HEIGHT_MOD;
-    } else {
-      // The image fits perfectly in y axis, stretched in x
-      scale = yScale;
-      xOffset = (wrapperWidth - (BG_IMG.WIDTH * scale)) * BG_IMG.WIDTH_MOD;
+      var scale;
+      var yOffset = 0;
+      var xOffset = 0;
+
+      if (xScale > yScale) {
+        // The image fits perfectly in x axis, stretched in y
+        scale = xScale;
+        yOffset = (wrapperHeight - (BG_IMG.HEIGHT * scale)) * BG_IMG.HEIGHT_MOD;
+      } else {
+        // The image fits perfectly in y axis, stretched in x
+        scale = yScale;
+        xOffset = (wrapperWidth - (BG_IMG.WIDTH * scale)) * BG_IMG.WIDTH_MOD;
+      }
+
+      return {
+        x: (point.x) * scale + xOffset,
+        y: (point.y) * scale + yOffset
+      };
     }
 
-    return {
-      x: (point.x) * scale + xOffset,
-      y: (point.y) * scale + yOffset
-    };
-  }
-
-  $(window).on("resize", positionOverlays);
-
-  // development only!!!
-  // setInterval(function () {
-  //   positionOverlays();
-  // }, 200);
+    // listens to events to reorient dots
+    //$(window).on("resize", positionAllOverlayItems);
+    //$(window).on("orientationchange", positionAllOverlayItems);
+    //$(window).on("pageshow", positionAllOverlayItems);
+    // var intervalListener = setInterval(positionAllOverlayItems, 2000); // also check every 2000ms (iOS vh fix)
 
 
-  function positionOverlays() {
-    $(OVERLAY_ITEM_CLASS).each(function() {
-      var $overlay_item = $(this);
+    function positionAllOverlayItems() {
+      $(OVERLAY_ITEM_CLASS).each(function() {
+        positionOverlayItem($(this));
+      });
+    }
+
+    function positionOverlayItem($item) {
+      var $overlay_item = $item;
 
       var newPoint = normalizedPoint({
         x: Number($overlay_item.attr("data-posX")),
@@ -64,45 +73,93 @@
       if ($overlay_item.hasClass("index_overlay_item_right")) {
         $overlay_item.css("left", newPoint.x);
         $overlay_item.css("top", newPoint.y);
-      } 
-
-      if ($overlay_item.hasClass("index_overlay_item_left")) {
-        $overlay_item.css("right", $overlay_wrapper.width()-newPoint.x);
-        $overlay_item.css("top", newPoint.y);
       }
 
-    });
-  }
+      if ($overlay_item.hasClass("index_overlay_item_left")) {
+        $overlay_item.css("right", $bg_img.width() - newPoint.x);
+        $overlay_item.css("top", newPoint.y);
+      }
+    }
 
-  function animateOverlays() {
+    function initialAnimation() {
 
-    var standardDelay = 500;
-    var delayIncrease = 250;
+      var standardDelay = 500;
+      var delayIncrease = 250;
 
-    // $(OVERLAY_ITEM_CLASS).velocity("fadeIn", { drag: true });
-    // $(OVERLAY_ITEM_CLASS).velocity("transition.slideDownBigIn", { drag: true });
+      $(OVERLAY_ITEM_CLASS).each(function() {
+        var $overlay_item = $(this);
 
-    $(OVERLAY_ITEM_CLASS).each(function() {
-      var $overlay_item = $(this);
+        $overlay_item.velocity("fadeIn", {
+          duration: 500,
+          delay: standardDelay,
+          complete: function() {
 
-      $overlay_item.velocity("fadeIn", {
-        duration: 500,
-        delay: standardDelay
+            $(this).velocity("fadeOut", {
+              delay: 250,
+              duration: 500,
+              complete: function() {
+                initialAnimationComplete();
+              }
+            });
+
+          }
+        });
+
+        standardDelay += delayIncrease;
       });
 
-      standardDelay += delayIncrease;
+    }
+
+    var initialAnimationComplete = _.after($(OVERLAY_ITEM_CLASS).length, function() {
+      animationLoop();
     });
 
-  }
+    function animationLoop() {
+      currentLoopItem += 1;
+      if (currentLoopItem >= $(OVERLAY_ITEM_CLASS).length) {
+        currentLoopItem = 0;
+      }
 
-  positionOverlays();
-  animateOverlays();
+      animateItem($($(OVERLAY_ITEM_CLASS).get(currentLoopItem)), animationLoop);
+    }
 
+    function animateItem($item, callback) {
 
-  window.dealloc = function() {
-    $(window).off("resize", positionOverlays);
+      positionOverlayItem($item);
 
-    $overlay_wrapper = null;
-  };
+      // console.log("animate!");
+      $item.velocity("fadeIn", {
+        duration: 500,
+        delay: 500,
+        complete: function() {
+          $(this).velocity("fadeOut", {
+            delay: 2500,
+            duration: 500,
+            complete: function() {
+              callback();
+            }
+          });
+        }
+      });
+    }
+
+    positionAllOverlayItems();
+    initialAnimation();
+
+    // development only!!!
+    // setInterval(function () {
+    //   positionAllOverlayItems();
+    // }, 200);
+
+    window.dealloc = function() {
+      // $(window).off("resize", positionAllOverlayItems);
+      // $(window).off("orientationchange", positionAllOverlayItems);
+      // $(window).off("pageshow", positionAllOverlayItems);
+      // clearTimeout(intervalListener);
+
+      $bg_img = null;
+    };
+
+  }, WAIT_TIME_BEFORE_START_MS); // wait ms for this all to happen!
 
 }());

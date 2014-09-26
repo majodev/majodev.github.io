@@ -376,7 +376,7 @@ module.exports = function(grunt) {
       // Multiple autobuild targets supported
       app: {
         // The path to your source file(s)
-        src: ['support/js/**/*.js'],
+        src: ['support/js/**/*.js', "src/**/*.js"],
         // Default options:
         options: {
           // Set to the configured lodash task options.include
