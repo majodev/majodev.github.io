@@ -22,7 +22,8 @@
     var $bg_img = $(BG_IMG_CLASS);
     var currentLoopItem = -1;
     var $currentLoopItem = null;
-    var initialAnimationCompleteBool = false;
+    var loop_enabled = true;
+    // var initialAnimationCompleteBool = false;
 
     // compute real absolute position, with values relative to original pos on img
     // adapted from http://www.growingwiththeweb.com/2013/04/aligning-and-element-with-background.html
@@ -58,15 +59,6 @@
     $(window).on("resize", positionAllOverlayItems);
     $(window).on("orientationchange", repositionWait);
 
-    // $bg_img.on("click", bgimgClicked);
-
-    // function bgimgClicked() {
-    //   if(initialAnimationCompleteBool === true) {
-    //     initialAnimationCompleteBool = false;
-    //     initialAnimation();
-    //   }
-    // }
-
     function repositionWait() { // ios hack (+ buggyfill vh wait)
       setTimeout(function() {
         positionAllOverlayItems();
@@ -74,13 +66,13 @@
     }
 
     function positionAllOverlayItems() {
-      if (initialAnimationCompleteBool === false) {
-        $(OVERLAY_ITEM_CLASS).each(function() {
-          positionOverlayItem($(this));
-        });
-      } else {
-        positionOverlayItem($currentLoopItem);
-      }
+      // if (initialAnimationCompleteBool === false) {
+      //   $(OVERLAY_ITEM_CLASS).each(function() {
+      //     positionOverlayItem($(this));
+      //   });
+      // } else {
+      positionOverlayItem($currentLoopItem);
+      // }
     }
 
     function positionOverlayItem($item) {
@@ -116,41 +108,6 @@
       }
     }
 
-    // flash all items once
-    // function initialAnimation() {
-
-    //   var standardDelay = 500;
-    //   var delayIncrease = 250;
-
-    //   // function inner called when initial anim complete
-    //   var initialAnimationComplete = _.after($(OVERLAY_ITEM_CLASS).length, function() {
-    //     animationLoop();
-    //     initialAnimationCompleteBool = true;
-    //   });
-
-    //   $(OVERLAY_ITEM_CLASS).each(function() {
-    //     var $overlay_item = $(this);
-
-    //     $overlay_item.velocity("fadeIn", {
-    //       duration: 500,
-    //       delay: standardDelay,
-    //       complete: function() {
-
-    //         $(this).velocity("fadeOut", {
-    //           delay: 2000,
-    //           duration: 500,
-    //           complete: function() {
-    //             initialAnimationComplete();
-    //           }
-    //         });
-
-    //       }
-    //     });
-
-    //     standardDelay += delayIncrease;
-    //   });
-    // }
-
     // animation loop all overlay items continuosly
     function animationLoop() {
       currentLoopItem += 1;
@@ -166,6 +123,10 @@
 
     // animate one item
     function animateItem($item, callback) {
+
+      if(loop_enabled === false) {
+        return;
+      }
 
       positionOverlayItem($item);
 
@@ -186,7 +147,7 @@
     }
 
     // start up call these:
-    positionAllOverlayItems();
+    //positionAllOverlayItems();
     animationLoop();
 
     // development canvas
@@ -200,6 +161,7 @@
     // });
 
     window.dealloc = function() {
+      loop_enabled = false;
       $(window).off("resize", positionAllOverlayItems);
       $(window).off("orientationchange", repositionWait);
 
