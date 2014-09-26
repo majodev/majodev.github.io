@@ -1,7 +1,7 @@
 // main page index file
 (function() {
 
-  var WAIT_TIME_BEFORE_START_MS = 3000;
+  var WAIT_TIME_BEFORE_START_MS = 1500;
   setTimeout(function() {
 
     // consts
@@ -11,6 +11,9 @@
       WIDTH_MOD: 0.49,
       HEIGHT_MOD: 0.15
     };
+
+    var OVERLAY_MAX_DIMENSION_PX = 850;
+    var OVERLAY_MIN_OFFSET_PX = 10;
 
     var BG_IMG_CLASS = ".index_bg_pusher";
     var OVERLAY_ITEM_CLASS = ".index_overlay_item";
@@ -53,8 +56,22 @@
 
     // listens to events to reorient dots
     $(window).on("resize", positionAllOverlayItems);
-    $(window).on("orientationchange", positionAllOverlayItems);
+    $(window).on("orientationchange", repositionWait);
 
+    // $bg_img.on("click", bgimgClicked);
+
+    // function bgimgClicked() {
+    //   if(initialAnimationCompleteBool === true) {
+    //     initialAnimationCompleteBool = false;
+    //     initialAnimation();
+    //   }
+    // }
+
+    function repositionWait() { // ios hack (+ buggyfill vh wait)
+      setTimeout(function() {
+        positionAllOverlayItems();
+      }, 500);
+    }
 
     function positionAllOverlayItems() {
       if (initialAnimationCompleteBool === false) {
@@ -75,52 +92,64 @@
       });
 
       if ($overlay_item.hasClass("index_overlay_item_right")) {
+        // dot position
         $overlay_item.css("left", newPoint.x);
         $overlay_item.css("top", newPoint.y);
+        // screen align
+        if ($bg_img.width() > OVERLAY_MAX_DIMENSION_PX) {
+          $overlay_item.css("right", OVERLAY_MIN_OFFSET_PX + ($bg_img.width() - OVERLAY_MAX_DIMENSION_PX) / 2);
+        } else {
+          $overlay_item.css("right", OVERLAY_MIN_OFFSET_PX);
+        }
       }
 
       if ($overlay_item.hasClass("index_overlay_item_left")) {
+        // dot position
         $overlay_item.css("right", $bg_img.width() - newPoint.x);
         $overlay_item.css("top", newPoint.y);
+        // screen align
+        if ($bg_img.width() > OVERLAY_MAX_DIMENSION_PX) {
+          $overlay_item.css("left", OVERLAY_MIN_OFFSET_PX + ($bg_img.width() - OVERLAY_MAX_DIMENSION_PX) / 2);
+        } else {
+          $overlay_item.css("left", OVERLAY_MIN_OFFSET_PX);
+        }
       }
     }
 
     // flash all items once
-    function initialAnimation() {
+    // function initialAnimation() {
 
-      var standardDelay = 500;
-      var delayIncrease = 250;
+    //   var standardDelay = 500;
+    //   var delayIncrease = 250;
 
-      $(OVERLAY_ITEM_CLASS).each(function() {
-        var $overlay_item = $(this);
+    //   // function inner called when initial anim complete
+    //   var initialAnimationComplete = _.after($(OVERLAY_ITEM_CLASS).length, function() {
+    //     animationLoop();
+    //     initialAnimationCompleteBool = true;
+    //   });
 
-        $overlay_item.velocity("fadeIn", {
-          duration: 500,
-          delay: standardDelay,
-          complete: function() {
+    //   $(OVERLAY_ITEM_CLASS).each(function() {
+    //     var $overlay_item = $(this);
 
-            $(this).velocity("fadeOut", {
-              delay: 250,
-              duration: 500,
-              complete: function() {
-                initialAnimationComplete();
-              }
-            });
+    //     $overlay_item.velocity("fadeIn", {
+    //       duration: 500,
+    //       delay: standardDelay,
+    //       complete: function() {
 
-          }
-        });
+    //         $(this).velocity("fadeOut", {
+    //           delay: 2000,
+    //           duration: 500,
+    //           complete: function() {
+    //             initialAnimationComplete();
+    //           }
+    //         });
 
-        standardDelay += delayIncrease;
-      });
+    //       }
+    //     });
 
-    }
-
-    // function inner called when initial anim complete
-    var initialAnimationComplete = _.after($(OVERLAY_ITEM_CLASS).length, function() {
-      animationLoop();
-      initialAnimationCompleteBool = true;
-    });
-
+    //     standardDelay += delayIncrease;
+    //   });
+    // }
 
     // animation loop all overlay items continuosly
     function animationLoop() {
@@ -145,29 +174,34 @@
         duration: 500,
         delay: 500,
         complete: function() {
-          $(this).velocity("fadeOut", {
-            delay: 2500,
-            duration: 500,
-            complete: function() {
-              callback();
-            }
-          });
+          var $shownItem = $(this);
+          setTimeout(function() {
+            callback();
+            $shownItem.velocity("fadeOut", {
+              duration: 500
+            });
+          }, 5000);
         }
       });
     }
 
     // start up call these:
     positionAllOverlayItems();
-    initialAnimation();
+    animationLoop();
 
-    // development only!!!
+    // development canvas
     // setInterval(function () {
     //   positionAllOverlayItems();
     // }, 200);
 
+    // dev show all
+    // $(OVERLAY_ITEM_CLASS).each(function() {
+    //   $(this).show();
+    // });
+
     window.dealloc = function() {
       $(window).off("resize", positionAllOverlayItems);
-      $(window).off("orientationchange", positionAllOverlayItems);
+      $(window).off("orientationchange", repositionWait);
 
       $bg_img = null;
       $currentLoopItem = null;
