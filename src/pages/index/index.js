@@ -18,6 +18,8 @@
     // runtime vars
     var $bg_img = $(BG_IMG_CLASS);
     var currentLoopItem = -1;
+    var $currentLoopItem = null;
+    var initialAnimationCompleteBool = false;
 
     // compute real absolute position, with values relative to original pos on img
     // adapted from http://www.growingwiththeweb.com/2013/04/aligning-and-element-with-background.html
@@ -50,16 +52,18 @@
     }
 
     // listens to events to reorient dots
-    //$(window).on("resize", positionAllOverlayItems);
-    //$(window).on("orientationchange", positionAllOverlayItems);
-    //$(window).on("pageshow", positionAllOverlayItems);
-    // var intervalListener = setInterval(positionAllOverlayItems, 2000); // also check every 2000ms (iOS vh fix)
+    $(window).on("resize", positionAllOverlayItems);
+    $(window).on("orientationchange", positionAllOverlayItems);
 
 
     function positionAllOverlayItems() {
-      $(OVERLAY_ITEM_CLASS).each(function() {
-        positionOverlayItem($(this));
-      });
+      if (initialAnimationCompleteBool === false) {
+        $(OVERLAY_ITEM_CLASS).each(function() {
+          positionOverlayItem($(this));
+        });
+      } else {
+        positionOverlayItem($currentLoopItem);
+      }
     }
 
     function positionOverlayItem($item) {
@@ -81,6 +85,7 @@
       }
     }
 
+    // flash all items once
     function initialAnimation() {
 
       var standardDelay = 500;
@@ -110,19 +115,27 @@
 
     }
 
+    // function inner called when initial anim complete
     var initialAnimationComplete = _.after($(OVERLAY_ITEM_CLASS).length, function() {
       animationLoop();
+      initialAnimationCompleteBool = true;
     });
 
+
+    // animation loop all overlay items continuosly
     function animationLoop() {
       currentLoopItem += 1;
       if (currentLoopItem >= $(OVERLAY_ITEM_CLASS).length) {
         currentLoopItem = 0;
       }
 
-      animateItem($($(OVERLAY_ITEM_CLASS).get(currentLoopItem)), animationLoop);
+      // remember this item (for responsive positioning.)
+      $currentLoopItem = $($(OVERLAY_ITEM_CLASS).get(currentLoopItem));
+
+      animateItem($currentLoopItem, animationLoop);
     }
 
+    // animate one item
     function animateItem($item, callback) {
 
       positionOverlayItem($item);
@@ -143,6 +156,7 @@
       });
     }
 
+    // start up call these:
     positionAllOverlayItems();
     initialAnimation();
 
@@ -152,12 +166,11 @@
     // }, 200);
 
     window.dealloc = function() {
-      // $(window).off("resize", positionAllOverlayItems);
-      // $(window).off("orientationchange", positionAllOverlayItems);
-      // $(window).off("pageshow", positionAllOverlayItems);
-      // clearTimeout(intervalListener);
+      $(window).off("resize", positionAllOverlayItems);
+      $(window).off("orientationchange", positionAllOverlayItems);
 
       $bg_img = null;
+      $currentLoopItem = null;
     };
 
   }, WAIT_TIME_BEFORE_START_MS); // wait ms for this all to happen!
