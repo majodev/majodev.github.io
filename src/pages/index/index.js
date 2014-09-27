@@ -133,7 +133,6 @@
       // console.log("animate!");
       $item.velocity("fadeIn", {
         duration: 500,
-        delay: 500,
         complete: function() {
           var $shownItem = $(this);
           setTimeout(function() {
