@@ -1,6 +1,32 @@
-.portfolioHeader { /*custom nav style as in metadata*/
-  background: rgba(5,5,5, 0);
+/* custom nav style as in for class as defined in metadata */
+
+.portfolioHeader { 
+  background: rgba(5,5,5, 0.03);
 }
+
+.portfolioHeader .navbar-nav li a {
+  color: #bbb;
+}
+
+.portfolioHeader .navbar-nav .active a {
+  color: #bbb;
+}
+
+.portfolioHeader .block-navBrand {
+  color: #bbb;
+}
+
+.portfolioHeader .block-navBrand:hover, .portfolioHeader .block-navBrand:focus {
+  color: #aaa;
+}
+
+/*@media (min-width: @grid-float-breakpoint) {*/
+@media (min-width: 650px) {
+  .navbar-default .navbar-nav > .active > a {
+    border-bottom-color: #bbb;
+  }
+}
+
 
 .reveal {
   position: fixed;
