@@ -87,7 +87,7 @@ ajaxHandler.on("loadingError", function() {
 });
 
 cheat.on("executed", function() {
-  alert("cheat executed!");
+  alert("All your base are belong to us!");
 });
 
 module.exports = {

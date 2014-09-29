@@ -27,6 +27,14 @@ module.exports = function(grunt) {
         src: ["scripts/testserver-gzip.js"]
       }
     },
+    bgShell: {
+      _defaults: {
+        bg: true
+      },
+      "testserver-gzip": {
+        cmd: 'node scripts/testserver-gzip.js'
+      }
+    },
     watch: {
       "metalsmith": {
         files: ["src/**/*.*", "templates/**/*.*", "scripts/**/*.*", "index.js", "config.json"],
@@ -407,6 +415,25 @@ module.exports = function(grunt) {
           lodashTargets: ['build']
         }
       }
+    },
+    'gh-pages': {
+      options: {
+        base: 'build',
+        branch: "master",
+        message: "Generated from branch source commit <%=grunt.option('gitRevision')%>"
+      },
+      src: '**/*'
+    },
+    confirm: {
+      publish: {
+        options: {
+          // Static text.
+          question: "Publish commit <%=grunt.option('gitRevision')%>?\n(type in YES to continue)\n",
+          continue: function(answer) {
+            return answer === 'YES';
+          }
+        }
+      }
     }
   });
 
@@ -432,6 +459,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-browserify');
   grunt.loadNpmTasks('grunt-lodash');
   grunt.loadNpmTasks('grunt-lodash-autobuild');
+  grunt.loadNpmTasks('grunt-gh-pages');
+  grunt.loadNpmTasks('grunt-confirm');
+  grunt.loadNpmTasks('grunt-bg-shell');
 
   // ---
   // main tasks
@@ -446,7 +476,7 @@ module.exports = function(grunt) {
   ]);
 
   grunt.registerTask("productive", [
-    "clean", "modernizr", "lodashAutobuild", "build-productive", "clean:temporary", "server"
+    "clean", "modernizr", "lodashAutobuild", "build-productive", "clean:temporary", "bgShell:testserver-gzip", "confirm"
   ]);
 
   // ---
@@ -462,7 +492,7 @@ module.exports = function(grunt) {
   // ---
 
   grunt.registerTask("build-productive", [
-    "browserify:productive", "get-git-revision", "shell:commitCount", 
+    "browserify:productive", "get-git-revision", "shell:commitCount",
     "execute:metalsmith-productive",
     "css-productive", "js-productive",
     "htmlmin", "copy:support-root", "copy:support-img",

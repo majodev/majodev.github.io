@@ -114,4 +114,5 @@ function getRandomInt(min, max) {
   return delay;
 }
 
+
 console.log('Serving compressed files on http://localhost:' + port + " mindelay: " + emulateDelayMinMS + " maxdelay: " + emulateDelayMaxMS);
