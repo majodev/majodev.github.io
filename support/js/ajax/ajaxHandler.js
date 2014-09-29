@@ -150,8 +150,15 @@ function historyStateChange(urlToLoad) {
     type: "GET",
     success: function(result) {
       var $html = $(result);
-      var newContent = $($html.filter(AJAX_SELECTOR)[0]).children();
+      var ajaxNode = $html.filter(AJAX_SELECTOR);
+      var newContent = $(ajaxNode[0]).children();
       var newScripts = $($html.filter(SCRIPTS_SELECTOR)[0]).children();
+
+      // whuups this page is not ajaxable, instantly load it normally!
+      if (ajaxNode.length < 1) {
+        window.location.href = urlToLoad;
+        return;
+      }
 
       setPreventAjax($($html.filter(AJAX_SELECTOR)[0]));
 
