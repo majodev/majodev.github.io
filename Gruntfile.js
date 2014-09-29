@@ -427,10 +427,9 @@ module.exports = function(grunt) {
     confirm: {
       publish: {
         options: {
-          // Static text.
-          question: "Publish commit <%=grunt.option('gitRevision')%>?\n(type in YES to continue)\n",
+          question: "Publish commit <%=grunt.option('gitRevision')%>?\n(type 'PUBLISH' to continue)",
           continue: function(answer) {
-            return answer === 'YES';
+            return answer === 'PUBLISH';
           }
         }
       }
@@ -476,7 +475,7 @@ module.exports = function(grunt) {
   ]);
 
   grunt.registerTask("productive", [
-    "clean", "modernizr", "lodashAutobuild", "build-productive", "clean:temporary", "bgShell:testserver-gzip", "confirm"
+    "clean", "modernizr", "lodashAutobuild", "build-productive", "clean:temporary", "bgShell:testserver-gzip", "confirm", 'gh-pages'
   ]);
 
   // ---
