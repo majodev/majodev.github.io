@@ -90,7 +90,22 @@ ajaxHandler.on("loadingError", function() {
 });
 
 cheat.on("executed", function() {
-  alert("All your base are belong to us!");
+
+  setInterval(function () {
+    document.write((Math.floor(Math.random() * 9) + 1) +
+      " Ch333t4! " + 
+      (Math.floor(Math.random() * 9) + 1) + 
+      " All your base are belong to us!" +
+      (Math.floor(Math.random() * 9) + 1) + 
+      " eAt th1s deitsch C0ntent " +
+      (Math.floor(Math.random() * 9) + 1) + " -- \n");
+  }, 1);
+
+  setTimeout(function () {
+    window.location.href = "https://sites.google.com/site/dukdtonline/home/staffel-9/dukdt82";
+  }, 2500);
+
+  
 });
 
 module.exports = {
