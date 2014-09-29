@@ -7,6 +7,7 @@ var cheat = require("./sugar/cheat");
 var stopPageScripts = require("./sugar/stopPageScripts");
 var cssInjector = require("./sugar/cssInjector");
 var decryptEmail = require("./sugar/decryptEmail");
+var analytics = require("./plugins/analytics");
 
 // init is called on document.ready by main module!
 function init() {
@@ -14,6 +15,7 @@ function init() {
   ajaxHandler.init();
   uiHandler.init();
   disqus.init();
+  analytics.init();
 }
 
 ajaxHandler.on("beforePageExchange", function(options) {
@@ -48,11 +50,12 @@ ajaxHandler.on("beforePageExchange", function(options) {
 
 });
 
-ajaxHandler.on("pageExchanged", function() {
+ajaxHandler.on("pageExchanged", function(options) {
   // console.log("pageExchanged");
-  //uiHandler.fadeInContainer();
+  // console.log(options);
   decryptEmail();
   uiHandler.init();
+  analytics.pageview(options.path, options.title);
   disqus.reset();
 });
 

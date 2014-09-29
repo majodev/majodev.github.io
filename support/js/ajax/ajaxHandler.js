@@ -171,8 +171,9 @@ function historyStateChange(urlToLoad) {
 
 
       function beforePageExchangeComplete() {
+        var htmlTitle = $html.filter("title").text();
         // Set the title to the requested urls document title
-        document.title = $html.filter("title").text();
+        document.title = htmlTitle;
         // exchange the meta
         exchangeMetaData($html);
         exchangeContent();
@@ -182,7 +183,10 @@ function historyStateChange(urlToLoad) {
           $targetContainer.html(newContent);
           $scriptsContainer.html(newScripts);
           setLoading(false);
-          ajaxHandler.emit("pageExchanged");
+          ajaxHandler.emit("pageExchanged", {
+            title: htmlTitle,
+            path: url
+          });
         }
       }
 
