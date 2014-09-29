@@ -74,6 +74,16 @@ module.exports = function(grunt) {
       }
     },
     copy: {
+      "support-img": {
+        files: [{
+          expand: true,
+          flatten: false,
+          nonull: true,
+          cwd: "support/img/",
+          src: "**",
+          dest: "build/assets/img/"
+        }]
+      },
       "support-root": {
         files: [{
           expand: true,
@@ -447,7 +457,7 @@ module.exports = function(grunt) {
     "browserify:productive", "get-git-revision", "shell:commitCount", 
     "execute:metalsmith-productive",
     "css-productive", "js-productive",
-    "htmlmin", "copy:support-root",
+    "htmlmin", "copy:support-root", "copy:support-img",
     "copy:inject-fonts", "xmlmin"
   ]);
 
