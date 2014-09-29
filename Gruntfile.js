@@ -52,6 +52,14 @@ module.exports = function(grunt) {
           livereload: true
         }
       },
+      "support-img": {
+        files: ["support/img/**/*.*"],
+        tasks: ["copy:support-img"],
+        options: {
+          interrupt: false,
+          livereload: true
+        }
+      },
       "support-js": {
         files: ["support/js/**/*.*"],
         tasks: ["browserify:dev", "copy:inject-js"],
