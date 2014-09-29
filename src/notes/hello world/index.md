@@ -1,6 +1,8 @@
 ---
 uid: note_hello_world
 title: Hello World
+date: 2014-09-30
+published: true
 tags:
 - private
 ---
