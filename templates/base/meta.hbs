@@ -7,9 +7,9 @@
 {{!-- <link rel="dns-prefetch" href="//ajax.googleapis.com">
 <link rel="dns-prefetch" href="//www.google-analytics.com"> --}}
 
-<title>{{ title }} | {{ _author }} | {{_authorTwitter}}</title>
-<meta name="description" content="{{#if firstparagraphText}}{{ firstparagraphText }}{{else}}{{ title }}{{/if}} | by {{ _author }} | @{{_authorTwitter}}">
-<meta name="author" content="{{ _author }} | {{_authorTwitter}}">
+<title>{{ title }} | {{ _author }}</title>
+<meta name="description" content="{{#if isNote}}{{ firstparagraphText }} -- Note by {{_author}}{{else}}{{ _description }}{{/if}}">
+<meta name="author" content="{{ _author }}">
 
 {{#if isNote}}
   {{#if tags}}
