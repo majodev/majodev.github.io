@@ -1,11 +1,21 @@
 var DISQUS_DIV_ID = "#disqus_thread";
 var DISQUS_FORUM_ID = "ranftl";
+var DISQUS_API_KEY = "fC8zZ6ljDpOKnQqJvR43bZowF68FawopkflG2skcnXJM8n5aLjXW6UzwYtWvYFuA";
 
 
 var disqus_shortname = DISQUS_FORUM_ID;
 var data = {};
 var initialized = false;
 var disqus_identifier, disqus_title, disqus_url, disqus_config;
+
+function checkIsLive() { // dont load disqus in dev environment
+  var host = window.location.hostname;
+  if (host.indexOf("localhost") !== 0 && host.indexOf("127.0.0.1") !== 0) {
+    return true;
+  } else {
+    return false;
+  }
+}
 
 function checkPageIsDisqusEnabled() {
   if ($(DISQUS_DIV_ID).length > 0) {
@@ -24,6 +34,10 @@ function readDisqusData() {
 }
 
 function init() {
+  getCommentCount();
+  if (checkIsLive() === false) {
+    return;
+  }
   if (checkPageIsDisqusEnabled() === true) {
     if (initialized === false) {
       readDisqusData();
@@ -49,6 +63,10 @@ function init() {
 }
 
 function reset() {
+  getCommentCount();
+  if (checkIsLive() === false) {
+    return;
+  }
   if (checkPageIsDisqusEnabled() === true) {
     if (initialized === true && typeof DISQUS !== "undefined") {
       readDisqusData();
@@ -65,6 +83,48 @@ function reset() {
       init();
     }
   }
+}
+
+function getCommentCount() {
+  var linkList = [];
+
+  $('.block-noteCommentCount').each(function() {
+    var url = $(this).attr('data-disqus-url');
+    if (_.isUndefined(url) === false) {
+      linkList.push('link:' + url);
+    }
+  });
+
+  if (linkList.length > 0) {
+    $.ajax({
+      type: 'GET',
+      url: "https://disqus.com/api/3.0/threads/set.jsonp",
+      data: {
+        api_key: DISQUS_API_KEY,
+        forum: disqus_shortname,
+        thread: linkList
+      },
+      cache: false,
+      dataType: 'jsonp',
+      success: function(result) {
+
+        for (var i in result.response) {
+
+          var countText = " comments";
+          var count = result.response[i].posts;
+
+          if (count == 1)
+            countText = " comment";
+
+          //<a href="{{pathuri}}#disqus_thread">comments</a>
+          $('span[data-disqus-url="' + result.response[i].link + '"]').html('<a href="' + result.response[i].link + '#disqus_thread">' + count + countText + '</a>');
+          //$('span[data-disqus-url="' + result.response[i].link + '"]').html('<h4>' + count + countText + '</h4>');
+
+        }
+      }
+    });
+  }
+
 }
 
 module.exports = {

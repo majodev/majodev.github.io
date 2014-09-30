@@ -103,6 +103,13 @@ function pre(files, options, done) {
     // targetname is in "filename/" format now
     // (with index.html being appended in the post task!)
     files[file].path = targetname;
+
+    // append absolute path if defined in options
+    if (_.isUndefined(options.absolute) === false &&
+      _.isUndefined(options.absolute.key) === false &&
+      _.isUndefined(options.absolute.url) === false) {
+      files[file][options.absolute.key] = options.absolute.url + targetname;
+    }
   });
 }
 

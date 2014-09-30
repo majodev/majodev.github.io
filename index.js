@@ -74,6 +74,10 @@ Metalsmith(__dirname)
   .use(filetimestamp())
   .use(permapath({
     mode: "pre",
+    absolute: {
+      url: absoluteUrl,
+      key: "pathuri"
+    },
     relative: true,
     custom: [{
       dir: "pages",
