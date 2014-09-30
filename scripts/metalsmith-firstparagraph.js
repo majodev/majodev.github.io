@@ -26,7 +26,7 @@ function plugin(options){
 
       // remove all links
       $("a").each(function (index) {
-        $(("a")[index]).replaceWith($($("a")[index]).text());
+        $(this).replaceWith($(this).text());
       });
 
       // get first paragraph
