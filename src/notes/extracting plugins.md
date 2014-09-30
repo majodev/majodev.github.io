@@ -15,6 +15,13 @@ related:
 Currenty the following plugins have already been published:
 - [metalsmith-wordcount](#metalsmith-wordcount)
 
+To do:
+- metalsmith-datamarkdown
+- metalsmith-headingsidentifier
+- metalsmith-permapath
+- metalsmith-sitemapper
+- metalsmith-tagtree
+
 ### How to extract logic into standalone packages
 
 Before publishing, my custom metalsmith plugins lived in their respective `metalsmith-XXX.js` file within the same project directory. I simply required them in my `index.js` file. Now I'm moving them into their own package, so they can be reused in the future. Here's a quick overview on how to do that:
