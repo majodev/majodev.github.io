@@ -48,6 +48,7 @@
     "metalsmith-ignore": "^0.1.2",
     "metalsmith-markdown": "^0.2.1",
     "metalsmith-templates": "^0.5.2",
+    "metalsmith-wordcount": "0.0.1",
     "minimist": "^1.1.0",
     "modernizr": "git://github.com/Modernizr/Modernizr",
     "moment": "^2.8.3",
