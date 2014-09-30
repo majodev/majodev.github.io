@@ -8,7 +8,7 @@
 <link rel="dns-prefetch" href="//www.google-analytics.com"> --}}
 
 <title>{{ title }} | {{ _author }}</title>
-<meta name="description" content="{{#if isNote}}{{ firstparagraphText }} -- Note by {{_author}}{{else}}{{ _description }}{{/if}}">
+<meta name="description" content="{{#if isNote}}{{#if subtitle}}{{subtitle}}: {{/if}}{{ firstparagraphText }} -- Note by {{_author}}{{else}}{{ _description }}{{/if}}">
 <meta name="author" content="{{ _author }}">
 
 {{#if isNote}}
