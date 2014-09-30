@@ -7,9 +7,9 @@
 {{!-- <link rel="dns-prefetch" href="//ajax.googleapis.com">
 <link rel="dns-prefetch" href="//www.google-analytics.com"> --}}
 
-<title>{{ title }} | {{ _sitename }}</title>
-<meta name="description" content="{{#if firstparagraphText}}{{ firstparagraphText }}{{else}}{{ title }} page by {{ _author }}{{/if}}">
-<meta name="author" content="{{ _author }}">
+<title>{{ title }} | {{ _author }} | {{_authorTwitter}}</title>
+<meta name="description" content="{{#if firstparagraphText}}{{ firstparagraphText }}{{else}}{{ title }}{{/if}} | by {{ _author }} | @{{_authorTwitter}}">
+<meta name="author" content="{{ _author }} | {{_authorTwitter}}">
 
 {{#if isNote}}
   {{#if tags}}
@@ -30,3 +30,16 @@
 
 <meta name="copyright" content="Copyright {{dateFormatYear _builddate}} {{ _author }} ({{ _sitename }} | @{{_authorTwitter}})">
 <meta http-equiv="last-modified" content="{{dateFormatMeta lastModified}}">
+
+<meta name="city" content="Graz" />
+<meta name="zipcode" content="8010" />
+<meta name="country" content="Austria" />
+<meta name="state" content="Austria" />
+<meta name="geo.position" content="47.070714;15.439504" />
+<meta name="geo.placename" content="Austria, Graz" />
+<meta name="geo.region" content="AT" />
+<meta name="ICBM" content="47.070714, 15.439504" />
+
+
+
+

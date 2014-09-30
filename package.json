@@ -1,15 +1,14 @@
 {
   "name": "majodev.github.io",
-  "homepage": "http://ranf.tl",
+  "homepage": "http://majodev.com",
   "version": "0.9.0",
-  "description": "ranf.tl | Mario Ranftl | majodev homepage",
+  "description": "Mario Ranftl | majodev homepage",
   "main": "index.js",
   "keywords": [
     "metalsmith",
     "blog",
     "majodev",
     "Ranftl",
-    "ranf.tl",
     "Mario",
     "@majodev"
   ],

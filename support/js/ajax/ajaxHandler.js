@@ -262,7 +262,8 @@ function exchangeMetaData($newhtml) {
         $currentMeta.attr("content", newMetaContent);
       }
     } catch (e) {
-      console.error("exchangeMetaData error: " + e);
+      // console.error("exchangeMetaData error: " + e);
+      // fail silently on unrecognized expression errors.
     }
 
   });

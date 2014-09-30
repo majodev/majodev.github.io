@@ -142,7 +142,8 @@ module.exports = function(grunt) {
         force: true
       },
       build: ["build"],
-      temporary: ["_tmp"]
+      temporary: ["_tmp"],
+      "gh-pages": [".grunt"]
     },
     less: {
       development: {
@@ -475,7 +476,7 @@ module.exports = function(grunt) {
   ]);
 
   grunt.registerTask("productive", [
-    "clean", "modernizr", "lodashAutobuild", "build-productive", "clean:temporary", "bgShell:testserver-gzip", "confirm", 'gh-pages'
+    "clean:temporary", "modernizr", "lodashAutobuild", "build-productive", "clean:temporary", "bgShell:testserver-gzip", "confirm", 'gh-pages'
   ]);
 
   // ---
@@ -491,7 +492,7 @@ module.exports = function(grunt) {
   // ---
 
   grunt.registerTask("build-productive", [
-    "browserify:productive", "get-git-revision", "shell:commitCount",
+    "clean:build", "browserify:productive", "get-git-revision", "shell:commitCount",
     "execute:metalsmith-productive",
     "css-productive", "js-productive",
     "htmlmin", "copy:support-root", "copy:support-img",
