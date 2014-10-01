@@ -7,13 +7,13 @@ module.exports = function(grunt) {
     execute: {
       "metalsmith-dev": {
         options: {
-          args: ["--gitrevision", "<%=grunt.option('gitRevision')%>", "--gitcommitcount", "<%=grunt.option('gitCommitCount')%>"]
+          args: ["--gitrevision", "commit/<%=grunt.option('gitRevision')%>", "--gitcommitcount", "<%=grunt.option('gitCommitCount')%>"]
         },
         src: ["index.js"]
       },
       "metalsmith-productive": {
         options: {
-          args: ["--productive", "--gitrevision", "<%=grunt.option('gitRevision')%>", "--gitcommitcount", "<%=grunt.option('gitCommitCount')%>"]
+          args: ["--productive", "--gitrevision", "commit/<%=grunt.option('gitRevision')%>", "--gitcommitcount", "<%=grunt.option('gitCommitCount')%>"]
         },
         src: ["index.js"]
       },
