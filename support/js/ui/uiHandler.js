@@ -28,7 +28,7 @@ function init() { // called per page ajax refresh and on init!
   initHeadroom();
   initHeadNav();
   initFooterSmily();
-  lightbox();
+  lightbox.init();
 }
 
 function initFooterSmily() {
@@ -186,8 +186,13 @@ function fadeOutContainer(callback) {
   });
 }
 
+function unbind() {
+  lightbox.unbind();
+}
+
 module.exports = {
   init: init,
+  unbind: unbind,
   setPageLoading: setPageLoading,
   incPageLoadingProgress: incPageLoadingProgress,
   scrollTop: scrollTop,

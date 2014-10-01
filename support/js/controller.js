@@ -24,6 +24,8 @@ ajaxHandler.on("beforePageExchange", function(options) {
 
   stopPageScripts();
 
+  uiHandler.unbind();
+
   uiHandler.fadeOutContainer(function() {
     
     uiHandler.incPageLoadingProgress();

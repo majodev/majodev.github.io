@@ -1,6 +1,4 @@
-module.exports = function() {
-  
-
+function init() {
   $('.lightboximgwrap').magnificPopup({
     type: 'image',
     overflowY: "auto",
@@ -25,8 +23,13 @@ module.exports = function() {
       duration: 300 // don't foget to change the duration also in CSS
     }
   });
+}
 
+function unbind() {
+  $('.lightboximgwrap').off();
+}
 
-
-
+module.exports = {
+  init: init,
+  unbind: unbind
 };
