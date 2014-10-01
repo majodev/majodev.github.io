@@ -7,7 +7,7 @@
 {{!-- <link rel="dns-prefetch" href="//ajax.googleapis.com">
 <link rel="dns-prefetch" href="//www.google-analytics.com"> --}}
 
-<title>{{ title }} | {{ _author }}</title>
+<title>{{#if fullRootMetaTitle}}{{_author}} | {{_authorTwitter}} | {{_sitename}}{{else}}{{ title }} | {{ _author }}{{/if}}</title>
 <meta name="description" content="{{#if isNote}}{{#if subtitle}}{{subtitle}}: {{/if}}{{ firstparagraphText }} -- Note by {{_author}}{{else}}{{ _description }}{{/if}}">
 <meta name="author" content="{{ _author }}">
 
