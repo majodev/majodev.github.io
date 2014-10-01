@@ -8,6 +8,7 @@ tags:
 - javascript
 related:
 - note_hello_world
+lightbox: true
 ---
 
 [As promised][helloworld], lets break out my customized plugins I've used with [metalsmith][metalsmith] to build up this site. This note will be a updated until I think the job is done.
@@ -38,6 +39,8 @@ Are you curious about how the word count and estimated reading time are computed
 
 ### metalsmith-headingsidentifier
 Do you want to automatically turn your markdown headings (`h1-h6`) into clickable permalinks? Then grab [metalsmith-headingsidentifier][metalsmith-headingsidentifier-github]. This idea is originally by [Remy Sharp](http://remysharp.com/2014/08/08/automatic-permalinks-for-blog-posts), with the difference, that it's now done during generation time with [metalsmith][metalsmith].
+
+<!-- <a class="lightboximgwrap" href="headingsidentifierSample.png"><img src="headingsidentifierSample.png"></a> -->
 
 ![headingsidentifier example picture](headingsidentifierSample.png)
 

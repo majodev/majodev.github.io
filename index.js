@@ -24,6 +24,7 @@ var includedrafts = require("./scripts/metalsmith-includedrafts");
 var datamarkdown = require("./scripts/metalsmith-datamarkdown");
 var hbswithuid = require("./scripts/metalsmith-hbswithuid");
 var randomasciismiley = require("./scripts/metalsmith-randomasciismiley");
+var customhtmltransform = require("./scripts/metalsmith-customhtmltransform");
 
 // custom node scripts
 var registerHelpers = require("./scripts/registerHelpers");
@@ -174,6 +175,7 @@ Metalsmith(__dirname)
     smartLists: true,
     smartypants: true
   }))
+  .use(customhtmltransform())
   .use(templates({
     engine: "handlebars",
     directory: "templates"

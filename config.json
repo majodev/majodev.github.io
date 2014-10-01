@@ -10,7 +10,8 @@
         "support/less/nprogress",
         "node_modules/bootstrap/less",
         "node_modules/font-awesome/css",
-        "node_modules/highlight.js/styles"
+        "node_modules/highlight.js/styles",
+        "node_modules/magnific-popup/dist"
       ],
       "src": "support/less/style.less",
       "dest": "build/assets/css/style.css"
@@ -29,6 +30,7 @@
       "node_modules/bootstrap/js/collapse.js",
       "node_modules/bootstrap/js/tooltip.js",
       "node_modules/html5-history-api/history.js",
+      "node_modules/magnific-popup/dist/jquery.magnific-popup.js",
       "_tmp/support-bundle.js"
     ],
     "fonts": [

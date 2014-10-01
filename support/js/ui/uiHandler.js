@@ -1,6 +1,8 @@
 var NProgress = require("nprogress");
-var uiConfig = require("./uiConfig");
 var coolAsciiFaces = require("cool-ascii-faces");
+
+var uiConfig = require("./uiConfig");
+var lightbox = require("./lightbox");
 
 // constants
 var HEADER_CLASS = ".block-header";
@@ -26,6 +28,7 @@ function init() { // called per page ajax refresh and on init!
   initHeadroom();
   initHeadNav();
   initFooterSmily();
+  lightbox();
 }
 
 function initFooterSmily() {
