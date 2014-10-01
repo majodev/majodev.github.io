@@ -1,7 +1,7 @@
 ---
 uid: note_extracting_libs_node_projects
 title: Extracting libs from a node.js project
-subtitle: Publishing my metalsmith plugins
+subtitle: Publishing my metalsmith plugins (UPDATE 1)
 date: 2014-10-01
 published: true
 tags: 
@@ -14,10 +14,10 @@ related:
 
 Currenty the following plugins have already been published:
 - [metalsmith-wordcount](#metalsmith-wordcount)
+- [metalsmith-headingsidentifier](#metalsmith-headingsidentifier) (UPDATE 1)
 
 To do:
 - metalsmith-datamarkdown
-- metalsmith-headingsidentifier
 - metalsmith-permapath
 - metalsmith-sitemapper
 - metalsmith-tagtree
@@ -34,7 +34,14 @@ Before publishing, my custom metalsmith plugins lived in their respective `metal
 ### metalsmith-wordcount
 Are you curious about how the word count and estimated reading time are computed on my site? It's done via my plugin [metalsmith-wordcount][metalsmith-wordcount-github]. It calculates the wordcount and average reading time of all paragraphs in a HTML file. 
 
-[install from npm](https://www.npmjs.org/package/metalsmith-wordcount) · [source on github][metalsmith-wordcount-github]
+[install from npm][metalsmith-wordcount-npm] · [source on github][metalsmith-wordcount-github]
+
+### metalsmith-headingsidentifier
+Do you want to automatically turn your markdown headings (`h1-h6`) into clickable permalinks? Then grab [metalsmith-headingsidentifier][metalsmith-headingsidentifier-github]. This idea is originally by [Remy Sharp](http://remysharp.com/2014/08/08/automatic-permalinks-for-blog-posts), with the difference, that it's now done during generation time with [metalsmith][metalsmith].
+
+![headingsidentifier example picture](headingsidentifierSample.png)
+
+[install from npm][metalsmith-headingsidentifier-npm] · [source on github][metalsmith-headingsidentifier-github]
 
 ### Further reading
 
@@ -42,12 +49,13 @@ Are you curious about how the word count and estimated reading time are computed
 - [Getting Started with NPM (as a developer)][pubnpm]
 - [How to write metalsmith plugins][metalsplughow]
 
-
 <!-- libs -->
 
 [metalsmith-wordcount-npm]: https://www.npmjs.org/package/metalsmith-wordcount "metalsmith-wordcount on npm"
-
 [metalsmith-wordcount-github]: https://github.com/majodev/metalsmith-wordcount "metalsmith-wordcount on github"
+
+[metalsmith-headingsidentifier-npm]: https://www.npmjs.org/package/metalsmith-headingsidentifier "metalsmith-headingsidentifier on npm"
+[metalsmith-headingsidentifier-github]: https://github.com/majodev/metalsmith-headingsidentifier "metalsmith-headingsidentifier on github"
 
 
 <!-- internal links -->

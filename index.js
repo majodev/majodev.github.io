@@ -8,6 +8,7 @@ var templates = require("metalsmith-templates");
 var collections = require("metalsmith-collections");
 var ignore = require("metalsmith-ignore");
 var wordcount = require("metalsmith-wordcount"); // extracted & published to npm
+var headingsidentifier = require("metalsmith-headingsidentifier"); // extracted & published to npm
 
 // custom metalsmith scripts (aka plugins)
 var debugsmith = require("./scripts/metalsmith-debugsmith");
@@ -18,7 +19,6 @@ var tagtree = require("./scripts/metalsmith-tagtree");
 var collectiondefaults = require("./scripts/metalsmith-collectiondefaults");
 var filetimestamp = require("./scripts/metalsmith-filetimestamp");
 var firstparagraph = require("./scripts/metalsmith-firstparagraph");
-var headingsidentifier = require("./scripts/metalsmith-headingsidentifier");
 var sitemapper = require("./scripts/metalsmith-sitemapper");
 var includedrafts = require("./scripts/metalsmith-includedrafts");
 var datamarkdown = require("./scripts/metalsmith-datamarkdown");
