@@ -4,7 +4,7 @@
 @nprogress-height: 2px;
 
 @nprogress-spinner-tickness: 8px;
-@nprogress-spinner-dimensions: 42px;
+@nprogress-spinner-dimensions: 28px;
 
 @nprogress-spinner-offset-top: (50px - @nprogress-spinner-dimensions) / 2;
 @nprogress-spinner-offset-left: 10px + ((50px - @nprogress-spinner-dimensions) / 2);
@@ -55,7 +55,7 @@
   position: relative;
 }
 
-.nprogress-custom-parent #nprogress .spinner,
+// .nprogress-custom-parent #nprogress .spinner,
 .nprogress-custom-parent #nprogress .bar {
   position: @nprogress-positioning;
 }
@@ -63,42 +63,42 @@
 // default spinner
 
 /* Remove these to get rid of the spinner */
-#nprogress .spinner {
-  display: block;
-  position: @nprogress-positioning;
-  left: @nprogress-spinner-offset-left;
-  top: @nprogress-spinner-offset-top;
-  z-index: @nprogress-z-index-spinner;
-}
+// #nprogress .spinner {
+//   display: block;
+//   position: @nprogress-positioning;
+//   left: @nprogress-spinner-offset-left;
+//   top: @nprogress-spinner-offset-top;
+//   z-index: @nprogress-z-index-spinner;
+// }
 
-#nprogress .spinner-icon {
-  z-index: @nprogress-z-index-spinner;
-  width: @nprogress-spinner-dimensions;
-  height: @nprogress-spinner-dimensions;
-  box-sizing: border-box;
+// #nprogress .spinner-icon {
+//   z-index: @nprogress-z-index-spinner;
+//   width: @nprogress-spinner-dimensions;
+//   height: @nprogress-spinner-dimensions;
+//   box-sizing: border-box;
 
-  border: solid @nprogress-spinner-tickness transparent;
-  border-top-color: @color-nprogress-spinner;
-  border-left-color: @color-nprogress-spinner;
+//   border: solid @nprogress-spinner-tickness transparent;
+//   border-top-color: @color-nprogress-spinner;
+//   border-left-color: @color-nprogress-spinner;
 
-  // border-bottom: @nprogress-spinner-tickness solid @color-nprogress-spinner;
-  // border-left: @nprogress-spinner-tickness solid @color-nprogress-spinner;
-  // border-top: @nprogress-spinner-tickness solid @color-nprogress-spinner;
-  // border-right: @nprogress-spinner-tickness solid fade(@color-nprogress-spinner, 10%);
+//   // border-bottom: @nprogress-spinner-tickness solid @color-nprogress-spinner;
+//   // border-left: @nprogress-spinner-tickness solid @color-nprogress-spinner;
+//   // border-top: @nprogress-spinner-tickness solid @color-nprogress-spinner;
+//   // border-right: @nprogress-spinner-tickness solid fade(@color-nprogress-spinner, 10%);
 
-  border-radius: 50%;
-  opacity: @nprogress-spinner-opacity;
+//   border-radius: 50%;
+//   opacity: @nprogress-spinner-opacity;
 
-  -webkit-animation: nprogress-spinner 400ms linear infinite;
-          animation: nprogress-spinner 400ms linear infinite;
-}
+//   -webkit-animation: nprogress-spinner 400ms linear infinite;
+//           animation: nprogress-spinner 400ms linear infinite;
+// }
 
 
-@-webkit-keyframes nprogress-spinner {
-  0%   { -webkit-transform: rotate(0deg); }
-  100% { -webkit-transform: rotate(360deg); }
-}
-@keyframes nprogress-spinner {
-  0%   { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
+// @-webkit-keyframes nprogress-spinner {
+//   0%   { -webkit-transform: rotate(0deg); }
+//   100% { -webkit-transform: rotate(360deg); }
+// }
+// @keyframes nprogress-spinner {
+//   0%   { transform: rotate(0deg); }
+//   100% { transform: rotate(360deg); }
+// }

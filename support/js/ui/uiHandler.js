@@ -32,18 +32,18 @@ function init() { // called per page ajax refresh and on init!
 }
 
 function initFooterSmily() {
-  $(".block-footerBottomText").on("click", function () {
+  $(".block-footerBottomText").on("click", function() {
     $(this).velocity({
       translateY: "200%"
     }, {
-      complete: function () {
+      complete: function() {
         $(this).text(coolAsciiFaces());
         $(this).velocity({
           translateY: "0%"
         });
       }
     });
-    
+
   });
 }
 
@@ -122,15 +122,28 @@ function showHeadroomNow() { // bug, does not always work!
   }
 }
 
+var loadingTimeout;
+
 function setPageLoading(value) {
   if (value === true) {
     NProgress.start();
+    hackSafariToShowFillColorAnim();
+    clearTimeout(loadingTimeout);
     $body.addClass('loading');
     forceHeadroomShow();
   } else {
     NProgress.done(true);
-    $body.removeClass('loading');
+    loadingTimeout = setTimeout(function() {
+      $body.removeClass('loading');
+    }, 500);
   }
+}
+
+function hackSafariToShowFillColorAnim() {
+  // safari is weird and only shows fill animations if fill style is set directly.
+  $(".iconic-brain-hemisphere-right, .iconic-brain-hemisphere-left").velocity({
+    fill: "inherit"
+  });
 }
 
 function incPageLoadingProgress(value) {

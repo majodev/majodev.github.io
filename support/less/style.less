@@ -25,6 +25,7 @@
 @import "headroom.less"; // style headroom.js classes
 @import "lined-separator.less"; // noteNavigator like style class, separates text without headings
 @import (inline) "magnific-popup.css"; // embed lightbox plugin
+@import "body-loading.less"; // styles to apply while body.loading
 
 // -----------------------------------------------------------------------------
 // -----------------------------------------------------------------------------
@@ -555,29 +556,31 @@ a:link, a:visited, a:hover, a:focus, a:active {
 .block-navBrandImage {
   z-index: @zindex-navbar-fixed + 2;
   position: absolute;
-  top: 5px;
-  left: 15px;
-  width: 40px;
-  height: 40px;
-  border-radius: 20px;
-  -webkit-border-radius: 20px;
-  -moz-border-radius: 20px;
-  background: url(/assets/img/me_100x100.png) no-repeat;
-  background-size: 40px 40px;
-  box-shadow: 0 0 1px rgba(0, 0, 0, .8);
-  -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, .8);
-  -moz-box-shadow: 0 0 1px rgba(0, 0, 0, .8);
+  top: 10px;
+  left: 20px;
 }
 
-.block-navBrandImage img {
-  width: 40px;
-  height: 40px;
-  opacity: 0;
-  filter: alpha(opacity=0);
+// fallback to png if svg unsupported
+html.no-svg .block-navBrandImage {
+  background: url(/assets/img/logo/brain-60px-no-svg.png) no-repeat;
+  background-size: 30px 30px;
+  width: 30px;
+  height: 30px;
+}
+
+// hide svg tag if unsupported
+html.no-svg .block-navBrandImage svg {
+  display: none;
+}
+
+.block-navBrandImage svg {
+  width: 30px;
+  height: 30px;
+  fill: @color-nav;
 }
 
 .block-navBrandText {
-  padding-left: 42px;
+  padding-left: 38px;
   letter-spacing: -1px;
 }
 
@@ -689,8 +692,8 @@ a:link, a:visited, a:hover, a:focus, a:active {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/assets/img/index_photo_full_photoshoped_grey.jpg',sizingMethod='scale');
-  -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/assets/img/index_photo_full_photoshoped_grey.jpg', sizingMethod='scale')";
+  // filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/assets/img/index_photo_full_photoshoped_grey.jpg',sizingMethod='scale');
+  // -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/assets/img/index_photo_full_photoshoped_grey.jpg', sizingMethod='scale')";
   // background-attachment: initial;
   // background-attachment: scroll;
   background-position: 49% 15%;
@@ -821,7 +824,11 @@ a:link, a:visited, a:hover, a:focus, a:active {
   left: -(@index_overlay_dot_dim/2);
 }
 
-
+.index_brain {
+  // width: 250px;
+  height: 35vh;
+  margin-top: 30px;
+}
 
 
 // legal.hbs ----

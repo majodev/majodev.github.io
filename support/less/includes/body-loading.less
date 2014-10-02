@@ -1,0 +1,94 @@
+body.loading .headroom {
+  transition: none !important;
+  transform: translateY(0%) !important;
+}
+
+
+// brain animations...
+
+
+body.loading .iconic-brain-hemisphere-left {
+  -webkit-animation: leftBrainAnimation 1s ease infinite;
+  -moz-animation: leftBrainAnimation 1s ease infinite;
+  -ms-animation: leftBrainAnimation 1s ease infinite;
+  -o-animation: leftBrainAnimation 1s ease infinite;
+  animation: leftBrainAnimation 1s ease infinite;
+}
+
+body.loading .iconic-brain-hemisphere-right {
+  -webkit-animation: rightBrainAnimation 1s ease infinite;
+  -moz-animation: rightBrainAnimation 1s ease infinite;
+  -ms-animation: rightBrainAnimation 1s ease infinite;
+  -o-animation: rightBrainAnimation 1s ease infinite;
+  animation: rightBrainAnimation 1s ease infinite;
+}
+
+@-webkit-keyframes leftBrainAnimation {
+  0%   {fill: inherit;}
+  25%  {fill: @color-links;}
+  50%  {fill: @color-links-hover;}
+  100% {fill: inherit;}
+}
+
+@-moz-keyframes leftBrainAnimation {
+  0%   {fill: inherit;}
+  25%  {fill: @color-links;}
+  50%  {fill: @color-links-hover;}
+  100% {fill: inherit;}
+}
+
+@-ms-keyframes leftBrainAnimation {
+  0%   {fill: inherit;}
+  25%  {fill: @color-links;}
+  50%  {fill: @color-links-hover;}
+  100% {fill: inherit;}
+}
+
+@-o-keyframes leftBrainAnimation {
+  0%   {fill: inherit;}
+  25%  {fill: @color-links;}
+  50%  {fill: @color-links-hover;}
+  100% {fill: inherit;}
+}
+
+@keyframes leftBrainAnimation {
+  0%   {fill: inherit;}
+  25%  {fill: @color-links;}
+  50%  {fill: @color-links-hover;}
+  100% {fill: inherit;}
+}
+
+@-webkit-keyframes rightBrainAnimation {
+  0%   {fill: inherit;}
+  50%  {fill: @color-links;}
+  75%  {fill: @color-links-hover;}
+  100% {fill: inherit;}
+}
+
+@-moz-keyframes rightBrainAnimation {
+  0%   {fill: inherit;}
+  50%  {fill: @color-links;}
+  75%  {fill: @color-links-hover;}
+  100% {fill: inherit;}
+}
+
+@-ms-keyframes rightBrainAnimation {
+  0%   {fill: inherit;}
+  50%  {fill: @color-links;}
+  75%  {fill: @color-links-hover;}
+  100% {fill: inherit;}
+}
+
+@-o-keyframes rightBrainAnimation {
+  0%   {fill: inherit;}
+  50%  {fill: @color-links;}
+  75%  {fill: @color-links-hover;}
+  100% {fill: inherit;}
+}
+
+@keyframes rightBrainAnimation {
+  0%   {fill: inherit;}
+  50%  {fill: @color-links;}
+  75%  {fill: @color-links-hover;}
+  100% {fill: inherit;}
+}

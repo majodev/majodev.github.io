@@ -53,4 +53,4 @@ These tasks must be run manually.
 ```
 
 ## License
-See `LICENSE.md` for detailed information
+[See `LICENSE.md` for detailed information](https://github.com/majodev/majodev.github.io/blob/source/LICENSE.md)
