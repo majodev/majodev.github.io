@@ -9,6 +9,7 @@ var collections = require("metalsmith-collections");
 var ignore = require("metalsmith-ignore");
 var wordcount = require("metalsmith-wordcount"); // extracted & published to npm
 var headingsidentifier = require("metalsmith-headingsidentifier"); // extracted & published to npm
+var datamarkdown = require("metalsmith-datamarkdown"); // extracted & published to npm
 
 // custom metalsmith scripts (aka plugins)
 var debugsmith = require("./scripts/metalsmith-debugsmith");
@@ -21,7 +22,6 @@ var filetimestamp = require("./scripts/metalsmith-filetimestamp");
 var firstparagraph = require("./scripts/metalsmith-firstparagraph");
 var sitemapper = require("./scripts/metalsmith-sitemapper");
 var includedrafts = require("./scripts/metalsmith-includedrafts");
-var datamarkdown = require("./scripts/metalsmith-datamarkdown");
 var hbswithuid = require("./scripts/metalsmith-hbswithuid");
 var randomasciismiley = require("./scripts/metalsmith-randomasciismiley");
 var customhtmltransform = require("./scripts/metalsmith-customhtmltransform");
@@ -59,7 +59,7 @@ Metalsmith(__dirname)
     _mailEncrypted: stringToHexa("mario@ranf.tl"),
     _description: "I'm Mario Ranftl (majodev), an information manager from Austria. This site is an experiment to write (and ramble on) about my professional life.",
     _keywords: "mario ranftl, majodev, personal, portfolio, austria, graz, steiermark, " +
-      "programming, javascript, full stack, information manager, nodejs, notes, blog, " + 
+      "programming, javascript, full stack, information manager, nodejs, notes, blog, " +
       "fh joanneum, msc, bsc, code, information management, usability, security, deployment",
     _builddate: new Date(),
     _inject: injectFiles(dev), // holds all external client libs
@@ -169,11 +169,14 @@ Metalsmith(__dirname)
     allow: "setHeadingsIDs"
   }))
   .use(datamarkdown({
-    gfm: true,
-    breaks: true,
-    tables: true,
-    smartLists: true,
-    smartypants: true
+    marked: {
+      gfm: true,
+      breaks: true,
+      tables: true,
+      smartLists: true,
+      smartypants: true
+    },
+    removeAttributeAfterwards: true
   }))
   .use(customhtmltransform())
   .use(templates({
