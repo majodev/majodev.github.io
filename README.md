@@ -44,6 +44,12 @@ These tasks must be run manually.
   grunt imagemin
 ```
 
+### Rebuild favicons
+**Important:** needs [imagemagick](http://www.imagemagick.org/) in `PATH`
+```bash
+  grunt fav
+```
+
 ### Check for 404 links
 **Important:** needs [capsperjs](http://casperjs.org/) installed globally!
 

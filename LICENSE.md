@@ -1,7 +1,7 @@
 Content (in `/src`) is licensed under [creative commons (CC BY-NC-SA 2.0 AT)](http://creativecommons.org/licenses/by-nc-sa/2.0/at/)   
 Copyright © 2014 Mario Ranftl (@majodev)
 
-**Attention**: This project uses assets licensed from [Iconic](https://useiconic.com/) (the `brain` icon / logo). These assets are completely licensed by Mario Ranftl, but are **NOT allowed** to be redistributed or used within your project without [buying your **own Iconic license**](https://useiconic.com/purchase/)! These applies to all assets within `support/img/logo/*` as well as all favicons (`support/img/favicons/*` and it's source `dev/fav/*`) used by this site.
+**Attention**: This project uses assets licensed from [Iconic](https://useiconic.com/) (the `brain` icon / logo). These assets are completely licensed by Mario Ranftl, but are **NOT allowed** to be redistributed or used within your project without [buying your **own Iconic license**](https://useiconic.com/purchase/)! These applies to all assets within `support/img/logo/*` as well as all favicons (`support/img/favicons/*` and its source folder `dev/fav/*`) used by this site.
 
 Source code is licensed under [The MIT License (MIT)](http://majodev.mit-license.org/)
 Copyright © 2014 Mario Ranftl (@majodev)
