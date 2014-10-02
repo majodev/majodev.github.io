@@ -74,6 +74,7 @@
     "grunt-contrib-uglify": "^0.5.1",
     "grunt-contrib-watch": "^0.6.1",
     "grunt-execute": "^0.2.2",
+    "grunt-favicons": "^0.6.4",
     "grunt-gh-pages": "^0.9.1",
     "grunt-git-describe": "^2.3.2",
     "grunt-http-server": "0.0.5",

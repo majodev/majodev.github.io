@@ -143,7 +143,8 @@ module.exports = function(grunt) {
       },
       build: ["build"],
       temporary: ["_tmp"],
-      "gh-pages": [".grunt"]
+      "gh-pages": [".grunt"],
+      "favicons": ["support/img/favicons", "templates/base/favicons.hbs"]
     },
     less: {
       development: {
@@ -434,6 +435,25 @@ module.exports = function(grunt) {
           }
         }
       }
+    },
+    favicons: {
+      options: {
+        apple: true, // platform
+        firefox: true, // platform
+        androidHomescreen: true, // platform
+        windowsTile: true, // platform
+        coast: true, // platform
+        trueColor: true,
+        appleTouchBackgroundColor: "#7bd9f2",
+        tileBlackWhite: false,
+        tileColor: "",
+        html: 'templates/base/favicons.hbs',
+        HTMLPrefix: "/assets/img/favicons/"
+      },
+      icons: {
+        src: 'dev/fav/favicon.png',
+        dest: 'support/img/favicons'
+      }
     }
   });
 
@@ -462,6 +482,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-gh-pages');
   grunt.loadNpmTasks('grunt-confirm');
   grunt.loadNpmTasks('grunt-bg-shell');
+  grunt.loadNpmTasks('grunt-favicons');
 
   // ---
   // main tasks
@@ -485,6 +506,10 @@ module.exports = function(grunt) {
 
   grunt.registerTask("build-dev", [
     "clean:build", "browserify:dev", "get-git-revision", "shell:commitCount", "execute:metalsmith-dev", "less:development", "copy"
+  ]);
+
+  grunt.registerTask("fav", [
+    "clean:favicons", "favicons"
   ]);
 
   // ---
