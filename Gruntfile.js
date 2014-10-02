@@ -289,9 +289,9 @@ module.exports = function(grunt) {
         "parseFiles": true, // By default, this task will crawl your project for references to Modernizr tests.
         "files": {
           "src": [
-            "src/**/*.js", "src/**/*.css", "src/**/*.less", "src/**/*.hbs", "src/**/*.md", "src/**/*.html",
-            "support/**/*.js", "support/**/*.css", "support/**/*.less", "support/**/*.hbs", "support/**/*.md", "support/**/*.html",
-            "templates/**/*.js", "templates/**/*.css", "templates/**/*.less", "templates/**/*.hbs", "templates/**/*.md", "templates/**/*.html"
+            "src/**/*.js", "src/**/*.css", "src/**/*.less",
+            "support/**/*.js", "support/**/*.css", "support/**/*.less",
+            "templates/**/*.js", "templates/**/*.css", "templates/**/*.less",
           ]
         },
         "matchCommunityTests": false,

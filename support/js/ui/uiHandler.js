@@ -16,6 +16,7 @@ var $body = $(document.body);
 var $html = $("html");
 var $header; // initialized @ init()
 var defaultNavStyleOverwritten = false;
+var headroomEnabled = false;
 
 
 var startup = _.once(function() { // do this only once
@@ -49,7 +50,8 @@ function initFooterSmily() {
 
 function initHeadroom() {
   $header = $(HEADER_CLASS);
-  if (Headroom.cutsTheMustard) {
+  if (Headroom.cutsTheMustard && Modernizr.touch === false) { // load headroom desktop only (and if features supported)
+    headroomEnabled = true;
     // `Headroom.cutsTheMustard` is only true if browser supports all features required by headroom.
     // By guarding your code with this condition, the widget will safely degrade
     // https://github.com/WickyNilliams/headroom.js/issues/64
@@ -104,19 +106,19 @@ function initHeadNav() {
 }
 
 function forceHeadroomShow() {
-  if (Headroom.cutsTheMustard) {
+  if (headroomEnabled) {
     $header.addClass("headroom-forceShow");
   }
 }
 
 function unforceHeadroomShow() {
-  if (Headroom.cutsTheMustard) {
+  if (headroomEnabled) {
     $header.removeClass("headroom-forceShow");
   }
 }
 
 function showHeadroomNow() { // bug, does not always work!
-  if (Headroom.cutsTheMustard) {
+  if (headroomEnabled) {
     $header.addClass("headroom--pinned");
     $header.removeClass("headroom--unpinned");
   }
