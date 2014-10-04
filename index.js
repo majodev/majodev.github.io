@@ -58,7 +58,7 @@ Metalsmith(__dirname)
     _siterepo: "https://github.com/majodev/majodev.github.io/",
     _mailEncrypted: stringToHexa("mario@ranf.tl"),
     _description: "I'm Mario Ranftl (majodev), an information manager from Austria. This site is an experiment to write (and ramble on) about my professional life.",
-    _keywords: "mario ranftl, majodev, personal, portfolio, austria, graz, steiermark, " +
+    _keywords: "mario ranftl, majodev, ranftl, mario, personal, portfolio, austria, graz, steiermark, " +
       "programming, javascript, full stack, information manager, nodejs, notes, blog, " +
       "fh joanneum, msc, bsc, code, information management, usability, security, deployment",
     _builddate: new Date(),
