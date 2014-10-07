@@ -427,11 +427,19 @@ module.exports = function(grunt) {
       src: '**/*'
     },
     confirm: {
-      publish: {
+      long: {
         options: {
           question: "Publish commit <%=grunt.option('gitRevision')%>?\n(type 'PUBLISH' to continue)",
           continue: function(answer) {
             return answer === 'PUBLISH';
+          }
+        }
+      },
+      short: {
+        options: {
+          question: "Publish commit <%=grunt.option('gitRevision')%>?\n(ENTER to continue)",
+          continue: function(answer) {
+            return true;
           }
         }
       }
@@ -493,12 +501,25 @@ module.exports = function(grunt) {
   ]);
 
   grunt.registerTask("default", [
-    "clean:temporary", "modernizr", "lodashAutobuild", "build-dev", "http-server:dev", "watch"
+    "build-pre", "build-dev", "http-server:dev", "watch"
   ]);
 
   grunt.registerTask("productive", [
-    "clean:temporary", "modernizr", "lodashAutobuild", "build-productive", "clean:temporary", "bgShell:testserver-gzip", "confirm", 'gh-pages'
+    "build-pre", "build-productive", "bgShell:testserver-gzip", "confirm:long", 'gh-pages'
   ]);
+
+  grunt.registerTask("publish", [
+    "build-pre", "build-productive", "confirm:short", 'gh-pages'
+  ]);
+
+
+  // -- 
+  // pre build task
+  // --
+  grunt.registerTask("build-pre", [
+    "clean:temporary", "modernizr", "lodashAutobuild"
+  ]);
+
 
   // ---
   // dev tasks
