@@ -50,7 +50,7 @@ function initFooterSmily() {
 
 function initHeadroom() {
   $header = $(HEADER_CLASS);
-  if (Headroom.cutsTheMustard && Modernizr.touch === false) { // load headroom desktop only (and if features supported)
+  if (Headroom.cutsTheMustard) {
     headroomEnabled = true;
     // `Headroom.cutsTheMustard` is only true if browser supports all features required by headroom.
     // By guarding your code with this condition, the widget will safely degrade

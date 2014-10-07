@@ -4,6 +4,7 @@ var viewportUnitsBuggyfill = require('viewport-units-buggyfill');
 
 module.exports = {
   init: function() {
+
     $(function() {
       FastClickAttach(document.body);
     });
@@ -14,5 +15,6 @@ module.exports = {
     NProgress.configure({
       showSpinner: false
     });
+    
   }
 };
