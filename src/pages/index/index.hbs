@@ -33,20 +33,22 @@ fullRootMetaTitle: true
 
   <section itemscope itemtype="http://data-vocabulary.org/Person">
 
+    <!-- hidden google+ / image item prop meta -->
+    <a href="https://plus.google.com/112833806336910098913" rel="publisher" hidden></a>
     <img itemprop="image" src="/assets/img/index_photo.jpg" hidden />
 
     <h1 id="hello" class="text-center letter-spacing-3">Hi!</h1>
 
-    <h2 class="text-center text-muted">I’m <span itemprop="name">Mario Ranftl</span><br><small><em><a href="http://ranf.tl" itemprop="url">ranf.tl</a> &amp; <span itemprop="nickname">majodev</span> on the internets</em></small></h2>
+    <h2 class="text-center text-muted">I’m <span itemprop="name">Mario Ranftl</span>,<br><small><em>or <a href="http://twitter.com/majodev" itemprop="nickname">majodev</a> &amp; <a href="http://ranf.tl" itemprop="url">ranf.tl</a> on the internets.</em></small></h2>
     
     <div class="text-left text-center-md row index-text-wrap">
 
       <div class="col-md-6 text-justify-md" data-markdown>
-I'm an <span itemprop="title">information manager</span> and hold a master's (2014) and bachelor's (2011) degree from <span itemprop="affiliation">FH JOANNEUM</span> Austria ([information management degree programme](http://www.fh-joanneum.at/aw/home/Studienangebot_Uebersicht/department_angewandte_informatik/~bpoe/aim/?lan=en)). My studies helped me become an IT generalist and covered both technical (e.g. network infrastructure & security, application development, enterprise IT architecture etc.) and business related fields (project, process, change MGMT etc.). This site is an experiment to write (*and ramble on*) about my professional life.
+I'm an <span itemprop="title">information manager</span> and hold a master's and bachelor's degree from FH JOANNEUM Austria ([information management degree programme](http://www.fh-joanneum.at/aw/home/Studienangebot_Uebersicht/department_angewandte_informatik/~bpoe/aim/?lan=en)). My studies helped me become an IT generalist and covered both technical (e.g. network infrastructure & security, application development, enterprise IT architecture etc.) and business related fields (project, process, change MGMT etc.). I currently live in <span itemprop="address" itemscope itemtype="http://data-vocabulary.org/Address"><a href="https://www.google.at/maps/place/Fehring+Hauptplatz/@46.9360454,16.0102458,18z/data=!4m2!3m1!1s0x476f02b94b31605f:0xeac5594c91555c1c"><span itemprop="locality">Fehring</span></a> (<span itemprop="region">Steiermark</span>, <span itemprop="country">Austria</span></span>). This site is an experiment to write *and ramble on* about my professional life.
       </div>
 
       <div class="col-md-6 text-justify-md" data-markdown>
-I'm currently out of work, but expecting to get started full-time in the near future *(<a {{> emailData}}>anywhere! go ahead and catch my interest</a>)*. In the meantime, I'm very much into open source projects, contribute here and there and working on some small projects (e.g. [SJgrabber](http://majodev.github.io/sjgrabber)). I love well documented, tested and maintainable code bases. My preferred programming language at the moment is JavaScript, but I've also had a hell of a time with AS3/Flex, C, C# and Java *(and unfortunately VB)*.
+I'm currently out of work, but expecting to get started full-time in the near future *(<a {{> emailData}}>anywhere! go ahead and catch my interest</a>)*. In the meantime, I'm very much into open source projects, contribute here and there and working on some small projects (e.g. [SJgrabber](http://majodev.github.io/sjgrabber)). I love well documented, tested and maintainable code. My preferred programming language at the moment is JavaScript, but I've also had a hell of a time with AS3/Flex, C, C# and Java *(and unfortunately VB)*.
       </div>
 
     </div>
@@ -82,7 +84,7 @@ Apart from my professional life, I have a weakness for weird / experimental musi
 
   <section>
 
-    <h2 class="linedSeparator">TL;DR</h2>
+    <h2 id="tldr" class="linedSeparator">TL;DR</h2>
 
     {{!-- <img src="/assets/img/logo/brain-lg.svg" class="index_brain" /> --}}
 
@@ -96,7 +98,7 @@ Apart from my professional life, I have a weakness for weird / experimental musi
   
   <section>
 
-    <h2 class="linedSeparator">Contact</h2>
+    <h2 id="contact" class="linedSeparator">Contact</h2>
 
     {{> contactButtons}}
 
