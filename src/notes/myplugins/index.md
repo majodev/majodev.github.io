@@ -1,7 +1,7 @@
 ---
 uid: note_extracting_libs_node_projects
 title: Extracting libs from a node.js project
-subtitle: Publishing my metalsmith plugins (UPDATE 2)
+subtitle: Publishing my metalsmith plugins (UPDATE 3)
 date: 2014-10-01
 published: true
 tags:
@@ -11,17 +11,12 @@ related:
 lightbox: true
 ---
 
-[As promised][helloworld], lets break out my customized plugins I've used with [metalsmith][metalsmith] to build up this site. This note will be a updated until I think the job is done.
+[As promised][helloworld], lets break out my customized plugins I've used with [metalsmith][metalsmith] to build up this site. ~~This note will be a updated until I think the job is done.~~ OK, I'm done for now, my other plugins already exist in a less specialized or better way (UPDATE 3).
 
-Currenty the following plugins have already been published:
+I've published these plugins:
 - [metalsmith-wordcount](#metalsmith-wordcount)
 - [metalsmith-headingsidentifier](#metalsmith-headingsidentifier) (UPDATE 1)
 - [metalsmith-datamarkdown](#metalsmith-datamarkdown) (UPDATE 2)
-
-To do:
-- metalsmith-permapath
-- metalsmith-sitemapper
-- metalsmith-tagtree
 
 ### How to extract logic into standalone packages
 

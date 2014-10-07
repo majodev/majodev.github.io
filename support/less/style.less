@@ -239,22 +239,23 @@ body {
 }
 
 #wrapper {
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.6);
   background: @color-bg;
   display: block;
   position: relative;
 }
 
-#wrapper:after {
-  content: "";
-  background: url(/assets/img/grey.png);
-  opacity: 0.33;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  position: absolute;
-  z-index: -1;
-}
+// #wrapper:after {
+//   content: "";
+//   background: url(/assets/img/grey.png);
+//   opacity: 0.33;
+//   top: 0;
+//   left: 0;
+//   bottom: 0;
+//   right: 0;
+//   position: absolute;
+//   z-index: -1;
+// }
 
 .block-footer {
   color: @color-footer;
@@ -289,7 +290,7 @@ pre {
 }
 
 code, kbd {
-  font-size: 70%;
+  font-size: 85%;
 }
 
 code {
@@ -538,19 +539,22 @@ a:link, a:visited, a:hover, a:focus, a:active {
 .block-noteTitle > h1 {
   margin-top: 0px;
   margin-bottom: 5px;
+  text-transform: capitalize;
 }
 
 .block-noteTitle > h3 {
   margin-top: 0px;
   margin-bottom: 0px;
+  text-transform: capitalize;
 }
 
 .block-noteSubTitle > h5 {
   margin-top: 9px;
+  text-transform: capitalize;
 }
 
-.block-noteItem h3 a {
-  color: @color-head;
+.block-noteItem h4, .block-noteItem a {
+  text-transform: capitalize;
 }
 
 .block-navBrandImage {
@@ -686,7 +690,7 @@ html.no-svg .block-navBrandImage svg {
 // index.hbs ----
 
 .indexHeader {
-  background: fade(@color-bg, 55%);
+  // background: fade(@color-bg, 55%);
 }
 
 .index_bg_pusher {
@@ -724,7 +728,7 @@ html.no-svg .block-navBrandImage svg {
 
 .index_img_footer {
   position: absolute;
-  bottom: 5px;
+  bottom: 10px;
   left: 0;
   right: 0;
   margin-left: auto;
@@ -737,10 +741,26 @@ html.no-svg .block-navBrandImage svg {
   transition-duration: 200ms;
   transition-timing-function: cubic-bezier(0.165,0.630,0.140,0.820);
   color: @color-bg;
+  -webkit-animation: pulse 1s infinite;
+  -moz-animation: pulse 1s infinite;
+  -ms-animation: pulse 1s infinite;
+  -o-animation: pulse 1s infinite;
+  animation: pulse 1s infinite;
+}
+
+@-webkit-keyframes pulse { 
+    0% { -webkit-transform: scale(1); } 
+    50% { -webkit-transform: scale(1.1); } 
+    100% { -webkit-transform: scale(1); } 
+} 
+@keyframes pulse { 
+    0% { transform: scale(1); } 
+    50% { transform: scale(1.1); } 
+    100% { transform: scale(1); } 
 }
 
 .index_img_footer > a:hover, .index_img_footer > a:focus {
-  color: @color-links;
+  color: @color-links-hover;
 }
 
 .index-text-wrap p {

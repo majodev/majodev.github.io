@@ -4,21 +4,21 @@
   <div class="template-note pushdown-header uiHandlerFade">
     <main>
     <article>
-      <div class="template-note-header-wrapper">
+      <header class="template-note-header-wrapper">
         <div class="template-note-header container-fluid">
           {{> noteNavigator}}
           {{> noteTitle}}
           {{> noteSubTitle}}
         </div>
-      </div>
+      </header>
       <div class="template-note-contents container-fluid">
 {{> contents}}
       </div>
-      <div class="template-note-footer container-fluid">
+      <footer class="template-note-footer container-fluid">
         {{> noteComments}}
         {{> noteShare}}
         {{> noteRelated}}
-      </div>
+      </footer>
     </article>
     </main>
   </div> {{!-- end template-note --}}

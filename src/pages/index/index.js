@@ -66,13 +66,7 @@
     }
 
     function positionAllOverlayItems() {
-      // if (initialAnimationCompleteBool === false) {
-      //   $(OVERLAY_ITEM_CLASS).each(function() {
-      //     positionOverlayItem($(this));
-      //   });
-      // } else {
       positionOverlayItem($currentLoopItem);
-      // }
     }
 
     function positionOverlayItem($item) {
@@ -118,13 +112,16 @@
       // remember this item (for responsive positioning.)
       $currentLoopItem = $($(OVERLAY_ITEM_CLASS).get(currentLoopItem));
 
-      animateItem($currentLoopItem, animationLoop);
+      animateItem($currentLoopItem);
     }
 
     // animate one item
-    function animateItem($item, callback) {
+    var animateTimeout;
+    var elementFadedIn = false;
 
-      if(loop_enabled === false) {
+    function animateItem($item) {
+
+      if (loop_enabled === false) {
         return;
       }
 
@@ -134,35 +131,44 @@
       $item.velocity("fadeIn", {
         duration: 500,
         complete: function() {
-          var $shownItem = $(this);
-          setTimeout(function() {
-            callback();
-            $shownItem.velocity("fadeOut", {
-              duration: 500
-            });
-          }, 5000);
+          elementFadedIn = true;
+          animateTimeout = setTimeout(animateNext, 5000);
         }
       });
     }
 
+    function animateNext() {
+      elementFadedIn = false;
+      $currentLoopItem.velocity("fadeOut", {
+        duration: 500,
+        complete: function() {
+          animationLoop();
+        }
+      });
+    }
+
+    function forceAnimateNext() {
+      if (elementFadedIn === true) {
+        clearTimeout(animateTimeout);
+        animateNext();
+      }
+    }
+
     // start up call these:
-    //positionAllOverlayItems();
     animationLoop();
 
-    // development canvas
-    // setInterval(function () {
-    //   positionAllOverlayItems();
-    // }, 200);
 
-    // dev show all
-    // $(OVERLAY_ITEM_CLASS).each(function() {
-    //   $(this).show();
-    // });
+    $(BG_IMG_CLASS).on("click", function()  {
+      forceAnimateNext();
+    });
 
     window.dealloc = function() {
       loop_enabled = false;
+      clearTimeout(animateTimeout);
       $(window).off("resize", positionAllOverlayItems);
       $(window).off("orientationchange", repositionWait);
+
+      $(BG_IMG_CLASS).off();
 
       $bg_img = null;
       $currentLoopItem = null;
