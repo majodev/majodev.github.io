@@ -24,10 +24,17 @@
 grunt is now watching for changes and runs a webserver on `localhost:8080`.
 
 ## Build productive
-**features:** concat & compress all js/css/html/xml files and start a gzip server
+**features:** concat & compress all js/css/html/xml files and start a gzip server (if confirmed publish to gh-pages)
 
 ```bash
   grunt productive
+```
+
+## Publish
+shortcut to build productive + publish on gh-pages
+
+```bash
+  grunt publish
 ```
 
 ## Minor manual tasks
