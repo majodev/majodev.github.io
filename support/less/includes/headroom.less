@@ -1,15 +1,17 @@
 .headroom {
   transition-duration: 200ms;
   transition-timing-function: linear; //cubic-bezier(0.165,0.630,0.140,0.820);
-  transition-property: transform, box-shadow;
+  transition-property: box-shadow;
 }
 
 .headroom--pinned {
+  // opacity: 1;
   // transform: translateY(0%);
   // box-shadow: 0 1px 5px rgba(0,0,0,.3);
 }
 
 .headroom--unpinned {
+  // opacity: 0.1;
   // transform: translateY(-100%);
   // box-shadow: none;
   // box-shadow: 0 1px 5px rgba(0,0,0,.3);
@@ -24,6 +26,7 @@
 }
 
 .headroom-forceShow {
-  transition: none !important;
-  transform: translateY(0%) !important;
+  // opacity: 1;
+  // transition: none !important;
+  // transform: translateY(0%) !important;
 }
