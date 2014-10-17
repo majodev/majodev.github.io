@@ -16,6 +16,19 @@ module.exports = plugin;
 
 function plugin(options) {
 
+  var keyToUseForPlugin = "includeMetadata";
+  var deleteFileAfterInclude = false;
+
+  if (_.isUndefined(options) === false && _.isUndefined(options.metaKey) === false) {
+    keyToUseForPlugin = options.metaKey;
+  }
+
+  if (_.isUndefined(options) === false && _.isUndefined(options.deleteFileAfterInclude) === false) {
+    deleteFileAfterInclude = options.deleteFileAfterInclude;
+  }
+
+  var jsonFilesParsed = [];
+
   return function(files, metalsmith, done) {
     setImmediate(done);
     Object.keys(files).forEach(function(file) {
@@ -24,6 +37,7 @@ function plugin(options) {
         _.each(jsonfiles, function(jsonfile) {
           var dataKeyName = dirname(file) + "/" + jsonfile;
           var jsonData = JSON.parse(files[dataKeyName].contents);
+          jsonFilesParsed.push(dataKeyName);
 
           _.each(_.keys(jsonData), function(key) {
 
@@ -35,10 +49,15 @@ function plugin(options) {
 
           });
 
-          //console.log(dirname(file) + "/" +  jsonfile);
-          //console.log();
         });
       }
     });
+
+    if (deleteFileAfterInclude) {
+      _.each(jsonFilesParsed, function(filename) {
+        delete files[filename];
+      });
+    }
+
   };
 }

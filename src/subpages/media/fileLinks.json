@@ -1,0 +1,18 @@
+{
+  "fileLinks": [{
+    "name": "Résumé",
+    "url": "/static/resume/resume.pdf"
+  }, {
+    "name": "Master Thesis (german)",
+    "url": "/static/masterthesis/Diplomarbeit_Mario_Ranftl.pdf"
+  }, {
+    "name": "AKIM (german)",
+    "url": "/static/akim/AKIM_Mario_Ranftl.pdf"
+  }, {
+    "name": "Bachelor Thesis 2 (german)",
+    "url": "/static/bac2/BAC-2_Mario_Ranftl.pdf"
+  }, {
+    "name": "Bachelor Thesis 1 (german)",
+    "url": "/static/bac1/BAC-1_Mario_Ranftl.pdf"
+  }]
+}

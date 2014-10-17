@@ -1,0 +1,16 @@
+---
+title: Media
+template: default.hbs
+sequence: 1
+published: false
+includeMetadata:
+- fileLinks.json
+---
+
+{{!-- <p>Provide links to all the contents on this site / of me</p> --}}
+
+<ul class="list-unstyled">
+{{#each fileLinks}}
+  <li><a class="btn btn-block btn-primary" href="{{url}}"><i class="fa fa-download"></i>&nbsp;&nbsp;Download {{name}}</a></li>
+{{/each}}
+</ul>

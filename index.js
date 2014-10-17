@@ -25,7 +25,7 @@ var includedrafts = require("./scripts/metalsmith-includedrafts");
 var hbswithuid = require("./scripts/metalsmith-hbswithuid");
 var randomasciismiley = require("./scripts/metalsmith-randomasciismiley");
 var customhtmltransform = require("./scripts/metalsmith-customhtmltransform");
-// var includemetadata = require("./scripts/metalsmith-includemetadata"); // not used currently
+var includemetadata = require("./scripts/metalsmith-includemetadata");
 
 // custom node scripts
 var registerHelpers = require("./scripts/registerHelpers");
@@ -76,7 +76,10 @@ Metalsmith(__dirname)
   .use(includedrafts({
     include: dev
   }))
-  // .use(includemetadata()) // not used currently
+  .use(includemetadata({
+    metaKey: "includeMetadata",
+    deleteFileAfterInclude: true
+  }))
   .use(filetimestamp())
   .use(permapath({
     mode: "pre",
