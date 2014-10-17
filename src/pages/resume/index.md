@@ -11,4 +11,4 @@ lightbox: true
 ![resume picture](/static/resume/resume.png)
 
 ####An image?!?
-*My Résumé is embedded as image here to reduce the risk my sensitive data being directly crawled by evil bots. Please download the PDF above to get a printable version.*
+*My Résumé is embedded as image here to reduce the risk of my sensitive data being crawled by evil bots. Please download the PDF to get the proper printable version.*
