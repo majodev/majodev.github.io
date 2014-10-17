@@ -40,7 +40,7 @@ function plugin(options) {
 
           replaceString = '<a class="lightboximgwrap" href="' + src + '">' + plain + '</a>';
 
-          console.log(replaceString);
+          // console.log(replaceString);
 
           $(this).replaceWith(replaceString);
 

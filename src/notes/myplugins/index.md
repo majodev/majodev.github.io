@@ -9,6 +9,16 @@ tags:
 related:
 - note_hello_world
 lightbox: true
+customMetaKeywords:
+- metalsmith
+- plugins
+- open source
+- npm
+- github
+- metalsmith-wordcount
+- metalsmith-headingsidentifier
+- metalsmith-datamarkdown
+- standalone
 ---
 
 [As promised][helloworld], lets break out my customized plugins I've used with [metalsmith][metalsmith] to build up this site. ~~This note will be a updated until I think the job is done.~~ OK, I'm done for now, my other plugins already exist in a less specialized or better way (UPDATE 3).

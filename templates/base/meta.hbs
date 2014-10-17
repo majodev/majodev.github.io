@@ -8,17 +8,17 @@
 <link rel="dns-prefetch" href="//www.google-analytics.com"> --}}
 
 <title>{{#if fullRootMetaTitle}}{{_author}} | {{_authorTwitter}} | {{_sitename}}{{else}}{{ title }} | {{ _author }}{{/if}}</title>
-<meta name="description" content="{{#if isNote}}{{#if subtitle}}{{subtitle}}: {{/if}}{{ firstparagraphText }} -- Note by {{_author}}{{else}}{{ _description }}{{/if}}">
+<meta name="description" content="{{#if isNote}}{{#if subtitle}}{{subtitle}}: {{/if}}{{ firstparagraphText }} -- Note by {{_author}}{{else}}{{#if customMetaDescription}}{{customMetaDescription}}{{else}}{{ _description }}{{/if}}{{/if}}">
 <meta name="author" content="{{ _author }}">
 
 {{#if isNote}}
   {{#if tags}}
-    <meta name="keywords" content="{{_keywords}}, note, {{#each tags}}{{ this }}, {{/each}}">
+    <meta name="keywords" content="{{#each customMetaKeywords}}{{ this }}, {{/each}}{{#each tags}}{{ this }}, {{/each}}note, {{_keywords}}">
   {{else}}
-    <meta name="keywords" content="{{_keywords}}, note">
+    <meta name="keywords" content="{{#each customMetaKeywords}}{{ this }}, {{/each}}note, {{_keywords}}">
   {{/if}}
 {{else}}
-  <meta name="keywords" content="{{_keywords}}">
+  <meta name="keywords" content="{{#each customMetaKeywords}}{{ this }}, {{/each}}{{_keywords}}">
 {{/if}}
 
 {{#if noRobots}}

@@ -59,9 +59,9 @@ Metalsmith(__dirname)
     _siterepo: "https://github.com/majodev/majodev.github.io/",
     _mailEncrypted: stringToHexa("mario@ranf.tl"),
     _description: "I'm Mario Ranftl (majodev), an information manager from Austria. This site is an experiment to write (and ramble on) about my professional life.",
-    _keywords: "mario ranftl, majodev, ranftl, mario, personal, portfolio, austria, graz, steiermark, " +
-      "programming, javascript, full stack, information manager, nodejs, notes, blog, " +
-      "fh joanneum, msc, bsc, code, information management, usability, security, deployment",
+    _keywords: "mario ranftl, ranf.tl, majodev, ranftl, mario, professional, " + 
+      "austria, fehring, steiermark, " +
+      "programming, developer, full stack, information manager, information management, ",
     _builddate: new Date(),
     _inject: injectFiles(dev), // holds all external client libs
     _gitrevision: argv.gitrevision ? argv.gitrevision.toString() : "no git revision set",

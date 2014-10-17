@@ -7,6 +7,12 @@ tags:
 - private
 related:
 - note_extracting_libs_node_projects
+customMetaKeywords:
+- first
+- metalsmith
+- CMS
+- git
+- filedriven
 ---
 
 Hello World! You are reading the first published note on my shiny new site. Currently everything feels a bit empty, but I hope I can fill things up with useful information ASAP.
