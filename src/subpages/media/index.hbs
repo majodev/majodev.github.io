@@ -2,15 +2,26 @@
 title: Media
 template: default.hbs
 sequence: 1
-published: false
+published: true
 includeMetadata:
 - fileLinks.json
+lightbox: true
 ---
 
-{{!-- <p>Provide links to all the contents on this site / of me</p> --}}
-
-<ul class="list-unstyled">
-{{#each fileLinks}}
-  <li><a class="btn btn-block btn-primary" href="{{url}}"><i class="fa fa-download"></i>&nbsp;&nbsp;Download {{name}}</a></li>
-{{/each}}
-</ul>
+<div class="row">
+  <div class="col-sm-6 col-xs-8 col-xs-offset-2 col-sm-offset-0">
+    {{#each fileLinks}}
+      {{#if_even @index}}
+        {{> mediaThumbnail}}
+      {{/if_even}}
+    {{/each}}
+  </div>
+  <div class="col-sm-6 col-xs-8 col-xs-offset-2 col-sm-offset-0">
+    {{#each fileLinks}}
+      {{#if_even @index}}
+      {{else}}
+        {{> mediaThumbnail}}
+      {{/if_even}}
+    {{/each}}
+  </div>
+</div>

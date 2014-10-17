@@ -24,7 +24,7 @@ var sitemapper = require("./scripts/metalsmith-sitemapper");
 var includedrafts = require("./scripts/metalsmith-includedrafts");
 var hbswithuid = require("./scripts/metalsmith-hbswithuid");
 var randomasciismiley = require("./scripts/metalsmith-randomasciismiley");
-var customhtmltransform = require("./scripts/metalsmith-customhtmltransform");
+var appendlightbox = require("./scripts/metalsmith-appendlightbox");
 var includemetadata = require("./scripts/metalsmith-includemetadata");
 
 // custom node scripts
@@ -183,7 +183,7 @@ Metalsmith(__dirname)
     },
     removeAttributeAfterwards: true
   }))
-  .use(customhtmltransform())
+  .use(appendlightbox())
   .use(templates({
     engine: "handlebars",
     directory: "templates"

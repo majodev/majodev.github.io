@@ -1,18 +1,23 @@
 {
   "fileLinks": [{
     "name": "Résumé",
-    "url": "/static/resume/resume.pdf"
+    "url": "/static/resume/resume.pdf",
+    "pic": "/static/resume/resume.png"
   }, {
     "name": "Master Thesis (german)",
-    "url": "/static/masterthesis/Diplomarbeit_Mario_Ranftl.pdf"
+    "url": "/static/masterthesis/Diplomarbeit_Mario_Ranftl.pdf",
+    "pic": "/static/masterthesis/Diplomarbeit_Mario_Ranftl.png"
   }, {
     "name": "AKIM (german)",
-    "url": "/static/akim/AKIM_Mario_Ranftl.pdf"
+    "url": "/static/akim/AKIM_Mario_Ranftl.pdf",
+    "pic": "/static/akim/AKIM_Mario_Ranftl.png"
   }, {
     "name": "Bachelor Thesis 2 (german)",
-    "url": "/static/bac2/BAC-2_Mario_Ranftl.pdf"
+    "url": "/static/bac2/BAC-2_Mario_Ranftl.pdf",
+    "pic": "/static/bac2/BAC-2_Mario_Ranftl.png"
   }, {
     "name": "Bachelor Thesis 1 (german)",
-    "url": "/static/bac1/BAC-1_Mario_Ranftl.pdf"
+    "url": "/static/bac1/BAC-1_Mario_Ranftl.pdf",
+    "pic": "/static/bac1/BAC-1_Mario_Ranftl.png"
   }]
 }

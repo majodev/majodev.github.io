@@ -27,43 +27,51 @@ function registerHelpers() {
     return result;
   }, 'array');
 
-  Swag.addHelper("encodeuri", function (str) {
+  Swag.addHelper("encodeuri", function(str) {
     return encodeURIComponent(str);
   }, "string");
 
-  Swag.addHelper("dateFormatShort", function (date) {
+  Swag.addHelper("dateFormatShort", function(date) {
     return moment(date).format("DD MMM YYYY");
   }, "date");
 
-  Swag.addHelper("dateFormatLong", function (date) {
+  Swag.addHelper("dateFormatLong", function(date) {
     return moment(date).format("DD MMM YYYY, HH:mm Z");
   }, "date");
 
-  Swag.addHelper("dateFormatMeta", function (date) {
+  Swag.addHelper("dateFormatMeta", function(date) {
     return moment(date).format("YYYY-MM-DD@HH:mm:ss Z");
   }, "date");
 
-  Swag.addHelper("dateFormatISO", function (date) {
+  Swag.addHelper("dateFormatISO", function(date) {
     return moment(date).toISOString();
   }, "date");
 
-  Swag.addHelper("dateFormatYear", function (date) {
+  Swag.addHelper("dateFormatYear", function(date) {
     return moment(date).format("YYYY");
   }, "date");
 
   Swag.addHelper("each_upto", function(ary, max, options) {
-    if(!ary || ary.length === 0)
-        return options.inverse(this);
- 
-    var result = [ ];
-    for(var i = 0; i < max && i < ary.length; ++i)
-        result.push(options.fn(ary[i]));
+    if (!ary || ary.length === 0)
+      return options.inverse(this);
+
+    var result = [];
+    for (var i = 0; i < max && i < ary.length; ++i)
+      result.push(options.fn(ary[i]));
     return result.join('');
   }, "array");
 
   Swag.addHelper('json', function(obj) {
     return JSON.stringify(obj);
   }, "object");
+
+  Swag.addHelper('if_even', function(conditional, options) {
+    if ((conditional % 2) === 0) {
+      return options.fn(this);
+    } else {
+      return options.inverse(this);
+    }
+  });
 
   // register Swag Handlebars helpers
   Swag.registerHelpers(Handlebars);

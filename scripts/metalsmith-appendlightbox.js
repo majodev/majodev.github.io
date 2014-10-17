@@ -30,13 +30,17 @@ function plugin(options) {
 
         $('img').each(function(i, block) {
           var $img = $(this);
-          var plain = $($img.parent()).html();
           var src = $img.attr("src");
           var alt = $img.attr("alt");
+          var plain = '<img src="' + src + '" alt="' + alt + '">';
 
-          var replaceString = '<a class="lightboximgwrap" href="' + src + '">' + plain + '</a>';
+          var replaceString = "";
 
-          //console.log(replaceString);
+          // console.log(plain);
+
+          replaceString = '<a class="lightboximgwrap" href="' + src + '">' + plain + '</a>';
+
+          console.log(replaceString);
 
           $(this).replaceWith(replaceString);
 

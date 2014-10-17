@@ -2,6 +2,8 @@
 title: Résumé
 sequence: 4
 template: default.hbs
+published: true
+lightbox: true
 ---
 
 <a class="btn btn-primary btn-block btn-lg" role="button" href="/static/resume/resume.pdf" target="_blank"><i class="fa fa-download"></i>&nbsp;&nbsp;Download PDF</a>
