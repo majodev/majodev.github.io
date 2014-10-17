@@ -1,0 +1,255 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Deedy - One Page Two Column Resume
+% LaTeX Template
+% Version 1.2 (16/9/2014)
+%
+% Original author:
+% Debarghya Das (http://debarghyadas.com)
+%
+% Original repository:
+% https://github.com/deedydas/Deedy-Resume
+%
+% IMPORTANT: THIS TEMPLATE NEEDS TO BE COMPILED WITH XeLaTeX
+%
+% This template uses several fonts not included with Windows/Linux by
+% default. If you get compilation errors saying a font is missing, find the line
+% on which the font is used and either change it to a font included with your
+% operating system or comment the line out to use the default font.
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 
+% TODO:
+% 1. Integrate biber/bibtex for article citation under publications.
+% 2. Figure out a smoother way for the document to flow onto the next page.
+% 3. Add styling information for a "Projects/Hacks" section.
+% 4. Add location/address information
+% 5. Merge OpenFont and MacFonts as a single sty with options.
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% CHANGELOG:
+% v1.1:
+% 1. Fixed several compilation bugs with \renewcommand
+% 2. Got Open-source fonts (Windows/Linux support)
+% 3. Added Last Updated
+% 4. Move Title styling into .sty
+% 5. Commented .sty file.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Known Issues:
+% 1. Overflows onto second page if any column's contents are more than the
+% vertical limit
+% 2. Hacky space on the first bullet point on the second column.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\documentclass[]{deedy-resume}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%     LAST UPDATED DATE
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\lastupdated
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%     TITLE NAME
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\namesection{Mario}{Ranftl}{
+\href{mailto:mario@ranf.tl}{mario@ranf.tl} | +43 (0)664 22 66 295 \\
+\urlstyle{same}\url{http://ranf.tl}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%     COLUMN ONE
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{minipage}[t]{0.36\textwidth} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     EDUCATION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Education} 
+\subsection[Master in Information Management]{\texorpdfstring{Master in Information\\Management}{Master in Information Management}}
+% \subsection{Master in Information Management}
+\descript{Diplom-Ingenieur für technisch-wissenschaftliche Berufe (DI, MSc equivalent)}
+% Information management master degree programme\\
+\location{graduated January 2014}
+\location{FH JOANNEUM Graz, Austria\\
+GPA: 3.85 / 4.0\\
+Austrian weighted mean: 1.6}
+\sectionsep
+
+\subsection[Bachelor in Information Management]{\texorpdfstring{Bachelor in Information\\Management}{Bachelor in Information Management}}
+% \subsection{Bachelor in Information Management}
+\descript{Bachelor of Science in Engineering (BSc)}
+% Information management bachelor degree programme\\
+\location{graduated September 2011}
+\location{FH JOANNEUM Graz, Austria\\
+GPA: 3.43 / 4.0 \\
+Austrian weighted mean: 2.2}
+\sectionsep
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     COURSEWORK
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Coursework}
+Digital Media Technologies\\ %\emph{+ Practicum}
+Software Engineering\\ %\emph{+ Internship}
+Business Administration\\
+Project Management\\
+Network \& IT Security\\
+Enterprise Architecture\\
+ICT Applications\\
+Operating Systems\\
+Data Modelling \& Systems\\
+Scientific Research Methods\\
+Soft \& Presentation Skills\\
+English Language Training\\
+\sectionsep
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     SKILLS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Programming Skills}
+% \subsection{Expert}
+\location{Advanced:}
+JavaScript/Node.js \textbullet{} AS3/Flex \textbullet{} VB\\
+HTML \textbullet{} Handlebars \textbullet{} Markdown\\
+CSS \textbullet{} LESS\\
+\location{Familiar:}
+% \subsection{Advanced}
+Java \textbullet{} PHP \textbullet{} SQL \textbullet{} Bash \textbullet{} C \textbullet{} \LaTeX\\
+% \location{Familiar:}
+% \subsection{Familiar}
+% \LaTeX \vspace{1 mm} \textbullet{} Python \textbullet{} C++ \textbullet{} C\#\\
+% \location{Tools:}
+% \subsection{Tools}
+% Git \textbullet{} SVN \textbullet{} Sublime Text \textbullet{} Eclipse\\
+\sectionsep
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     LANGUAGES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Languages} 
+German - native speaker\\
+English - C2\\
+\sectionsep
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     SOCIAL
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Social} 
+GitHub:// \href{https://github.com/majodev}{\bf majodev} \\
+Twitter:// \href{https://twitter.com/majodev}{\bf @majodev} \\
+LinkedIn:// \href{https://www.linkedin.com/in/marioranftl}{\bf in/marioranftl} \\
+% YouTube://  \href{https://www.youtube.com/user/majodev}{\bf majodev} \\
+\sectionsep
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%     COLUMN TWO
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{minipage} 
+\hfill
+\begin{minipage}[t]{0.63\textwidth} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     SUMMARY
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Summary}
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+\sectionsep
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     EXPERIENCE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Experience}
+
+\runsubsection{Renner Institut Stmk}
+\descript{| Workshop Presenter }
+\location{April 2013 (contract for services) | Graz, Austria}
+\vspace{\topsep} % Hacky fix for awkward extra vertical space
+\begin{tightemize}
+\item Held the workshop ``Social Media Marketing'' with a fellow student
+\item Planned an all-day seminar covering Web 2.0, social media platforms, marketing strategies, security and privacy 
+\end{tightemize}
+\sectionsep
+
+\runsubsection{FH JOANNEUM}
+\descript{| Developer \& Project Management Assistent}
+\location{October 2012 – April 2013 (contract for services) | Graz, Austria}
+\begin{tightemize}
+\item Planned and implemented an extensible framework in AS3/Flex to support the development of several interactive exhibits
+\item Held hands-on workshops with internal personnel \& coordinated workload client and external personnel of several involved parties
+\item Developed 20 interactive exhibits (software, hardware and maintenance) for a permanent exhibition at Universalmuseum Joanneum GmbH, Graz, Austria
+\end{tightemize}
+\sectionsep
+
+\runsubsection{FH JOANNEUM}
+\descript{| Developer \& Show Presenter}
+\location{August 2012 – September 2012 (contract for services) | Graz, Austria}
+\begin{tightemize}
+\item Developed and presented the interactive application ``WISP'' at Märklin’s Open Days September 2012, Göppingen, Germany
+\item WISP was implemented in AS3/Flex and used Microsoft's Kinect as primary input device
+\end{tightemize}
+\sectionsep
+
+\runsubsection{Management Partners}
+\descript{| Developer}
+\location{February 2011 – April 2011 (3 month internship) | Graz, Austria}
+\begin{tightemize}
+\item Planned and developed several components for their e-health application ``ICOsys''
+\item Implemented an automated dependency analysis for Microsoft Access components and a backup system that exports reports to PDF
+\end{tightemize}
+\sectionsep
+
+\runsubsection{Stahl- und Walzwerk Marienhütte}
+\descript{| IT Assistent}
+\location{every August from 2005 – 2008 (holiday job) | Graz, Austria}
+\begin{tightemize}
+\item Implemented several software components to support their internal logistics process
+\end{tightemize}
+\sectionsep
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     PROJECTS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Open Source Projects on GitHub} 
+\begin{tabular}{rll}
+September 2014  & ranf.tl      & personal site and blog\\
+May 2014	      & SJgrabber    & TV show link grabber (desktop app)\\
+January 2014    & Physiogame   & master thesis project (desktop app)\\
+\end{tabular}
+\sectionsep
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     INTERESTS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Interests} 
+Software Design \& Implementation \textbullet{} Open Source \textbullet{} Collaboration \textbullet{} Usability\\
+Patterns \textbullet{} Automation \& Deployment \textbullet{} Back- \& Frontend \textbullet{} Cloud Computing
+\sectionsep
+
+
+\end{minipage} 
+\end{document}  \documentclass[]{article}

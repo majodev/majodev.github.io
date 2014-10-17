@@ -4,9 +4,9 @@ sequence: 4
 template: default.hbs
 ---
 
-<a class="btn btn-primary btn-block btn-lg" role="button" href="https://dl.dropboxusercontent.com/u/2624630/resume_test.pdf" target="_blank"><i class="fa fa-download"></i>&nbsp;&nbsp;Download PDF</a>
+<a class="btn btn-primary btn-block btn-lg" role="button" href="/static/resume/resume.pdf" target="_blank"><i class="fa fa-download"></i>&nbsp;&nbsp;Download PDF</a>
 
-![resume picture](resume.png)
+![resume picture](/static/resume/resume.png)
 
 ####An image?!?
 *My Résumé is embedded as image here to reduce the risk my sensitive data being directly crawled by evil bots. Please download the PDF above to get a printable version.*

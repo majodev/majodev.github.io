@@ -75,6 +75,14 @@ module.exports = function(grunt) {
           interrupt: false,
           livereload: true
         }
+      },
+      "support-resume": {
+        files: ['support/static/resume/*.xtx'],
+        tasks: ['resume', "copy:support-static"],
+        options: {
+          interrupt: false,
+          livereload: true
+        }
       }
     },
     "http-server": {
@@ -107,6 +115,16 @@ module.exports = function(grunt) {
           nonull: true,
           src: "support/root/*",
           dest: "build/"
+        }]
+      },
+      "support-static": {
+        files: [{
+          expand: true,
+          flatten: false,
+          nonull: true,
+          cwd: "support/static/",
+          src: ["**/*.pdf", "**/*.png"],
+          dest: "build/static/"
         }]
       },
       "inject-fonts": {
@@ -144,7 +162,8 @@ module.exports = function(grunt) {
       build: ["build"],
       temporary: ["_tmp"],
       "gh-pages": [".grunt"],
-      "favicons": ["support/img/favicons", "templates/base/favicons.hbs"]
+      "favicons": ["support/img/favicons", "templates/base/favicons.hbs"],
+      latextempFiles: ["support/static/resume/*.aux", "support/static/resume/*.log", "support/static/resume/*.out"]
     },
     less: {
       development: {
@@ -363,6 +382,19 @@ module.exports = function(grunt) {
             cb();
           }
         }
+      },
+      "resume-pdf": {
+        command: [
+          "cd support/static/resume",
+          'xelatex resume.xtx', // requires latex distribution installed
+        ].join('&&')
+      },
+      "resume-png": {
+        command: [
+          "cd support/static/resume",
+          "sips -s format png resume.pdf --out resume.png" // osx only, via native sips task
+          // "convert -alpha off -density 400 -resize 35% resume.pdf resume.png" // requires imagemackis!
+        ].join('&&')
       }
     },
     browserify: {
@@ -512,6 +544,10 @@ module.exports = function(grunt) {
     "build-pre", "build-productive", "confirm:short", 'gh-pages'
   ]);
 
+  grunt.registerTask("resume", [
+    "clean:latextempFiles", "shell:resume-pdf", "shell:resume-png", 'clean:latextempFiles'
+  ]);
+
 
   // -- 
   // pre build task
@@ -541,7 +577,7 @@ module.exports = function(grunt) {
     "clean:build", "browserify:productive", "get-git-revision", "shell:commitCount",
     "execute:metalsmith-productive",
     "css-productive", "js-productive",
-    "htmlmin", "copy:support-root", "copy:support-img",
+    "htmlmin", "copy:support-root", "copy:support-img", "copy:support-static",
     "copy:inject-fonts", "xmlmin"
   ]);
 
