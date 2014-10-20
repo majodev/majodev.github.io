@@ -197,8 +197,7 @@ I am an IT generalist, more precisely an information management MSc BSc graduate
 \location{April 2013 (contract for services) | Graz, Austria}
 \vspace{10pt} % Hacky fix for awkward extra vertical space
 \begin{tightemize}
-\item Held the workshop ``Social Media Marketing'' with a fellow student
-\item Planned an all-day seminar covering Web 2.0, social media platforms, marketing strategies, security and privacy 
+\item Organized and held an all-day workshop ``Social Media Marketing'' together with a fellow student in front of nine participants at BFI Graz, Austria
 \end{tightemize}
 \sectionsep
 
@@ -206,9 +205,9 @@ I am an IT generalist, more precisely an information management MSc BSc graduate
 \descript{| Developer \& Project Management Assistent}
 \location{October 2012 – April 2013 (contract for services) | Graz, Austria}
 \begin{tightemize}
-\item Planned and implemented an extensible framework in AS3/Flex to support the development of several interactive exhibits
-\item Held hands-on workshops with internal personnel \& coordinated workload client and external personnel of several involved parties
-\item Developed 20 interactive exhibits (software, hardware and maintenance) for a permanent exhibition at Universalmuseum Joanneum GmbH, Graz, Austria
+\item Implemented 20 interactive exhibits for a permanent exhibition at Universalmuseum Joanneum GmbH, Graz, Austria
+\item Designed a core exhibit framework in AS3/Flex to enable fast prototyping, a unified user experience and decoupling logic from content (own CMS)
+\item Held three hands-on workshops with internal personnel and coordinated installation at the client
 \end{tightemize}
 \sectionsep
 
@@ -216,8 +215,8 @@ I am an IT generalist, more precisely an information management MSc BSc graduate
 \descript{| Developer \& Show Presenter}
 \location{August 2012 – September 2012 (contract for services) | Graz, Austria}
 \begin{tightemize}
-\item Developed and presented the interactive application ``WISP'' at Märklin’s Open Days September 2012, Göppingen, Germany
-\item WISP was implemented in AS3/Flex and used Microsoft's Kinect as primary input device
+\item Presented the interactive application ``WISP'' in front of 3000+ visitors at Märklin’s Open Days September 2012, Göppingen, Germany
+\item Conducted user studies to enhance usage of Microsoft's Kinect as primary input device and implemented WISP in AS3/Flex 
 \end{tightemize}
 \sectionsep
 
@@ -225,8 +224,8 @@ I am an IT generalist, more precisely an information management MSc BSc graduate
 \descript{| Developer}
 \location{February 2011 – April 2011 (3 month internship) | Graz, Austria}
 \begin{tightemize}
-\item Planned and developed several components for their e-health application ``ICOsys''
-\item Implemented an automated dependency analysis for Microsoft Access components and a backup system that exports reports to PDF
+\item Implemented several software components for their e-health application ``ICOsys''
+\item Supported their overall development process by developing an automating dependency analysis for Microsoft Access components and designed a failover backup system that exports medical reports to PDF
 \end{tightemize}
 \sectionsep
 
@@ -234,7 +233,7 @@ I am an IT generalist, more precisely an information management MSc BSc graduate
 \descript{| IT Assistent}
 \location{every August from 2005 – 2008 (holiday job) | Graz, Austria}
 \begin{tightemize}
-\item Implemented several software components to support their internal logistics process
+\item Enhanced the user interface of a Microsoft Access application and refined some software components to support their internal logistics process
 \end{tightemize}
 \sectionsep
 
