@@ -2,7 +2,7 @@
 title: Résumé
 sequence: 1
 template: default.hbs
-published: false
+published: true
 lightbox: true
 customMetaDescription: "Looking to hire Mario Ranftl? Here's his resume (embedded as PNG) and available to download as PDF."
 customMetaKeywords:
