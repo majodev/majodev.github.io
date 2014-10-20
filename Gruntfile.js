@@ -386,7 +386,7 @@ module.exports = function(grunt) {
       "resume-pdf": {
         command: [
           "cd support/static/resume",
-          'xelatex resume.xtx', // requires latex distribution installed
+          'xelatex -halt-on-error resume.xtx', // requires latex distribution installed
         ].join('&&')
       },
       "resume-png": {

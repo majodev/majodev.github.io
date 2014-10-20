@@ -1,7 +1,7 @@
 ---
 title: Media
 template: default.hbs
-sequence: 1
+sequence: 3
 published: true
 includeMetadata:
 - fileLinks.json
@@ -17,14 +17,14 @@ customMetaKeywords:
 ---
 
 <div class="row">
-  <div class="col-sm-6 col-xs-8 col-xs-offset-2 col-sm-offset-0">
+  <div class="col-sm-6 col-xs-10 col-xs-offset-1 col-sm-offset-0">
     {{#each fileLinks}}
       {{#if_even @index}}
         {{> mediaThumbnail}}
       {{/if_even}}
     {{/each}}
   </div>
-  <div class="col-sm-6 col-xs-8 col-xs-offset-2 col-sm-offset-0">
+  <div class="col-sm-6 col-xs-10 col-xs-offset-1 col-sm-offset-0">
     {{#each fileLinks}}
       {{#if_even @index}}
       {{else}}

@@ -1,6 +1,6 @@
 ---
 title: Résumé
-sequence: 4
+sequence: 1
 template: default.hbs
 published: false
 lightbox: true
@@ -33,4 +33,4 @@ customMetaKeywords:
 ![resume picture](/static/resume/resume.png)
 
 ####An image?!?
-*My Résumé is embedded as image here to reduce the risk of my sensitive data being crawled by evil bots. Please download the PDF to get the proper printable version.*
+*My résumé is embedded as image here to reduce the risk of my sensitive data being crawled by evil bots. Please download the PDF to get the proper printable version.*

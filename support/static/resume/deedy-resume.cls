@@ -17,6 +17,7 @@
 \usepackage[UKenglish]{babel}
 \usepackage[UKenglish]{isodate}
 \usepackage{fontspec,xltxtra,xunicode}
+\usepackage{enumitem} % EDIT package to remove identation from item lists
 
 % Cite publications
 \usepackage{cite}
@@ -79,6 +80,7 @@ Last Updated on
 \newcommand{\sectionsep}[0]{\vspace{8pt}}
 
 % Bullet Lists with fewer gaps command
-\newenvironment{tightemize}{\vspace{-\topsep}\begin{itemize}\itemsep1pt \parskip0pt \parsep0pt}{\end{itemize}\vspace{-\topsep}}
+\newenvironment{tightemize}{\vspace{-\topsep}\begin{itemize} \itemsep1pt \parskip0pt \parsep0pt}{\end{itemize}\vspace{-\topsep}}
 
+\setlist[itemize]{leftmargin=*} % EDIT remove intention from bulletlists
 

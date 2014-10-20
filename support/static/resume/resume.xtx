@@ -3,6 +3,9 @@
 % LaTeX Template
 % Version 1.2 (16/9/2014)
 %
+% Editor:
+% DI Mario Ranftl, BSc (http://ranf.tl)
+%
 % Original author:
 % Debarghya Das (http://debarghyadas.com)
 %
@@ -78,6 +81,8 @@
 %     EDUCATION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+% \footnote[1]{GPA calulated via \href{http://www.foreigncredits.com/Resources/GPA-Calculator/}{foreigncredits.com} }
+
 \section{Education} 
 \subsection[Master in Information Management]{\texorpdfstring{Master in Information\\Management}{Master in Information Management}}
 % \subsection{Master in Information Management}
@@ -85,7 +90,7 @@
 % Information management master degree programme\\
 \location{graduated January 2014}
 \location{FH JOANNEUM Graz, Austria\\
-GPA: 3.85 / 4.0\\
+GPA: 3.85 / 4.0 \\
 Austrian weighted mean: 1.6}
 \sectionsep
 
@@ -144,8 +149,8 @@ Java \textbullet{} PHP \textbullet{} SQL \textbullet{} Bash \textbullet{} C \tex
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Languages} 
-German - native speaker\\
-English - C2\\
+German: Native speaker\\
+English: Proficient user (C2/C1)
 \sectionsep
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -174,7 +179,11 @@ LinkedIn:// \href{https://www.linkedin.com/in/marioranftl}{\bf in/marioranftl} \
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Summary}
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+I am an IT generalist, more precisely an information management MSc BSc graduate with expertise in both technical and business management related fields of study. My passion is to design and develop maintainable open source software. I aspire to craft systems that shape and empower our society.
+
+% I am an information manager and hold a master's and bachelor's degree from FH JOANNEUM Austria. My studies helped me become an IT generalist and covered both technical and business related fields. My passion is to experiment with new , implement software solutions  
+
+% Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
 \sectionsep
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -186,7 +195,7 @@ Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod 
 \runsubsection{Renner Institut Stmk}
 \descript{| Workshop Presenter }
 \location{April 2013 (contract for services) | Graz, Austria}
-\vspace{\topsep} % Hacky fix for awkward extra vertical space
+\vspace{10pt} % Hacky fix for awkward extra vertical space
 \begin{tightemize}
 \item Held the workshop ``Social Media Marketing'' with a fellow student
 \item Planned an all-day seminar covering Web 2.0, social media platforms, marketing strategies, security and privacy 

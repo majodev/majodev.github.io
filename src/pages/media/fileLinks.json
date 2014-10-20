@@ -1,5 +1,9 @@
 {
   "fileLinks": [{
+    "name": "Résumé",
+    "url": "/static/resume/resume.pdf",
+    "pic": "/static/resume/resume.png"
+  }, {
     "name": "Master Thesis (german)",
     "url": "/static/masterthesis/Diplomarbeit_Mario_Ranftl.pdf",
     "pic": "/static/masterthesis/Diplomarbeit_Mario_Ranftl.png"
