@@ -54,9 +54,24 @@ function plugin(options) {
 
     });
 
-    // link tags to metalsmith global meta...
-    metalsmith.data[globalMetaKey] = _tags;
-    metalsmith.data[sortedMetaKey] = sortedTagsArray(_tags);
+    var metaObj = metalsmith.metadata();
+
+    if (_.isUndefined(metaObj[globalMetaKey]) === true) {
+      metaObj[globalMetaKey] = _tags;
+    } else {
+      console.error("cannot add global key " + globalMetaKey + " already exists");
+    }
+
+    if (_.isUndefined(metaObj[sortedMetaKey]) === true) {
+      metaObj[sortedMetaKey] = sortedTagsArray(_tags);
+    } else {
+      console.error("cannot add sorted key " + sortedMetaKey + " already exists");
+    }
+
+    // console.log(metalsmith.metadata());
+
+    // reappend global metadata...
+    metalsmith.metadata(metaObj);
   };
 }
 
@@ -66,12 +81,12 @@ function sortedTagsArray(_tags) {
   var index = 0;
 
   _.each(tags, function(tag) {
-    
+
     // get index to insert alphabetically
     index = _.sortedIndex(sortedTags, {
       tag: tag
     }, "tag");
-    
+
     // insert there...
     sortedTags.splice(index, 0, {
       tag: tag,

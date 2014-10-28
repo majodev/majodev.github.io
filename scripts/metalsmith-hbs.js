@@ -46,7 +46,7 @@ function plugin() {
       }
 
       var template = Handlebars.compile(data.contents.toString());
-      var str = template(mergeMeta(metalsmith.data, data, file));
+      var str = template(mergeMeta(metalsmith.metadata(), data, file));
       data.contents = new Buffer(str);
 
       delete files[file];
