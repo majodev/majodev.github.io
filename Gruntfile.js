@@ -11,6 +11,12 @@ module.exports = function(grunt) {
         },
         src: ["index.js"]
       },
+      "metalsmith-dev-noclean": {
+        options: {
+          args: ["--gitrevision", "commit/<%=grunt.option('gitRevision')%>", "--gitcommitcount", "<%=grunt.option('gitCommitCount')%>", "--noclean"]
+        },
+        src: ["index.js"]
+      },
       "metalsmith-productive": {
         options: {
           args: ["--productive", "--gitrevision", "commit/<%=grunt.option('gitRevision')%>", "--gitcommitcount", "<%=grunt.option('gitCommitCount')%>"]
@@ -38,7 +44,7 @@ module.exports = function(grunt) {
     watch: {
       "metalsmith": {
         files: ["src/**/*.*", "templates/**/*.*", "scripts/**/*.*", "index.js", "config.json"],
-        tasks: ["build-dev"],
+        tasks: ["execute:metalsmith-dev-noclean"],
         options: {
           interrupt: false,
           livereload: true

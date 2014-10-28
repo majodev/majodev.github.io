@@ -41,10 +41,13 @@ registerPartials("templates/blocks");
 // check commandline args if development version should be generated!
 var dev = argv.productive === true ? false : true;
 
+// check if run by watch task, don't clean?
+var clean = argv.noclean === true ? false : true;
+
 if (dev === false) {
-  console.log("-- metalsmith generates productive build...");
+  console.log("-- metalsmith generates productive build (clean=" + clean + ")");
 } else {
-  console.log("-- metalsmith generates development build...");
+  console.log("-- metalsmith generates development build (clean=" + clean + ")");
 }
 
 var absoluteUrl = "http://ranf.tl/";
@@ -70,6 +73,7 @@ Metalsmith(__dirname)
   })
   .source("./src")
   .destination("./build")
+  .clean(clean)
   .use(ignore([
     "**/.DS_Store"
   ]))
