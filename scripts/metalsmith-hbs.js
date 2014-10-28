@@ -15,7 +15,8 @@ module.exports = plugin;
 
 /**
  * Metalsmith plugin to complile handlebars files within src with current meta
- *
+ * appends global metalsmith and local file metadata to use handlebars
+ * directly inline of any html document (not only in templates)
  * @return {Function}
  */
 

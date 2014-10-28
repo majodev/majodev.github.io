@@ -15,18 +15,18 @@ customMetaKeywords:
 - open source
 - npm
 - github
-- metalsmith-wordcount
-- metalsmith-headingsidentifier
-- metalsmith-datamarkdown
+- metalsmith-word-count
+- metalsmith-headings-identifier
+- metalsmith-data-markdown
 - standalone
 ---
 
-[As promised][helloworld], lets break out my customized plugins I've used with [metalsmith][metalsmith] to build up this site. ~~This note will be a updated until I think the job is done.~~ OK, I'm done for now, my other plugins already exist in a less specialized or better way (UPDATE 3).
+[As promised][helloworld], lets break out my customized plugins I've used with [metalsmith][metalsmith] to build up this site. ~~This note will be a updated until I think the job is done.~~ ~~OK, I'm done for now, my other plugins already exist in a less specialized or better way (UPDATE 3).~~ Renamed them ([see this pull request](https://github.com/segmentio/metalsmith.io/pull/61)) in order to be allowed to publish them on [metalsmith.io][metalsmith] (UPDATE 4).
 
 I've published these plugins:
-- [metalsmith-wordcount](#metalsmith-wordcount)
-- [metalsmith-headingsidentifier](#metalsmith-headingsidentifier) (UPDATE 1)
-- [metalsmith-datamarkdown](#metalsmith-datamarkdown) (UPDATE 2)
+- [metalsmith-word-count](#metalsmith-word-count)
+- [metalsmith-headings-identifier](#metalsmith-headings-identifier) (UPDATE 1)
+- [metalsmith-data-markdown](#metalsmith-data-markdown) (UPDATE 2)
 
 ### How to extract logic into standalone packages
 
@@ -37,23 +37,23 @@ Before publishing, my custom metalsmith plugins lived in their respective `metal
 4. `npm link` your new package to temporary [locally use it within your root project][localpkg].
 5. Test and [finally publish it][pubnpm].
 
-### metalsmith-wordcount
-Are you curious about how the word count and estimated reading time are computed on my site? It's done via my plugin [metalsmith-wordcount][metalsmith-wordcount-github]. It calculates the wordcount and average reading time of all paragraphs in a HTML file.
+### metalsmith-word-count
+Are you curious about how the word count and estimated reading time are computed on my site? It's done via my plugin [metalsmith-word-count][metalsmith-word-count-github]. It calculates the wordcount and average reading time of all paragraphs in a HTML file.
 
-[install from npm][metalsmith-wordcount-npm] · [source on github][metalsmith-wordcount-github]
+[install from npm][metalsmith-word-count-npm] · [source on github][metalsmith-word-count-github]
 
-### metalsmith-headingsidentifier
-Do you want to automatically turn your markdown headings (`h1-h6`) into clickable permalinks? Then grab [metalsmith-headingsidentifier][metalsmith-headingsidentifier-github]. This idea is originally by [Remy Sharp](http://remysharp.com/2014/08/08/automatic-permalinks-for-blog-posts), with the difference, that it's now done during generation time with [metalsmith][metalsmith].
+### metalsmith-headings-identifier
+Do you want to automatically turn your markdown headings (`h1-h6`) into clickable permalinks? Then grab [metalsmith-headings-identifier][metalsmith-headings-identifier-github]. This idea is originally by [Remy Sharp](http://remysharp.com/2014/08/08/automatic-permalinks-for-blog-posts), with the difference, that it's now done during generation time with [metalsmith][metalsmith].
 
 ![headingsidentifier example picture](headingsidentifierSample.png)
 
-[install from npm][metalsmith-headingsidentifier-npm] · [source on github][metalsmith-headingsidentifier-github]
+[install from npm][metalsmith-headings-identifier-npm] · [source on github][metalsmith-headings-identifier-github]
 
-### metalsmith-datamarkdown
+### metalsmith-data-markdown
 
 [Inspired by Paul Irish's work](https://gist.github.com/paulirish/1343518) to use markdown within HTML tags, here comes *"something similar" (not as sophisticated)* wrapped in a metalsmith plugin. Now you can use `data-markdown` attributes to identify tags, that wrap markdown content and need to be converted to HTML during generation time.
 
-[install from npm][metalsmith-datamarkdown-npm] · [source on github][metalsmith-datamarkdown-github]
+[install from npm][metalsmith-data-markdown-npm] · [source on github][metalsmith-data-markdown-github]
 
 ### Further reading
 
@@ -63,14 +63,14 @@ Do you want to automatically turn your markdown headings (`h1-h6`) into clickabl
 
 <!-- libs -->
 
-[metalsmith-wordcount-npm]: https://www.npmjs.org/package/metalsmith-wordcount "metalsmith-wordcount on npm"
-[metalsmith-wordcount-github]: https://github.com/majodev/metalsmith-wordcount "metalsmith-wordcount on github"
+[metalsmith-word-count-npm]: https://www.npmjs.org/package/metalsmith-word-count "metalsmith-word-count on npm"
+[metalsmith-word-count-github]: https://github.com/majodev/metalsmith-word-count "metalsmith-word-count on github"
 
-[metalsmith-headingsidentifier-npm]: https://www.npmjs.org/package/metalsmith-headingsidentifier "metalsmith-headingsidentifier on npm"
-[metalsmith-headingsidentifier-github]: https://github.com/majodev/metalsmith-headingsidentifier "metalsmith-headingsidentifier on github"
+[metalsmith-headings-identifier-npm]: https://www.npmjs.org/package/metalsmith-headings-identifier "metalsmith-headings-identifier on npm"
+[metalsmith-headings-identifier-github]: https://github.com/majodev/metalsmith-headings-identifier "metalsmith-headings-identifier on github"
 
-[metalsmith-datamarkdown-npm]: https://www.npmjs.org/package/metalsmith-datamarkdown "metalsmith-datamarkdown on npm"
-[metalsmith-datamarkdown-github]: https://github.com/majodev/metalsmith-datamarkdown "metalsmith-datamarkdown on github"
+[metalsmith-data-markdown-npm]: https://www.npmjs.org/package/metalsmith-data-markdown "metalsmith-data-markdown on npm"
+[metalsmith-data-markdown-github]: https://github.com/majodev/metalsmith-data-markdown "metalsmith-data-markdown on github"
 
 
 <!-- internal links -->
