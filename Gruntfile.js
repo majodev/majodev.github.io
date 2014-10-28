@@ -42,53 +42,34 @@ module.exports = function(grunt) {
       }
     },
     watch: {
+      options: {
+        interrupt: false,
+        livereload: true,
+        spawn: false
+      },
       "metalsmith": {
         files: ["src/**/*.*", "templates/**/*.*", "scripts/**/*.*", "index.js", "config.json"],
-        tasks: ["execute:metalsmith-dev-noclean"],
-        options: {
-          interrupt: false,
-          livereload: true
-        }
+        tasks: ["execute:metalsmith-dev-noclean"]
       },
       "support-less": {
         files: ["support/less/**/*.*"],
-        tasks: ["less:development"],
-        options: {
-          interrupt: false,
-          livereload: true
-        }
+        tasks: ["less:development"]
       },
       "support-root": {
         files: ["support/root/**/*.*"],
-        tasks: ["copy:support-root"],
-        options: {
-          interrupt: false,
-          livereload: true
-        }
+        tasks: ["copy:support-root"]
       },
       "support-img": {
         files: ["support/img/**/*.*"],
-        tasks: ["copy:support-img"],
-        options: {
-          interrupt: false,
-          livereload: true
-        }
+        tasks: ["copy:support-img"]
       },
       "support-js": {
         files: ["support/js/**/*.*"],
-        tasks: ["browserify:dev", "copy:inject-js"],
-        options: {
-          interrupt: false,
-          livereload: true
-        }
+        tasks: ["browserify:dev", "copy:inject-js"]
       },
       "support-resume": {
         files: ['support/static/resume/*.xtx'],
-        tasks: ['resume', "copy:support-static"],
-        options: {
-          interrupt: false,
-          livereload: true
-        }
+        tasks: ['resume', "copy:support-static"]
       }
     },
     "http-server": {
