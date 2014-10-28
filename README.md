@@ -59,10 +59,15 @@ These tasks must be run manually.
 
 ### Check for 404 links
 **Important:** needs [capsperjs](http://casperjs.org/) installed globally!
-
 ```bash
   npm install -g casperjs #install casperjs globally
   grunt linkcheck
+```
+
+### Rebuild resume
+**Important:** Needs to be run on a Mac with working [MacTeX](https://tug.org/mactex/) installation. Uses fonts and `sips` from the Apple ecosystem.
+```bash
+  grunt resume
 ```
 
 ## License
