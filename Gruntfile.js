@@ -446,7 +446,7 @@ module.exports = function(grunt) {
       src: '**/*'
     },
     confirm: {
-      long: {
+      'long': {
         options: {
           question: "Publish commit <%=grunt.option('gitRevision')%>?\n(type 'PUBLISH' to continue)",
           continue: function(answer) {
@@ -454,7 +454,7 @@ module.exports = function(grunt) {
           }
         }
       },
-      short: {
+      'short': {
         options: {
           question: "Publish commit <%=grunt.option('gitRevision')%>?\n(ENTER to continue)",
           continue: function(answer) {
