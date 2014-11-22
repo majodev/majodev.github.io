@@ -64,11 +64,11 @@ These tasks must be run manually.
   grunt linkcheck
 ```
 
-### Rebuild resume
+<!-- ### Rebuild resume
 **Important:** Needs to be run on a Mac with working [MacTeX](https://tug.org/mactex/) installation. Uses fonts and `sips` from the Apple ecosystem.
 ```bash
   grunt resume
-```
+``` -->
 
 ## License
 [See `LICENSE.md` for detailed information](https://github.com/majodev/majodev.github.io/blob/source/LICENSE.md)

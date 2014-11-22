@@ -67,10 +67,10 @@ module.exports = function(grunt) {
         files: ["support/js/**/*.*"],
         tasks: ["browserify:dev", "copy:inject-js"]
       },
-      "support-resume": {
-        files: ['support/static/resume/*.xtx'],
-        tasks: ['resume', "copy:support-static"]
-      }
+      // "support-resume": {
+      //   files: ['support/static/resume/*.xtx'],
+      //   tasks: ['resume', "copy:support-static"]
+      // }
     },
     "http-server": {
       dev: {
@@ -150,7 +150,7 @@ module.exports = function(grunt) {
       temporary: ["_tmp"],
       "gh-pages": [".grunt"],
       "favicons": ["support/img/favicons", "templates/base/favicons.hbs"],
-      latextempFiles: ["support/static/resume/*.aux", "support/static/resume/*.log", "support/static/resume/*.out"]
+      // latextempFiles: ["support/static/resume/*.aux", "support/static/resume/*.log", "support/static/resume/*.out"]
     },
     less: {
       development: {
@@ -370,19 +370,19 @@ module.exports = function(grunt) {
           }
         }
       },
-      "resume-pdf": {
-        command: [
-          "cd support/static/resume",
-          'xelatex -halt-on-error resume.xtx', // requires latex distribution installed
-        ].join('&&')
-      },
-      "resume-png": {
-        command: [
-          "cd support/static/resume",
-          "sips -s format png resume.pdf --out resume.png" // osx only, via native sips task
-          // "convert -alpha off -density 400 -resize 35% resume.pdf resume.png" // requires imagemackis!
-        ].join('&&')
-      }
+      // "resume-pdf": {
+      //   command: [
+      //     "cd support/static/resume",
+      //     'xelatex -halt-on-error resume.xtx', // requires latex distribution installed
+      //   ].join('&&')
+      // },
+      // "resume-png": {
+      //   command: [
+      //     "cd support/static/resume",
+      //     "sips -s format png resume.pdf --out resume.png" // osx only, via native sips task
+      //     // "convert -alpha off -density 400 -resize 35% resume.pdf resume.png" // requires imagemackis!
+      //   ].join('&&')
+      // }
     },
     browserify: {
       dev: {
@@ -531,9 +531,9 @@ module.exports = function(grunt) {
     "build-pre", "build-productive", "confirm:short", 'gh-pages'
   ]);
 
-  grunt.registerTask("resume", [
-    "clean:latextempFiles", "shell:resume-pdf", "shell:resume-png", 'clean:latextempFiles'
-  ]);
+  // grunt.registerTask("resume", [
+  //   "clean:latextempFiles", "shell:resume-pdf", "shell:resume-png", 'clean:latextempFiles'
+  // ]);
 
 
   // -- 
