@@ -370,6 +370,14 @@ module.exports = function(grunt) {
           }
         }
       },
+      "cv": {
+        command: [
+          "cd support/static/CV",
+          "sips -s format png CV.pdf --out CV.png" // osx only, via native sips task
+          // "convert -alpha off -density 400 -resize 35% resume.pdf resume.png" // requires imagemackis!
+        ].join('&&')
+      }
+
       // "resume-pdf": {
       //   command: [
       //     "cd support/static/resume",

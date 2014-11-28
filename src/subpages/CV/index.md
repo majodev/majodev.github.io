@@ -28,7 +28,7 @@ customMetaKeywords:
 - pdf
 ---
 
-<a class="btn btn-primary btn-block btn-lg" role="button" href="/static/CV/CV.pdf" target="_blank"><i class="fa fa-download"></i>&nbsp;&nbsp;Download PDF (2 pages)</a>
+<a class="btn btn-primary btn-block btn-lg" role="button" href="/static/CV/CV.pdf" target="_blank"><i class="fa fa-download"></i>&nbsp;&nbsp;Download PDF</a>
 
 ![CV picture](/static/CV/CV.png)
 
