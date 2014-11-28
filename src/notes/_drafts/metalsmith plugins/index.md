@@ -3,6 +3,7 @@ title: My metalsmith plugins
 tags:
 - javascript
 published: false
+date: 2014-08-31
 ---
 
 Early in the process of developing this website with **[metalsmith][metalsmith]** - *a static site generator* - I came to the conclusion, that some functionalities, that I really needed, cannot be fulfilled by any publicly available metalsmith plugin ([and there are many](http://www.metalsmith.io/#the-plugins)). Luckily, it's dead fucking easy to customize the metalsmith pipeline. Actually, it's that freaking easy, I finally ended up with XXX (*yes, xxxx*) custom written plugins, which I want to share with you here!

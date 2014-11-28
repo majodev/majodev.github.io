@@ -1,11 +1,12 @@
 ---
 uid: note_extracting_libs_node_projects
-title: Extracting libs from a node.js project
-subtitle: Publishing my metalsmith plugins (UPDATE 3)
+title: Extracting Libs from a Node.js Project
+subtitle: Publishing my Metalsmith Plugins (UPDATE 3)
 date: 2014-10-01
 published: true
 tags:
 - javascript
+- programming
 related:
 - note_hello_world
 lightbox: true
@@ -21,7 +22,7 @@ customMetaKeywords:
 - standalone
 ---
 
-[As promised][helloworld], lets break out my customized plugins I've used with [metalsmith][metalsmith] to build up this site. ~~This note will be a updated until I think the job is done.~~ ~~OK, I'm done for now, my other plugins already exist in a less specialized or better way (UPDATE 3).~~ Renamed them ([see this pull request](https://github.com/segmentio/metalsmith.io/pull/61)) in order to be allowed to publish them on [metalsmith.io][metalsmith] (UPDATE 4).
+[As promised][helloworld], lets break out my customized plugins I've used with [metalsmith][metalsmith] to build up this site. I had to rename them ([see this pull request](https://github.com/segmentio/metalsmith.io/pull/61)) in order to be allowed to publish them on [metalsmith.io][metalsmith] (UPDATE 4).
 
 I've published these plugins:
 - [metalsmith-word-count](#metalsmith-word-count)

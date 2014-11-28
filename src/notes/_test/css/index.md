@@ -1,6 +1,7 @@
 ---
 uid: note_test_css
 title: Test Custom Css Support
+date: 2014-08-31
 tags:
 - testing
 styles:

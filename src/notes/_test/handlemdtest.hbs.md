@@ -2,6 +2,7 @@
 uid: notes_test_markdownhbs
 title: Handlebars Combi Markdown
 customWorld: Universe
+date: 2014-08-31
 tags:
 - testing
 ---

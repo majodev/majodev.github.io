@@ -1,5 +1,6 @@
 ---
 title: Loading non ajaxed page
+date: 2014-08-31
 tags:
 - testing
 ---

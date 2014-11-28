@@ -1,7 +1,7 @@
 ---
 uid: note_test_anchor
 title: Lorem ipsum text
-date: 2014-07-30
+date: 2014-08-31
 tags:
 - testing
 related:

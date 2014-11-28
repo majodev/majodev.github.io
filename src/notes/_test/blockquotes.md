@@ -1,6 +1,7 @@
 ---
 uid: note_test_blockquotes
 title: My favourite quotes
+date: 2014-08-31
 tags: 
 - testing
 related:
