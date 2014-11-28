@@ -43,8 +43,8 @@ $ ln -sv /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/De
 $ ./configure --prefix=/usr/local
 
 # Run Make and make install (permission error? add sudo!) in valgrind-trunk
-$ ./make
-$ ./make install
+$ make
+$ make install
 
 # Check it works
 $ valgrind --version
