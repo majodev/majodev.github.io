@@ -1,7 +1,7 @@
 ---
 uid: note_extracting_libs_node_projects
 title: Extracting Libs from a Node.js Project
-subtitle: Publishing my Metalsmith Plugins (UPDATE 3)
+subtitle: Publishing my Metalsmith Plugins
 date: 2014-10-01
 published: true
 tags:
@@ -22,12 +22,12 @@ customMetaKeywords:
 - standalone
 ---
 
-[As promised][helloworld], lets break out my customized plugins I've used with [metalsmith][metalsmith] to build up this site. I had to rename them ([see this pull request](https://github.com/segmentio/metalsmith.io/pull/61)) in order to be allowed to publish them on [metalsmith.io][metalsmith] (UPDATE 4).
+[As promised][helloworld], lets break out my customized plugins I've used with [metalsmith][metalsmith] to build up this site. I had to rename them ([see this pull request](https://github.com/segmentio/metalsmith.io/pull/61)) in order to be allowed to publish them on [metalsmith.io][metalsmith].
 
 I've published these plugins:
 - [metalsmith-word-count](#metalsmith-word-count)
-- [metalsmith-headings-identifier](#metalsmith-headings-identifier) (UPDATE 1)
-- [metalsmith-data-markdown](#metalsmith-data-markdown) (UPDATE 2)
+- [metalsmith-headings-identifier](#metalsmith-headings-identifier)
+- [metalsmith-data-markdown](#metalsmith-data-markdown)
 
 ### How to extract logic into standalone packages
 
