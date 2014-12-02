@@ -462,14 +462,14 @@ module.exports = function(grunt) {
           }
         }
       },
-      'short': {
-        options: {
-          question: "Publish commit <%=grunt.option('gitRevision')%>?\n(ENTER to continue)",
-          continue: function(answer) {
-            return true;
-          }
-        }
-      }
+      // 'short': {
+      //   options: {
+      //     question: "Publish commit <%=grunt.option('gitRevision')%>?\n(ENTER to continue)",
+      //     continue: function(answer) {
+      //       return true;
+      //     }
+      //   }
+      // }
     },
     favicons: {
       options: {
@@ -536,7 +536,7 @@ module.exports = function(grunt) {
   ]);
 
   grunt.registerTask("publish", [
-    "build-pre", "build-productive", "confirm:short", 'gh-pages'
+    "build-pre", "build-productive", 'gh-pages'
   ]);
 
   // grunt.registerTask("resume", [
