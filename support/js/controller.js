@@ -6,6 +6,7 @@ var disqus = require("./plugins/disqus");
 var cheat = require("./sugar/cheat");
 var stopPageScripts = require("./sugar/stopPageScripts");
 var cssInjector = require("./sugar/cssInjector");
+var linksTargetBlank = require("./sugar/linksTargetBlank");
 var decryptEmail = require("./sugar/decryptEmail");
 var analytics = require("./plugins/analytics");
 
@@ -16,6 +17,7 @@ function init() {
   uiHandler.init();
   disqus.init();
   analytics.init();
+  linksTargetBlank();
 }
 
 ajaxHandler.on("beforePageExchange", function(options) {
@@ -59,6 +61,7 @@ ajaxHandler.on("pageExchanged", function(options) {
   uiHandler.init();
   analytics.pageview(options.path, options.title);
   disqus.reset();
+  linksTargetBlank();
 });
 
 ajaxHandler.on("loadingStart", function() {
