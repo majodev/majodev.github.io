@@ -16,7 +16,7 @@ var $body = $(document.body);
 var $html = $("html");
 var $header; // initialized @ init()
 var defaultNavStyleOverwritten = false;
-var headroomEnabled = false;
+// var headroomEnabled = false;
 
 
 var startup = _.once(function() { // do this only once
@@ -26,7 +26,8 @@ var startup = _.once(function() { // do this only once
 function init() { // called per page ajax refresh and on init!
   startup();
 
-  initHeadroom();
+  $header = $(HEADER_CLASS);
+  // initHeadroom();
   initHeadNav();
   initFooterSmily();
   lightbox.init();
@@ -48,18 +49,18 @@ function initFooterSmily() {
   });
 }
 
-function initHeadroom() {
-  $header = $(HEADER_CLASS);
-  if (Headroom.cutsTheMustard) {
-    headroomEnabled = true;
-    // `Headroom.cutsTheMustard` is only true if browser supports all features required by headroom.
-    // By guarding your code with this condition, the widget will safely degrade
-    // https://github.com/WickyNilliams/headroom.js/issues/64
-    $header.headroom({
-      offset: 0
-    });
-  }
-}
+// function initHeadroom() {
+//   $header = $(HEADER_CLASS);
+//   if (Headroom.cutsTheMustard) {
+//     headroomEnabled = true;
+//     // `Headroom.cutsTheMustard` is only true if browser supports all features required by headroom.
+//     // By guarding your code with this condition, the widget will safely degrade
+//     // https://github.com/WickyNilliams/headroom.js/issues/64
+//     $header.headroom({
+//       offset: 0
+//     });
+//   }
+// }
 
 function initHeadNav() {
   // http://stackoverflow.com/questions/16680543/hide-twitter-bootstrap-nav-collapse-on-click
@@ -70,7 +71,7 @@ function initHeadNav() {
   });
 
   $('.navbar').on('show.bs.collapse', function() {
-    forceHeadroomShow();
+    // forceHeadroomShow();
     $header.velocity({
       backgroundColorAlpha: DEFAULT_NAV_OPACITY_FOCUS
     }, {
@@ -79,7 +80,7 @@ function initHeadNav() {
   });
 
   $('.navbar').on('hide.bs.collapse', function() {
-    unforceHeadroomShow();
+    // unforceHeadroomShow();
     $header.removeAttr('style');
   });
 
@@ -105,24 +106,24 @@ function initHeadNav() {
   }
 }
 
-function forceHeadroomShow() {
-  if (headroomEnabled) {
-    $header.addClass("headroom-forceShow");
-  }
-}
+// function forceHeadroomShow() {
+//   if (headroomEnabled) {
+//     $header.addClass("headroom-forceShow");
+//   }
+// }
 
-function unforceHeadroomShow() {
-  if (headroomEnabled) {
-    $header.removeClass("headroom-forceShow");
-  }
-}
+// function unforceHeadroomShow() {
+//   if (headroomEnabled) {
+//     $header.removeClass("headroom-forceShow");
+//   }
+// }
 
-function showHeadroomNow() { // bug, does not always work!
-  if (headroomEnabled) {
-    $header.addClass("headroom--pinned");
-    $header.removeClass("headroom--unpinned");
-  }
-}
+// function showHeadroomNow() { // bug, does not always work!
+//   if (headroomEnabled) {
+//     $header.addClass("headroom--pinned");
+//     $header.removeClass("headroom--unpinned");
+//   }
+// }
 
 var loadingTimeout;
 
@@ -132,7 +133,7 @@ function setPageLoading(value) {
     hackSafariToShowFillColorAnim();
     clearTimeout(loadingTimeout);
     $body.addClass('loading');
-    forceHeadroomShow();
+    // forceHeadroomShow();
   } else {
     NProgress.done(true);
     loadingTimeout = setTimeout(function() {
@@ -182,7 +183,7 @@ function scrollToAnchor(anchorname, callback) {
       $anchor.one('webkitAnimationEnd oanimationend msAnimationEnd animationend', function(e) {
         $anchor.removeClass("targetAnimation");
       });
-      showHeadroomNow();
+      // showHeadroomNow();
       if (_.isFunction(callback) === true) {
         callback(null);
       }

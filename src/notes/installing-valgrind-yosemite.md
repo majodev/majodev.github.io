@@ -1,7 +1,6 @@
 ---
 uid: valgrind-yosemite
 title: Valgrind on Mac OS X 10.10 Yosemite
-subtitle: Install procedure (SVN trunk unstable)
 date: 2014-11-28
 published: true
 tags:

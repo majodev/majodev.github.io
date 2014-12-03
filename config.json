@@ -24,8 +24,6 @@
       "node_modules/jquery/dist/jquery.js",
       "node_modules/velocity-animate/velocity.js",
       "node_modules/fastclick/lib/fastclick.js",
-      "node_modules/headroom.js/dist/headroom.js",
-      "node_modules/headroom.js/dist/jQuery.headroom.js",
       "node_modules/bootstrap/js/transition.js",
       "node_modules/bootstrap/js/collapse.js",
       "node_modules/bootstrap/js/tooltip.js",

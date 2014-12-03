@@ -10,7 +10,8 @@ module.exports = {
     });
 
     // support for vh (e.g. 100 viewport height) in ios7 and ie8
-    viewportUnitsBuggyfill.init({contentHack: true}); 
+    // viewportUnitsBuggyfill.init({contentHack: true}); 
+    viewportUnitsBuggyfill.init(); 
 
     NProgress.configure({
       showSpinner: false

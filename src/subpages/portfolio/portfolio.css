@@ -2,6 +2,10 @@
 
 .portfolioHeader { 
   background: rgba(5,5,5, 0.03);
+  position: fixed;
+  top: 0px;
+  z-index: 1033;
+  width: 100%;
 }
 
 .portfolioHeader .navbar-nav li a, 
