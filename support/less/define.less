@@ -32,15 +32,15 @@
 @color-nav-bg-hover: fade(mix(@color-main-2, #00f, 99%), 20%); // mobile only //fade(mix(@color-main-2, #00f, 99%), 20%);
 @color-nav-hover-desktop: @color-links;
 
-// select
-@color-text-selection-bg: @color-links-alternative; //#d33682; //fade(@color-main-1, 30%);
-@color-text-selection: white;
-@color-text-selection-bg-unfocused: fade(@color-text-selection-bg, 50%);
-
 // text
 @color-text: #3d3d3d; //#516473;
 @color-head: #002b36; //#2d2d2d; //#516473;
 @color-first-character: @color-head;
+
+// select
+@color-text-selection-bg: @color-head; //@color-links-alternative; //#d33682; //fade(@color-main-1, 30%);
+@color-text-selection: @color-bg; //white;
+@color-text-selection-bg-unfocused: fade(@color-text-selection-bg, 75%);
 
 // footer
 @color-footer: @color-main-3;

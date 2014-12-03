@@ -13,7 +13,7 @@ customMetaKeywords:
 - installation
 ---
 
-You want to hack with C and [Valgrind](http://valgrind.org/) on OS X 10.10 Yosemite? Well, you'll definitely run into problems getting [Valgrind](http://valgrind.org/) for this very platform, as there is [no official stable release out there yet](http://sourceforge.net/p/valgrind/mailman/message/33047840/). Consequentially these is no receipt for [Homebrew](http://brew.sh/) (which is great anyways, get it!), hence you need to manually build that nifty tool  from the latest `trunk` SVN repository.
+You want to hack with C and [Valgrind](http://valgrind.org/) on OS X 10.10 Yosemite? Well, you'll definitely run into problems getting it for your very platform, as there is [no official stable release out there yet](http://sourceforge.net/p/valgrind/mailman/message/33047840/). Consequentially these is no receipt for [Homebrew](http://brew.sh/) (which is great anyways, get it!), hence you need to manually build that nifty tool  from the latest `trunk` SVN repository.
 
 Here's how to do that (needs installation of [Xcode Command Line Tools](http://railsapps.github.io/xcode-command-line-tools.html)):
 
