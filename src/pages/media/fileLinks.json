@@ -30,6 +30,13 @@
       "caption": "GitHub repo"
     }]
   }, {
+    "name": "Social Media Marketing",
+    "pic": "/static/SMM-workshop/SMM.jpg",
+    "links": [{
+      "url": "/static/SMM-workshop/SMM_public.pdf",
+      "caption": "PDF slides (German)"
+    }]
+  }, {
     "name": "Shell (UMJ Tech demo)",
     "pic": "/static/apps/shell/shell-gif-low.gif",
     "links": [{
