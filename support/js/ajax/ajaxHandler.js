@@ -78,7 +78,7 @@ AjaxHandler.prototype.init = function() {
 function jqueryLinkEvent(e) {
   var href = e.target.href;
 
-  console.log(e);
+  // console.log(e);
 
   if (_.isUndefined(href) === true) {
     href = e.currentTarget.href;
