@@ -78,12 +78,15 @@ AjaxHandler.prototype.init = function() {
 function jqueryLinkEvent(e) {
   var href = e.target.href;
 
+  console.log(e);
+
   if (_.isUndefined(href) === true) {
     href = e.currentTarget.href;
   }
 
   if (_.isUndefined(href) === false &&
     checkPreventAjax(href) === false &&
+    urlHelper.hasTargetBlank(e.currentTarget) === false &&
     checkEventShouldBeCaptured(e) === true &&
     urlHelper.testSameOrigin(href) === true &&
     urlHelper.isProhibitedExtension(href) === false) {

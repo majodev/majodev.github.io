@@ -2,6 +2,9 @@
   <img src="{{pic}}" alt="{{name}}">
   <div class="caption">
     <h5>{{name}}</h5>
-    <p><a class="btn btn-block btn-primary" href="{{url}}" target="_blank"><i class="fa fa-download"></i>&nbsp;&nbsp;PDF</a></p>
+    {{#each links}}
+      <p><a class="btn btn-block btn-primary" href="{{url}}" target="_blank">{{caption}}</a></p>
+    {{/each}}
+    {{!-- <p><a class="btn btn-block btn-primary" href="{{url}}" target="_blank"><i class="fa fa-download"></i>&nbsp;&nbsp;PDF</a></p> --}}
   </div>
 </div>

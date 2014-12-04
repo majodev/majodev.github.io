@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wispContent>
+<category>
+<representation>
+<startcolor>0x00ff00</startcolor> 
+<endcolor>0x000088</endcolor>
+</representation>
+<page type="remotehtml">
+<url>wisp_ressources/majodev_logo_v8_rounded_howtocontrol.png</url>
+</page>
+<page type="remotehtml">
+<url>wisp_ressources/majodev_logo_v8_rounded_whoiswisp.png</url>
+</page>
+<page type="remotehtml">
+<url>wisp_ressources/majodev_logo_v8_rounded_whatswisp.png</url>
+</page>
+</category>
+<category>
+<representation>
+<startcolor>0xffffff</startcolor> 
+<endcolor>0x6699ff</endcolor>
+</representation>
+<page type="remotehtml">
+<url>wisp_ressources/majodev_logo_v8_rounded_videos.png</url>
+</page>
+<page type="remotevideo">
+<url>wisp_ressources/eibel_nachvertonung.mp4</url>
+</page>
+<page type="remotevideo">
+<url>wisp_ressources/Rogue%20AP,%20Deauthentication%20Attack%20and%20Portal%20via%20PwnSTAR%20in%202%20Minutes.mp4</url>
+</page>
+<page type="remotevideo">
+<url>wisp_ressources/WISP%20-%20Wipe%20Information%20Space.mp4</url>
+</page>
+<page type="remotevideo">
+<url>wisp_ressources/ORF-LangeNachtDerMuseenWISP.mp4</url>
+</page>
+</category>
+<category>
+<representation>
+<startcolor>0x00ff00</startcolor> 
+<endcolor>0x000088</endcolor>
+</representation>
+<page type="remotehtml">
+<url>wisp_ressources/majodev_logo_v8_rounded_projects.png</url>
+</page>
+<page type="remotehtml">
+<url>wisp_ressources/majodev_logo_v8_rounded.png</url>
+</page>
+</category>
+</wispContent>

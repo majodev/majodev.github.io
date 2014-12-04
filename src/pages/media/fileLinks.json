@@ -1,23 +1,74 @@
 {
   "fileLinks": [{
-    "name": "Curriculum vitae",
-    "url": "/static/CV/CV.pdf",
-    "pic": "/static/CV/CV.png"
+    "name": "SJgrabber",
+    "pic": "http://majodev.github.io/sjgrabber/img/SJgrabber_favourites.png",
+    "links": [{
+      "url": "http://majodev.github.io/sjgrabber",
+      "caption": "Project page"
+    }, {
+      "url": "https://github.com/majodev/sjgrabber",
+      "caption": "GitHub repo"
+      }]
   }, {
-    "name": "Master Thesis (german)",
-    "url": "/static/masterthesis/Diplomarbeit_Mario_Ranftl.pdf",
-    "pic": "/static/masterthesis/Diplomarbeit_Mario_Ranftl.png"
+    "name": "Master Thesis (German)",
+    "pic": "/static/masterthesis/Diplomarbeit_Mario_Ranftl.png",
+    "links": [{
+      "url": "/static/masterthesis/Diplomarbeit_Mario_Ranftl.pdf",
+      "caption": "PDF"
+    }, {
+      "url": "http://www.fh-joanneum.at/aw/home/Studienangebot_Uebersicht/department_angewandte_informatik/aim/Menschen/AbsolventInnen_Master_DI_/~bpqi/Abschlussarbeiten_Details_aim/?arbid=4334673877&arbtyp=Dipl%2E-Arbeit&lan=en",
+      "caption": "Abstract"
+    }]
   }, {
-    "name": "AKIM (german)",
-    "url": "/static/akim/AKIM_Mario_Ranftl.pdf",
-    "pic": "/static/akim/AKIM_Mario_Ranftl.png"
+    "name": "Physiogame",
+    "pic": "/static/apps/physiogame/physiogame-gif-high.gif",
+    "links": [{
+      "url": "http://majodev.github.io/physiogame/",
+      "caption": "Play (HTML5)"
+    }, {
+      "url": "https://github.com/majodev/physiogame",
+      "caption": "GitHub repo"
+    }]
   }, {
-    "name": "Bachelor Thesis 2 (german)",
-    "url": "/static/bac2/BAC-2_Mario_Ranftl.pdf",
-    "pic": "/static/bac2/BAC-2_Mario_Ranftl.png"
+    "name": "Shell (UMJ Tech demo)",
+    "pic": "/static/apps/shell/shell-gif-low.gif",
+    "links": [{
+      "url": "/static/apps/shell/",
+      "caption": "Play (Flash)"
+    }]
+  },{
+    "name": "WISP",
+    "pic": "/static/apps/wisp/wisp-gif.gif",
+    "links": [{
+      "url": "/static/apps/wisp/",
+      "caption": "Play (Flash)"
+    }]
   }, {
-    "name": "Bachelor Thesis 1 (german)",
-    "url": "/static/bac1/BAC-1_Mario_Ranftl.pdf",
-    "pic": "/static/bac1/BAC-1_Mario_Ranftl.png"
+    "name": "AKIM (German)",
+    "pic": "/static/akim/AKIM_Mario_Ranftl.png",
+    "links": [{
+      "url": "/static/akim/AKIM_Mario_Ranftl.pdf",
+      "caption": "PDF"
+    }]
+  }, {
+    "name": "Bachelor Thesis 2 (German)",
+    "pic": "/static/bac2/BAC-2_Mario_Ranftl.png",
+    "links": [{
+      "url": "/static/bac2/BAC-2_Mario_Ranftl.pdf",
+      "caption": "PDF"
+    }, {
+      "url": "http://www.fh-joanneum.at/aw/home/Studienangebot_Uebersicht/department_angewandte_informatik/ima/Menschen/AbsolventInnen/~bbqe/Abschlussarbeiten_Details_ima/?arbid=4308062788&arbtyp=Bakk.-Arbeit&lan=en",
+      "caption": "Abstract"
+      }]
+  }, {
+    "name": "Bachelor Thesis 1 (German)",
+    "pic": "/static/bac1/BAC-1_Mario_Ranftl.png",
+    "links": [{
+      "url": "/static/bac1/BAC-1_Mario_Ranftl.pdf",
+      "caption": "PDF"
+    }, {
+      "url": "http://www.fh-joanneum.at/aw/home/Studienangebot_Uebersicht/department_angewandte_informatik/ima/Menschen/AbsolventInnen/~bbqe/Abschlussarbeiten_Details_ima/?arbid=4304674769&arbtyp=Bakk.-Arbeit&lan=en",
+      "caption": "Abstract"
+    }]
   }]
 }

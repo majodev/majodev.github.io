@@ -16,7 +16,14 @@ customMetaKeywords:
 - resume
 ---
 
-<div class="row">
+
+{{!-- {{#each fileLinks}}
+  <div class="col-xs-6 col-xs-offset-0 col-sm-4 col-sm-offset-0">
+    {{> mediaThumbnail}}
+  </div>
+{{/each}} --}}
+
+{{!-- <div class="row">
   <div class="col-sm-6 col-xs-10 col-xs-offset-1 col-sm-offset-0">
     {{#each fileLinks}}
       {{#if_even @index}}
@@ -25,6 +32,24 @@ customMetaKeywords:
     {{/each}}
   </div>
   <div class="col-sm-6 col-xs-10 col-xs-offset-1 col-sm-offset-0">
+    {{#each fileLinks}}
+      {{#if_even @index}}
+      {{else}}
+        {{> mediaThumbnail}}
+      {{/if_even}}
+    {{/each}}
+  </div>
+</div> --}}
+
+<div class="row">
+  <div class="col-xs-6 col-xs-offset-0 col-sm-6 col-sm-offset-0">
+    {{#each fileLinks}}
+      {{#if_even @index}}
+        {{> mediaThumbnail}}
+      {{/if_even}}
+    {{/each}}
+  </div>
+  <div class="col-xs-6 col-xs-offset-0 col-sm-6 col-sm-offset-0">
     {{#each fileLinks}}
       {{#if_even @index}}
       {{else}}

@@ -110,7 +110,7 @@ module.exports = function(grunt) {
           flatten: false,
           nonull: true,
           cwd: "support/static/",
-          src: ["**/*.pdf", "**/*.png"],
+          src: ["**"],
           dest: "build/static/"
         }]
       },

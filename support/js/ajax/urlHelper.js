@@ -57,10 +57,15 @@ function getPath(url) {
   return /^.*?:\/\/.*?(\/.*)$/.exec(url)[1];
 }
 
+function hasTargetBlank(anchor) {
+  return $(anchor).attr("target") === "_blank";
+}
+
 module.exports = {
   hasAnchor: hasAnchor,
   removeAnchorFromUrl: removeAnchorFromUrl,
   getAnchor: getAnchor,
   testSameOrigin: testSameOrigin,
-  isProhibitedExtension: isProhibitedExtension
+  isProhibitedExtension: isProhibitedExtension,
+  hasTargetBlank: hasTargetBlank
 };
