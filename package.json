@@ -25,7 +25,7 @@
     "productive": "grunt productive"
   },
   "dependencies": {
-    "bootstrap": "^3.2.0",
+    "bootstrap": "^3.3.1",
     "fastclick": "^1.0.3",
     "font-awesome": "^4.2.0",
     "jquery": "^1.11.1",
