@@ -107,7 +107,7 @@ Metalsmith(__dirname)
     sortedMetaKey: "_sortedTags",
     fileMetaKey: "tags"
   }))
-  .use(randomasciismiley())
+  // .use(randomasciismiley())
   .use(collections({
     pages: {
       pattern: "pages/**/*.+(md|hbs|html)",

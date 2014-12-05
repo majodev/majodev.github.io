@@ -1,4 +1,4 @@
-var NProgress = require("nprogress");
+// var NProgress = require("nprogress");
 var FastClickAttach = require("fastclick");
 var viewportUnitsBuggyfill = require('viewport-units-buggyfill');
 
@@ -13,9 +13,9 @@ module.exports = {
     // viewportUnitsBuggyfill.init({contentHack: true}); 
     viewportUnitsBuggyfill.init(); 
 
-    NProgress.configure({
-      showSpinner: false
-    });
+    // NProgress.configure({
+    //   showSpinner: false
+    // });
     
   }
 };
