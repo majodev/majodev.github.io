@@ -17,6 +17,8 @@ customMetaKeywords:
 - whoami
 - introduction
 - about
+styles:
+- index.css
 ---
 <div class="index_bg_pusher">
 
@@ -24,20 +26,20 @@ customMetaKeywords:
 
     <h1 hidden>Photo of Mario Ranftl</h1>
 
-    <div id="index_overlay_wrapper" class="nonSelectable">
+    {{!-- <div id="index_overlay_wrapper" class="nonSelectable">
       <div class="index_overlay_item index_overlay_item_left" data-posX="1712" data-posY="504" hidden><span>hairdressers' worst nightmare</span><span class="index_overlay_dot"></span></div>
       <div class="index_overlay_item index_overlay_item_left" data-posX="1658" data-posY="978" hidden><span>sarcasm unit</span><span class="index_overlay_dot"></span></div>
       <div class="index_overlay_item index_overlay_item_left" data-posX="1707" data-posY="750" hidden><span>scepticism indicator</span><span class="index_overlay_dot"></span></div>
       <div class="index_overlay_item index_overlay_item_right" data-posX="1724" data-posY="875" hidden><span>solid sunglasses holder</span><span class="index_overlay_dot"></span></div>
       <div class="index_overlay_item index_overlay_item_right" data-posX="1750" data-posY="1108" hidden><span>reasoning support beard</span><span class="index_overlay_dot"></span></div>
-    </div>
-    <span class="index_img_footer nonSelectable"><a href="#hello" class="smoothScroll"><i class="fa fa-chevron-circle-down fa-3x"></i></a></span>
+    </div> --}}
+    <span class="index_img_footer nonSelectable"><a href="#hello" class="smoothScroll"><i class="fa fa-chevron-circle-down fa-4x"></i></a></span>
 
   </section>
-
+  {{> header}}
 </div>
 
-{{> header}}
+
 
 <main class="container-fluid">
 <div class="jumbotron index_main">

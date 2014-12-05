@@ -1,0 +1,42 @@
+.indexHeader { 
+  background: rgba(5,5,5, 0);
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  z-index: 1033;
+  width: 100%;
+}
+
+.indexHeader .navbar-nav li a, 
+.indexHeader .navbar-nav .active a,
+.indexHeader .block-navBrand {
+  color: #bbb;
+}
+
+.indexHeader .block-navBrand:hover, .indexHeader .block-navBrand:focus, .indexHeader .block-navBrandMobileInner {
+  color: #bbb;
+}
+
+.block-navBrandImage svg {
+  fill: #bbb;
+}
+
+.collapsed > .icon-bar {
+  background-color: #bbb !important;
+}
+
+/*@media (min-width: @grid-float-breakpoint) {*/
+@media (min-width: 650px) {
+  .navbar-default .navbar-nav > .active > a {
+    border-bottom-color: #bbb;
+  }
+}
+
+
+html.no-svg .block-navBrandImage {
+  background: url(/assets/img/logo/brain-60px-portfolio-no-svg.png) no-repeat;
+  background-size: 30px 30px;
+  width: 30px;
+  height: 30px;
+}
