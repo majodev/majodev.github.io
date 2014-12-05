@@ -1,0 +1,76 @@
+// all custom variable overwrites of bootstrap
+
+@brand-primary:                      @color-links;
+@body-bg:                            @color-bg;
+@text-color:                         @color-text;
+@link-color:                         @color-links;
+@link-hover-color:                   @color-links-hover;
+
+@font-family-sans-serif:             "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+@font-family-narrow:                 "PT Sans Narrow";
+@font-family-monospace:              "Source Code Pro", Menlo, Monaco, Consolas, "Courier New", monospace;
+@font-family-base:                   @font-family-sans-serif;
+
+@font-size-base:                     18px;
+@font-size-large:                    ceil((@font-size-base * 1.25));
+@font-size-small:                    ceil((@font-size-base * 0.85));
+@font-size-h1:                       floor((16px * 2.6)); 
+@font-size-h2:                       floor((16px * 2.15)); 
+@font-size-h3:                       ceil((16px * 1.7)); 
+@font-size-h4:                       ceil((16px * 1.25)); 
+@font-size-h5:                       16px;
+@font-size-h6:                       ceil((16px * 0.85)); 
+
+@line-height-base:                   1.55; // http://www.pearsonified.com/typography/
+@line-height-computed:               floor((@font-size-base * @line-height-base));
+
+@headings-font-family:               @font-family-sans-serif;
+@headings-font-weight:               600;
+@headings-line-height:               1.1;
+@headings-color:                     @color-head;
+
+@border-radius-base:                 0px; 
+@border-radius-large:                0px; 
+@border-radius-small:                0px; 
+
+@btn-default-color:                  @color-button;
+@btn-default-bg:                     @color-gray-lighter;
+@btn-default-border:                 transparent;
+@btn-primary-color:                  #fff;
+@btn-primary-bg:                     @brand-primary;
+
+@grid-float-breakpoint:              760px;
+
+@navbar-margin-bottom:               0px;
+@navbar-default-color:               @color-nav;
+@navbar-default-bg:                  @color-nav-bg; 
+@navbar-default-border:              transparent;
+@navbar-default-link-color:          @color-nav; 
+@navbar-default-link-hover-color:    @color-nav-hover; 
+@navbar-default-link-hover-bg:       @color-nav-bg-hover;
+@navbar-default-link-active-color:   @color-nav-active; 
+@navbar-default-link-active-bg:      @color-nav-bg-active;
+@navbar-default-toggle-hover-bg:     @color-navbar-mobile-toggle-bg-hover; 
+@navbar-default-toggle-border-color: transparent; 
+
+@pager-bg:                           transparent; 
+@pager-border-radius:                0px; 
+@pager-hover-bg:                     @color-note-pager-bg-hover;
+
+@jumbotron-bg:                       transparent; 
+@jumbotron-heading-color:            @color-head;
+
+@breadcrumb-separator:               ">";
+
+@code-color:                         #d14; 
+@code-bg:                            fade(@gray-lighter, 10%);
+
+@kbd-color:                          @gray-lighter; 
+@kbd-bg:                             fade(#333, 85%);
+
+@pre-bg:                             fade(@gray-lighter, 10%); 
+@pre-color:                          inherit;
+@pre-border-color:                   none; 
+
+@blockquote-font-size:               (@font-size-base * 1.14);
+@blockquote-border-color:            @color-gray-lighter; 

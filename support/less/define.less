@@ -1,67 +1,67 @@
 // custom fontsizes
-@font-size-medium: ceil((@font-size-base * 1.07));
-@font-size-mediumer: ceil((@font-size-base * 1.15));
-@default-font-weight: 400;
+@font-size-medium:                       ceil((@font-size-base * 1.07));
+@font-size-mediumer:                     ceil((@font-size-base * 1.15));
+@default-font-weight:                    400;
 
 // positioning
-@header-nav-height: 50px;
-@header-bar-height: 27px;
-@footer-height: 200px;
-@footer-text-padding-top: 50px;
+@header-nav-height:                      50px;
+@header-bar-height:                      27px;
+@footer-height:                          200px;
+@footer-text-padding-top:                50px;
 
 // main colors
-@color-bg: #fefefe;
-@color-main-1: #02658C;
-@color-main-2: #05ACC2;
-@color-main-3: #D2F3F1;
+@color-bg:                               #fefefe;
+@color-main-1:                           #02658C;
+@color-main-2:                           #05ACC2;
+@color-main-3:                           #D2F3F1;
 
 // links
-@color-links: #139dc1; //fade(mix(@color-main-2, #00f, 99%), 80%);
-@color-links-hover: #7bd9f2; //@color-main-1;
+@color-links:                            #139dc1; //fade(mix(@color-main-2, #00f, 99%), 80%);
+@color-links-hover:                      #7bd9f2; //@color-main-1;
 
-@color-links-alternative: #21b384;
-@color-links-alternative-hover: #198764;
+@color-links-alternative:                #21b384;
+@color-links-alternative-hover:          #198764;
 
 // nav
-@color-nav-bg: @color-bg; //fade(@color-bg, 85%); //fade(#000, 50%); //fade(#fefefe, 80%); //fade(mix(@color-main-2, #00f, 99%), 10%); // 1
-@color-nav: #3d3d3d;
-@color-nav-hover: #3d3d3d; // mobile only
-@color-nav-active: #3d3d3d;
-@color-nav-bg-active: @color-links-hover; //@color-nav-bg-hover; //fade(mix(@color-main-2, #00f, 99%), 43.33%);  // 2
+@color-nav-bg:                           @color-bg; //fade(@color-bg, 85%); //fade(#000, 50%); //fade(#fefefe, 80%); //fade(mix(@color-main-2, #00f, 99%), 10%); // 1
+@color-nav:                              #3d3d3d;
+@color-nav-hover:                        #3d3d3d; // mobile only
+@color-nav-active:                       #3d3d3d;
+@color-nav-bg-active:                    @color-links-hover; //@color-nav-bg-hover; //fade(mix(@color-main-2, #00f, 99%), 43.33%);  // 2
 
-@color-nav-bg-hover: fade(mix(@color-main-2, #00f, 99%), 20%); // mobile only //fade(mix(@color-main-2, #00f, 99%), 20%);
-@color-nav-hover-desktop: @color-links;
+@color-nav-bg-hover:                     fade(mix(@color-main-2, #00f, 99%), 20%); // mobile only //fade(mix(@color-main-2, #00f, 99%), 20%);
+@color-nav-hover-desktop:                @color-links;
 
 // text
-@color-text: #3d3d3d; //#516473;
-@color-head: #002b36; //#2d2d2d; //#516473;
-@color-first-character: @color-head;
+@color-text:                             #3d3d3d; //#516473;
+@color-head:                             #002b36; //#2d2d2d; //#516473;
+@color-first-character:                  @color-head;
 
 // select
-@color-text-selection-bg: @color-head; //@color-links-alternative; //#d33682; //fade(@color-main-1, 30%);
-@color-text-selection: @color-bg; //white;
-@color-text-selection-bg-unfocused: fade(@color-text-selection-bg, 75%);
+@color-text-selection-bg:                @color-head; //@color-links-alternative; //#d33682; //fade(@color-main-1, 30%);
+@color-text-selection:                   @color-bg; //white;
+@color-text-selection-bg-unfocused:      fade(@color-text-selection-bg, 75%);
 
 // footer
-@color-footer: @color-main-3;
-@color-footer-bg: #222; //#002b36; //@color-main-1;
-@color-footer-links: mix(@color-main-2, #00f, 95%);
-@color-footer-links-hover: lighten(@color-footer-links, 10%);
+@color-footer:                           @color-main-3;
+@color-footer-bg:                        #222; //#002b36; //@color-main-1;
+@color-footer-links:                     mix(@color-main-2, #00f, 95%);
+@color-footer-links-hover:               lighten(@color-footer-links, 10%);
 
 // general dependent
-@color-links-bg-hover: transparent; //fade(mix(@color-main-2, #00f, 99%), 10%);
+@color-links-bg-hover:                   transparent; //fade(mix(@color-main-2, #00f, 99%), 10%);
 
-@color-navbar-mobile-toggle-bars: @color-nav;
+@color-navbar-mobile-toggle-bars:        @color-nav;
 @color-navbar-mobile-toggle-bars-active: @color-links;
-@color-navbar-mobile-toggle-bg-hover: transparent;
+@color-navbar-mobile-toggle-bg-hover:    transparent;
 
-@color-nav-mobile-breadcrumb-active: @color-nav; //@gray-light; //@color-nav-bg-active;
+@color-nav-mobile-breadcrumb-active:     @color-nav; //@gray-light; //@color-nav-bg-active;
 
-@color-note-pager-hover: @color-links-hover;
-@color-note-pager-bg-hover: @color-links-bg-hover;
+@color-note-pager-hover:                 @color-links-hover;
+@color-note-pager-bg-hover:              @color-links-bg-hover;
 
-@color-gray-lighter: @color-nav-bg;
+@color-gray-lighter:                     @color-nav-bg;
 
-@color-button-bg-hover: @color-footer-links-hover; //@color-links-bg-hover;
-@color-button-hover: #fefefe; //@color-links;
-@color-button: @color-main-1;
+@color-button-bg-hover:                  @color-footer-links-hover; //@color-links-bg-hover;
+@color-button-hover:                     #fefefe; //@color-links;
+@color-button:                           @color-main-1;
