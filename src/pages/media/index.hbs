@@ -41,15 +41,15 @@ customMetaKeywords:
   </div>
 </div> --}}
 
-<div class="row">
-  <div class="col-xs-6 col-xs-offset-0 col-sm-6 col-sm-offset-0">
+<div class="row hidden-xs">
+  <div class="col-sm-6 col-sm-offset-0">
     {{#each fileLinks}}
       {{#if_even @index}}
         {{> mediaThumbnail}}
       {{/if_even}}
     {{/each}}
   </div>
-  <div class="col-xs-6 col-xs-offset-0 col-sm-6 col-sm-offset-0">
+  <div class="col-sm-6 col-sm-offset-0">
     {{#each fileLinks}}
       {{#if_even @index}}
       {{else}}
@@ -57,4 +57,12 @@ customMetaKeywords:
       {{/if_even}}
     {{/each}}
   </div>
+</div>
+
+<div class="row hidden-sm hidden-md hidden-lg">
+  {{#each fileLinks}}
+    <div class="col-xs-10 col-xs-offset-1">
+      {{> mediaThumbnail}}
+    </div>
+  {{/each}}
 </div>

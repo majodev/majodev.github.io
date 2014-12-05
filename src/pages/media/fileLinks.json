@@ -1,7 +1,7 @@
 {
   "fileLinks": [{
     "name": "SJgrabber",
-    "pic": "http://majodev.github.io/sjgrabber/img/SJgrabber_favourites.png",
+    "pic": "/static/apps/sjgrabber/SJgrabber_overview.png",
     "links": [{
       "url": "http://majodev.github.io/sjgrabber",
       "caption": "Project page"
@@ -30,11 +30,11 @@
       "caption": "GitHub repo"
     }]
   }, {
-    "name": "Social Media Marketing",
+    "name": "Social Media Marketing (German)",
     "pic": "/static/SMM-workshop/SMM.jpg",
     "links": [{
       "url": "/static/SMM-workshop/SMM_public.pdf",
-      "caption": "PDF slides (German)"
+      "caption": "PDF"
     }]
   }, {
     "name": "Shell (UMJ Tech demo)",
