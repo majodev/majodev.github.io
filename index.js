@@ -1,2 +1,2 @@
-/*! majodev.github.io - v0.9.0 - build 2014-12-05 14:24:31 */
+/*! majodev.github.io - v0.9.0 - build 2014-12-05 14:27:21 */
 !function(){$(".smoothScroll").on("click",function(a){a.preventDefault(),$("#hello").velocity("scroll",{complete:function(){$("#hello").addClass("targetAnimation")}})})}();
