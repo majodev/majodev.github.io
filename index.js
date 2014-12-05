@@ -23,7 +23,6 @@ var firstparagraph = require("./scripts/metalsmith-firstparagraph");
 var sitemapper = require("./scripts/metalsmith-sitemapper");
 var includedrafts = require("./scripts/metalsmith-includedrafts");
 var hbswithuid = require("./scripts/metalsmith-hbswithuid");
-var randomasciismiley = require("./scripts/metalsmith-randomasciismiley");
 var appendlightbox = require("./scripts/metalsmith-appendlightbox");
 var includemetadata = require("./scripts/metalsmith-includemetadata");
 
@@ -107,7 +106,6 @@ Metalsmith(__dirname)
     sortedMetaKey: "_sortedTags",
     fileMetaKey: "tags"
   }))
-  // .use(randomasciismiley())
   .use(collections({
     pages: {
       pattern: "pages/**/*.+(md|hbs|html)",
