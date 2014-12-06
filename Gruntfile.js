@@ -49,7 +49,7 @@ module.exports = function(grunt) {
       },
       "metalsmith": {
         files: ["src/**/*.*", "templates/**/*.*", "scripts/**/*.*", "index.js", "config.json"],
-        tasks: ["execute:metalsmith-dev-noclean"]
+        tasks: ["execute:metalsmith-dev-noclean", "less:src_dev", "clean:build_less"]
       },
       "support-less": {
         files: ["support/less/**/*.*"],
@@ -66,11 +66,7 @@ module.exports = function(grunt) {
       "support-js": {
         files: ["support/js/**/*.*"],
         tasks: ["browserify:dev", "copy:inject-js"]
-      },
-      // "support-resume": {
-      //   files: ['support/static/resume/*.xtx'],
-      //   tasks: ['resume', "copy:support-static"]
-      // }
+      }
     },
     "http-server": {
       dev: {
@@ -150,6 +146,7 @@ module.exports = function(grunt) {
       temporary: ["_tmp"],
       "gh-pages": [".grunt"],
       "favicons": ["support/img/favicons", "templates/base/favicons.hbs"],
+      "build_less": ["build/**/*.less"]
       // latextempFiles: ["support/static/resume/*.aux", "support/static/resume/*.log", "support/static/resume/*.out"]
     },
     less: {
@@ -172,6 +169,32 @@ module.exports = function(grunt) {
           src: [config.inject.less.src],
           dest: "_tmp/style.css"
         }] // TODO: run autoprefixer in the end!!!
+      },
+      src_dev: {
+        options: {
+          sourceMap: true,
+          paths: config.inject.less.dirs
+        },
+        files: [{
+          expand: true, // Enable dynamic expansion.
+          cwd: 'build/', // Src matches are relative to this path.
+          src: ['**/*.less'], // Actual pattern(s) to match.
+          dest: 'build/', // Destination path prefix.
+          ext: '.css', // Dest filepaths will have this extension.
+        }]
+      },
+      src_productive: {
+        options: {
+          optimization: 2,
+          paths: config.inject.less.dirs
+        },
+        files: [{
+          expand: true, // Enable dynamic expansion.
+          cwd: 'build/', // Src matches are relative to this path.
+          src: ['**/*.less'], // Actual pattern(s) to match.
+          dest: 'build/', // Destination path prefix.
+          ext: '.css', // Dest filepaths will have this extension.
+        }]
       }
     },
     cssmin: {
@@ -557,7 +580,7 @@ module.exports = function(grunt) {
   // ---
 
   grunt.registerTask("build-dev", [
-    "clean:build", "browserify:dev", "get-git-revision", "shell:commitCount", "execute:metalsmith-dev", "less:development", "copy"
+    "clean:build", "browserify:dev", "get-git-revision", "shell:commitCount", "execute:metalsmith-dev", "less:development", "less:src_dev", "clean:build_less", "copy"
   ]);
 
   grunt.registerTask("fav", [
@@ -577,7 +600,7 @@ module.exports = function(grunt) {
   ]);
 
   grunt.registerTask("css-productive", [
-    "autoprefixer:css_src", "cssmin:css_src", "less:productive", "autoprefixer:temporary", "cssmin:combine"
+    "less:productive", "autoprefixer:temporary", "less:src_productive", "autoprefixer:css_src", "cssmin:css_src", "cssmin:combine", "clean:build_less"
   ]);
 
   grunt.registerTask("js-productive", [
