@@ -189,18 +189,31 @@
   //   });
   // });
 
+  // var $root = $('html, body');
+  // $('.smoothScroll').click(function() {
+  //   var href = $.attr(this, 'href');
+
+  //   $root.velocity("scroll", {
+  //     offset: $(href).offset().top,
+  //     complete: function(elements) {
+  //       window.location.hash = href;
+  //     }
+
+  //   });
+  //   return false;
+  // });
+
   var $root = $('html, body');
   $('.smoothScroll').click(function() {
     var href = $.attr(this, 'href');
-
-    $root.velocity("scroll", {
-      offset: $(href).offset().top,
-      complete: function(elements) {
+    if (typeof href !== "undefined") {
+      $root.animate({
+        scrollTop: $(href).offset().top
+      }, 500, function() {
         window.location.hash = href;
-      }
-
-    });
-    return false;
+      });
+      return false;
+    }
   });
 
 
