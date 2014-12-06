@@ -1,2 +1,2 @@
-/*! majodev.github.io - v0.9.0 - build 2014-12-05 20:29:30 */
-!function(){$(".smoothScroll").on("click",function(a){a.preventDefault(),$("#hello").velocity("scroll",{complete:function(){$("#hello").addClass("targetAnimation")}})})}();
+/*! majodev.github.io - v1.0.0 - build 2014-12-06 16:00:01 */
+!function(){var a=$("html, body");$(".smoothScroll").click(function(){var b=$.attr(this,"href");return a.velocity("scroll",{offset:$(b).offset().top,complete:function(){window.location.hash=b}}),!1})}();
