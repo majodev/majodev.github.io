@@ -179,16 +179,29 @@
 
   // Scroll to behaviour
 
-  $(".smoothScroll").on("click", function (e) {
-    e.preventDefault();
+  // $(".smoothScroll").on("click", function (e) {
+  //   e.preventDefault();
 
-    $("#hello").velocity("scroll", {
+  //   $("#hello").velocity("scroll", {
+  //     complete: function(elements) {
+  //       $("#hello").addClass("targetAnimation");
+  //     }
+  //   });
+  // });
+
+  var $root = $('html, body');
+  $('.smoothScroll').click(function() {
+    var href = $.attr(this, 'href');
+
+    $root.velocity("scroll", {
+      offset: $(href).offset().top,
       complete: function(elements) {
-        $("#hello").addClass("targetAnimation");
+        window.location.hash = href;
       }
+
     });
-
-
+    return false;
   });
+
 
 }());
