@@ -99,6 +99,9 @@ Metalsmith(__dirname)
     }, {
       dir: "subpages",
       formatWithDateTitle: false
+    }, {
+      dir: "trivialpages",
+      formatWithDateTitle: false
     }]
   }))
   .use(tagtree({
@@ -118,6 +121,10 @@ Metalsmith(__dirname)
     },
     subpages: {
       pattern: "subpages/**/*.+(md|hbs|html)",
+      sortBy: "sequence"
+    },
+    trivialpages: {
+      pattern: "trivialpages/**/*.+(md|hbs|html)",
       sortBy: "sequence"
     }
   }))
@@ -149,6 +156,16 @@ Metalsmith(__dirname)
       sitemap: {
         changefreq: "monthly",
         priority: "0.5"
+      },
+      disqus: {
+        enabled: false
+      }
+    },
+    trivialpages: {
+      isTrivialpage: true,
+      sitemap: {
+        changefreq: "monthly",
+        priority: "0.25"
       },
       disqus: {
         enabled: false
