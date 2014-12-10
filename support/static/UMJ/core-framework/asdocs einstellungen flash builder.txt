@@ -1,0 +1,21 @@
+C:\Program Files (x86)\Adobe\Adobe Flash Builder 4.6\sdks\4.6.0\bin\asdoc.exe
+
+${project_loc}\src
+
+-source-path .
+-output "C:\Users\majo\Dropbox\_master\AIM 3. Semester\IPPR\UMJ-core API documentation"
+-doc-sources "C:\Users\majo\Adobe Flash Builder 4.6\UMJ-core\src\at\fhjoanneum\dmt\umj\core"
+-window-title "UMJ-core API documentation BETA - core version 1.0.1 coffeecup - productive"
+-package-description-file "C:\Users\majo\Adobe Flash Builder 4.6\UMJ-core\package_def_doc.xml"
+-external-library-path="C:\Users\majo\Adobe Flash Builder 4.6\UMJ-core\libs"
+-external-library-path="C:\Users\majo\Adobe Flash Builder 4.6\UMJ-core\src\fonts"
+-external-library-path="C:\Users\majo\Adobe Flash Builder 4.6\UMJ-core\src\screensaver"
+-external-library-path="C:\Program Files (x86)\Adobe\Adobe Flash Builder 4.6\sdks\4.6.0\frameworks\libs"
+-external-library-path="C:\Program Files (x86)\Adobe\Adobe Flash Builder 4.6\sdks\4.6.0\frameworks\libs\air"
+-external-library-path="C:\Program Files (x86)\Adobe\Adobe Flash Builder 4.6\sdks\4.6.0\frameworks\libs\player\11.1"
+-external-library-path="C:\Program Files (x86)\Adobe\Adobe Flash Builder 4.6\eclipse\plugins\com.adobe.flexbuilder.flexunit_4.6.0.328916\flexunitframework\libs\version4libs\Common"
+-external-library-path="C:\Program Files (x86)\Adobe\Adobe Flash Builder 4.6\eclipse\plugins\com.adobe.flexbuilder.flexunit_4.6.0.328916\flexunitframework\libs\version4libs\FlexProject"
+-external-library-path="C:\Program Files (x86)\Adobe\Adobe Flash Builder 4.6\eclipse\plugins\com.adobe.flexbuilder.flexunit_4.6.0.328916\flexunitframework\libs\version4libs\FlexProject_Extended"
+-external-library-path="C:\Program Files (x86)\Adobe\Adobe Flash Builder 4.6\eclipse\plugins\com.adobe.flexbuilder.flexunit_4.6.0.328916\flexunitframework\locale\version4locale"
+-footer "UMJ-core 1.0.1 coffeecup - productive API documentation BETA by majodev. Generated via asdocs, ANT and a bunch of ridiculous external-library-path parameters."
+-left-frameset-width 400
