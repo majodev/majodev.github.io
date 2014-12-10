@@ -26,7 +26,19 @@
       "url": "http://majodev.github.io/physiogame/",
       "caption": "Play (HTML5)"
     }, {
+      "url": "https://www.youtube.com/watch?v=Fg4N88ZtBaw&list=PLNc8hXd2oknHm8LCAOF9-v0ojExMVB61k&index=8",
+      "caption": "Project Video"
+    }, {
       "url": "https://github.com/majodev/physiogame",
+      "caption": "GitHub repo"
+    }]
+  }, {
+    "name": "Prototype: Sphero node-webkit",
+    "links": [{
+      "url": "https://www.youtube.com/watch?v=pSLs5j6mAqE&list=UUJ_lWimEAufPHWjhHwZULAw",
+      "caption": "Project Video"
+    }, {
+      "url": "https://github.com/majodev/heartbeat-sphero",
       "caption": "GitHub repo"
     }]
   }, {
@@ -34,7 +46,23 @@
     "pic": "/static/SMM-workshop/SMM.jpg",
     "links": [{
       "url": "/static/SMM-workshop/SMM_public.pdf",
-      "caption": "PDF"
+      "caption": "PDF (slides)"
+    }]
+  }, {
+    "name": "Universalmuseum Joanneum (UMJ)",
+    "pic": "/portfolio/img/umj.jpg",
+    "links": [{
+      "url": "https://www.youtube.com/watch?v=uYaUEPq25gY&list=UUJ_lWimEAufPHWjhHwZULAw",
+      "caption": "Video (FINAL project check)"
+    }, {
+      "url": "/static/umj/umj_projectcheck2_final.mov",
+      "caption": "Video (2nd project check)"
+    }, {
+      "url": "https://www.youtube.com/watch?v=Cv3ixEOLkpQ&list=PLNc8hXd2oknHm8LCAOF9-v0ojExMVB61k&index=2",
+      "caption": "Video (3rd party: Overview)"
+    }, {
+      "url": "https://www.youtube.com/watch?v=9Ys7K0Fpj4s&list=PLNc8hXd2oknHm8LCAOF9-v0ojExMVB61k&index=1",
+      "caption": "Video (3rd party: Special exhibits)"
     }]
   }, {
     "name": "Shell (UMJ Tech demo)",
@@ -43,12 +71,24 @@
       "url": "/static/apps/shell/",
       "caption": "Play (Flash)"
     }]
-  },{
+  }, {
     "name": "WISP",
     "pic": "/static/apps/wisp/wisp-gif.gif",
     "links": [{
       "url": "/static/apps/wisp/",
       "caption": "Play (Flash)"
+    }, {
+      "url": "https://www.youtube.com/watch?v=G_kJhhZcqUU&list=UUJ_lWimEAufPHWjhHwZULAw",
+      "caption": "Project Video"
+    }, {
+      "url": "https://www.youtube.com/watch?v=Z7kA4KxRw74&list=PLNc8hXd2oknHm8LCAOF9-v0ojExMVB61k#t=143",
+      "caption": "Video (3rd Party)"
+      }]
+  }, {
+    "name": "WLAN Security Revisited: Rogue AP",
+    "links": [{
+      "url": "https://www.youtube.com/watch?v=vy4leX_twTw&list=UUJ_lWimEAufPHWjhHwZULAw",
+      "caption": "Project Video"
     }]
   }, {
     "name": "AKIM (German)",
@@ -76,6 +116,12 @@
     }, {
       "url": "http://www.fh-joanneum.at/aw/home/Studienangebot_Uebersicht/department_angewandte_informatik/ima/Menschen/AbsolventInnen/~bbqe/Abschlussarbeiten_Details_ima/?arbid=4304674769&arbtyp=Bakk.-Arbeit&lan=en",
       "caption": "Abstract"
+    }]
+  }, {
+    "name": "Gravityball",
+    "links": [{
+      "url": "/static/apps/gravityball/",
+      "caption": "Play (Flash)"
     }]
   }]
 }
