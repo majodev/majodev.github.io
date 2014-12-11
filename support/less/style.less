@@ -206,8 +206,8 @@ body {
   .navbar-default .navbar-nav > li > a:focus {
     border-bottom: 2px solid;
     background-color: transparent;
-    padding-top: 15px;
-    padding-bottom: 8px;
+    padding-top: 14px;
+    padding-bottom: 9px;
     border-bottom-color: transparent;
     transition-property: color, border-bottom-color;
   }
@@ -292,12 +292,12 @@ sup a:hover, sup a:focus {
 // font styling
 
 pre {
-  font-size: 65%;
+  font-size: 70%;
 }
 
 @media (min-width: @screen-sm-min) {
   pre {
-    font-size: 70%;
+    font-size: 80%;
   }
 }
 
@@ -369,6 +369,7 @@ a:link, a:visited, a:hover, a:focus, a:active {
 
 .btn {
   border: none;
+  font-family: @font-family-sans-serif;
 }
 
 .btn:hover, .btn:focus {
@@ -481,6 +482,8 @@ a:link, a:visited, a:hover, a:focus, a:active {
   font-family: @font-family-narrow;
   text-transform: uppercase;
   font-weight: 400;
+  margin-top: 20px;
+  margin-bottom: 6px;
 }
 
 .block-navPage, .block-navPageActive {
@@ -555,9 +558,10 @@ a:link, a:visited, a:hover, a:focus, a:active {
   // text-transform: capitalize;
 }
 
-.block-noteTitle > h3 {
+.block-noteTitle > h4 {
   margin-top: 0px;
   margin-bottom: 0px;
+  color: @gray-light;
   // text-transform: capitalize;
 }
 
@@ -566,8 +570,13 @@ a:link, a:visited, a:hover, a:focus, a:active {
   // text-transform: capitalize;
 }
 
-.block-noteItem h4, .block-noteItem a {
-  // text-transform: capitalize;
+.block-noteItem > .noteDate {
+  text-transform: uppercase;
+  font-family: @font-family-narrow;
+}
+
+.block-noteItem > .noteTitle {
+  font-family: @font-family-sans-serif;
 }
 
 .block-navBrandImage {

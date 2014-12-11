@@ -49,12 +49,25 @@
 #=======================================================================================================================
 
 declare -a families
-families+=('PT Serif:400')
-families+=('PT Serif:400italic')
-families+=('PT Serif:700')
-families+=('PT Serif:700italic')
-families+=('PT Sans:400')
-families+=('PT Sans:400italic')
+families+=('Source Sans Pro:200')
+families+=('Source Sans Pro:300')
+families+=('Source Sans Pro:400')
+families+=('Source Sans Pro:600')
+families+=('Source Sans Pro:700')
+families+=('Source Sans Pro:900')
+families+=('Source Sans Pro:200italic')
+families+=('Source Sans Pro:300italic')
+families+=('Source Sans Pro:400italic')
+families+=('Source Sans Pro:600italic')
+families+=('Source Sans Pro:700italic')
+families+=('Source Sans Pro:900italic')
+families+=('Source Code Pro:200')
+families+=('Source Code Pro:300')
+families+=('Source Code Pro:400')
+families+=('Source Code Pro:500')
+families+=('Source Code Pro:600')
+families+=('Source Code Pro:700')
+families+=('Source Code Pro:900')
 families+=('PT Sans Narrow:400')
 families+=('PT Sans Narrow:700')
 
@@ -88,7 +101,7 @@ fi
 
 # Store the useragents we're going to use to trick Google's servers into serving us the correct CSS file.
 declare -A useragent
-useragent[eot]='Mozilla/5.0 (compatible; MSIE 8.0; Windows NT 6.1; Trident/4.0)'
+useragent[eot]='Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)'
 useragent[woff]='Mozilla/5.0 (Windows NT 6.1; WOW64; rv:27.0) Gecko/20100101 Firefox/27.0'
 useragent[svg]='Mozilla/4.0 (iPad; CPU OS 4_0_1 like Mac OS X) AppleWebKit/534.46 (KHTML, like Gecko) Version/4.1 Mobile/9A405 Safari/7534.48.3'
 useragent[ttf]='Mozilla/5.0 (Windows NT 6.1) AppleWebKit/534.54.16 (KHTML, like Gecko) Version/5.1.4 Safari/534.54.16'

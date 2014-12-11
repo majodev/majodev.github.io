@@ -6,10 +6,11 @@
 @link-color:                         @color-links;
 @link-hover-color:                   @color-links-hover;
 
-@font-family-sans-serif:             "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+@font-family-sans-serif:             "PT Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 @font-family-narrow:                 "PT Sans Narrow";
 @font-family-monospace:              "Source Code Pro", Menlo, Monaco, Consolas, "Courier New", monospace;
-@font-family-base:                   @font-family-sans-serif;
+@font-family-serif:                  "PT Serif", "Times New Roman", Times, serif;
+@font-family-base:                   @font-family-serif;
 
 @font-size-base:                     16px;
 @font-size-large:                    ceil((@font-size-base * 1.25));
@@ -25,7 +26,7 @@
 @line-height-computed:               floor((@font-size-base * @line-height-base));
 
 @headings-font-family:               @font-family-sans-serif;
-@headings-font-weight:               600;
+@headings-font-weight:               400;
 @headings-line-height:               1.1;
 @headings-color:                     @color-head;
 
@@ -62,7 +63,7 @@
 
 @breadcrumb-separator:               ">";
 
-@code-color:                         #d14; 
+@code-color:                         inherit; //#d14; 
 @code-bg:                            fade(@gray-lighter, 10%);
 
 @kbd-color:                          @gray-lighter; 
