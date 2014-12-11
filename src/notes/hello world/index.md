@@ -37,6 +37,6 @@ If you are interested, feel free to checkout the [source code](https://github.co
 
 By the way, what do you think about my chosen domain *"ranf.tl"*? I think this variation of my surname is pretty neat, as it's very short and hopefully memorable (ranftl.com and ranftl.at were already taken). Futhermore I can finally equip my family with some handy & nice looking email addresses. Anyways, I'm glad you are able to read this and maybe you'll find something useful here in the next weeks. 
 
-![out](i am out.gif)
+![I am out](i_am_out.gif)
 
 Have some feedback on the design or structure? Please leave a comment below or catch me up on [twitter](http://twitter.com/majodev). If you are into RSS (or prefer platforms like [Feedly](https://feedly.com/)), feel free subscribe to my notes via [this Atom/RSS feed](/feed.xml).
