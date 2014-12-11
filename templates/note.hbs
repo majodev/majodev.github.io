@@ -2,24 +2,30 @@
 <div id="wrapper">
   {{> header}}
   <div class="template-note uiHandlerFade">
-  {{!-- <div class="template-note pushdown-header uiHandlerFade"> --}}
     <main>
     <article>
-      <header class="template-note-header-wrapper">
-        <div class="template-note-header container-fluid">
-          {{> noteNavigator}}
-          {{> noteTitle}}
-          {{> noteSubTitle}}
-        </div>
-      </header>
-      <div class="template-note-contents container-fluid">
+      <div class="container-fluid">
+        <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-0 col-lg-7 col-lg-offset-1">
+          <header class="template-note-header-wrapper">
+            <div class="template-note-header">
+              {{> noteNavigator}}
+              {{> noteTitle}}
+              {{> noteSubTitle}}
+            </div>
+          </header>
+          <div class="template-note-contents">
 {{> contents}}
-      </div>
-      <footer class="template-note-footer container-fluid">
-        {{> noteShare}}
-        {{> noteComments}}
-        {{> noteRelated}}
-      </footer>
+          </div>
+        </div>
+        <div class="note-sidebar col-sm-10 col-sm-offset-1 col-md-4 col-md-offset-0 col-lg-3 col-lg-offset-0">
+          {{> noteAboutAuthor}}
+          {{> noteShare}}
+          {{> noteRelated}}
+        </div>
+        <footer class="template-note-footer col-sm-10 col-sm-offset-1 col-md-12 col-md-offset-0 col-lg-10 col-lg-offset-1">
+            {{> noteComments}}
+        </footer>
+      </div> {{!-- end container-fluid --}}
     </article>
     </main>
   </div> {{!-- end template-note --}}

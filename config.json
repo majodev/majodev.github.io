@@ -26,6 +26,8 @@
       "node_modules/bootstrap/js/collapse.js",
       "node_modules/bootstrap/js/tooltip.js",
       "node_modules/magnific-popup/dist/jquery.magnific-popup.js",
+      "node_modules/masonry-layout/dist/masonry.pkgd.js",
+      "node_modules/imagesloaded/imagesloaded.pkgd.js",
       "_tmp/support-bundle.js"
     ],
     "fonts": [

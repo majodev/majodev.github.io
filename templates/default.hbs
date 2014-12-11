@@ -1,11 +1,12 @@
 {{> pre}}
 <div id="wrapper">
   {{> header}}
-  {{!-- <div class="template-default pushdown-header container-fluid uiHandlerFade"> --}}
   <div class="template-default container-fluid uiHandlerFade">
     <main>
-    <h1 class="linedSeparator"><i class="fa fa-angle-right"></i>&nbsp;&nbsp;{{title}}</h1>
+      <div class="{{#unless wrapperColFullWidth}}col-sm-10 col-sm-offset-1{{/unless}}">
+        <h1 class="linedSeparator"><i class="fa fa-angle-right"></i>&nbsp;&nbsp;{{title}}</h1>
 {{> contents}}
+      </div>
     </main>
   </div> {{!-- end template-default --}}
 </div> {{!-- end wrapper --}}

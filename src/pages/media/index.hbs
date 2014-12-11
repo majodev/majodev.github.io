@@ -14,54 +14,14 @@ customMetaKeywords:
 - papers
 - software
 - resume
+scripts:
+- media.js
+wrapperColFullWidth: true
 ---
 
-
-{{!-- {{#each fileLinks}}
-  <div class="col-xs-6 col-xs-offset-0 col-sm-4 col-sm-offset-0">
-    {{> mediaThumbnail}}
-  </div>
-{{/each}} --}}
-
-{{!-- <div class="row">
-  <div class="col-sm-6 col-xs-10 col-xs-offset-1 col-sm-offset-0">
-    {{#each fileLinks}}
-      {{#if_even @index}}
-        {{> mediaThumbnail}}
-      {{/if_even}}
-    {{/each}}
-  </div>
-  <div class="col-sm-6 col-xs-10 col-xs-offset-1 col-sm-offset-0">
-    {{#each fileLinks}}
-      {{#if_even @index}}
-      {{else}}
-        {{> mediaThumbnail}}
-      {{/if_even}}
-    {{/each}}
-  </div>
-</div> --}}
-
-<div class="row hidden-xs">
-  <div class="col-sm-6 col-sm-offset-0">
-    {{#each fileLinks}}
-      {{#if_even @index}}
-        {{> mediaThumbnail}}
-      {{/if_even}}
-    {{/each}}
-  </div>
-  <div class="col-sm-6 col-sm-offset-0">
-    {{#each fileLinks}}
-      {{#if_even @index}}
-      {{else}}
-        {{> mediaThumbnail}}
-      {{/if_even}}
-    {{/each}}
-  </div>
-</div>
-
-<div class="row hidden-sm hidden-md hidden-lg">
+<div id="masonryContainer">
   {{#each fileLinks}}
-    <div class="col-xs-10 col-xs-offset-1">
+    <div class="masonryItem col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-0 col-md-4 col-md-offset-0 col-lg-3 col-lg-offset-0">
       {{> mediaThumbnail}}
     </div>
   {{/each}}

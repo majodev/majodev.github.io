@@ -86,7 +86,7 @@ body {
 }
 
 .template-default, .template-note-header, .template-note-contents, .template-note-footer {
-  max-width: 720px; //30 = default padding
+  // max-width: 720px; //30 = default padding
 }
 
 .template-default, .template-note  {
@@ -246,7 +246,7 @@ body {
   right: 0;
   bottom: 0;
   left: 0;
-  background: linear-gradient(fade(@color-bg, 100%), fade(@color-bg, 0%));
+  background: linear-gradient(fade(@color-bg, 40%), fade(mix(@color-bg, #222, 92%), 90%));
   // opacity: 1;
   z-index: -1;
 }
@@ -260,8 +260,8 @@ body {
 
 #wrapper:after {
   content: "";
-  background: url(/assets/img/cream_dust.png);
-  opacity: 1;
+  background: url(/assets/img/grey.png);
+  opacity: 0.5;
   top: 0;
   left: 0;
   bottom: 0;
@@ -429,9 +429,9 @@ a:link, a:visited, a:hover, a:focus, a:active {
   padding-bottom: 4px;
 }
 
-.template-note-contents {
-  padding-bottom: 50px;
-}
+// .template-note-contents {
+//   padding-bottom: 50px;
+// }
 
 .template-note-header-wrapper {
   padding-top: 15px;
@@ -443,6 +443,29 @@ a:link, a:visited, a:hover, a:focus, a:active {
 @media (min-width: @grid-float-breakpoint) {
   .template-note-header-wrapper {
     padding-top: 38px;
+  }
+}
+
+
+// MOVE IN SIDEBAR AT NOTES WHEN SCREEN-LG REACHED!
+
+@media (min-width: @screen-md-min) {
+  .note-sidebar h2.linedSeparator {
+    // margin-top: -16px; // 14 h2 + 6 padding
+    padding-bottom: 5px;
+  }
+
+  .note-sidebar {
+    padding-top: 23px;
+  }
+
+  .note-sidebar, .note-sidebar ul {
+    text-align: left;
+  }
+
+  .note-sidebar ul.list-inline > li {
+    padding-right: 0px;
+    padding-left: 0px;
   }
 }
 
@@ -587,7 +610,7 @@ a:link, a:visited, a:hover, a:focus, a:active {
 }
 
 .block-noteSubTitle {
-  padding-top: 40px;
+  padding-top: 25px;
 }
 
 .block-noteSubTitle > h5 {
@@ -600,7 +623,7 @@ a:link, a:visited, a:hover, a:focus, a:active {
   font-family: @font-family-narrow;
 }
 
-.block-noteItem > .noteTitle {
+.block-noteItem > .noteTitle, .block-noteRelated {
   font-family: @font-family-sans-serif;
 }
 
@@ -717,7 +740,7 @@ html.no-svg .block-navBrandImage svg {
 }
 
 .block-noteLatest .block-noteArticleItem {
-  max-width: 720px;
+  // max-width: 720px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -728,6 +751,11 @@ html.no-svg .block-navBrandImage svg {
 
 .block-noteComments {
   max-width: 100%;
+}
+
+// force white background on thumbnails
+.thumbnail > img, .thumbnail a > img {
+  background: @color-bg;
 }
 
 @import "printStyles.less";

@@ -28,8 +28,10 @@
     "bootstrap": "^3.3.1",
     "fastclick": "^1.0.3",
     "font-awesome": "^4.2.0",
+    "imagesloaded": "^3.1.8",
     "jquery": "^1.11.1",
     "magnific-popup": "^0.9.9",
+    "masonry-layout": "^3.2.1",
     "modernizr": "^3.0.0-pre",
     "velocity-animate": "^1.0.1",
     "viewport-units-buggyfill": "^0.4.1"
