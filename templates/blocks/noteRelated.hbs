@@ -5,6 +5,9 @@
     {{#withuid this}}
       {{> noteArticleItem}}
     {{/withuid}}
+    {{#unless @last}}
+    <hr class="small sym">
+    {{/unless}}
   {{/each}}
 {{!-- {{else}}
 <p>Some notes are special. Pick <a href="{{#withuid "page_notes"}}/{{path}}{{/withuid}}"> another one</a>.</p> --}}

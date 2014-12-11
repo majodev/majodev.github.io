@@ -19,6 +19,9 @@ customMetaKeywords:
 <div class="notes">
   {{#each notes}}
     {{> noteArticleItem}}
+    {{#unless @last}}
+    <hr class="small sym">
+    {{/unless}}
   {{/each}}
 </div>
 {{else}}
