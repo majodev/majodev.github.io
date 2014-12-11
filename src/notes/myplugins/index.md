@@ -22,7 +22,7 @@ customMetaKeywords:
 - standalone
 ---
 
-[As promised][helloworld], lets break out my customized plugins I've used with [metalsmith][metalsmith] to build up this site. I had to rename them ([see this pull request](https://github.com/segmentio/metalsmith.io/pull/61)) in order to be allowed to publish them on [metalsmith.io][metalsmith].
+As [promised][helloworld], lets break out my customized plugins I've used with [metalsmith][metalsmith] to build up this site. I had to rename them (see this [pull request](https://github.com/segmentio/metalsmith.io/pull/61)) in order to be allowed to publish them on [metalsmith.io][metalsmith].
 
 I've published these plugins:
 - [metalsmith-word-count](#metalsmith-word-count)
@@ -35,8 +35,8 @@ Before publishing, my custom metalsmith plugins lived in their respective `metal
 1. The first step was to set up a new package for each plugin.
 2. `npm init` to get a proper one and install all dependent packages that you will need in the plugin.
 3. Copy over all the code and point the `main` field in your `package.json` to the proper file. Attention, don't forget do install all required dependencies!
-4. `npm link` your new package to temporary [locally use it within your root project][localpkg].
-5. Test and [finally publish it][pubnpm].
+4. `npm link` your new package to temporary [locally use it][localpkg] within your root project.
+5. Test and finally [publish][pubnpm] it.
 
 ### metalsmith-word-count
 Are you curious about how the word count and estimated reading time are computed on my site? It's done via my plugin [metalsmith-word-count][metalsmith-word-count-github]. It calculates the wordcount and average reading time of all paragraphs in a HTML file.
@@ -52,7 +52,7 @@ Do you want to automatically turn your markdown headings (`h1-h6`) into clickabl
 
 ### metalsmith-data-markdown
 
-[Inspired by Paul Irish's work](https://gist.github.com/paulirish/1343518) to use markdown within HTML tags, here comes *"something similar" (not as sophisticated)* wrapped in a metalsmith plugin. Now you can use `data-markdown` attributes to identify tags, that wrap markdown content and need to be converted to HTML during generation time.
+Inspired by [Paul Irish's work](https://gist.github.com/paulirish/1343518) to use markdown within HTML tags, here comes *"something similar" (not as sophisticated)* wrapped in a metalsmith plugin. Now you can use `data-markdown` attributes to identify tags, that wrap markdown content and need to be converted to HTML during generation time.
 
 [install from npm][metalsmith-data-markdown-npm] · [source on github][metalsmith-data-markdown-github]
 

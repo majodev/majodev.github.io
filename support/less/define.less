@@ -9,6 +9,11 @@
 @footer-height:                          230px;
 @footer-text-padding-top:                55px;
 
+// text
+@color-text:                             #3d3d3d; //#516473;
+@color-head:                             #002b36; //#2d2d2d; //#516473;
+@color-first-character:                  @color-head;
+
 // main colors
 @color-bg:                               #fefefe;
 @color-main-1:                           #02658C;
@@ -22,8 +27,15 @@
 @color-links-alternative:                #21b384;
 @color-links-alternative-hover:          #198764;
 
+@color-links-bg:                         transparent;
+@color-links-bg-hover:                   transparent; //fade(mix(@color-main-2, #00f, 99%), 10%);
+
+// @links-border-bottom:                    dotted #139dc1 1px;
+// @links-border-bottom-hover:              solid #7bd9f2 1px;
+
+
 // nav
-@color-nav-bg:                           #efefef; //@color-bg; //fade(@color-bg, 85%); //fade(#000, 50%); //fade(#fefefe, 80%); //fade(mix(@color-main-2, #00f, 99%), 10%); // 1
+@color-nav-bg:                           transparent; //#efefef; //@color-bg; //fade(@color-bg, 85%); //fade(#000, 50%); //fade(#fefefe, 80%); //fade(mix(@color-main-2, #00f, 99%), 10%); // 1
 @color-nav:                              #3d3d3d;
 @color-nav-hover:                        #3d3d3d; // mobile only
 @color-nav-active:                       #3d3d3d;
@@ -36,14 +48,9 @@
 @color-transluent-navbar-text:           #bbb;
 @color-transluent-navbar-bg:             rgba(5,5,5, 0.03);
 
-// text
-@color-text:                             #3d3d3d; //#516473;
-@color-head:                             #002b36; //#2d2d2d; //#516473;
-@color-first-character:                  @color-head;
-
 // select
-@color-text-selection-bg:                @color-head; //@color-links-alternative; //#d33682; //fade(@color-main-1, 30%);
-@color-text-selection:                   @color-bg; //white;
+@color-text-selection-bg:                lighten(#222, 10%); //@color-links-alternative; //#d33682; //fade(@color-main-1, 30%);
+@color-text-selection:                   darken(@color-bg, 5%); //white;
 @color-text-selection-bg-unfocused:      fade(@color-text-selection-bg, 75%);
 
 // footer
@@ -53,7 +60,6 @@
 @color-footer-links-hover:               lighten(@color-footer-links, 10%);
 
 // general dependent
-@color-links-bg-hover:                   transparent; //fade(mix(@color-main-2, #00f, 99%), 10%);
 
 @color-navbar-mobile-toggle-bars:        @color-nav;
 @color-navbar-mobile-toggle-bars-active: @color-links;

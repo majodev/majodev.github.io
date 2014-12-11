@@ -13,9 +13,9 @@ customMetaKeywords:
 - installation
 ---
 
-You want to hack with C and [Valgrind](http://valgrind.org/) on OS X 10.10 Yosemite? Well, you'll definitely run into problems getting it for your very platform, as there is [no official stable release out there yet](http://sourceforge.net/p/valgrind/mailman/message/33047840/). Consequentially these is no receipt for [Homebrew](http://brew.sh/) (which is great anyways, get it!), hence you need to manually build that nifty tool  from the latest `trunk` SVN repository.
+You want to hack with C and [Valgrind](http://valgrind.org/) on OS X 10.10 Yosemite? Well, you'll definitely run into problems getting it for your very platform, as there is no official stable release [out there yet](http://sourceforge.net/p/valgrind/mailman/message/33047840/). Consequentially these is no receipt for [Homebrew](http://brew.sh/) (which is great anyways, get it!), hence you need to manually build that nifty tool  from the latest `trunk` SVN repository.
 
-Here's how to do that (needs installation of [Xcode Command Line Tools](http://railsapps.github.io/xcode-command-line-tools.html)):
+Here's how to do that (needs installation of Xcode's [Command Line Tools](http://railsapps.github.io/xcode-command-line-tools.html)):
 
 ``` bash
 # Check out their repo...
@@ -51,5 +51,5 @@ valgrind-3.11.0.SVN
 
 ```
 
-Still on OS X 10.9 Mavericks? Then you might want to check out [Calvin's great How-To](http://calvinx.com/2014/05/04/valgrind-on-mac-os-x-10-9-mavericks/).  
+Still on OS X 10.9 Mavericks? Then you might want to check out Calvin's great [How-To](http://calvinx.com/2014/05/04/valgrind-on-mac-os-x-10-9-mavericks/).  
 Background: Currently relearning [C the hard way](http://c.learncodethehardway.org/book/).
