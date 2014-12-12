@@ -32,7 +32,9 @@ function plugin(options) {
           var $img = $(this);
           var src = $img.attr("src");
           var alt = $img.attr("alt");
-          var plain = '<img src="' + src + '" alt="' + alt + '">';
+          var class_attr = $img.attr("class");
+          var id_attr = $img.attr("id");
+          var plain = '<img src="' + src + '" alt="' + alt + '" class="' + class_attr + '" id="' + id_attr + '">';
 
           var replaceString = "";
 
