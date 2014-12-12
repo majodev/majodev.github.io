@@ -13,6 +13,12 @@ function init() {
   linksTargetBlank();
 }
 
+$(window).on("orientationchange", function() {
+  // disqus needs to be resetted on changed orientation, else width is to wide
+  // see http://stackoverflow.com/questions/16183397/how-to-reset-disqus-width-on-mobile-orientation-change
+  disqus.reset();
+});
+
 module.exports = {
   init: init
 };
