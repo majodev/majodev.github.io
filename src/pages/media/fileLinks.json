@@ -1,5 +1,20 @@
 {
   "fileLinks": [{
+    "name": "google-webfonts-helper",
+    "date": "Dec. 2014",
+    "description": "Ever wanted to know where Google hosts their webfonts? Well, here you go.<br /><br />Angular Frontend and REST service.<br />Open Source under MIT License.",
+    "pic": "/static/apps/google-webfonts-helper/full_view.png",
+    "links": [{
+      "url": "https://google-webfonts-helper.herokuapp.com/",
+      "caption": "Service"
+    }, {
+      "url": "https://github.com/majodev/google-webfonts-helper",
+      "caption": "GitHub repo"
+    }, {
+      "url": "http://ranf.tl/2014/12/23/self-hosting-google-web-fonts/",
+      "caption": "Note"
+    }]
+  }, {
     "name": "SJgrabber",
     "date": "Feb. 2014 - May 2014",
     "description": "Sick of skimming serienjunkies.org for new releases every day? SJgrabber assists you to grab links from the latest episodes for your favourite TV shows. <br /><br />Desktop application (Win, Mac OS X, Linux).<br />Open Source under MIT License.",
@@ -10,7 +25,7 @@
     }, {
       "url": "https://github.com/majodev/sjgrabber",
       "caption": "GitHub repo"
-      }]
+    }]
   }, {
     "name": "Master Thesis (German)",
     "date": "May 2013 - Dec. 2013",
@@ -102,7 +117,7 @@
     }, {
       "url": "https://www.youtube.com/watch?v=Z7kA4KxRw74&list=PLNc8hXd2oknHm8LCAOF9-v0ojExMVB61k#t=143",
       "caption": "Video (3rd Party)"
-      }]
+    }]
   }, {
     "name": "WLAN Security Revisited",
     "date": "Jun. 2012",
@@ -131,7 +146,7 @@
     }, {
       "url": "http://www.fh-joanneum.at/aw/home/Studienangebot_Uebersicht/department_angewandte_informatik/ima/Menschen/AbsolventInnen/~bbqe/Abschlussarbeiten_Details_ima/?arbid=4308062788&arbtyp=Bakk.-Arbeit&lan=en",
       "caption": "Full Abstract"
-      }]
+    }]
   }, {
     "name": "Bachelor Thesis 1 (German)",
     "date": "Sep. 2010",
