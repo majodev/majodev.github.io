@@ -31,4 +31,6 @@ The service uses Google's font API to retrieve a list of all available web fonts
 
 Internally, I'm using the (M)EAN stack (without MongoDB) as I really needed some practice with [Angular](https://angularjs.org/) and [Express](http://expressjs.com/). Restful services are great and I can recommend anyone starting up a small project like this to take a look at the [yeoman angular-fullstack](https://github.com/DaftMonk/generator-angular-fullstack) generator. Without prior knowledge, I came up with a working prototype in less than 5 hours! Freaking productive work flow.
 
-As always please leave comments if you have any suggestions and take a look at the code on [GitHub](https://github.com/majodev/google-webfonts-helper).
+Please [leave comments on Hackernews](https://news.ycombinator.com/item?id=8802395) or here if you have any suggestions and take a look at the code on [GitHub](https://github.com/majodev/google-webfonts-helper).
+
+**EDIT:** Wow, this project has gone quite popular after submitting it to [Hackernews](https://news.ycombinator.com/item?id=8802395)! 33 stargazers and 35 comments (and rank 7 in the news section at peak time). Thank you!
