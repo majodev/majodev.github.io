@@ -1,2 +1,2 @@
-/*! majodev.github.io - v1.0.0 - build 2014-12-26 21:44:50 */
+/*! majodev.github.io - v1.0.0 - build 2014-12-27 02:36:59 */
 var container=document.querySelector("#masonryContainer"),msnry=new Masonry(container,{itemSelector:".masonryItem"}),imgLoad=imagesLoaded(container);imgLoad.on("progress",function(){msnry.layout()}),imgLoad.on("done",function(){msnry.layout()});
