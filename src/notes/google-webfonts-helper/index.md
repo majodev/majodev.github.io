@@ -35,4 +35,6 @@ Please [leave comments on Hackernews](https://news.ycombinator.com/item?id=88023
 
 **EDIT 2014-12-27:** Wow, this project has gone quite popular after submitting it to [Hackernews](https://news.ycombinator.com/item?id=8802395)! 33 stargazers and 35 comments (and rank 7 in the news section at peak time). Thank you!
 
-**EDIT2 2014-12-29:** Seriously, I have not expected so much popularity: 169 stargazers. Thank you so much!
+**EDIT 2014-12-29:** Seriously, I have not expected so much popularity: 169 stargazers. Thank you so much!
+
+**EDIT 2014-12-30:** Font subsets (e.g. `latin`, `latin-ext`, `cyrillic`, ...) are now customizable.
