@@ -38,3 +38,5 @@ Please [leave comments on Hackernews](https://news.ycombinator.com/item?id=88023
 **EDIT 2014-12-29:** Seriously, I have not expected so much popularity: 169 stargazers. Thank you so much!
 
 **EDIT 2014-12-30:** Font subsets (e.g. `latin`, `latin-ext`, `cyrillic`, ...) are now customizable.
+
+**EDIT 2015-01-02:** UI improvements, CSS code highlighting, step by step instructions.
