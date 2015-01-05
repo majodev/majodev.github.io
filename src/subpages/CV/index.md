@@ -1,6 +1,6 @@
 ---
 title: CV
-sequence: 1
+sequence: 2
 template: default.hbs
 published: true
 lightbox: true

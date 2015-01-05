@@ -74,7 +74,8 @@ Metalsmith(__dirname)
   .destination("./build")
   .clean(clean)
   .use(ignore([
-    "**/.DS_Store"
+    "**/.DS_Store",
+    "subpages/portfolio/**/*.*"
   ]))
   .use(includedrafts({
     include: dev
