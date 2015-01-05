@@ -2,7 +2,7 @@
   "fileLinks": [{
     "name": "google-webfonts-helper",
     "date": "Dec. 2014",
-    "description": "Ever wanted to know where Google hosts their webfonts? Well, here you go.<br /><br />Angular Frontend and REST service.<br />Open Source under MIT License.",
+    "description": "A Hazzle-Free Way to Self-Host Google Fonts. Get eot, ttf, svg, woff and woff2 files + CSS snippets. <br /><br />Angular Frontend and REST service.<br />Open Source under MIT License.",
     "pic": "/static/apps/google-webfonts-helper/full_view.png",
     "links": [{
       "url": "https://google-webfonts-helper.herokuapp.com/",
