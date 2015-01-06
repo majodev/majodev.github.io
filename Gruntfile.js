@@ -147,7 +147,7 @@ module.exports = function(grunt) {
       "gh-pages": [".grunt"],
       "favicons": ["support/img/favicons", "templates/base/favicons.hbs"],
       "build_less": ["build/**/*.less"]
-      // latextempFiles: ["support/static/resume/*.aux", "support/static/resume/*.log", "support/static/resume/*.out"]
+        // latextempFiles: ["support/static/resume/*.aux", "support/static/resume/*.log", "support/static/resume/*.out"]
     },
     less: {
       development: {
@@ -156,9 +156,9 @@ module.exports = function(grunt) {
           paths: config.inject.less.dirs
         },
         files: [{
-          src: [config.inject.less.src],
-          dest: config.inject.less.dest
-        }] // TODO: run autoprefixer in the end!!!
+            src: [config.inject.less.src],
+            dest: config.inject.less.dest
+          }] // TODO: run autoprefixer in the end!!!
       },
       productive: {
         options: {
@@ -166,9 +166,9 @@ module.exports = function(grunt) {
           paths: config.inject.less.dirs
         },
         files: [{
-          src: [config.inject.less.src],
-          dest: "_tmp/style.css"
-        }] // TODO: run autoprefixer in the end!!!
+            src: [config.inject.less.src],
+            dest: "_tmp/style.css"
+          }] // TODO: run autoprefixer in the end!!!
       },
       src_dev: {
         options: {
@@ -224,9 +224,9 @@ module.exports = function(grunt) {
         report: "gzip",
         preserveComments: false,
         banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - ' + 'build <%= grunt.template.today("yyyy-mm-dd HH:MM:ss") %> */\n'
-        // compress: {
-        //   drop_console: true
-        // }
+          // compress: {
+          //   drop_console: true
+          // }
       },
       js: {
         files: [{
@@ -445,8 +445,8 @@ module.exports = function(grunt) {
             "--debug"
           ],
           exports: ['global']
-          // lodash-autobuild will add this after analysis of source code
-          // include: "names, of, lodash, methods, in, your, source" 
+            // lodash-autobuild will add this after analysis of source code
+            // include: "names, of, lodash, methods, in, your, source" 
         }
       }
     },
@@ -512,6 +512,14 @@ module.exports = function(grunt) {
         src: 'dev/fav/favicon.png',
         dest: 'support/img/favicons'
       }
+    },
+    open: {
+      dev: {
+        path: 'http://localhost:8080'
+      },
+      pub: {
+        path: 'http://ranf.tl'
+      }
     }
   });
 
@@ -541,6 +549,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-confirm');
   grunt.loadNpmTasks('grunt-bg-shell');
   grunt.loadNpmTasks('grunt-favicons');
+  grunt.loadNpmTasks('grunt-open');
 
   // ---
   // main tasks
@@ -551,15 +560,15 @@ module.exports = function(grunt) {
   ]);
 
   grunt.registerTask("default", [
-    "build-pre", "build-dev", "http-server:dev", "watch"
+    "build-pre", "build-dev", "http-server:dev", 'open:dev', "watch" 
   ]);
 
   grunt.registerTask("productive", [
-    "build-pre", "build-productive", "bgShell:testserver-gzip", "confirm:long", 'gh-pages'
+    "build-pre", "build-productive", "bgShell:testserver-gzip", "confirm:long", 'gh-pages', 'open:pub'
   ]);
 
   grunt.registerTask("publish", [
-    "build-pre", "build-productive", 'gh-pages'
+    "build-pre", "build-productive", 'gh-pages', 'open:pub'
   ]);
 
   // grunt.registerTask("resume", [

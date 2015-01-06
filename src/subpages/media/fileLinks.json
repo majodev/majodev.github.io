@@ -12,7 +12,7 @@
       "caption": "GitHub repo"
     }, {
       "url": "http://ranf.tl/2014/12/23/self-hosting-google-web-fonts/",
-      "caption": "Note"
+      "caption": "Author's note"
     }]
   }, {
     "name": "SJgrabber",
@@ -77,7 +77,7 @@
     "name": "Universalmuseum Joanneum (UMJ)",
     "date": "Sep. 2012 - Apr. 2013",
     "description": "Software for permanent exhibition at Universalmuseum Joanneum GmbH, Graz, Austria. In cooperation with the Digital Media Technologies department at FH JOANNEUM, Graz, Austria.<br/><br/>Planned a core framework, implemented 20 interactive exhibits, held workshops and assisted at deployment.",
-    "pic": "/portfolio/img/umj.jpg",
+    "pic": "/static/UMJ/umj.jpg",
     "links": [{
       "url": "https://www.youtube.com/watch?v=uYaUEPq25gY&list=UUJ_lWimEAufPHWjhHwZULAw",
       "caption": "Video (FINAL project check)"
