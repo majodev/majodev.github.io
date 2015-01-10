@@ -25,7 +25,7 @@ lightbox: true
 
 Let's get this straight: The effort to host Google web fonts on your own server is immense! First of all you need to download all `.eot`, `.woff`, `.woff2`, `.ttf` and `.svg` files, then copy them onto your server and finally paste a CSS snippet. Sounds easy? Well it *could* be, if Google *would actually provide* any direct links to download these files and a customized CSS for self-hosting them. To fix this problem without using font generation services like Font Squirrel, I decided to publish a little service called [google-webfonts-helper](https://google-webfonts-helper.herokuapp.com/fonts).
 
-### Example: Self-host *Open Sans* in [5 easy steps](https://google-webfonts-helper.herokuapp.com/fonts/open-sans?subsets=latin)!
+### Example: Self-host *Open Sans* in [4 easy steps](https://google-webfonts-helper.herokuapp.com/fonts/open-sans?subsets=latin)!
 
 The service uses Google's font API to retrieve a list of all available web fonts, fetches links to the `.eot`, `.woff`, `.woff2`, `.ttf` and `.svg` files by parsing their hosted CSS files (and faking the `User-Agent` to get them). It downloads all font formats and generates a customized archive with all your selected styles, formats and charsets. In combination with the CSS snippet (whose folder prefix can be customized) you should be ready to self-host you font immediately. Here's how this looks like currently:
 
@@ -43,4 +43,4 @@ Please leave comments here (preferred) or [on Hackernews](https://news.ycombinat
 
 **EDIT 2015-01-02:** UI improvements, CSS code highlighting, step by step instructions.
 
-**EDIT 2015-01-09:** Your generated archive only includes required files based on selected styles, formats and charsets. 5-steps instruction. A special *Thank you* goes to the 211 stargazers, you are awesome! 
+**EDIT 2015-01-09:** Your generated archive only includes required files based on selected styles, formats and charsets. 4-steps instruction. A special *Thank you* goes to the 212 stargazers, you are awesome! 
