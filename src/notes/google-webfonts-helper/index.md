@@ -43,4 +43,6 @@ Please leave comments here (preferred) or [on Hackernews](https://news.ycombinat
 
 **EDIT 2015-01-02:** UI improvements, CSS code highlighting, step by step instructions.
 
-**EDIT 2015-01-09:** Your generated archive only includes required files based on selected styles, formats and charsets. 4-steps instruction. A special *Thank you* goes to the 212 stargazers, you are awesome! 
+**EDIT 2015-01-09:** Your generated archive only includes required files based on selected styles, formats and charsets. 4-steps instruction. A special *Thank you* goes to the 212 stargazers, you are awesome!
+
+**EDIT 2015-01-12:** Just for reference: Before creating this service I've used an [awesome bash script](https://neverpanic.de/blog/2014/03/19/downloading-google-web-fonts-for-local-hosting/) by Clemens Lang to download Google fonts in all formats. So Kudos to him, my service builds upon his idea!
