@@ -15,6 +15,23 @@
       "caption": "Author's note"
     }]
   }, {
+    "name": "Plugins for Metalsmith",
+    "date": "Sep. 2014 - October 2014",
+    "description": "I've published three plugins for Metalsmith - a static site generator - which I've used to build this site you are seeing here. They are featured on <a href='http://metalsmith.io'>metalsmith.io</a> and I've written a note documenting the process of extracting them into seperate packages.<br /><br />Open Source under MIT License.",
+    "links": [{
+      "url": "https://github.com/majodev/metalsmith-word-count",
+      "caption": "metalsmith-word-count"
+    }, {
+      "url": "https://github.com/majodev/metalsmith-headings-identifier",
+      "caption": "metalsmith-headings-identifier"
+    }, {
+      "url": "https://github.com/majodev/metalsmith-data-markdown",
+      "caption": "metalsmith-data-markdown"
+    }, {
+      "url": "http://ranf.tl/2014/10/01/extracting-libs-from-a-node-js-project/",
+      "caption": "Author's note"
+    }]
+  }, {
     "name": "SJgrabber",
     "date": "Feb. 2014 - May 2014",
     "description": "Sick of skimming serienjunkies.org for new releases every day? SJgrabber assists you to grab links from the latest episodes for your favourite TV shows. <br /><br />Desktop application (Win, Mac OS X, Linux).<br />Open Source under MIT License.",
