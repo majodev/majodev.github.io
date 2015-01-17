@@ -16,7 +16,7 @@
     }]
   }, {
     "name": "Plugins for Metalsmith",
-    "date": "Sep. 2014 - October 2014",
+    "date": "Sep. 2014 - Oct. 2014",
     "description": "I've published three plugins for Metalsmith - a static site generator - which I've used to build this site you are seeing here. They are featured on <a href='http://metalsmith.io'>metalsmith.io</a> and I've written a note documenting the process of extracting them into seperate packages.<br /><br />Open Source under MIT License.",
     "links": [{
       "url": "https://github.com/majodev/metalsmith-word-count",

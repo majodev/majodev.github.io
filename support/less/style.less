@@ -89,7 +89,7 @@ body {
   // max-width: 720px; //30 = default padding
 }
 
-.template-default, .template-note  {
+.template-default {
   padding-bottom: 20px;
 }
 
@@ -208,10 +208,10 @@ body {
   .navbar-default .navbar-nav > li > a,
   .navbar-default .navbar-nav > li > a:hover, 
   .navbar-default .navbar-nav > li > a:focus {
-    border-bottom: 2px solid;
+    border-bottom: 4px solid;
     background-color: transparent;
     padding-top: 14px;
-    padding-bottom: 9px;
+    padding-bottom: 10px;
     border-bottom-color: transparent;
     transition-property: color, border-bottom-color;
   }
@@ -230,6 +230,50 @@ body {
   }
 }
 
+
+
+// -----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
+// Dark navbar overwrite
+// -----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
+
+.block-header { 
+  background: @color-transluent-navbar-bg;
+}
+
+.block-header .navbar-nav li a, 
+.block-header .navbar-nav .active a,
+.block-header .block-navBrand {
+  color: @color-transluent-navbar-text;
+}
+
+.block-header .block-navBrand:hover, .block-header .block-navBrand:focus, .block-header .block-navBrandMobileInner {
+  color: @color-transluent-navbar-text;
+}
+
+.block-navBrandImage svg {
+  fill: @color-transluent-navbar-text;
+}
+
+.collapsed > .icon-bar {
+  background-color: @color-transluent-navbar-text !important;
+}
+
+@media (min-width: @grid-float-breakpoint) {
+  .navbar-default .navbar-nav > .active > a {
+    border-bottom-color: @color-transluent-navbar-text;
+  }
+}
+
+
+html.no-svg .block-navBrandImage {
+  background: url(/assets/img/logo/brain-60px-portfolio-no-svg.png) no-repeat;
+  background-size: 30px 30px;
+  width: 30px;
+  height: 30px;
+}
+
 // -----------------------------------------------------------------------------
 // -----------------------------------------------------------------------------
 // colors and background styling
@@ -246,22 +290,24 @@ body {
   right: 0;
   bottom: 0;
   left: 0;
-  background: linear-gradient(fade(@color-bg, 40%), fade(mix(@color-bg, #222, 92%), 90%));
+  // background: linear-gradient(fade(@color-bg, 40%), fade(mix(@color-bg, #222, 92%), 90%));
+  // background: linear-gradient(fade(@color-bg, 0%), fade(@color-bg, 8%));
   // opacity: 1;
   z-index: -1;
 }
 
 #wrapper {
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.6);
-  background: @color-bg;
+  background: #333; //@color-bg;
   display: block;
   position: relative;
 }
 
 #wrapper:after {
   content: "";
-  background: url(/assets/img/grey.png);
-  opacity: 0.5;
+  background: url(/assets/img/bg_dark.png);
+  background-size: 100px 100px;
+  opacity: 1;
   top: 0;
   left: 0;
   bottom: 0;
@@ -414,6 +460,18 @@ a:link, a:visited, a:hover, a:focus, a:active {
   transition-timing-function: cubic-bezier(0.165,0.630,0.140,0.820);
 }
 
+.template-default {
+  max-width: @max-note-content-width;
+  background: @color-bg;
+  min-height: 95vh;
+}
+
+@media (min-width: @screen-md-min) {
+  .template-default {
+    max-width: @max-note-content-wrapper-width;
+  }
+}
+
 @media (min-width: @grid-float-breakpoint) {
   .template-default h1.linedSeparator {
     margin-top: 46px;
@@ -429,9 +487,15 @@ a:link, a:visited, a:hover, a:focus, a:active {
   padding-bottom: 4px;
 }
 
-// .template-note-contents {
-//   padding-bottom: 50px;
-// }
+.template-note-contents-wrapper {
+  background: @color-bg;
+  max-width: @max-note-content-width;
+  padding-bottom: 20px;
+  min-height: 95vh; //disallow blank bg
+  // margin-top: 35px;
+  // margin-right: 0px; // disable bootstrap center margin auto
+  // margin-left: 0px; // disable bootstrap center margin auto
+}
 
 .template-note-header-wrapper {
   padding-top: 15px;
@@ -446,13 +510,27 @@ a:link, a:visited, a:hover, a:focus, a:active {
   }
 }
 
+.template-note-contents-main {
+  max-width: @max-note-content-width;
+}
+
 
 // MOVE IN SIDEBAR AT NOTES WHEN SCREEN-LG REACHED!
 
 @media (min-width: @screen-md-min) {
+
+  .template-note-contents-wrapper {
+    max-width: @max-note-content-wrapper-width; // add width for sidebar to wrappe when it comes available.
+  }
+
   .note-sidebar h2.linedSeparator {
     // margin-top: -16px; // 14 h2 + 6 padding
     padding-bottom: 5px;
+  }
+
+  .note-sidebar {
+    max-width: @max-note-sidebar-width;
+    // float: right;
   }
 
   .note-sidebar {
@@ -635,12 +713,12 @@ a:link, a:visited, a:hover, a:focus, a:active {
 }
 
 // fallback to png if svg unsupported
-html.no-svg .block-navBrandImage {
-  background: url(/assets/img/logo/brain-60px-no-svg.png) no-repeat;
-  background-size: 30px 30px;
-  width: 30px;
-  height: 30px;
-}
+// html.no-svg .block-navBrandImage {
+//   background: url(/assets/img/logo/brain-60px-no-svg.png) no-repeat;
+//   background-size: 30px 30px;
+//   width: 30px;
+//   height: 30px;
+// }
 
 // hide svg tag if unsupported
 html.no-svg .block-navBrandImage svg {
@@ -650,7 +728,7 @@ html.no-svg .block-navBrandImage svg {
 .block-navBrandImage svg {
   width: 30px;
   height: 30px;
-  fill: @color-nav;
+  // fill: @color-nav;
 }
 
 .block-navBrandText {
