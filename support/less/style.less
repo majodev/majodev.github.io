@@ -286,18 +286,18 @@ body {
 #wrapper:before {
   content: '';
   position: absolute;
-  top: 0;
+  top: 75vh; // start in the last quarter of the document with the gradiant
   right: 0;
   bottom: 0;
   left: 0;
   // background: linear-gradient(fade(@color-bg, 40%), fade(mix(@color-bg, #222, 92%), 90%));
-  // background: linear-gradient(fade(@color-bg, 0%), fade(@color-bg, 8%));
+  background: linear-gradient(fade(@color-footer-bg, 0%), fade(@color-footer-bg, 100%));
   // opacity: 1;
   z-index: -1;
 }
 
 #wrapper {
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.6);
+  // box-shadow: 0 1px 5px rgba(0, 0, 0, 0.6);
   background: #333; //@color-bg;
   display: block;
   position: relative;
@@ -320,7 +320,7 @@ body {
 .block-footer {
   color: @color-footer;
   background: @color-footer-bg;
-  .box-shadow(inset 0 3px 5px rgba(0,0,0,.125));
+  // .box-shadow(inset 0 3px 5px rgba(0,0,0,.125));
 }
 
 .block-footer:after {
