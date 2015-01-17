@@ -27,7 +27,7 @@ Let's get this straight: The effort to host Google web fonts on your own server 
 
 ### Example: Self-host *Open Sans* in [4 easy steps](https://google-webfonts-helper.herokuapp.com/fonts/open-sans?subsets=latin)!
 
-The service uses Google's font API to retrieve a list of all available web fonts, fetches links to the `.eot`, `.woff`, `.woff2`, `.ttf` and `.svg` files by parsing their hosted CSS files (and faking the `User-Agent` to get them). It downloads all font formats and generates a customized archive with all your selected styles, formats and charsets. In combination with the CSS snippet (whose folder prefix can be customized) you should be ready to self-host you font immediately. Here's how this looks like currently:
+The service uses Google's font API to retrieve a list of all available web fonts, fetches links to the `.eot`, `.woff`, `.woff2`, `.ttf` and `.svg` files by parsing their hosted CSS files (and faking the `User-Agent` to get them). It downloads all font formats and generates a customized archive with all your selected styles, formats and charsets. In combination with the CSS snippet (whose folder prefix can be customized) you should be ready to self-host your font immediately. Here's how this looks like currently:
 
 ![google-webfonts-helper overview image](/static/apps/google-webfonts-helper/full_view.png)
 
