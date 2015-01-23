@@ -53,3 +53,5 @@ valgrind-3.11.0.SVN
 
 Still on OS X 10.9 Mavericks? Then you might want to check out Calvin's great [How-To](http://calvinx.com/2014/05/04/valgrind-on-mac-os-x-10-9-mavericks/).  
 Background: Currently relearning [C the hard way](http://c.learncodethehardway.org/book/).
+
+**EDIT 2015-01-23:** Seems like a lot of people assert that Valgrind is completely supported on Mac OS X (although unstable trunk build) and works out of the box (like in Linux). Both assertions are **not** true! Valgrind will show false positive memory leaks in OS X's system libraries (these are out of your control), *unless* you define a [suppression file](https://wiki.wxwidgets.org/Valgrind_Suppression_File_Howto). Have a look at [Taras' How-To](http://kalapun.com/posts/checking-c-code-with-valgrind-on-yosemite/) to generate such a file!
