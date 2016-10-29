@@ -1,6 +1,6 @@
 # www.robotstxt.org/
 
-Sitemap: http://ranf.tl/sitemap.xml
+Sitemap: http://mranftl.com/sitemap.xml
 
 # Allow crawling of all content
 User-agent: *
