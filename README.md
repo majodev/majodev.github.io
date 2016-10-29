@@ -11,7 +11,7 @@
   git clone https://github.com/majodev/majodev.github.io.git
   cd majodev.github.io
   npm install -d
-  grunt init
+  # grunt init # this step is no longer required.
 ```
 
 ## Build dev

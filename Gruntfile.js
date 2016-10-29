@@ -294,7 +294,7 @@ module.exports = function(grunt) {
     },
     modernizr: {
       dist: {
-        "devFile": "node_modules/modernizr/dist/modernizr-build.js", // [REQUIRED] Path to the build you're using for development.
+        "devFile": "scripts/modernizr-build.js", // [REQUIRED] Path to the build you're using for development.
         "outputFile": "_tmp/modernizr-custom.js", // [REQUIRED] Path to save out the built file.
         "extra": { // Based on default settings on http://modernizr.com/download/
           "shiv": true,
@@ -366,18 +366,18 @@ module.exports = function(grunt) {
       options: {
         stderr: true
       },
-      init_modernizr_dependencies: {
-        command: [
-          "cd node_modules/modernizr",
-          "npm install -d"
-        ].join("&&")
-      },
-      build_modernizr: {
-        command: [
-          "cd node_modules/modernizr",
-          "grunt build"
-        ].join("&&")
-      },
+      // init_modernizr_dependencies: {
+      //   command: [
+      //     "cd node_modules/modernizr",
+      //     "npm install -d"
+      //   ].join("&&")
+      // },
+      // build_modernizr: {
+      //   command: [
+      //     "cd node_modules/modernizr",
+      //     "grunt build"
+      //   ].join("&&")
+      // },
       "casperjs": {
         command: [
           "casperjs scripts/404checker.js http://localhost:8080/"
@@ -555,9 +555,9 @@ module.exports = function(grunt) {
   // main tasks
   // ---
 
-  grunt.registerTask("init", [
-    "shell:init_modernizr_dependencies", "shell:build_modernizr"
-  ]);
+  // grunt.registerTask("init", [
+  //   "shell:init_modernizr_dependencies", "shell:build_modernizr"
+  // ]);
 
   grunt.registerTask("default", [
     "build-pre", "build-dev", "http-server:dev", 'open:dev', "watch" 
