@@ -22,7 +22,9 @@
   "scripts": {
     "initialize": "grunt init",
     "run": "grunt",
-    "productive": "grunt productive"
+    "productive": "grunt productive",
+    "start": "grunt",
+    "publish": "grunt publish"
   },
   "dependencies": {
     "bootstrap": "^3.3.1",
