@@ -1,6 +1,6 @@
 # majodev.github.io
 
-> as hosted on **[ranf.tl](http://ranf.tl)**
+> as hosted on **[mranftl.com](http://mranftl.com)**
 
 ## Prerequisites
 - [node](http://nodejs.org/)

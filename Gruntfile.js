@@ -518,7 +518,7 @@ module.exports = function(grunt) {
         path: 'http://localhost:8080'
       },
       pub: {
-        path: 'http://ranf.tl'
+        path: 'http://mranftl.com'
       }
     }
   });
