@@ -35,7 +35,7 @@ This site is not backed by any traditional blogging CMS (e.g. [Wordpress](http:/
 
 If you are interested, feel free to checkout the [source code](https://github.com/majodev/majodev.github.io/), hosting is currently done though blazing fast [GitHub Pages](https://pages.github.com/) (which is free). I'm currently in the process of publishing all the plugins I've written for [metalsmith](http://metalsmith.io). ~~Check back later if you want some information on that.~~ Publishing has [begun](/2014/10/01/extracting-libs-from-a-node-js-project/).
 
-By the way, what do you think about my chosen domain *"ranf.tl"*? I think this variation of my surname is pretty neat, as it's very short and hopefully memorable (ranftl.com and ranftl.at were already taken). Futhermore I can finally equip my family with some handy & nice looking email addresses. Anyways, I'm glad you are able to read this and maybe you'll find something useful here in the next weeks. 
+By the way, what do you think about my chosen domain *"mranftl.com"*? I think this variation of my surname is pretty neat, as it's very short and hopefully memorable (ranftl.com and ranftl.at were already taken). Futhermore I can finally equip my family with some handy & nice looking email addresses. Anyways, I'm glad you are able to read this and maybe you'll find something useful here in the next weeks. 
 
 ![I am out](i_am_out.gif)
 

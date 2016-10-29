@@ -49,7 +49,7 @@ if (dev === false) {
   console.log("-- metalsmith generates development build (clean=" + clean + ")");
 }
 
-var absoluteUrl = "http://ranf.tl/";
+var absoluteUrl = "http://mranftl.com/";
 
 // metalsmith pipeline
 Metalsmith(__dirname)
@@ -57,11 +57,11 @@ Metalsmith(__dirname)
     _dev: dev,
     _author: "Mario Ranftl",
     _authorTwitter: "majodev",
-    _sitename: "ranf.tl",
+    _sitename: "mranftl.com",
     _siterepo: "https://github.com/majodev/majodev.github.io/",
-    _mailEncrypted: stringToHexa("mario@ranf.tl"),
+    _mailEncrypted: stringToHexa("hi@mranftl.com"),
     _description: "I'm Mario Ranftl (majodev), an information manager from Austria. This site is an experiment to write (and ramble on) about my professional life.",
-    _keywords: "mario ranftl, ranf.tl, majodev, ranftl, mario, professional, " + 
+    _keywords: "mario ranftl, mranftl.com, majodev, ranftl, mario, professional, " + 
       "austria, fehring, steiermark, " +
       "programming, developer, full stack, information manager, information management, ",
     _builddate: new Date(),
