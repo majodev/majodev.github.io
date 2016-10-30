@@ -1,2 +1,2 @@
-/*! majodev.github.io - v1.0.0 - build 2016-10-30 00:07:36 */
+/*! majodev.github.io - v1.0.0 - build 2016-10-30 23:06:50 */
 !function(){var a=$("html, body");$(".smoothScroll").click(function(){var b=$.attr(this,"href");return"undefined"!=typeof b?(a.animate({scrollTop:$(b).offset().top},500,function(){window.location.hash=b}),!1):void 0})}();
