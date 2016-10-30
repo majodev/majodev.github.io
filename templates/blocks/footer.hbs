@@ -1,7 +1,7 @@
 <div id="footer_push"></div>
 <footer class="block-footer">
   <div class="container-fluid text-center">
-    <p><i class="fa fa-copyright"></i> 2014–{{dateFormatYear _builddate}} {{_author}} | {{> twitterLink}}</p>
+    <p><i class="fa fa-copyright"></i> 2014–{{dateFormatYear _builddate}} {{_author}}</p>
     {{!-- <p class="no-margin fontsize-smaller">Page last modified {{dateFormatLong lastModified}}</p> --}}
     <p class="footer-trivialpages">{{#each trivialpages}}<a href="/{{this.path}}">{{this.title}}</a>{{#unless @last}} · {{/unless}}{{/each}}</p>
 
