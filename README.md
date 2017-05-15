@@ -3,7 +3,7 @@
 > as hosted on **[mranftl.com](http://mranftl.com)**
 
 ## Prerequisites
-- [node](http://nodejs.org/)
+- [node](http://nodejs.org/) (*node v0.10.44 (npm v2.15.0)*)
 - [grunt](http://gruntjs.com/) (`npm install -g grunt-cli`)
 
 ## Install
@@ -64,11 +64,11 @@ These tasks must be run manually.
   grunt linkcheck
 ```
 
-<!-- ### Rebuild resume
+### Rebuild cv image
 **Important:** Needs to be run on a Mac with working [MacTeX](https://tug.org/mactex/) installation. Uses fonts and `sips` from the Apple ecosystem.
 ```bash
-  grunt resume
-``` -->
+  grunt shell:cv
+```
 
 ## License
 [See `LICENSE.md` for detailed information](https://github.com/majodev/majodev.github.io/blob/source/LICENSE.md)
