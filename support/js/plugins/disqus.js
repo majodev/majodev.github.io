@@ -44,7 +44,7 @@ function init() {
       disqus_identifier = data.id;
       disqus_title = data.title;
       disqus_url = data.url;
-      disqus_config = function() {
+      disqus_config = function () {
         this.language = data.lang;
       };
 
@@ -53,6 +53,16 @@ function init() {
       dsq.type = 'text/javascript';
       dsq.async = true;
       dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+      // disable cloudflare rocket-loader for disqus
+      // see http://www.howson.pro/fixing-disqus-comments-when-using-cloudflare/
+      try {
+        dsq.dataset.cfasync = "false";
+      } catch (e) {
+        console.error("unable to set cfasync attribute for disqus.", e);
+      }
+
+
       (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
 
       initialized = true;
@@ -72,7 +82,7 @@ function reset() {
       readDisqusData();
       DISQUS.reset({
         reload: true,
-        config: function() {
+        config: function () {
           this.page.identifier = data.id;
           this.page.url = data.url;
           this.page.title = data.title;
