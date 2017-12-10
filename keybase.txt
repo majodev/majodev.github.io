@@ -1,0 +1,55 @@
+==================================================================
+https://keybase.io/mranftl
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://mranftl.com
+  * I am mranftl (https://keybase.io/mranftl) on keybase.
+  * I have a public key ASB73VpLBBV5HwAFxRepbjDjcV5yAfKofRHfyO-SBmYTYQo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "01207bdd5a4b0415791f0005c517a96e30e3715e7201f2a87d11dfc8ef92066613610a",
+      "host": "keybase.io",
+      "kid": "01207bdd5a4b0415791f0005c517a96e30e3715e7201f2a87d11dfc8ef92066613610a",
+      "uid": "6d12346c99b24c34b599a7e68fdbb919",
+      "username": "mranftl"
+    },
+    "merkle_root": {
+      "ctime": 1512938305,
+      "hash": "0db3b7e9d7fc939143c67ab02f0fb631605b7814593cb583951378f6a9defebc5404ea87d9b7274f92273b71469061f4c49eade4200216b5bcd9a2f5e8aea4d2",
+      "hash_meta": "33a67fa6d66e01f3ddcfe599f9cc6b73dea3ddf2198b33b9c9b0d96031661fcc",
+      "seqno": 1799055
+    },
+    "service": {
+      "hostname": "mranftl.com",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 1
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "1.0.37"
+  },
+  "ctime": 1512938412,
+  "expire_in": 504576000,
+  "prev": "2d4ff68cbc088b4d205b323f80f6612f8d25cc49d57a3edc7abb9af9e6802ac0",
+  "seqno": 9,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEge91aSwQVeR8ABcUXqW4w43FecgHyqH0R38jvkgZmE2EKp3BheWxvYWTFA0J7ImJvZHkiOnsia2V5Ijp7ImVsZGVzdF9raWQiOiIwMTIwN2JkZDVhNGIwNDE1NzkxZjAwMDVjNTE3YTk2ZTMwZTM3MTVlNzIwMWYyYTg3ZDExZGZjOGVmOTIwNjY2MTM2MTBhIiwiaG9zdCI6ImtleWJhc2UuaW8iLCJraWQiOiIwMTIwN2JkZDVhNGIwNDE1NzkxZjAwMDVjNTE3YTk2ZTMwZTM3MTVlNzIwMWYyYTg3ZDExZGZjOGVmOTIwNjY2MTM2MTBhIiwidWlkIjoiNmQxMjM0NmM5OWIyNGMzNGI1OTlhN2U2OGZkYmI5MTkiLCJ1c2VybmFtZSI6Im1yYW5mdGwifSwibWVya2xlX3Jvb3QiOnsiY3RpbWUiOjE1MTI5MzgzMDUsImhhc2giOiIwZGIzYjdlOWQ3ZmM5MzkxNDNjNjdhYjAyZjBmYjYzMTYwNWI3ODE0NTkzY2I1ODM5NTEzNzhmNmE5ZGVmZWJjNTQwNGVhODdkOWI3Mjc0ZjkyMjczYjcxNDY5MDYxZjRjNDllYWRlNDIwMDIxNmI1YmNkOWEyZjVlOGFlYTRkMiIsImhhc2hfbWV0YSI6IjMzYTY3ZmE2ZDY2ZTAxZjNkZGNmZTU5OWY5Y2M2YjczZGVhM2RkZjIxOThiMzNiOWM5YjBkOTYwMzE2NjFmY2MiLCJzZXFubyI6MTc5OTA1NX0sInNlcnZpY2UiOnsiaG9zdG5hbWUiOiJtcmFuZnRsLmNvbSIsInByb3RvY29sIjoiaHR0cHM6In0sInR5cGUiOiJ3ZWJfc2VydmljZV9iaW5kaW5nIiwidmVyc2lvbiI6MX0sImNsaWVudCI6eyJuYW1lIjoia2V5YmFzZS5pbyBnbyBjbGllbnQiLCJ2ZXJzaW9uIjoiMS4wLjM3In0sImN0aW1lIjoxNTEyOTM4NDEyLCJleHBpcmVfaW4iOjUwNDU3NjAwMCwicHJldiI6IjJkNGZmNjhjYmMwODhiNGQyMDViMzIzZjgwZjY2MTJmOGQyNWNjNDlkNTdhM2VkYzdhYmI5YWY5ZTY4MDJhYzAiLCJzZXFubyI6OSwidGFnIjoic2lnbmF0dXJlIn2jc2lnxED0Lc07AuRBlXpiQii2RZlvnXdj0BZjCmsS2GR+5JDjK9DddZE+TDTJr13RbvhU5lAbFuZU0VIobx45GbnBe3kPqHNpZ190eXBlIKRoYXNogqR0eXBlCKV2YWx1ZcQgx5H34vEEgYvIwewE6D8hJ847CftuCdwQkywHfm1Q0hOjdGFnzQICp3ZlcnNpb24B
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/mranftl
+
+==================================================================
