@@ -60,10 +60,10 @@ Metalsmith(__dirname)
     _sitename: "mranftl.com",
     _siterepo: "https://github.com/majodev/majodev.github.io/",
     _mailEncrypted: stringToHexa("hi@mranftl.com"),
-    _description: "I'm Mario Ranftl (majodev), an information manager from Austria. This site is an experiment to write (and ramble on) about my professional life.",
-    _keywords: "mario ranftl, mranftl.com, majodev, ranftl, mario, professional, " + 
-      "austria, fehring, steiermark, " +
-      "programming, developer, full stack, information manager, information management, ",
+    _description: "I'm Mario Ranftl (majodev), an senior software engineer from Austria. This site is an experiment to write (and ramble on) about my professional life.",
+    _keywords: "mario ranftl, mranftl.com, majodev, ranftl, mario, professional, " +
+      "austria, graz, steiermark, " +
+      "programming, developer, full stack, software engineer, information management, golang, typescript, kubernetes, ",
     _builddate: new Date(),
     _inject: injectFiles(dev), // holds all external client libs
     _gitrevision: argv.gitrevision ? argv.gitrevision.toString() : "no git revision set",
@@ -215,11 +215,11 @@ Metalsmith(__dirname)
     modifiedProperty: "lastModified",
     absoluteUrl: absoluteUrl
   }))
-// .use(debugsmith({
-//   printMetaKeys: true
-// }))
-.build(function(error) {
-  if (error) {
-    throw error;
-  }
-});
+  // .use(debugsmith({
+  //   printMetaKeys: true
+  // }))
+  .build(function (error) {
+    if (error) {
+      throw error;
+    }
+  });

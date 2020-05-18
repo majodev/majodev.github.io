@@ -1,188 +1,224 @@
 {
-  "fileLinks": [{
-    "name": "google-webfonts-helper",
-    "date": "Dec. 2014 - Jan. 2015",
-    "description": "A Hazzle-Free Way to Self-Host Google Fonts. Get eot, ttf, svg, woff and woff2 files + CSS snippets. <br /><br />Angular Frontend and REST service.<br />Open Source under MIT License.",
-    "pic": "/static/apps/google-webfonts-helper/full_view.png",
-    "links": [{
-      "url": "https://google-webfonts-helper.herokuapp.com/",
-      "caption": "Service"
-    }, {
-      "url": "https://github.com/majodev/google-webfonts-helper",
-      "caption": "GitHub repo"
-    }, {
-      "url": "http://mranftl.com/2014/12/23/self-hosting-google-web-fonts/",
-      "caption": "Author's note"
-    }]
-  }, {
-    "name": "Plugins for Metalsmith",
-    "date": "Sep. 2014 - Oct. 2014",
-    "description": "I've published three plugins for Metalsmith - a static site generator - which I've used to build this site you are seeing here. They are featured on <a href='http://metalsmith.io'>metalsmith.io</a> and I've written a note documenting the process of extracting them into seperate packages.<br /><br />Open Source under MIT License.",
-    "links": [{
-      "url": "https://github.com/majodev/metalsmith-word-count",
-      "caption": "metalsmith-word-count"
-    }, {
-      "url": "https://github.com/majodev/metalsmith-headings-identifier",
-      "caption": "metalsmith-headings-identifier"
-    }, {
-      "url": "https://github.com/majodev/metalsmith-data-markdown",
-      "caption": "metalsmith-data-markdown"
-    }, {
-      "url": "http://mranftl.com/2014/10/01/extracting-libs-from-a-node-js-project/",
-      "caption": "Author's note"
-    }]
-  }, {
-    "name": "SJgrabber",
-    "date": "Feb. 2014 - May 2014",
-    "description": "Sick of skimming serienjunkies.org for new releases every day? SJgrabber assists you to grab links from the latest episodes for your favourite TV shows. <br /><br />Desktop application (Win, Mac OS X, Linux).<br />Open Source under MIT License.",
-    "pic": "/static/apps/sjgrabber/SJgrabber_overview.png",
-    "links": [{
-      "url": "http://majodev.github.io/sjgrabber",
-      "caption": "Project page"
-    }, {
-      "url": "https://github.com/majodev/sjgrabber",
-      "caption": "GitHub repo"
-    }]
-  }, {
-    "name": "Master Thesis (German)",
-    "date": "May 2013 - Dec. 2013",
-    "description": "Title: Physiogame: Leap Motion for exercise therapy<br/>Subtitle: Developing modular JavaScript applications<br/><br/>This thesis pursues multiple objectives and consists of several parts. First of all, motion tracking technologies and the product Leap Motion itself are analyzed. In the next step, the requirements for developing an application for virtual rehabilitation are specified. Then, the thesis discusses how to design modular JS-applications and points out how Physiogame is implemented. Finally, the usability of Physiogame is evaluated with patients and experts and the results are reviewed.",
-    "pic": "/static/masterthesis/Diplomarbeit_Mario_Ranftl.png",
-    "links": [{
-      "url": "/static/masterthesis/Diplomarbeit_Mario_Ranftl.pdf",
-      "caption": "PDF"
-    }, {
-      "url": "http://www.fh-joanneum.at/aw/home/Studienangebot_Uebersicht/department_angewandte_informatik/aim/Menschen/AbsolventInnen_Master_DI_/~bpqi/Abschlussarbeiten_Details_aim/?arbid=4334673877&arbtyp=Dipl%2E-Arbeit&lan=en",
-      "caption": "Full Abstract"
-    }]
-  }, {
-    "name": "Physiogame",
-    "date": "Jul. 2013 - Dec. 2013",
-    "description": "Master thesis project<br/><br/>Physiogame is an application for conducting therapeutic exercises. It uses the Leap Motion controller as its primary input device (playing via mouse/touchscreens is also possible), tracks the progress of its users and provides statistics that can be exported to CSV and JSON.<br /><br />This JS/HTML5 game is playable in browsers and as standalone desktop application (Win, Mac OS X, Linux).<br />Open Source under GPL v3.",
-    "pic": "/static/apps/physiogame/physiogame-gif-high.gif",
-    "links": [{
-      "url": "http://majodev.github.io/physiogame/",
-      "caption": "Play (HTML5)"
-    }, {
-      "url": "https://www.youtube.com/watch?v=Fg4N88ZtBaw&list=PLNc8hXd2oknHm8LCAOF9-v0ojExMVB61k&index=8",
-      "caption": "Project Video"
-    }, {
-      "url": "https://github.com/majodev/physiogame",
-      "caption": "GitHub repo"
-    }]
-  }, {
-    "name": "Prototype: heartbeat-sphero",
-    "date": "May 2013",
-    "description": "A prototype to test the integration of node-sphero and cocos2d within node-webkit.<br />Open Source under MIT License.",
-    "links": [{
-      "url": "https://www.youtube.com/watch?v=pSLs5j6mAqE&list=UUJ_lWimEAufPHWjhHwZULAw",
-      "caption": "Project Video"
-    }, {
-      "url": "https://github.com/majodev/heartbeat-sphero",
-      "caption": "GitHub repo"
-    }]
-  }, {
-    "name": "Social Media Marketing (German)",
-    "date": "May 2013",
-    "description": "Slides from an all-day workshop held together with a fellow student at BFI Graz.",
-    "pic": "/static/SMM-workshop/SMM.jpg",
-    "links": [{
-      "url": "/static/SMM-workshop/SMM_public.pdf",
-      "caption": "PDF (slides)"
-    }]
-  }, {
-    "name": "Universalmuseum Joanneum (UMJ)",
-    "date": "Sep. 2012 - Apr. 2013",
-    "description": "Software for permanent exhibition at Universalmuseum Joanneum GmbH, Graz, Austria. In cooperation with the Digital Media Technologies department at FH JOANNEUM, Graz, Austria.<br/><br/>Planned a core framework, implemented 20 interactive exhibits, held workshops and assisted at deployment.",
-    "pic": "/static/UMJ/umj.jpg",
-    "links": [{
-      "url": "https://www.youtube.com/watch?v=uYaUEPq25gY&list=UUJ_lWimEAufPHWjhHwZULAw",
-      "caption": "Video (FINAL project check)"
-    }, {
-      "url": "/static/UMJ/core-framework/",
-      "caption": "Core Framework Documentation"
-    }, {
-      "url": "https://dl.dropboxusercontent.com/u/2624630/_web/umj_projectcheck2_final.mp4",
-      "caption": "Video (2nd project check)"
-    }, {
-      "url": "https://www.youtube.com/watch?v=Cv3ixEOLkpQ&list=PLNc8hXd2oknHm8LCAOF9-v0ojExMVB61k&index=2",
-      "caption": "Video (3rd party: Overview)"
-    }, {
-      "url": "https://www.youtube.com/watch?v=9Ys7K0Fpj4s&list=PLNc8hXd2oknHm8LCAOF9-v0ojExMVB61k&index=1",
-      "caption": "Video (3rd party: Special exhibits)"
-    }]
-  }, {
-    "name": "Shell (UMJ Tech demo)",
-    "date": "Nov. 2012",
-    "description": "Tech demo of an exhibit for Universalmuseum Joanneum GmbH, Graz, Austria.<br/><br/>The goal was to benchmark the runtime generation performance of a textured 3D model in Flash (Away3D).",
-    "pic": "/static/apps/shell/shell-gif-low.gif",
-    "links": [{
-      "url": "/static/apps/shell/",
-      "caption": "Play (Flash)"
-    }]
-  }, {
-    "name": "WISP",
-    "date": "Nov. 2011 - Sep. 2012",
-    "description": "Wipe Information SPace<br/>FH JOANNEUM<br/>Integrated Information Management master project</br><br/>A gesture controlled information system that provides a unique and intuitive way for the presentation of information on potentially small places and a playful approach to control external systems. Integrates Microsoft's Kinect and uses Märklin's CAN protocoll.",
-    "pic": "/static/apps/wisp/wisp-gif.gif",
-    "links": [{
-      "url": "/static/apps/wisp/",
-      "caption": "Play (Flash)"
-    }, {
-      "url": "https://www.youtube.com/watch?v=G_kJhhZcqUU&list=UUJ_lWimEAufPHWjhHwZULAw",
-      "caption": "Project Video"
-    }, {
-      "url": "https://www.youtube.com/watch?v=Z7kA4KxRw74&list=PLNc8hXd2oknHm8LCAOF9-v0ojExMVB61k#t=143",
-      "caption": "Video (3rd Party)"
-    }]
-  }, {
-    "name": "WLAN Security Revisited",
-    "date": "Jun. 2012",
-    "description": "Support video for a paper.<br/>Rogue AP, Deauthentication Attack and Portal via PwnSTAR in 2 Minutes<br/><br/>Creating a Rogue Access Point with redirecting web portal and hijacking open wifi users via de-authentication attack.",
-    "links": [{
-      "url": "https://www.youtube.com/watch?v=vy4leX_twTw&list=UUJ_lWimEAufPHWjhHwZULAw",
-      "caption": "Project Video"
-    }]
-  }, {
-    "name": "AKIM (German)",
-    "date": "Aug. 2011",
-    "description": "Title: Mobile Devices<br/>Subtitle: Good, Bad &amp; Ugly / Heuristics<br/><br/>The aim of this paper is to create an usability-checklist, which is focused on the characteristics of mobile applications for touch devices.",
-    "pic": "/static/akim/AKIM_Mario_Ranftl.png",
-    "links": [{
-      "url": "/static/akim/AKIM_Mario_Ranftl.pdf",
-      "caption": "PDF"
-    }]
-  }, {
-    "name": "Bachelor Thesis 2 (German)",
-    "date": "May 2011",
-    "pic": "/static/bac2/BAC-2_Mario_Ranftl.png",
-    "description": "Title: Lower-CASE<br/>Subtitle: Evaluation of Database CASE-Tools for teaching at a graduate level<br/><br/>Conduction an evaluation to gather the optimal database Lower-CASE tool, which can be used for teaching database technologies at the FH JOANNEUM.",
-    "links": [{
-      "url": "/static/bac2/BAC-2_Mario_Ranftl.pdf",
-      "caption": "PDF"
-    }, {
-      "url": "http://www.fh-joanneum.at/aw/home/Studienangebot_Uebersicht/department_angewandte_informatik/ima/Menschen/AbsolventInnen/~bbqe/Abschlussarbeiten_Details_ima/?arbid=4308062788&arbtyp=Bakk.-Arbeit&lan=en",
-      "caption": "Full Abstract"
-    }]
-  }, {
-    "name": "Bachelor Thesis 1 (German)",
-    "date": "Sep. 2010",
-    "description": "Title: iPhone Development Tools<br/>Subtitle: Analysis of development tools for the Apple iPhone<br/><br/>The aim of this work is to determine the advantages and disadvantages of selected IDEs, which enable to develop applications for the Apple iPhone. Alternative development tools should be found and a structured overview should be prepared.",
-    "pic": "/static/bac1/BAC-1_Mario_Ranftl.png",
-    "links": [{
-      "url": "/static/bac1/BAC-1_Mario_Ranftl.pdf",
-      "caption": "PDF"
-    }, {
-      "url": "http://www.fh-joanneum.at/aw/home/Studienangebot_Uebersicht/department_angewandte_informatik/ima/Menschen/AbsolventInnen/~bbqe/Abschlussarbeiten_Details_ima/?arbid=4304674769&arbtyp=Bakk.-Arbeit&lan=en",
-      "caption": "Full Abstract"
-    }]
-  }, {
-    "name": "Gravity Ball",
-    "date": "Feb. 2010",
-    "description": "FH JOANNEUM<br/>Information Management bachelor project<br/><br/>A maze game that featured its own custom-build controller (Arduino and tilt sensors).",
-    "links": [{
-      "url": "/static/apps/gravityball/",
-      "caption": "Play (Flash)"
-    }]
-  }]
+  "fileLinks": [
+    {
+      "name": "google-webfonts-helper",
+      "date": "Dec. 2014 - Jan. 2015",
+      "description": "A Hazzle-Free Way to Self-Host Google Fonts. Get eot, ttf, svg, woff and woff2 files + CSS snippets. <br /><br />Angular Frontend and REST service.<br />Open Source under MIT License.",
+      "pic": "/static/apps/google-webfonts-helper/full_view.png",
+      "links": [
+        {
+          "url": "https://google-webfonts-helper.herokuapp.com/",
+          "caption": "Service"
+        },
+        {
+          "url": "https://github.com/majodev/google-webfonts-helper",
+          "caption": "GitHub repo"
+        },
+        {
+          "url": "http://mranftl.com/2014/12/23/self-hosting-google-web-fonts/",
+          "caption": "Author's note"
+        }
+      ]
+    },
+    {
+      "name": "Plugins for Metalsmith",
+      "date": "Sep. 2014 - Oct. 2014",
+      "description": "I've published three plugins for Metalsmith - a static site generator - which I've used to build this site you are seeing here. They are featured on <a href='http://metalsmith.io'>metalsmith.io</a> and I've written a note documenting the process of extracting them into seperate packages.<br /><br />Open Source under MIT License.",
+      "links": [
+        {
+          "url": "https://github.com/majodev/metalsmith-word-count",
+          "caption": "metalsmith-word-count"
+        },
+        {
+          "url": "https://github.com/majodev/metalsmith-headings-identifier",
+          "caption": "metalsmith-headings-identifier"
+        },
+        {
+          "url": "https://github.com/majodev/metalsmith-data-markdown",
+          "caption": "metalsmith-data-markdown"
+        },
+        {
+          "url": "http://mranftl.com/2014/10/01/extracting-libs-from-a-node-js-project/",
+          "caption": "Author's note"
+        }
+      ]
+    },
+    {
+      "name": "Master Thesis (German)",
+      "date": "May 2013 - Dec. 2013",
+      "description": "Title: Physiogame: Leap Motion for exercise therapy<br/>Subtitle: Developing modular JavaScript applications<br/><br/>This thesis pursues multiple objectives and consists of several parts. First of all, motion tracking technologies and the product Leap Motion itself are analyzed. In the next step, the requirements for developing an application for virtual rehabilitation are specified. Then, the thesis discusses how to design modular JS-applications and points out how Physiogame is implemented. Finally, the usability of Physiogame is evaluated with patients and experts and the results are reviewed.",
+      "pic": "/static/masterthesis/Diplomarbeit_Mario_Ranftl.png",
+      "links": [
+        {
+          "url": "/static/masterthesis/Diplomarbeit_Mario_Ranftl.pdf",
+          "caption": "PDF"
+        }
+      ]
+    },
+    {
+      "name": "Physiogame",
+      "date": "Jul. 2013 - Dec. 2013",
+      "description": "Master thesis project<br/><br/>Physiogame is an application for conducting therapeutic exercises. It uses the Leap Motion controller as its primary input device (playing via mouse/touchscreens is also possible), tracks the progress of its users and provides statistics that can be exported to CSV and JSON.<br /><br />This JS/HTML5 game is playable in browsers and as standalone desktop application (Win, Mac OS X, Linux).<br />Open Source under GPL v3.",
+      "pic": "/static/apps/physiogame/physiogame-gif-high.gif",
+      "links": [
+        {
+          "url": "http://majodev.github.io/physiogame/",
+          "caption": "Play (HTML5)"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=Fg4N88ZtBaw&list=PLNc8hXd2oknHm8LCAOF9-v0ojExMVB61k&index=8",
+          "caption": "Project Video"
+        },
+        {
+          "url": "https://github.com/majodev/physiogame",
+          "caption": "GitHub repo"
+        }
+      ]
+    },
+    {
+      "name": "Prototype: heartbeat-sphero",
+      "date": "May 2013",
+      "description": "A prototype to test the integration of node-sphero and cocos2d within node-webkit.<br />Open Source under MIT License.",
+      "links": [
+        {
+          "url": "https://www.youtube.com/watch?v=pSLs5j6mAqE&list=UUJ_lWimEAufPHWjhHwZULAw",
+          "caption": "Project Video"
+        },
+        {
+          "url": "https://github.com/majodev/heartbeat-sphero",
+          "caption": "GitHub repo"
+        }
+      ]
+    },
+    {
+      "name": "Social Media Marketing (German)",
+      "date": "May 2013",
+      "description": "Slides from an all-day workshop held together with a fellow student at BFI Graz.",
+      "pic": "/static/SMM-workshop/SMM.jpg",
+      "links": [
+        {
+          "url": "/static/SMM-workshop/SMM_public.pdf",
+          "caption": "PDF (slides)"
+        }
+      ]
+    },
+    {
+      "name": "Universalmuseum Joanneum (UMJ)",
+      "date": "Sep. 2012 - Apr. 2013",
+      "description": "Software for permanent exhibition at Universalmuseum Joanneum GmbH, Graz, Austria. In cooperation with the Digital Media Technologies department at FH JOANNEUM, Graz, Austria.<br/><br/>Planned a core framework, implemented 20 interactive exhibits, held workshops and assisted at deployment.",
+      "pic": "/static/UMJ/umj.jpg",
+      "links": [
+        {
+          "url": "https://www.youtube.com/watch?v=uYaUEPq25gY&list=UUJ_lWimEAufPHWjhHwZULAw",
+          "caption": "Video (FINAL project check)"
+        },
+        {
+          "url": "/static/UMJ/core-framework/",
+          "caption": "Core Framework Documentation"
+        },
+        {
+          "url": "https://dl.dropboxusercontent.com/u/2624630/_web/umj_projectcheck2_final.mp4",
+          "caption": "Video (2nd project check)"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=Cv3ixEOLkpQ&list=PLNc8hXd2oknHm8LCAOF9-v0ojExMVB61k&index=2",
+          "caption": "Video (3rd party: Overview)"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=9Ys7K0Fpj4s&list=PLNc8hXd2oknHm8LCAOF9-v0ojExMVB61k&index=1",
+          "caption": "Video (3rd party: Special exhibits)"
+        }
+      ]
+    },
+    {
+      "name": "Shell (UMJ Tech demo)",
+      "date": "Nov. 2012",
+      "description": "Tech demo of an exhibit for Universalmuseum Joanneum GmbH, Graz, Austria.<br/><br/>The goal was to benchmark the runtime generation performance of a textured 3D model in Flash (Away3D).",
+      "pic": "/static/apps/shell/shell-gif-low.gif",
+      "links": [
+        {
+          "url": "/static/apps/shell/",
+          "caption": "Play (Flash)"
+        }
+      ]
+    },
+    {
+      "name": "WISP",
+      "date": "Nov. 2011 - Sep. 2012",
+      "description": "Wipe Information SPace<br/>FH JOANNEUM<br/>Integrated Information Management master project</br><br/>A gesture controlled information system that provides a unique and intuitive way for the presentation of information on potentially small places and a playful approach to control external systems. Integrates Microsoft's Kinect and uses Märklin's CAN protocoll.",
+      "pic": "/static/apps/wisp/wisp-gif.gif",
+      "links": [
+        {
+          "url": "/static/apps/wisp/",
+          "caption": "Play (Flash)"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=G_kJhhZcqUU&list=UUJ_lWimEAufPHWjhHwZULAw",
+          "caption": "Project Video"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=Z7kA4KxRw74&list=PLNc8hXd2oknHm8LCAOF9-v0ojExMVB61k#t=143",
+          "caption": "Video (3rd Party)"
+        }
+      ]
+    },
+    {
+      "name": "WLAN Security Revisited",
+      "date": "Jun. 2012",
+      "description": "Support video for a paper.<br/>Rogue AP, Deauthentication Attack and Portal via PwnSTAR in 2 Minutes<br/><br/>Creating a Rogue Access Point with redirecting web portal and hijacking open wifi users via de-authentication attack.",
+      "links": [
+        {
+          "url": "https://www.youtube.com/watch?v=vy4leX_twTw&list=UUJ_lWimEAufPHWjhHwZULAw",
+          "caption": "Project Video"
+        }
+      ]
+    },
+    {
+      "name": "AKIM (German)",
+      "date": "Aug. 2011",
+      "description": "Title: Mobile Devices<br/>Subtitle: Good, Bad &amp; Ugly / Heuristics<br/><br/>The aim of this paper is to create an usability-checklist, which is focused on the characteristics of mobile applications for touch devices.",
+      "pic": "/static/akim/AKIM_Mario_Ranftl.png",
+      "links": [
+        {
+          "url": "/static/akim/AKIM_Mario_Ranftl.pdf",
+          "caption": "PDF"
+        }
+      ]
+    },
+    {
+      "name": "Bachelor Thesis 2 (German)",
+      "date": "May 2011",
+      "pic": "/static/bac2/BAC-2_Mario_Ranftl.png",
+      "description": "Title: Lower-CASE<br/>Subtitle: Evaluation of Database CASE-Tools for teaching at a graduate level<br/><br/>Conduction an evaluation to gather the optimal database Lower-CASE tool, which can be used for teaching database technologies at the FH JOANNEUM.",
+      "links": [
+        {
+          "url": "/static/bac2/BAC-2_Mario_Ranftl.pdf",
+          "caption": "PDF"
+        }
+      ]
+    },
+    {
+      "name": "Bachelor Thesis 1 (German)",
+      "date": "Sep. 2010",
+      "description": "Title: iPhone Development Tools<br/>Subtitle: Analysis of development tools for the Apple iPhone<br/><br/>The aim of this work is to determine the advantages and disadvantages of selected IDEs, which enable to develop applications for the Apple iPhone. Alternative development tools should be found and a structured overview should be prepared.",
+      "pic": "/static/bac1/BAC-1_Mario_Ranftl.png",
+      "links": [
+        {
+          "url": "/static/bac1/BAC-1_Mario_Ranftl.pdf",
+          "caption": "PDF"
+        }
+      ]
+    },
+    {
+      "name": "Gravity Ball",
+      "date": "Feb. 2010",
+      "description": "FH JOANNEUM<br/>Information Management bachelor project<br/><br/>A maze game that featured its own custom-build controller (Arduino and tilt sensors).",
+      "links": [
+        {
+          "url": "/static/apps/gravityball/",
+          "caption": "Play (Flash)"
+        }
+      ]
+    }
+  ]
 }

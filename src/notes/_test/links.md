@@ -12,6 +12,4 @@ Let's test if our ajax logic can handle non existant pages and external anchor p
 
 [non existant page](/fail.html)
 
-[external anchor page](https://github.com/majodev/sjgrabber#about)
-
 Updated on 4. August!
