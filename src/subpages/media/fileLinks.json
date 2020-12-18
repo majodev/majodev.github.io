@@ -1,6 +1,69 @@
 {
   "fileLinks": [
     {
+      "name": "go-beer-punk-proxy",
+      "date": "2020",
+      "description": "Workshop: 🍻 Showcases go-starter dev workflow",
+      "links": [
+        {
+          "url": "https://github.com/majodev/go-beer-punk-proxy/wiki",
+          "caption": "go-beer-punk-proxy workshop material"
+        }
+      ]
+    },
+    {
+      "name": "go-starter",
+      "date": "2019-2020",
+      "description": "An opinionated production-ready SQL-/Swagger-first RESTful JSON API written in Go, highly integrated with VSCode DevContainers by allaboutapps.",
+      "links": [
+        {
+          "url": "https://github.com/allaboutapps/go-starter",
+          "caption": "go-starter repo"
+        },
+        {
+          "url": "https://github.com/allaboutapps/go-starter/wiki/FAQ",
+          "caption": "go-starter FAQ"
+        }
+      ]
+    },
+    {
+      "name": "IntegreSQL",
+      "date": "2019-2020",
+      "description": "IntegreSQL manages isolated PostgreSQL databases for your integration tests.",
+      "links": [
+        {
+          "url": "https://github.com/allaboutapps/integresql",
+          "caption": "IntegreSQL repo"
+        }
+      ]
+    },
+    {
+      "name": "aaa-web-workshops",
+      "date": "2020",
+      "description": "Useful resources to understand the big picture of the Web Team at allaboutapps.",
+      "links": [
+        {
+          "url": "https://github.com/majodev/aaa-web-workshops",
+          "caption": "aaa-web-workshops repo"
+        },
+        {
+          "url": "https://github.com/majodev/aaa-web-workshops/blob/master/web_engineering_aaa_frontend_demo.md",
+          "caption": "aaa-web-workshops workshop material"
+        }
+      ]
+    },
+    {
+      "name": "aaa-backend-stack",
+      "date": "2015 - 2019",
+      "description": "Base packages to build a Node.js backend at all about apps.",
+      "links": [
+        {
+          "url": "https://github.com/allaboutapps/aaa-backend-stack",
+          "caption": "aaa-backend-stack repo"
+        }
+      ]
+    },
+    {
       "name": "google-webfonts-helper",
       "date": "Dec. 2014 - Jan. 2015",
       "description": "A Hazzle-Free Way to Self-Host Google Fonts. Get eot, ttf, svg, woff and woff2 files + CSS snippets. <br /><br />Angular Frontend and REST service.<br />Open Source under MIT License.",
@@ -8,15 +71,15 @@
       "links": [
         {
           "url": "https://google-webfonts-helper.herokuapp.com/",
-          "caption": "Service"
+          "caption": "google-webfonts-helper"
         },
         {
           "url": "https://github.com/majodev/google-webfonts-helper",
-          "caption": "GitHub repo"
+          "caption": "google-webfonts-helper repo"
         },
         {
           "url": "http://mranftl.com/2014/12/23/self-hosting-google-web-fonts/",
-          "caption": "Author's note"
+          "caption": "author's note"
         }
       ]
     },
@@ -39,7 +102,7 @@
         },
         {
           "url": "http://mranftl.com/2014/10/01/extracting-libs-from-a-node-js-project/",
-          "caption": "Author's note"
+          "caption": "author's note"
         }
       ]
     },
@@ -51,7 +114,7 @@
       "links": [
         {
           "url": "/static/masterthesis/Diplomarbeit_Mario_Ranftl.pdf",
-          "caption": "PDF"
+          "caption": "master thesis (PDF)"
         }
       ]
     },
@@ -63,15 +126,15 @@
       "links": [
         {
           "url": "http://majodev.github.io/physiogame/",
-          "caption": "Play (HTML5)"
+          "caption": "play Physiogame (HTML5)"
         },
         {
           "url": "https://www.youtube.com/watch?v=Fg4N88ZtBaw&list=PLNc8hXd2oknHm8LCAOF9-v0ojExMVB61k&index=8",
-          "caption": "Project Video"
+          "caption": "physiogame project video"
         },
         {
           "url": "https://github.com/majodev/physiogame",
-          "caption": "GitHub repo"
+          "caption": "physiogame repo"
         }
       ]
     },
@@ -82,11 +145,11 @@
       "links": [
         {
           "url": "https://www.youtube.com/watch?v=pSLs5j6mAqE&list=UUJ_lWimEAufPHWjhHwZULAw",
-          "caption": "Project Video"
+          "caption": "heartbeat-sphero video"
         },
         {
           "url": "https://github.com/majodev/heartbeat-sphero",
-          "caption": "GitHub repo"
+          "caption": "heartbeat-sphero repo"
         }
       ]
     },
@@ -98,7 +161,7 @@
       "links": [
         {
           "url": "/static/SMM-workshop/SMM_public.pdf",
-          "caption": "PDF (slides)"
+          "caption": "social media marketing slides (PDF)"
         }
       ]
     },
@@ -110,23 +173,23 @@
       "links": [
         {
           "url": "https://www.youtube.com/watch?v=uYaUEPq25gY&list=UUJ_lWimEAufPHWjhHwZULAw",
-          "caption": "Video (FINAL project check)"
+          "caption": "UMJ video (final project check)"
         },
         {
           "url": "/static/UMJ/core-framework/",
-          "caption": "Core Framework Documentation"
+          "caption": "UMJ core framework documentation"
         },
         {
           "url": "https://dl.dropboxusercontent.com/u/2624630/_web/umj_projectcheck2_final.mp4",
-          "caption": "Video (2nd project check)"
+          "caption": "UMJ video (2nd project check)"
         },
         {
           "url": "https://www.youtube.com/watch?v=Cv3ixEOLkpQ&list=PLNc8hXd2oknHm8LCAOF9-v0ojExMVB61k&index=2",
-          "caption": "Video (3rd party: Overview)"
+          "caption": "UMJ video (3rd party: overview)"
         },
         {
           "url": "https://www.youtube.com/watch?v=9Ys7K0Fpj4s&list=PLNc8hXd2oknHm8LCAOF9-v0ojExMVB61k&index=1",
-          "caption": "Video (3rd party: Special exhibits)"
+          "caption": "UMJ video (3rd-party: special exhibits)"
         }
       ]
     },
@@ -138,7 +201,7 @@
       "links": [
         {
           "url": "/static/apps/shell/",
-          "caption": "Play (Flash)"
+          "caption": "start demo (requires flash)"
         }
       ]
     },
@@ -150,15 +213,15 @@
       "links": [
         {
           "url": "/static/apps/wisp/",
-          "caption": "Play (Flash)"
+          "caption": "start WISP (requires flash)"
         },
         {
           "url": "https://www.youtube.com/watch?v=G_kJhhZcqUU&list=UUJ_lWimEAufPHWjhHwZULAw",
-          "caption": "Project Video"
+          "caption": "WISP project video"
         },
         {
           "url": "https://www.youtube.com/watch?v=Z7kA4KxRw74&list=PLNc8hXd2oknHm8LCAOF9-v0ojExMVB61k#t=143",
-          "caption": "Video (3rd Party)"
+          "caption": "video (3rd-party)"
         }
       ]
     },
@@ -169,7 +232,7 @@
       "links": [
         {
           "url": "https://www.youtube.com/watch?v=vy4leX_twTw&list=UUJ_lWimEAufPHWjhHwZULAw",
-          "caption": "Project Video"
+          "caption": "WLAN attack project video"
         }
       ]
     },
@@ -181,7 +244,7 @@
       "links": [
         {
           "url": "/static/akim/AKIM_Mario_Ranftl.pdf",
-          "caption": "PDF"
+          "caption": "paper (PDF)"
         }
       ]
     },
@@ -193,7 +256,7 @@
       "links": [
         {
           "url": "/static/bac2/BAC-2_Mario_Ranftl.pdf",
-          "caption": "PDF"
+          "caption": "bachelor thesis 2 (PDF)"
         }
       ]
     },
@@ -205,7 +268,7 @@
       "links": [
         {
           "url": "/static/bac1/BAC-1_Mario_Ranftl.pdf",
-          "caption": "PDF"
+          "caption": "bachelor thesis 1 (PDF)"
         }
       ]
     },
@@ -216,7 +279,7 @@
       "links": [
         {
           "url": "/static/apps/gravityball/",
-          "caption": "Play (Flash)"
+          "caption": "play Gravity Ball (requires flash)"
         }
       ]
     }
